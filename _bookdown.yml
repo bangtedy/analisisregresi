@@ -1,0 +1,22 @@
+output_dir: "docs"
+book_filename: "bookdown-demo"
+language:
+ label:
+  fig: 'Gambar '
+  tab: 'Tabel '
+  eq: 'Persamaan '
+  thm: 'Theorem '
+  lem: 'Lemma '
+  cor: 'Corollary '
+  prp: 'Proposition '
+  cnj: 'Conjecture '
+  def: 'Definisi '
+  exm: 'Contoh '
+  exr: 'Latihan '
+  hyp: 'Hipotesis '
+  proof: 'Proof. '
+  remark: 'Remark. '
+  solution: 'Solusi '
+  ui:
+    chapter_name: "Bab "
+delete_merged_file: true

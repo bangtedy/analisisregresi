@@ -1,0 +1,16 @@
+# Penerapan 
+
+Some _significant_ applications are demonstrated in this chapter.
+
+## Example one
+
+## Example two
+
+Di dalam praktek pelaksanaan analisis faktor, tidak ada satu metode yang mengungguli metode yang lain dalam implemntasi praktis dari analisis faktor. Langkah-langkah berikut dapat digunakan:
+
+1. Tentukan jumlah faktor yang masuk akal, misalnya 2 atau 3. Jumlah faktor dapat dilakukan dengan menggunakan eigenvalues, screeplot dan nfactor.
+2. Lakukan beberapa metode-metode yang diperlukan, termasuk rotasi. Bandingkan loadings, communalities, and factor scores dari berbagai metode yang diterapkan
+3. Jika hasilnya mennujukkan deviasi yang cukup signifikan, cek apakah ada pencilan (berdasarkan factor scores), dan pertimbangkan untuk mengubah jumlah fakto k yang ditetapkan. Jika jumlah datanya besar, pertimbangkan untuk melakukan validasi silang. Misalnya dengan membagi sample enjadi a training set and a validation data set. Pada training sample kita mengestimasi model faktor dengan metodologi yang diinginkan dan menggunakan parameter yang didapat untuk memperkirakan skor-skor faktor pada validation data set.
+Hasil keduanya seharusnya komparabel. Kriteria stabilitas hasil termasuk hasil loadings and communalities.
+
+D:\Tedy\Hobi\R1\Applied Multivariate Statistical Analysis_Wolfgang Karl Härdle\Applied Multivariate Statistical Analysis by Wolfgang Karl Härdle, Léopold Simar.pdf

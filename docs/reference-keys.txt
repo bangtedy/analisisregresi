@@ -1,0 +1,9 @@
+fig:nice-fig
+tab:nice-tab
+pendahuluan
+literature
+methods
+penerapan
+example-one
+example-two
+kesimpulan
