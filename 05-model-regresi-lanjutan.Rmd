@@ -1,5 +1,3 @@
-# Pendahuluan
+# Model Regresi Linier Lanjutan
 
 sedang dalam proses pengerjaan (work in progress)
-
-[@desjardins2018]

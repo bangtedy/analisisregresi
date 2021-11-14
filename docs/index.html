@@ -24,7 +24,7 @@
 <meta name="author" content="Tedy Herlambang" />
 
 
-<meta name="date" content="2021-11-13" />
+<meta name="date" content="2021-11-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -97,14 +97,14 @@ div.csl-indent {
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Kata Pengantar</a></li>
 <li class="chapter" data-level="1" data-path="pendahuluan.html"><a href="pendahuluan.html"><i class="fa fa-check"></i><b>1</b> Pendahuluan</a></li>
-<li class="chapter" data-level="2" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>2</b> Literature</a></li>
-<li class="chapter" data-level="3" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>3</b> Methods</a></li>
-<li class="chapter" data-level="4" data-path="penerapan.html"><a href="penerapan.html"><i class="fa fa-check"></i><b>4</b> Penerapan</a>
+<li class="chapter" data-level="2" data-path="korelasi-dan-regresi-linier-sederhana.html"><a href="korelasi-dan-regresi-linier-sederhana.html"><i class="fa fa-check"></i><b>2</b> Korelasi dan Regresi Linier Sederhana</a></li>
+<li class="chapter" data-level="3" data-path="regresi-linier-berganda.html"><a href="regresi-linier-berganda.html"><i class="fa fa-check"></i><b>3</b> Regresi Linier Berganda</a></li>
+<li class="chapter" data-level="4" data-path="uji-kecocokan-dan-ketepatan-model-regresi.html"><a href="uji-kecocokan-dan-ketepatan-model-regresi.html"><i class="fa fa-check"></i><b>4</b> Uji Kecocokan dan Ketepatan Model Regresi</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="penerapan.html"><a href="penerapan.html#example-one"><i class="fa fa-check"></i><b>4.1</b> Example one</a></li>
-<li class="chapter" data-level="4.2" data-path="penerapan.html"><a href="penerapan.html#example-two"><i class="fa fa-check"></i><b>4.2</b> Example two</a></li>
+<li class="chapter" data-level="4.1" data-path="uji-kecocokan-dan-ketepatan-model-regresi.html"><a href="uji-kecocokan-dan-ketepatan-model-regresi.html#example-one"><i class="fa fa-check"></i><b>4.1</b> Example one</a></li>
+<li class="chapter" data-level="4.2" data-path="uji-kecocokan-dan-ketepatan-model-regresi.html"><a href="uji-kecocokan-dan-ketepatan-model-regresi.html#example-two"><i class="fa fa-check"></i><b>4.2</b> Example two</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="kesimpulan.html"><a href="kesimpulan.html"><i class="fa fa-check"></i><b>5</b> Kesimpulan</a></li>
+<li class="chapter" data-level="5" data-path="model-regresi-linier-lanjutan.html"><a href="model-regresi-linier-lanjutan.html"><i class="fa fa-check"></i><b>5</b> Model Regresi Linier Lanjutan</a></li>
 <li class="chapter" data-level="" data-path="referensi.html"><a href="referensi.html"><i class="fa fa-check"></i>Referensi</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -129,17 +129,14 @@ div.csl-indent {
 <div id="header">
 <h1 class="title">Analisis Regresi</h1>
 <p class="author"><em>Tedy Herlambang</em></p>
-<p class="date"><em>2021-11-13</em></p>
+<p class="date"><em>2021-11-14</em></p>
 </div>
 <div id="kata-pengantar" class="section level1 unnumbered">
 <h1>Kata Pengantar</h1>
 <!-- R global options: R chunk images display without code (no echo); show PDF image over JPG/PNG when available in PDF output -->
 <p><img src="images/analisisregresi.JPG" width="579" /></p>
-<p><strong>Terakhir diperbarui pada: 13 Nov 2021</strong>.</p>
-<p>This is a <em>sample</em> book written in <strong>Markdown</strong>. You can use anything that Pandoc’s Markdown supports, e.g., a math equation <span class="math inline">\(a^2 + b^2 = c^2\)</span>.</p>
-<p>The <strong>bookdown</strong> package can be installed from CRAN or Github:</p>
-<p>Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading <code>#</code>.</p>
-<p>To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <a href="https://yihui.name/tinytex/" class="uri">https://yihui.name/tinytex/</a>.</p>
+<p><strong>Terakhir diperbarui pada: 14 Nov 2021</strong>.</p>
+<p>Sedang dalam proses pengerjaan (work in progress)</p>
 <p><strong>Analisis Regresi</strong> is copyrighted by <a href="https://bangtedy.github.io/">Tedy Herlambang</a> and distributed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons BY-NC-ND 4.0 International License</a>. You may freely share this content for non-commercial purposes, with a source credit to <a href="https://bangtedy.github.io/analisisregresi">https://bangtedy.github.io/analisisregresi</a>.</p>
 <div id="disclaimer" class="section level4 unnumbered">
 <h4>Disclaimer</h4>
@@ -207,20 +204,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

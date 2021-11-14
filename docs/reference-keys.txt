@@ -1,9 +1,7 @@
-fig:nice-fig
-tab:nice-tab
 pendahuluan
-literature
-methods
-penerapan
+korelasi-dan-regresi-linier-sederhana
+regresi-linier-berganda
+uji-kecocokan-dan-ketepatan-model-regresi
 example-one
 example-two
-kesimpulan
+model-regresi-linier-lanjutan

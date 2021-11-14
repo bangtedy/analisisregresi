@@ -1,5 +1,3 @@
-# Pendahuluan
+# Korelasi dan Regresi Linier Sederhana 
 
 sedang dalam proses pengerjaan (work in progress)
-
-[@desjardins2018]

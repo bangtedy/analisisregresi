@@ -24,14 +24,14 @@
 <meta name="author" content="Tedy Herlambang" />
 
 
-<meta name="date" content="2021-11-13" />
+<meta name="date" content="2021-11-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="kesimpulan.html"/>
+<link rel="prev" href="model-regresi-linier-lanjutan.html"/>
 
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -97,14 +97,14 @@ div.csl-indent {
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Kata Pengantar</a></li>
 <li class="chapter" data-level="1" data-path="pendahuluan.html"><a href="pendahuluan.html"><i class="fa fa-check"></i><b>1</b> Pendahuluan</a></li>
-<li class="chapter" data-level="2" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>2</b> Literature</a></li>
-<li class="chapter" data-level="3" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>3</b> Methods</a></li>
-<li class="chapter" data-level="4" data-path="penerapan.html"><a href="penerapan.html"><i class="fa fa-check"></i><b>4</b> Penerapan</a>
+<li class="chapter" data-level="2" data-path="korelasi-dan-regresi-linier-sederhana.html"><a href="korelasi-dan-regresi-linier-sederhana.html"><i class="fa fa-check"></i><b>2</b> Korelasi dan Regresi Linier Sederhana</a></li>
+<li class="chapter" data-level="3" data-path="regresi-linier-berganda.html"><a href="regresi-linier-berganda.html"><i class="fa fa-check"></i><b>3</b> Regresi Linier Berganda</a></li>
+<li class="chapter" data-level="4" data-path="uji-kecocokan-dan-ketepatan-model-regresi.html"><a href="uji-kecocokan-dan-ketepatan-model-regresi.html"><i class="fa fa-check"></i><b>4</b> Uji Kecocokan dan Ketepatan Model Regresi</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="penerapan.html"><a href="penerapan.html#example-one"><i class="fa fa-check"></i><b>4.1</b> Example one</a></li>
-<li class="chapter" data-level="4.2" data-path="penerapan.html"><a href="penerapan.html#example-two"><i class="fa fa-check"></i><b>4.2</b> Example two</a></li>
+<li class="chapter" data-level="4.1" data-path="uji-kecocokan-dan-ketepatan-model-regresi.html"><a href="uji-kecocokan-dan-ketepatan-model-regresi.html#example-one"><i class="fa fa-check"></i><b>4.1</b> Example one</a></li>
+<li class="chapter" data-level="4.2" data-path="uji-kecocokan-dan-ketepatan-model-regresi.html"><a href="uji-kecocokan-dan-ketepatan-model-regresi.html#example-two"><i class="fa fa-check"></i><b>4.2</b> Example two</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="kesimpulan.html"><a href="kesimpulan.html"><i class="fa fa-check"></i><b>5</b> Kesimpulan</a></li>
+<li class="chapter" data-level="5" data-path="model-regresi-linier-lanjutan.html"><a href="model-regresi-linier-lanjutan.html"><i class="fa fa-check"></i><b>5</b> Model Regresi Linier Lanjutan</a></li>
 <li class="chapter" data-level="" data-path="referensi.html"><a href="referensi.html"><i class="fa fa-check"></i>Referensi</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -133,12 +133,6 @@ div.csl-indent {
 <div class="csl-entry">
 Desjardins, Christopher D., and Okan Bulut. 2018. <em>Handbook of Educational Measurement and Psychometrics Using R</em>. Chapman; Hall/CRC. <a href="https://doi.org/10.1201/b20498">https://doi.org/10.1201/b20498</a>.
 </div>
-<div class="csl-entry">
-Xie, Yihui. 2015. <em>Dynamic Documents with <span>R</span> and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="http://yihui.name/knitr/">http://yihui.name/knitr/</a>.
-</div>
-<div class="csl-entry">
-———. 2021. <em>Bookdown: Authoring Books and Technical Documents with r Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown">https://CRAN.R-project.org/package=bookdown</a>.
-</div>
 </div>
 </div>
             </section>
@@ -146,7 +140,7 @@ Xie, Yihui. 2015. <em>Dynamic Documents with <span>R</span> and Knitr</em>. 2nd 
           </div>
         </div>
       </div>
-<a href="kesimpulan.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="model-regresi-linier-lanjutan.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>
@@ -201,20 +195,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

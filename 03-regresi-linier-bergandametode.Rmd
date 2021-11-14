@@ -1,5 +1,3 @@
-# Pendahuluan
+# Regresi Linier Berganda
 
 sedang dalam proses pengerjaan (work in progress)
-
-[@desjardins2018]
