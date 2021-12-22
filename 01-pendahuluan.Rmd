@@ -117,7 +117,7 @@ Model ini disebut sebagai model regresi linier berganda. Disebut berganda karena
 2.
 3.
 
-Dalam kasus ini kita perlu mengambil data sampel variabel respons y dan variabel-variabel prediktor terkait sebanyak k buah $(x_1i, x_2i, ... ,x_ki, y_i)$. 
+Dalam kasus ini kita perlu mengambil data sampel variabel respons y dan variabel-variabel prediktor terkait sebanyak k buah $(x_{1i}, x_{2i}, ... ,x_{ki}, y_i)$. 
 
 ## Langkah-langkah Melakukan Analisis Regresi
 
