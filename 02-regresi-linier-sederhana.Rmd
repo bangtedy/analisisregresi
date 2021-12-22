@@ -14,14 +14,14 @@ Model regresi linier sederhana dapat dituliskan sebagai berikut:
 
 $$y_i=\beta_0 + \beta_1x_i+ \epsilon_i,$$
 
-Regresi sederhana mengindikasikan hanya ada satu variabel prediktor x untuk menduga variabel respons y. Linier berarti model diatas linier pada $\beta_0$ dan $\beta_1$. Jadi model $y_i = \beta_0 + \beta_1{x_i}^2 + \epsilon_i$ adalah linier pada $\beta_0$ dan $\beta_1$, sementara model $y_i = \beta_0 + e^{\beta_ix_i} + \epsilon_i$ tidak linier.
+Regresi sederhana mengindikasikan hanya ada satu variabel prediktor x untuk menduga variabel respons y. Linier disini diartikan modelnya linier pada parameternya dalam hal ini $\beta_0$ dan $\beta_1$. Jadi model $y_i = \beta_0 + \beta_1{x_i}^2 + \epsilon_i$ adalah linier pada $\beta_0$ dan $\beta_1$, sementara model $y_i = \beta_0 + e^{\beta_ix_i} + \epsilon_i$ tidak linier.
 
-Misalkan kita memiliki pasangan-pasangan data sampel sebanyak n yang diambil secara acak dari populasi yang lebih besar (x~1~,y~1~), (x~2~,y~2~), ⋯, (x~n~,y~n~). Tujuan dari analisis regresi linier adalah menemukan model terbaik dalam bentuk persamaan yaitu menemukan nilai $\beta_0$ and $\beta_1$ yang menghasilkan garis paling cocok dengan titik-titik data yang kita punyai. 
+Misalkan kita memiliki pasangan-pasangan data sampel sebanyak n yang diambil secara acak dari populasi yang lebih besar (x~1~,y~1~), (x~2~,y~2~), ⋯, (x~n~,y~n~). Tujuan dari analisis regresi linier adalah menemukan model terbaik yaitu menemukan nilai $\beta_0$ and $\beta_1$ yang menghasilkan garis paling cocok dengan titik-titik data yang kita punyai. 
 
-Dengan kata lain tujuan dari analisis regresi adalah menemukan koefisien regresi untuk setelah variabel prediktor sehingga nilai dugaan variabel respons sedekat mungkin nilainya dengan nilai pengamatan aktual. 
+Dengan kata lain tujuan dari analisis regresi adalah mengestimasi koefisien regresi untuk variabel prediktor sehingga didapatkan nilai dugaan variabel respons sedekat mungkin nilainya dengan nilai pengamatan aktualnya. 
 
-Di dalam analisis regresi, model terbaik ditunjukkan oleh garis lurus yang menghubungkan rata-rata variabel prediktor dengan variabel respons sedemikian rupa sehingga jumlah kuadrat kesalahan antara titik-titik data aktual dengan garis lurus ini. Disini yi's adalah nilai pengamatan dari variabel random Yi (populasi).
+Di dalam analisis regresi, model terbaik ditunjukkan oleh garis lurus yang menghubungkan rata-rata variabel prediktor dengan variabel respons sedemikian rupa sehingga jumlah kuadrat kesalahan antara titik-titik data pengamatan aktual $y_i$ dengan nilai dugaannya $\hat y_i$ minimal. 
 
-Untuk memperoleh nilai dugaan $\beta_0$ dan $\beta_1$ yang paling cocok (paling kecil kesalahannya), kita menggunakan metode kuadrat terkecil (method of least squares). Dengan pendekatan kuadrat terkecil, kita mencari dugaan $\beta_0$ dan $\beta_1$ yang meminimalkan jumlah kuadrat residu yi-yi dari n nilai yi dari nilai dugaannya $\hat y_i = \beta_0 + \beta_1x_i$.
+Untuk memperoleh nilai dugaan $\beta_0$ dan $\beta_1$ yang paling cocok, kita menggunakan metode kuadrat terkecil (*method of least squares*). Dengan pendekatan kuadrat terkecil, kita mencari dugaan $\beta_0$ dan $\beta_1$ yang meminimalkan jumlah kuadrat residu $y_i-\hat y_i$.
 
 ...work in progress...
