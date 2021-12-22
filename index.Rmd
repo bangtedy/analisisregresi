@@ -14,7 +14,6 @@ cover-image: images/analisisregresi.jpg
 # favicon: images/favicon.png
 ---
 
-# Kata Pengantar {.unnumbered}
 
 <!-- R global options: R chunk images display without code (no echo); show PDF image over JPG/PNG when available in PDF output -->
 
@@ -23,13 +22,29 @@ knitr::opts_chunk$set(echo = FALSE)
 options(knitr.graphics.auto_pdf = FALSE)
 ```
 
+# Kata Pengantar {.unnumbered}
+
 ![](images/analisisregresi.jpg){width="579"}
 
 **Terakhir diperbarui pada: `r format (Sys.Date(), '%d %b %Y')`**.
 
-Sedang dalam proses pengerjaan (work in progress)
+Manusia sering punya rasa ingin tahu tentang bagaimana suatu hal berkaitan dengan hal yang lain. Dengan kata lain, kita sebagai manusia seringkali tertarik melihat hubungan antara sebuah variabel dengan variabel lain. Di dunia akademik maupun praktik, salah satu alat yang bisa dipakai untuk mempelajari kaitan antar variabel adalah analisis regresi.
 
-<strong>Analisis Regresi</strong> is copyrighted by <a href="https://bangtedy.github.io/">Tedy Herlambang</a> and distributed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons BY-NC-ND 4.0 International License</a>. You may freely share this content for non-commercial purposes, with a source credit to <a href="https://bangtedy.github.io/analisisregresi">https://bangtedy.github.io/analisisregresi</a>.
+Contoh aplikasi pengetahuan tentang hubungan antar variabel misalnya untuk membuat prediksi dan skenario 'what if': "bagaimana sebuah variabel akan berubah jika terjadi perubahan pada variabel lain yang berkaitan".
+
+Prediksi dan skenario menguji pemahaman kita tentang hubungan antar variabel. Jika kita salah mengerti hubungan antar variabel ini, prediksi dan skenario yang kita buat bisa tidak tepat. 
+
+Analisis regresi sejatinya menganalisis hubungan antar variabel. Dengan bantuan komputer dan pemikiran yang cermat, analisis regresi dapat menjadi alat untuk membedah data yang kompleks. Tetapi, komputer tidak bisa berpikir dan merencanakan sendiri. Komputer hanya membantu peneliti melakukan perhitungan secara cepat, agar peneliti memiliki lebih banyak waktu untuk berpikir dan memperbaiki model analisisnya.
+
+Di dalam buku singkat ini, saya akan membahas analisis regresi dan penerapannya. Pembahasan dimulai dengan regresi linier sederhana, kemudian dilanjutkan ke pembahasan regresi berganda. Program yang akan digunakan adalah R yang bisa diunduh secara gratis di [R project](https://www.r-project.org/).  
+
+Tetapi buku ini bukan buku tentang R. Materi untuk belajar R sangat banyak tersedia secara *online* misalnya [Introduction to R](https://cran.r-project.org/doc/manuals/r-devel/R-intro.html). Pembaca juga bisa mengikuti berbagai topik di [R-bloggers](https://www.r-bloggers.com/). Buku ini juga bukan buku tentang statistik. Pembaca diasumsikan telah memiliki pengetahuan dasar statistik.
+
+<strong>Analisis Regresi</strong> hak cipta ada pada <a href="https://bangtedy.github.io/analisisregresi">Tedy Herlambang</a> dan diedarkan berdasarkan <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons BY-NC-ND 4.0 International License</a>. Anda bebas menggunakan isi buku ini untuk tujuan non-komersial, dengan menyebutkan sumbernya ke <a href="https://bangtedy.github.io/analisisregresi">https://bangtedy.github.io/analisisregresi</a>.
+
+*Cara mengutip*: 
+
+> Herlambang, Tedy. 2021. Analisis Regresi.URL https://bangtedy.github.io/analisisregresi.
 
 #### Disclaimer {.unnumbered}
 

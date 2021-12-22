@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5 Model Regresi Linier Lanjutan | Analisis Regresi</title>
-  <meta name="description" content="5 Model Regresi Linier Lanjutan | Analisis Regresi is an open-access book-in-progress using bookdown package." />
+  <title>2 Regresi Linier Sederhana | Analisis Regresi</title>
+  <meta name="description" content="2 Regresi Linier Sederhana | Analisis Regresi is an open-access book-in-progress using bookdown package." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5 Model Regresi Linier Lanjutan | Analisis Regresi" />
+  <meta property="og:title" content="2 Regresi Linier Sederhana | Analisis Regresi" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="/images/analisisregresi.jpg" />
-  <meta property="og:description" content="5 Model Regresi Linier Lanjutan | Analisis Regresi is an open-access book-in-progress using bookdown package." />
+  <meta property="og:description" content="2 Regresi Linier Sederhana | Analisis Regresi is an open-access book-in-progress using bookdown package." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5 Model Regresi Linier Lanjutan | Analisis Regresi" />
+  <meta name="twitter:title" content="2 Regresi Linier Sederhana | Analisis Regresi" />
   
-  <meta name="twitter:description" content="5 Model Regresi Linier Lanjutan | Analisis Regresi is an open-access book-in-progress using bookdown package." />
+  <meta name="twitter:description" content="2 Regresi Linier Sederhana | Analisis Regresi is an open-access book-in-progress using bookdown package." />
   <meta name="twitter:image" content="/images/analisisregresi.jpg" />
 
 <meta name="author" content="Tedy Herlambang" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="uji-kecocokan-dan-ketepatan-model-regresi.html"/>
-<link rel="next" href="referensi.html"/>
+<link rel="prev" href="pendahuluan.html"/>
+<link rel="next" href="regresi-linier-berganda-1.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -131,18 +131,32 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="model-regresi-linier-lanjutan" class="section level1" number="5">
-<h1><span class="header-section-number">5</span> Model Regresi Linier Lanjutan</h1>
-<p>sedang dalam proses pengerjaan (work in progress)</p>
+<div id="regresi-linier-sederhana" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Regresi Linier Sederhana</h1>
+<p>Bab ini akan membahas regresi linier sederhana. Istilah regresi sederhana tidak merujuk pada kenaifan penelitiannya tetapi merujuk pada model yang hanya terdiri dari satu variabel respons dan satu variabel prediktor.</p>
+<p>Situasi ini sering terjadi pada penelitian sains. Misalnya seorang peneliti ingin memprediksi laju reaksi kimia karena perubahan temperatur, atau ingin memprediksi penyakit jantung berdasarkan tingkat kolesterol. Jika dapat diasumsikan bahwa variabel-variabel ini terhubung secara linier, kita dapat menggunakan regresi linier sederhana untuk mengkuantifikasi hubungan ini.</p>
+<p>Analisis regresi digunakan ketika solusi eksak tidak tersedia, dalam arti kita tidak akan dapat menemukan nilai tunggal yang mencakup secara lengkap hubungan antara variabel respons dengan prediktornya. Sehingga disini kita mencoba memprediksi setepat mungkin variabel respons atau memprediksi dengan kesalahan terkecil.</p>
+<p>Untuk mencapai tujuan ini, kita menganalisis pola-pola variabilitas pada variabel respons dan mencoba melihat apakah variabilitas ini dapat diprediksi dari variabilitas prediktornya.</p>
+<div id="model-regresi-linier-sederhana" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Model Regresi Linier Sederhana</h2>
+<p>Model regresi linier sederhana dapat dituliskan sebagai berikut:</p>
+<p><span class="math display">\[y_i=\beta_0 + \beta_1x_i+ \epsilon_i,\]</span></p>
+<p>Regresi sederhana mengindikasikan hanya ada satu variabel prediktor x untuk menduga variabel respons y. Linier berarti model diatas linier pada <span class="math inline">\(\beta_0\)</span> dan <span class="math inline">\(\beta_1\)</span>. Jadi model <span class="math inline">\(y_i = \beta_0 + \beta_1{x_i}^2 + \epsilon_i\)</span> adalah linier pada <span class="math inline">\(\beta_0\)</span> dan <span class="math inline">\(\beta_1\)</span>, sementara model <span class="math inline">\(y_i = \beta_0 + e^{\beta_ix_i} + \epsilon_i\)</span> tidak linier.</p>
+<p>Misalkan kita memiliki pasangan-pasangan data sampel sebanyak n yang diambil secara acak dari populasi yang lebih besar (x<sub>1</sub>,y<sub>1</sub>), (x<sub>2</sub>,y<sub>2</sub>), ⋯, (x<sub>n</sub>,y<sub>n</sub>). Tujuan dari analisis regresi linier adalah menemukan model terbaik dalam bentuk persamaan yaitu menemukan nilai <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> yang menghasilkan garis paling cocok dengan titik-titik data yang kita punyai.</p>
+<p>Dengan kata lain tujuan dari analisis regresi adalah menemukan koefisien regresi untuk setelah variabel prediktor sehingga nilai dugaan variabel respons sedekat mungkin nilainya dengan nilai pengamatan aktual.</p>
+<p>Di dalam analisis regresi, model terbaik ditunjukkan oleh garis lurus yang menghubungkan rata-rata variabel prediktor dengan variabel respons sedemikian rupa sehingga jumlah kuadrat kesalahan antara titik-titik data aktual dengan garis lurus ini. Disini yi’s adalah nilai pengamatan dari variabel random Yi (populasi).</p>
+<p>Untuk memperoleh nilai dugaan <span class="math inline">\(\beta_0\)</span> dan <span class="math inline">\(\beta_1\)</span> yang paling cocok (paling kecil kesalahannya), kita menggunakan metode kuadrat terkecil (method of least squares). Dengan pendekatan kuadrat terkecil, kita mencari dugaan <span class="math inline">\(\beta_0\)</span> dan <span class="math inline">\(\beta_1\)</span> yang meminimalkan jumlah kuadrat residu yi-yi dari n nilai yi dari nilai dugaannya <span class="math inline">\(\hat y_i = \beta_0 + \beta_1x_i\)</span>.</p>
+<p>…work in progress…</p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="uji-kecocokan-dan-ketepatan-model-regresi.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="referensi.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="pendahuluan.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="regresi-linier-berganda-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -173,7 +187,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/05-model-regresi-lanjutan.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-regresi-linier-sederhana.Rmd",
 "text": "Edit"
 },
 "history": {

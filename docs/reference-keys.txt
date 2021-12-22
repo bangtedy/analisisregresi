@@ -1,7 +1,12 @@
+fig:garis-regresi
+tab:tabel-penyebutan-variabel
 pendahuluan
-korelasi-dan-regresi-linier-sederhana
+analisis-regresi-menganalisis-apa
 regresi-linier-berganda
+langkah-langkah-melakukan-analisis-regresi
+penggunaan-komputer
+regresi-linier-sederhana
+model-regresi-linier-sederhana
+regresi-linier-berganda-1
 uji-kecocokan-dan-ketepatan-model-regresi
-example-one
-example-two
 model-regresi-linier-lanjutan
