@@ -1,5 +1,4 @@
 fig:garis-regresi
-tab:tabel-penyebutan-variabel
 pendahuluan
 analisis-regresi-menganalisis-apa
 regresi-linier-berganda
