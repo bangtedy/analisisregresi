@@ -24,7 +24,7 @@
 <meta name="author" content="Tedy Herlambang" />
 
 
-<meta name="date" content="2021-12-23" />
+<meta name="date" content="2021-12-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -271,38 +271,17 @@ data sampel x dan y (bisa berasal dari observasi atau eksperimen), kita
 kemudian menduga <span class="math inline">\(\beta_0\)</span> dan <span class="math inline">\(\beta_1\)</span> dan membuat kesimpulan tentang
 selang kepercayaan dan menguji hipotesis untuk <span class="math inline">\(\beta_0\)</span> dan <span class="math inline">\(\beta_1\)</span>.</p>
 <p>Tujuan utama kita dalam analisis regresi adalah mendapatkan nilai dugaan
-terbaik untuk <span class="math inline">\(\hat \beta_0\)</span> dan <span class="math inline">\(\hat \beta_1\)</span> yang menghasilkan
-kesalahan terkecil. Dengan kata lain kita ingin menarik garis dalam
-bidang x−y yang paling pas dengan persebaran titik-titik data sampel
-yang telah kita kumpulkan. Garis ini disebut sebagai garis regresi
-<span class="math inline">\(\hat y_i = \hat \beta_0 + \hat \beta_1x_i + \epsilon_i\)</span> yang menunjukkan nilai
-dugaan y (disimbolkan dengan y tudung <span class="math inline">\(\hat y\)</span>) untuk pengamatan ke-i di
-dalam sampel.</p>
-<p>Sebuah model regresi linier yang sudah dikalibrasi paling pas dengan
-data sampel (<em>best fit</em>), dapat digunakan untuk membuat prediksi dengan
-mencermati perbedaan (arah) dan intensitas perubahan (magnitud) dari
-variabel y pada nilai variabel x tertentu.</p>
-<p>Analisis regresi menawarkan pendekatan yang masuk akal dengan mengenali
-pola-pola hubungan antar variabel: arah dan besar perubahan pada
-variabel respons dengan arah dan besar perubahan pada variabel prediktor
-dari model yang valid.</p>
-<p>Persamaan regresi yang memodelkan hubungan statistik antar variabel
-terdiri dari dua komponen: komponen deterministik atau komponen
-fungsional yaitu <span class="math inline">\(\beta_0 + \beta_1\)</span> dan komponen stokastik/acak yaitu
-<span class="math inline">\(\epsilon\)</span>. Kombinasi kedua komponen ini menjadikan persamaan regresi
-sebagai model yang tidak eksak. Kita hanya mengasumsikan bahwa di dalam
-cakupan variabel yang dianalisis, terdapat tendensi variabel respons y
-untuk bervariasi secara sistematis dengan variabel prediktor x.</p>
+<span class="math inline">\(\hat \beta_0\)</span> dan <span class="math inline">\(\hat \beta_1\)</span> terbaik yang menghasilkan jumlah kesalahan kuadrat terkecil. Dengan kata lain kita ingin menarik garis dalam bidang x−y yang paling pas dengan persebaran titik-titik data sampel yang telah kita kumpulkan. Garis ini disebut sebagai garis regresi <span class="math inline">\(\hat y_i = \hat \beta_0 + \hat \beta_1x_i\)</span> yang menunjukkan nilai
+dugaan y (disimbolkan dengan y tudung <span class="math inline">\(\hat y\)</span>) untuk pengamatan ke-i di dalam sampel.</p>
+<p>Sebuah model regresi linier yang sudah dikalibrasi paling pas dengan data sampel (<em>best fit</em>), dapat digunakan untuk menjelaskan hubungan atau membuat prediksi dengan mencermati perbedaan (arah) dan intensitas perubahan (magnitud) dari variabel y pada nilai variabel x tertentu.</p>
+<p>Analisis regresi menawarkan pendekatan yang masuk akal dengan mengenali pola-pola hubungan antar variabel: arah dan besar perubahan pada variabel respons dengan arah dan besar perubahan pada variabel prediktor dari model yang valid.</p>
+<p>Persamaan regresi yang memodelkan hubungan statistik antar variabel terdiri dari dua komponen: komponen deterministik atau komponen fungsional yaitu <span class="math inline">\(\beta_0 + \beta_1\)</span> dan komponen stokastik/acak yaitu <span class="math inline">\(\epsilon\)</span>. Kombinasi kedua komponen ini menjadikan persamaan regresi sebagai model yang tidak eksak. Kita hanya mengasumsikan bahwa di dalam cakupan variabel yang dianalisis, terdapat tendensi variabel respons y untuk bervariasi secara sistematis dengan variabel prediktor x.</p>
 </div>
 <div id="regresi-linier-berganda" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> Regresi Linier Berganda</h2>
-<p>Dalam banyak hal, variabel respons yang kita analisis berhubungan dengan
-lebih dari satu variabel prediktor, sebutlah sebanyak p,
-<span class="math inline">\(x_{i1}, x_{i2}, ... , x_{ip}\)</span>, sehingga persamaannya menjadi:</p>
+<p>Dalam banyak hal, variabel respons yang kita analisis berhubungan dengan lebih dari satu variabel prediktor, sebutlah sebanyak p, <span class="math inline">\(x_{i1}, x_{i2}, ... , x_{ip}\)</span>, sehingga persamaannya menjadi:</p>
 <p><span class="math display">\[y_i = \beta_0 + \beta_1x_{i1} + \beta_2x_{i2} + ... + \beta_px_{ip} + \epsilon_i\]</span></p>
-<p>Model ini disebut sebagai model regresi linier berganda. Disebut
-berganda karena melibatkan lebih dari satu variabel prediktor.
-Contoh-contohnya adalah sebagai berikut:</p>
+<p>Model ini disebut sebagai model regresi linier berganda. Disebut berganda karena melibatkan lebih dari satu variabel prediktor.Contoh-contohnya:</p>
 <ol style="list-style-type: decimal">
 <li>Seorang mahasiswa ingin menduga koefisien-koefisien dari sebuah
 model yang menghubungkan bobot tanaman vaskular-tanaman yang
@@ -325,17 +304,14 @@ poin skala likert. Sedangkan prediktornya digunakan variabel
 demografi meliputi usia, jenis kelamin dan pendidikan terakhir
 karyawan.</li>
 </ol>
-<p>Dalam kasus ini kita perlu mengambil data sampel variabel respons y dan
-variabel-variabel prediktor terkait sebanyak <span class="math inline">\(p\)</span> buah
-<span class="math inline">\((x_{i1}, x_{i2}, ... ,x_{ip}, y_i)\)</span>, dengan jumlah sampel <span class="math inline">\(n\)</span> dan
-<span class="math inline">\(i= 1,2,...,n\)</span>.</p>
+<p>Dalam kasus ini kita perlu mengambil data sampel variabel respons <span class="math inline">\(y\)</span> dan variabel-variabel prediktor terkait sebanyak <span class="math inline">\(p\)</span> buah <span class="math inline">\((x_{i1}, x_{i2}, ... ,x_{ip}, y_i)\)</span>, dengan jumlah sampel <span class="math inline">\(n\)</span> dan <span class="math inline">\(i= 1,2,...,n\)</span>.</p>
 </div>
 <div id="langkah-langkah-melakukan-analisis-regresi" class="section level2" number="1.3">
 <h2><span class="header-section-number">1.3</span> Langkah-langkah Melakukan Analisis Regresi</h2>
 <p>Secara umum langkah-langkah dalam melakukan analisis regresi adalah
 sebagai berikut:</p>
 <ol style="list-style-type: decimal">
-<li>Menentukan variabel respons y yang akan kita pelajari atau buat
+<li>Menentukan variabel respons <span class="math inline">\(y\)</span> yang akan kita pelajari atau buat
 modelnya.</li>
 <li>Menentukan sejumlah variabel prediktor yang kita anggap berguna di
 dalam menjelaskan variabel respons.</li>

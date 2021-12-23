@@ -180,43 +180,22 @@ kemudian menduga $\beta_0$ dan $\beta_1$ dan membuat kesimpulan tentang
 selang kepercayaan dan menguji hipotesis untuk $\beta_0$ dan $\beta_1$.
 
 Tujuan utama kita dalam analisis regresi adalah mendapatkan nilai dugaan
-terbaik untuk $\hat \beta_0$ dan $\hat \beta_1$ yang menghasilkan
-kesalahan terkecil. Dengan kata lain kita ingin menarik garis dalam
-bidang x−y yang paling pas dengan persebaran titik-titik data sampel
-yang telah kita kumpulkan. Garis ini disebut sebagai garis regresi
-$\hat y_i = \hat \beta_0 + \hat \beta_1x_i + \epsilon_i$ yang menunjukkan nilai
-dugaan y (disimbolkan dengan y tudung $\hat y$) untuk pengamatan ke-i di
-dalam sampel.
+$\hat \beta_0$ dan $\hat \beta_1$ terbaik yang menghasilkan jumlah kesalahan kuadrat terkecil. Dengan kata lain kita ingin menarik garis dalam bidang x−y yang paling pas dengan persebaran titik-titik data sampel yang telah kita kumpulkan. Garis ini disebut sebagai garis regresi $\hat y_i = \hat \beta_0 + \hat \beta_1x_i$ yang menunjukkan nilai
+dugaan y (disimbolkan dengan y tudung $\hat y$) untuk pengamatan ke-i di dalam sampel.
 
-Sebuah model regresi linier yang sudah dikalibrasi paling pas dengan
-data sampel (*best fit*), dapat digunakan untuk membuat prediksi dengan
-mencermati perbedaan (arah) dan intensitas perubahan (magnitud) dari
-variabel y pada nilai variabel x tertentu.
+Sebuah model regresi linier yang sudah dikalibrasi paling pas dengan data sampel (*best fit*), dapat digunakan untuk menjelaskan hubungan atau membuat prediksi dengan mencermati perbedaan (arah) dan intensitas perubahan (magnitud) dari variabel y pada nilai variabel x tertentu.
 
-Analisis regresi menawarkan pendekatan yang masuk akal dengan mengenali
-pola-pola hubungan antar variabel: arah dan besar perubahan pada
-variabel respons dengan arah dan besar perubahan pada variabel prediktor
-dari model yang valid.
+Analisis regresi menawarkan pendekatan yang masuk akal dengan mengenali pola-pola hubungan antar variabel: arah dan besar perubahan pada variabel respons dengan arah dan besar perubahan pada variabel prediktor dari model yang valid.
 
-Persamaan regresi yang memodelkan hubungan statistik antar variabel
-terdiri dari dua komponen: komponen deterministik atau komponen
-fungsional yaitu $\beta_0 + \beta_1$ dan komponen stokastik/acak yaitu
-$\epsilon$. Kombinasi kedua komponen ini menjadikan persamaan regresi
-sebagai model yang tidak eksak. Kita hanya mengasumsikan bahwa di dalam
-cakupan variabel yang dianalisis, terdapat tendensi variabel respons y
-untuk bervariasi secara sistematis dengan variabel prediktor x.
+Persamaan regresi yang memodelkan hubungan statistik antar variabel terdiri dari dua komponen: komponen deterministik atau komponen fungsional yaitu $\beta_0 + \beta_1$ dan komponen stokastik/acak yaitu $\epsilon$. Kombinasi kedua komponen ini menjadikan persamaan regresi sebagai model yang tidak eksak. Kita hanya mengasumsikan bahwa di dalam cakupan variabel yang dianalisis, terdapat tendensi variabel respons y untuk bervariasi secara sistematis dengan variabel prediktor x.
 
 ## Regresi Linier Berganda
 
-Dalam banyak hal, variabel respons yang kita analisis berhubungan dengan
-lebih dari satu variabel prediktor, sebutlah sebanyak p,
-$x_{i1}, x_{i2}, ... , x_{ip}$, sehingga persamaannya menjadi:
+Dalam banyak hal, variabel respons yang kita analisis berhubungan dengan lebih dari satu variabel prediktor, sebutlah sebanyak p, $x_{i1}, x_{i2}, ... , x_{ip}$, sehingga persamaannya menjadi:
 
 $$y_i = \beta_0 + \beta_1x_{i1} + \beta_2x_{i2} + ... + \beta_px_{ip} + \epsilon_i$$
 
-Model ini disebut sebagai model regresi linier berganda. Disebut
-berganda karena melibatkan lebih dari satu variabel prediktor.
-Contoh-contohnya adalah sebagai berikut:
+Model ini disebut sebagai model regresi linier berganda. Disebut berganda karena melibatkan lebih dari satu variabel prediktor.Contoh-contohnya:
 
 1.  Seorang mahasiswa ingin menduga koefisien-koefisien dari sebuah
     model yang menghubungkan bobot tanaman vaskular-tanaman yang
@@ -239,17 +218,14 @@ Contoh-contohnya adalah sebagai berikut:
     demografi meliputi usia, jenis kelamin dan pendidikan terakhir
     karyawan.
 
-Dalam kasus ini kita perlu mengambil data sampel variabel respons y dan
-variabel-variabel prediktor terkait sebanyak $p$ buah
-$(x_{i1}, x_{i2}, ... ,x_{ip}, y_i)$, dengan jumlah sampel $n$ dan
-$i= 1,2,...,n$.
+Dalam kasus ini kita perlu mengambil data sampel variabel respons $y$ dan variabel-variabel prediktor terkait sebanyak $p$ buah $(x_{i1}, x_{i2}, ... ,x_{ip}, y_i)$, dengan jumlah sampel $n$ dan $i= 1,2,...,n$.
 
 ## Langkah-langkah Melakukan Analisis Regresi
 
 Secara umum langkah-langkah dalam melakukan analisis regresi adalah
 sebagai berikut:
 
-1.  Menentukan variabel respons y yang akan kita pelajari atau buat
+1.  Menentukan variabel respons $y$ yang akan kita pelajari atau buat
     modelnya.
 2.  Menentukan sejumlah variabel prediktor yang kita anggap berguna di
     dalam menjelaskan variabel respons.
