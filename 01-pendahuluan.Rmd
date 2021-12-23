@@ -59,7 +59,7 @@ penggunaan alat analisis ini dalam situasi-situasi riil.
 
 Analisis regresi menginvestigasi dan mengeksplorasi hubungan antara dua
 variabel atau lebih. Model regresi linier atau biasa disebut analisis
-regresi [@faraway2015]digunakan untuk menjelaskan atau memodelkan
+regresi [@faraway2015] digunakan untuk menjelaskan atau memodelkan
 hubungan antara satu variabel respons $y$ dan satu atau lebih variabel
 prediktor $x_1, x_2, ... , x_p$, dimana p adalah jumlah prediktornya.
 Jika p=1, modelnya disebut regresi sederhana. Tetapi jika p>1, disebut
@@ -83,7 +83,7 @@ Beberapa contohnya misalnya:
     terakhir yang ditamatkannya (x).
 3.  Kinerja karyawan dapat diprediksi dengan menggunakan hubungan antara
     kinerja (y) dan hasil tes aptitutenya (x).
-4.  Apakah terdapat hubungan antara tingkat kelahiran penduduk dengan
+4.  Apakah terdapat hubungan antara tingkat kelahiran penduduk suatu negara dengan
     tingkat pendapatan perkapitanya? Jika diperhatikan negara-negara
     dengan tingkat pendapatan per kapita tinggi (x), tingkat pertumbuhan
     penduduknya rendah (y), dan sebaliknya.
@@ -91,35 +91,22 @@ Beberapa contohnya misalnya:
     pengetahuan hubungan antara jumlah kosa kata (y), usia anak (x~1~)
     dan tingkat pendidikan orang tua si anak (x~2~).
 
-Misalkan kita ambil contoh no 2 diatas yaitu kaitan antara tingkat
-pendapatan seseorang dengan tingkat pendidikannya. Secara akal, banyak
-faktor yang mempengaruhi pendapatan seseorang. Hipotesis kita kemudian
-semakin tinggi tingkat pendidikan seseorang akan semakin tinggi pula
-tingkat pendapatannya. Jadi terdapat hubungan positif antara pendapatan
+Misalkan kita ambil contoh no 2 diatas yaitu kaitan antara tingkat pendapatan seseorang dengan tingkat pendidikannya. Secara akal, banyak faktor yang mempengaruhi pendapatan seseorang. Hipotesis kita semakin tinggi tingkat pendidikan seseorang akan semakin tinggi pula tingkat pendapatannya. Jadi terdapat hubungan positif antara pendapatan
 dengan pendidikan.
 
-Sehingga dalam kasus ini, kita memodelkan hubungan antara pendapatan dan
-pendidikan sebagai berikut:
+Sehingga dalam kasus ini, kita memodelkan hubungan antara pendapatan dan pendidikan sebagai berikut:
 
-1.  Tingkat pendapatan sebagai rata-rata pendapatan seseorang dalam satu
-    tahun (y).
+1.  Tingkat pendapatan sebagai rata-rata pendapatan seseorang dalam satu tahun (y).
 2.  Tingkat pendidikan terakhir yang ditamatkan oleh seseorang (x).
 
-Selanjutnya kita mengambil secara acak dari populasi, data sampel x dan
-y sebanyak n individu:
+Selanjutnya kita mengambil secara acak dari populasi, data sampel x dan y sebanyak n individu:
 
 $$ (x_i,y_i), \quad\ untuk \quad\ i=1,2,⋯,n $$
 
-dimana $y_i$ adalah rata-rata pendapatan orang ke-i dalam satu tahun,
-dan $x_i$ adalah tingkat pendapatan orang ke-i tersebut.
+dimana $y_i$ adalah rata-rata pendapatan orang ke-i dalam satu tahun, dan $x_i$ adalah tingkat pendapatan orang ke-i tersebut.
 
-Ketika kita mencoba menjelaskan variabel y dengan menggunakan variabel x
-ini, kita menggunakan hubungan statistik: sebuah hubungan yang tidak
-eksak. Jika data yang telah kita kumpulkan, dibuatkan visualisasi
-diagram pencarnya, kira-kira kita akan mendapatkan seperti Gambar 1.1.
-Gambar ini secara jelas menunjukkan terdapat hubungan positif antara
-pendapatan dengan tingkat pendidikan: semakin tinggi pendidikan
-seseorang semakin tinggi juga tingkat pendapatannya.
+Ketika kita mencoba menjelaskan variabel y dengan menggunakan variabel x ini, kita menggunakan hubungan statistik: sebuah hubungan yang tidak eksak. Jika data yang telah kita kumpulkan, dibuatkan visualisasi diagram pencarnya, kira-kira kita akan mendapatkan seperti Gambar 1.1. Gambar ini secara jelas menunjukkan terdapat hubungan positif antara
+pendapatan dengan tingkat pendidikan: semakin tinggi pendidikan seseorang semakin tinggi juga tingkat pendapatannya.
 
 ```{r garis-regresi, echo=FALSE, fig.cap="Garis Persamaan Regresi Linier Sederhana"}
 set.seed(11111)
@@ -137,17 +124,10 @@ segments(x, y, x, 10+2*x, lty=3)
 
 ```
 
-Tetapi visualisasi diagram pencar ini juga menunjukkan adanya
-ketidaksempurnaan hubungan. Tampak bahwa data sampel kita tidak
-seluruhnya tepat berada pada garis regresi. Titik-titik pengamatan ada
-yang tepat digaris ada juga yang di atas atau di bawah garis regresi.
-Hal ini menunjukkan bahwa ada variasi pendapatan yang tidak berhubungan
-dengan tingkat pendidikan. Artinya ada faktor lain selain pendidikan
+Tetapi visualisasi diagram pencar ini juga menunjukkan adanya ketidaksempurnaan hubungan. Tampak bahwa data sampel kita tidak seluruhnya tepat berada pada garis regresi. Titik-titik pengamatan ada yang tepat digaris ada juga yang di atas atau di bawah garis regresi. Hal ini menunjukkan bahwa ada variasi pendapatan yang tidak berhubungan dengan tingkat pendidikan. Artinya ada faktor lain selain pendidikan
 yang juga mempengaruhi tingkat pendapatan seseorang.
 
-Bagaimana kita akan memodelkan faktor selain pendidikan yang juga
-mempengaruhi pendapatan seseorang? Misalkan hubungan y dan x kita
-modelkan dengan sebuah persamaan garis linier:
+Bagaimana kita akan memodelkan faktor selain pendidikan yang juga mempengaruhi pendapatan seseorang? Misalkan hubungan y dan x kita modelkan dengan sebuah persamaan garis linier:
 
 $$ y_i= \beta_0 + \beta_1x_i $$
 
@@ -204,7 +184,7 @@ terbaik untuk $\hat \beta_0$ dan $\hat \beta_1$ yang menghasilkan
 kesalahan terkecil. Dengan kata lain kita ingin menarik garis dalam
 bidang x−y yang paling pas dengan persebaran titik-titik data sampel
 yang telah kita kumpulkan. Garis ini disebut sebagai garis regresi
-$\hat y_i = \hat \beta_0 + \hat \beta_1x_i + e_i$ yang menunjukkan nilai
+$\hat y_i = \hat \beta_0 + \hat \beta_1x_i + \epsilon_i$ yang menunjukkan nilai
 dugaan y (disimbolkan dengan y tudung $\hat y$) untuk pengamatan ke-i di
 dalam sampel.
 

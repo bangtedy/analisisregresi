@@ -179,7 +179,7 @@ penggunaan alat analisis ini dalam situasi-situasi riil.</p>
 <h2><span class="header-section-number">1.1</span> Model Regresi Linier</h2>
 <p>Analisis regresi menginvestigasi dan mengeksplorasi hubungan antara dua
 variabel atau lebih. Model regresi linier atau biasa disebut analisis
-regresi <span class="citation">(<a href="#ref-faraway2015" role="doc-biblioref">Faraway 2015</a>)</span>digunakan untuk menjelaskan atau memodelkan
+regresi <span class="citation">(<a href="#ref-faraway2015" role="doc-biblioref">Faraway 2015</a>)</span> digunakan untuk menjelaskan atau memodelkan
 hubungan antara satu variabel respons <span class="math inline">\(y\)</span> dan satu atau lebih variabel
 prediktor <span class="math inline">\(x_1, x_2, ... , x_p\)</span>, dimana p adalah jumlah prediktornya.
 Jika p=1, modelnya disebut regresi sederhana. Tetapi jika p&gt;1, disebut
@@ -201,7 +201,7 @@ per kelas.</li>
 terakhir yang ditamatkannya (x).</li>
 <li>Kinerja karyawan dapat diprediksi dengan menggunakan hubungan antara
 kinerja (y) dan hasil tes aptitutenya (x).</li>
-<li>Apakah terdapat hubungan antara tingkat kelahiran penduduk dengan
+<li>Apakah terdapat hubungan antara tingkat kelahiran penduduk suatu negara dengan
 tingkat pendapatan perkapitanya? Jika diperhatikan negara-negara
 dengan tingkat pendapatan per kapita tinggi (x), tingkat pertumbuhan
 penduduknya rendah (y), dan sebaliknya.</li>
@@ -209,47 +209,27 @@ penduduknya rendah (y), dan sebaliknya.</li>
 pengetahuan hubungan antara jumlah kosa kata (y), usia anak (x<sub>1</sub>)
 dan tingkat pendidikan orang tua si anak (x<sub>2</sub>).</li>
 </ol>
-<p>Misalkan kita ambil contoh no 2 diatas yaitu kaitan antara tingkat
-pendapatan seseorang dengan tingkat pendidikannya. Secara akal, banyak
-faktor yang mempengaruhi pendapatan seseorang. Hipotesis kita kemudian
-semakin tinggi tingkat pendidikan seseorang akan semakin tinggi pula
-tingkat pendapatannya. Jadi terdapat hubungan positif antara pendapatan
+<p>Misalkan kita ambil contoh no 2 diatas yaitu kaitan antara tingkat pendapatan seseorang dengan tingkat pendidikannya. Secara akal, banyak faktor yang mempengaruhi pendapatan seseorang. Hipotesis kita semakin tinggi tingkat pendidikan seseorang akan semakin tinggi pula tingkat pendapatannya. Jadi terdapat hubungan positif antara pendapatan
 dengan pendidikan.</p>
-<p>Sehingga dalam kasus ini, kita memodelkan hubungan antara pendapatan dan
-pendidikan sebagai berikut:</p>
+<p>Sehingga dalam kasus ini, kita memodelkan hubungan antara pendapatan dan pendidikan sebagai berikut:</p>
 <ol style="list-style-type: decimal">
-<li>Tingkat pendapatan sebagai rata-rata pendapatan seseorang dalam satu
-tahun (y).</li>
+<li>Tingkat pendapatan sebagai rata-rata pendapatan seseorang dalam satu tahun (y).</li>
 <li>Tingkat pendidikan terakhir yang ditamatkan oleh seseorang (x).</li>
 </ol>
-<p>Selanjutnya kita mengambil secara acak dari populasi, data sampel x dan
-y sebanyak n individu:</p>
+<p>Selanjutnya kita mengambil secara acak dari populasi, data sampel x dan y sebanyak n individu:</p>
 <p><span class="math display">\[ (x_i,y_i), \quad\ untuk \quad\ i=1,2,⋯,n \]</span></p>
-<p>dimana <span class="math inline">\(y_i\)</span> adalah rata-rata pendapatan orang ke-i dalam satu tahun,
-dan <span class="math inline">\(x_i\)</span> adalah tingkat pendapatan orang ke-i tersebut.</p>
-<p>Ketika kita mencoba menjelaskan variabel y dengan menggunakan variabel x
-ini, kita menggunakan hubungan statistik: sebuah hubungan yang tidak
-eksak. Jika data yang telah kita kumpulkan, dibuatkan visualisasi
-diagram pencarnya, kira-kira kita akan mendapatkan seperti Gambar 1.1.
-Gambar ini secara jelas menunjukkan terdapat hubungan positif antara
-pendapatan dengan tingkat pendidikan: semakin tinggi pendidikan
-seseorang semakin tinggi juga tingkat pendapatannya.</p>
+<p>dimana <span class="math inline">\(y_i\)</span> adalah rata-rata pendapatan orang ke-i dalam satu tahun, dan <span class="math inline">\(x_i\)</span> adalah tingkat pendapatan orang ke-i tersebut.</p>
+<p>Ketika kita mencoba menjelaskan variabel y dengan menggunakan variabel x ini, kita menggunakan hubungan statistik: sebuah hubungan yang tidak eksak. Jika data yang telah kita kumpulkan, dibuatkan visualisasi diagram pencarnya, kira-kira kita akan mendapatkan seperti Gambar 1.1. Gambar ini secara jelas menunjukkan terdapat hubungan positif antara
+pendapatan dengan tingkat pendidikan: semakin tinggi pendidikan seseorang semakin tinggi juga tingkat pendapatannya.</p>
 <div class="figure"><span style="display:block;" id="fig:garis-regresi"></span>
 <img src="bookdown-demo_files/figure-html/garis-regresi-1.png" alt="Garis Persamaan Regresi Linier Sederhana" width="672" />
 <p class="caption">
 Gambar 1.1: Garis Persamaan Regresi Linier Sederhana
 </p>
 </div>
-<p>Tetapi visualisasi diagram pencar ini juga menunjukkan adanya
-ketidaksempurnaan hubungan. Tampak bahwa data sampel kita tidak
-seluruhnya tepat berada pada garis regresi. Titik-titik pengamatan ada
-yang tepat digaris ada juga yang di atas atau di bawah garis regresi.
-Hal ini menunjukkan bahwa ada variasi pendapatan yang tidak berhubungan
-dengan tingkat pendidikan. Artinya ada faktor lain selain pendidikan
+<p>Tetapi visualisasi diagram pencar ini juga menunjukkan adanya ketidaksempurnaan hubungan. Tampak bahwa data sampel kita tidak seluruhnya tepat berada pada garis regresi. Titik-titik pengamatan ada yang tepat digaris ada juga yang di atas atau di bawah garis regresi. Hal ini menunjukkan bahwa ada variasi pendapatan yang tidak berhubungan dengan tingkat pendidikan. Artinya ada faktor lain selain pendidikan
 yang juga mempengaruhi tingkat pendapatan seseorang.</p>
-<p>Bagaimana kita akan memodelkan faktor selain pendidikan yang juga
-mempengaruhi pendapatan seseorang? Misalkan hubungan y dan x kita
-modelkan dengan sebuah persamaan garis linier:</p>
+<p>Bagaimana kita akan memodelkan faktor selain pendidikan yang juga mempengaruhi pendapatan seseorang? Misalkan hubungan y dan x kita modelkan dengan sebuah persamaan garis linier:</p>
 <p><span class="math display">\[ y_i= \beta_0 + \beta_1x_i \]</span></p>
 <p>Persamaan ini menyatakan bahwa y sebagai variabel respons adalah fungsi
 linier x, variabel prediktor. Model ini linier karena jika persamaan ini
@@ -295,7 +275,7 @@ terbaik untuk <span class="math inline">\(\hat \beta_0\)</span> dan <span class=
 kesalahan terkecil. Dengan kata lain kita ingin menarik garis dalam
 bidang x−y yang paling pas dengan persebaran titik-titik data sampel
 yang telah kita kumpulkan. Garis ini disebut sebagai garis regresi
-<span class="math inline">\(\hat y_i = \hat \beta_0 + \hat \beta_1x_i + e_i\)</span> yang menunjukkan nilai
+<span class="math inline">\(\hat y_i = \hat \beta_0 + \hat \beta_1x_i + \epsilon_i\)</span> yang menunjukkan nilai
 dugaan y (disimbolkan dengan y tudung <span class="math inline">\(\hat y\)</span>) untuk pengamatan ke-i di
 dalam sampel.</p>
 <p>Sebuah model regresi linier yang sudah dikalibrasi paling pas dengan
