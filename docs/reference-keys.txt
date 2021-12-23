@@ -1,6 +1,6 @@
 fig:garis-regresi
 pendahuluan
-analisis-regresi-menganalisis-apa
+model-regresi-linier
 regresi-linier-berganda
 langkah-langkah-melakukan-analisis-regresi
 penggunaan-komputer
