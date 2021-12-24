@@ -2,9 +2,9 @@
 
 Bab ini akan membahas regresi linier sederhana. Istilah regresi sederhana tidak merujuk pada kenaifan penelitiannya tetapi merujuk pada model yang hanya terdiri dari satu variabel respons dan satu variabel prediktor.
 
-Situasi ini sering terjadi pada penelitian sains. Misalnya seorang peneliti ingin memprediksi laju reaksi kimia karena perubahan temperatur, atau ingin mengetahui hubungan antara perubahan diet dengan perubahan tingkat kolesterol pada seseorang. Jika dapat diasumsikan bahwa variabel-variabel ini terhubung secara linier, kita dapat menggunakan regresi linier sederhana untuk mengkuantifikasi hubungan ini.
+Situasi ini sering terjadi pada penelitian sains. Misalnya seorang peneliti ingin memprediksi laju reaksi kimia karena perubahan temperatur, atau ingin mengetahui hubungan antara perubahan diet dengan tingkat kolesterol pada seseorang. Jika dapat diasumsikan bahwa variabel-variabel ini terhubung secara linier, kita dapat menggunakan regresi linier sederhana untuk mengkuantifikasi hubungan ini.
 
-Analisis regresi digunakan ketika solusi eksak tidak tersedia, dalam arti kita tidak akan dapat menemukan nilai tunggal yang mencakup secara lengkap hubungan antara variabel respons dengan prediktornya. Sehingga disini kita mencoba memprediksi setepat mungkin variabel respons atau memprediksi dengan kesalahan terkecil.
+Analisis regresi digunakan ketika solusi eksak tidak tersedia, dalam arti kita tidak akan dapat menemukan nilai tunggal yang dapat mencakup secara lengkap hubungan antara variabel respons dengan prediktornya. Sehingga disini kita mencoba memprediksi setepat mungkin variabel respons atau memprediksi dengan kesalahan terkecil.
 
 Untuk mencapai tujuan ini, kita menganalisis pola-pola variabilitas pada variabel respons dan mencoba melihat apakah variabilitas ini dapat diprediksi dari variabilitas prediktornya.
 
@@ -16,7 +16,7 @@ $$y_i=\beta_0 + \beta_1x_i+ \epsilon_i,$$
 
 Regresi sederhana mengindikasikan hanya ada satu variabel prediktor x untuk menduga variabel respons y. Linier disini diartikan modelnya linier pada parameternya dalam hal ini $\beta_0$ dan $\beta_1$. Jadi model $y_i = \beta_0 + \beta_1{x_i}^2 + \epsilon_i$ adalah linier pada $\beta_0$ dan $\beta_1$, sementara model $y_i = \beta_0 + e^{\beta_ix_i} + \epsilon_i$ tidak linier.
 
-Misalkan kita memiliki pasangan-pasangan data sampel sebanyak n yang diambil secara acak dari populasi yang lebih besar (x~1~,y~1~), (x~2~,y~2~), ⋯, (x~n~,y~n~). Tujuan dari analisis regresi linier adalah menemukan model terbaik yaitu menemukan nilai $\beta_0$ and $\beta_1$ yang menghasilkan garis paling cocok dengan titik-titik data yang kita punyai. 
+Misalkan kita memiliki pasangan-pasangan data sampel sebanyak n yang diambil secara acak dari populasi yang lebih besar $(x_1,y_1), (x_2,y_2), ⋯, (x_n,y_n)$. Tujuan dari analisis regresi linier adalah menemukan model terbaik yaitu menemukan nilai $\beta_0$ and $\beta_1$ yang menghasilkan garis paling cocok dengan titik-titik data yang kita punyai. 
 
 Dengan kata lain tujuan dari analisis regresi adalah mengestimasi koefisien regresi untuk variabel prediktor sehingga didapatkan nilai dugaan variabel respons sedekat mungkin nilainya dengan nilai pengamatan aktualnya. 
 

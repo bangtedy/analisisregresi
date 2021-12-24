@@ -1,11 +1,10 @@
 fig:garis-regresi
 pendahuluan
 model-regresi-linier
-regresi-linier-berganda
 langkah-langkah-melakukan-analisis-regresi
 penggunaan-komputer
 regresi-linier-sederhana
 model-regresi-linier-sederhana
-regresi-linier-berganda-1
-uji-kecocokan-dan-ketepatan-model-regresi
+regresi-linier-berganda
+diagnostik-regresi-dan-tindakan-perbaikan
 model-regresi-linier-lanjutan

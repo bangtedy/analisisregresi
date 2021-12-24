@@ -24,7 +24,7 @@
 <meta name="author" content="Tedy Herlambang" />
 
 
-<meta name="date" content="2021-12-24" />
+<meta name="date" content="2021-12-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="pendahuluan.html"/>
-<link rel="next" href="regresi-linier-berganda-1.html"/>
+<link rel="next" href="regresi-linier-berganda.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -99,16 +99,15 @@ div.csl-indent {
 <li class="chapter" data-level="1" data-path="pendahuluan.html"><a href="pendahuluan.html"><i class="fa fa-check"></i><b>1</b> Pendahuluan</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="pendahuluan.html"><a href="pendahuluan.html#model-regresi-linier"><i class="fa fa-check"></i><b>1.1</b> Model Regresi Linier</a></li>
-<li class="chapter" data-level="1.2" data-path="pendahuluan.html"><a href="pendahuluan.html#regresi-linier-berganda"><i class="fa fa-check"></i><b>1.2</b> Regresi Linier Berganda</a></li>
-<li class="chapter" data-level="1.3" data-path="pendahuluan.html"><a href="pendahuluan.html#langkah-langkah-melakukan-analisis-regresi"><i class="fa fa-check"></i><b>1.3</b> Langkah-langkah Melakukan Analisis Regresi</a></li>
-<li class="chapter" data-level="1.4" data-path="pendahuluan.html"><a href="pendahuluan.html#penggunaan-komputer"><i class="fa fa-check"></i><b>1.4</b> Penggunaan Komputer</a></li>
+<li class="chapter" data-level="1.2" data-path="pendahuluan.html"><a href="pendahuluan.html#langkah-langkah-melakukan-analisis-regresi"><i class="fa fa-check"></i><b>1.2</b> Langkah-langkah Melakukan Analisis Regresi</a></li>
+<li class="chapter" data-level="1.3" data-path="pendahuluan.html"><a href="pendahuluan.html#penggunaan-komputer"><i class="fa fa-check"></i><b>1.3</b> Penggunaan Komputer</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="regresi-linier-sederhana.html"><a href="regresi-linier-sederhana.html"><i class="fa fa-check"></i><b>2</b> Regresi Linier Sederhana</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="regresi-linier-sederhana.html"><a href="regresi-linier-sederhana.html#model-regresi-linier-sederhana"><i class="fa fa-check"></i><b>2.1</b> Model Regresi Linier Sederhana</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="regresi-linier-berganda-1.html"><a href="regresi-linier-berganda-1.html"><i class="fa fa-check"></i><b>3</b> Regresi Linier Berganda</a></li>
-<li class="chapter" data-level="4" data-path="uji-kecocokan-dan-ketepatan-model-regresi.html"><a href="uji-kecocokan-dan-ketepatan-model-regresi.html"><i class="fa fa-check"></i><b>4</b> Uji Kecocokan dan Ketepatan Model Regresi</a></li>
+<li class="chapter" data-level="3" data-path="regresi-linier-berganda.html"><a href="regresi-linier-berganda.html"><i class="fa fa-check"></i><b>3</b> Regresi Linier Berganda</a></li>
+<li class="chapter" data-level="4" data-path="diagnostik-regresi-dan-tindakan-perbaikan.html"><a href="diagnostik-regresi-dan-tindakan-perbaikan.html"><i class="fa fa-check"></i><b>4</b> Diagnostik Regresi dan Tindakan Perbaikan</a></li>
 <li class="chapter" data-level="5" data-path="model-regresi-linier-lanjutan.html"><a href="model-regresi-linier-lanjutan.html"><i class="fa fa-check"></i><b>5</b> Model Regresi Linier Lanjutan</a></li>
 <li class="chapter" data-level="" data-path="referensi.html"><a href="referensi.html"><i class="fa fa-check"></i>Referensi</a></li>
 <li class="divider"></li>
@@ -134,15 +133,15 @@ div.csl-indent {
 <div id="regresi-linier-sederhana" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> Regresi Linier Sederhana</h1>
 <p>Bab ini akan membahas regresi linier sederhana. Istilah regresi sederhana tidak merujuk pada kenaifan penelitiannya tetapi merujuk pada model yang hanya terdiri dari satu variabel respons dan satu variabel prediktor.</p>
-<p>Situasi ini sering terjadi pada penelitian sains. Misalnya seorang peneliti ingin memprediksi laju reaksi kimia karena perubahan temperatur, atau ingin mengetahui hubungan antara perubahan diet dengan perubahan tingkat kolesterol pada seseorang. Jika dapat diasumsikan bahwa variabel-variabel ini terhubung secara linier, kita dapat menggunakan regresi linier sederhana untuk mengkuantifikasi hubungan ini.</p>
-<p>Analisis regresi digunakan ketika solusi eksak tidak tersedia, dalam arti kita tidak akan dapat menemukan nilai tunggal yang mencakup secara lengkap hubungan antara variabel respons dengan prediktornya. Sehingga disini kita mencoba memprediksi setepat mungkin variabel respons atau memprediksi dengan kesalahan terkecil.</p>
+<p>Situasi ini sering terjadi pada penelitian sains. Misalnya seorang peneliti ingin memprediksi laju reaksi kimia karena perubahan temperatur, atau ingin mengetahui hubungan antara perubahan diet dengan tingkat kolesterol pada seseorang. Jika dapat diasumsikan bahwa variabel-variabel ini terhubung secara linier, kita dapat menggunakan regresi linier sederhana untuk mengkuantifikasi hubungan ini.</p>
+<p>Analisis regresi digunakan ketika solusi eksak tidak tersedia, dalam arti kita tidak akan dapat menemukan nilai tunggal yang dapat mencakup secara lengkap hubungan antara variabel respons dengan prediktornya. Sehingga disini kita mencoba memprediksi setepat mungkin variabel respons atau memprediksi dengan kesalahan terkecil.</p>
 <p>Untuk mencapai tujuan ini, kita menganalisis pola-pola variabilitas pada variabel respons dan mencoba melihat apakah variabilitas ini dapat diprediksi dari variabilitas prediktornya.</p>
 <div id="model-regresi-linier-sederhana" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> Model Regresi Linier Sederhana</h2>
 <p>Model regresi linier sederhana dapat dituliskan sebagai berikut:</p>
 <p><span class="math display">\[y_i=\beta_0 + \beta_1x_i+ \epsilon_i,\]</span></p>
 <p>Regresi sederhana mengindikasikan hanya ada satu variabel prediktor x untuk menduga variabel respons y. Linier disini diartikan modelnya linier pada parameternya dalam hal ini <span class="math inline">\(\beta_0\)</span> dan <span class="math inline">\(\beta_1\)</span>. Jadi model <span class="math inline">\(y_i = \beta_0 + \beta_1{x_i}^2 + \epsilon_i\)</span> adalah linier pada <span class="math inline">\(\beta_0\)</span> dan <span class="math inline">\(\beta_1\)</span>, sementara model <span class="math inline">\(y_i = \beta_0 + e^{\beta_ix_i} + \epsilon_i\)</span> tidak linier.</p>
-<p>Misalkan kita memiliki pasangan-pasangan data sampel sebanyak n yang diambil secara acak dari populasi yang lebih besar (x<sub>1</sub>,y<sub>1</sub>), (x<sub>2</sub>,y<sub>2</sub>), ⋯, (x<sub>n</sub>,y<sub>n</sub>). Tujuan dari analisis regresi linier adalah menemukan model terbaik yaitu menemukan nilai <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> yang menghasilkan garis paling cocok dengan titik-titik data yang kita punyai.</p>
+<p>Misalkan kita memiliki pasangan-pasangan data sampel sebanyak n yang diambil secara acak dari populasi yang lebih besar <span class="math inline">\((x_1,y_1), (x_2,y_2), ⋯, (x_n,y_n)\)</span>. Tujuan dari analisis regresi linier adalah menemukan model terbaik yaitu menemukan nilai <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> yang menghasilkan garis paling cocok dengan titik-titik data yang kita punyai.</p>
 <p>Dengan kata lain tujuan dari analisis regresi adalah mengestimasi koefisien regresi untuk variabel prediktor sehingga didapatkan nilai dugaan variabel respons sedekat mungkin nilainya dengan nilai pengamatan aktualnya.</p>
 <p>Di dalam analisis regresi, model terbaik ditunjukkan oleh garis lurus yang menghubungkan rata-rata variabel prediktor dengan variabel respons sedemikian rupa sehingga jumlah kuadrat kesalahan antara titik-titik data pengamatan aktual <span class="math inline">\(y_i\)</span> dengan nilai dugaannya <span class="math inline">\(\hat y_i\)</span> minimal.</p>
 <p>Untuk memperoleh nilai dugaan <span class="math inline">\(\beta_0\)</span> dan <span class="math inline">\(\beta_1\)</span> yang paling cocok, kita menggunakan metode kuadrat terkecil (<em>method of least squares</em>). Dengan pendekatan kuadrat terkecil, kita mencari dugaan <span class="math inline">\(\beta_0\)</span> dan <span class="math inline">\(\beta_1\)</span> yang meminimalkan jumlah kuadrat residu <span class="math inline">\(y_i-\hat y_i\)</span>.</p>
@@ -156,7 +155,7 @@ div.csl-indent {
         </div>
       </div>
 <a href="pendahuluan.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="regresi-linier-berganda-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="regresi-linier-berganda.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

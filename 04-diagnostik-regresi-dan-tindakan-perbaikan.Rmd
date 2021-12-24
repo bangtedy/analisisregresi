@@ -1,4 +1,4 @@
-# Uji Kecocokan dan Ketepatan Model Regresi
+# Diagnostik Regresi dan Tindakan Perbaikan
 
 
 

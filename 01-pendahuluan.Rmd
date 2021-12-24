@@ -22,12 +22,13 @@ memuaskan dengan mempertimbangkan kepraktisan, biaya dan waktu yang
 tersedia.
 
 Subjek investigasi atau percobaan kita dapat berupa hal-hal yang berada
-di dalam atau di luar diri kita, yang kasatmata atau tidak. Astronomi
+di dalam atau di luar diri kita, yang kasatmata atau tidak. Aerobiologi
+mempelajari partikel=partikel organik (bakteri, spora jamur, polen,
+serangga-serangga kecil) yang secara pasif terbawa oleh udara. Astronomi
 mempelajari benda langit dan fenomena-fenomena alam yang terjadi di luar
 atmosfer bumi. Dengan Ilmu Ekonomi kita mempelajari kegiatan produksi,
 alokasi dan distribusi barang dan jasa. Psikologi mempelajari alam
-pikiran manusia. Geologi mempelajari bentuk dan komposisi bumi. Mikologi
-mempelajari jamur.
+pikiran manusia. Geologi mempelajari bentuk dan komposisi bumi.
 
 Analisis regresi tidak mempelajari suatu subjek secara langsung tetapi
 sebagai alat analisis yang dipakai di sebuah bidang ilmu. Kegunaannya
@@ -46,32 +47,35 @@ juga karena seberapapun hati-hati kita melakukan observasi atau
 mendesain sebuah percobaan, data yang diperoleh akan selalu mengandung
 unsur 'gangguan' (*noise*).
 
-Menurut [@frees2010] dan [@agresti2015], analisis regresi adalah salah
-satu teknik statistik yang paling luas dipakai. Penerapannya meliputi
-hampir semua bidang ilmu: bisnis, ekonomi, teknik, ilmu-ilmu sosial,
-biologi dan kesehatan. Pada beberapa proyek penelitian analisis regresi
-bahkan seringkali menjadi alat analisis utamanya. Keberhasilan penerapan
-model regresi linier memerlukan pemahaman baik teori yang mendasarinya
-maupun persoalan-persoalan praktis yang sering terjadi di dalam
-penggunaan alat analisis ini dalam situasi-situasi riil.
+Menurut [@agresti2015], [@frees2010] dan [@lee2013] analisis regresi
+adalah salah satu teknik statistik yang paling luas dipakai.
+Penerapannya meliputi hampir semua bidang ilmu: bisnis, ekonomi, teknik,
+ilmu-ilmu sosial, biologi dan kesehatan. Pada beberapa proyek penelitian
+analisis regresi bahkan seringkali menjadi alat analisis utamanya.
+Keberhasilan penerapan model regresi linier memerlukan pemahaman baik
+teori yang mendasarinya maupun persoalan-persoalan praktis yang sering
+terjadi di dalam penggunaan alat analisis ini dalam situasi-situasi
+riil.
 
 ## Model Regresi Linier
 
-Analisis regresi menginvestigasi dan mengeksplorasi hubungan antara dua
-variabel atau lebih. Model regresi linier atau biasa disebut analisis
-regresi [@faraway2015] digunakan untuk menjelaskan atau memodelkan
-hubungan antara satu variabel respons $y$ dan satu atau lebih variabel
-prediktor $x_1, x_2, ... , x_p$, dimana p adalah jumlah prediktornya.
-Jika p=1, modelnya disebut regresi sederhana. Tetapi jika p>1, disebut
-regresi berganda.
+Model di dalam analisis regresi merujuk pada ekspresi matematik yang
+menjelaskan perilaku-perilaku dari variabel-variabel yang menjadi
+perhatian. Model regresi linier atau biasa disebut analisis regresi
+[@faraway2015b] digunakan untuk menjelaskan atau memodelkan hubungan
+antara satu variabel respons $y$ dan satu atau lebih variabel prediktor
+$x_1, x_2, ... , x_p$, dimana p adalah jumlah prediktor. Jika $p=1$,
+modelnya disebut regresi sederhana. Tetapi jika $p>1$, disebut regresi
+berganda.
 
 Dalam analisis regresi, kita tertarik untuk menggunakan pengetahuan
-tentang hubungan ini untuk memprediksi variabel y melalui variabel x.
-Karena hubungan inilah maka y disebut variabel yang dijelaskan (respons)
-dan x disebut variabel penjelas (prediktor/eksplanatori). Jika
-memungkinkan, di dalam analisis regresi kita mungkin juga ingin
-menyimpulkan apakah terdapat hubungan sebab-akibat: mengetahui pengaruh
-dari variabel prediktor terhadap variabel respons.
+tentang hubungan ini untuk memprediksi variabel $y$ melalui variabel
+$x$. Karena hubungan inilah maka $y$ disebut variabel yang dijelaskan
+(respons/dependen) dan $x$ disebut variabel penjelas
+(prediktor/eksplanatori/independen). Jika memungkinkan, di dalam
+analisis regresi kita mungkin juga ingin menyimpulkan apakah terdapat
+hubungan sebab-akibat: mengetahui pengaruh dari variabel prediktor
+terhadap variabel respons.
 
 Beberapa contohnya misalnya:
 
@@ -83,33 +87,57 @@ Beberapa contohnya misalnya:
     terakhir yang ditamatkannya (x).
 3.  Kinerja karyawan dapat diprediksi dengan menggunakan hubungan antara
     kinerja (y) dan hasil tes aptitutenya (x).
-4.  Apakah terdapat hubungan antara tingkat kelahiran penduduk suatu negara dengan
-    tingkat pendapatan perkapitanya? Jika diperhatikan negara-negara
-    dengan tingkat pendapatan per kapita tinggi (x), tingkat pertumbuhan
-    penduduknya rendah (y), dan sebaliknya.
+4.  Apakah terdapat hubungan antara tingkat kelahiran penduduk suatu
+    negara dengan tingkat pendapatan perkapitanya? Jika diperhatikan
+    negara-negara dengan tingkat pendapatan per kapita tinggi (x),
+    tingkat pertumbuhan penduduknya rendah (y), dan sebaliknya.
 5.  Jumlah kosakata seorang anak dapat diprediksi dengan menggunakan
     pengetahuan hubungan antara jumlah kosa kata (y), usia anak (x~1~)
     dan tingkat pendidikan orang tua si anak (x~2~).
+6.  Hubungan antara desain pekerjaan (x) dengan perilaku karyawan di
+    sebuah perusahaan (y). Tujuan perusahaan adalah mendesain dan
+    mengatur aktivitias karyawan agar dapat berinteraksi secara efektif
+    sehingga menghasilkan perilaku positif dan komitmen yang tinggi
+    terhadap pekerjaannya. Walaupun inti investigasi ini adalah analisis
+    regresi, tetapi di dalam contoh ini, kita berhubungan dengan
+    konsep-konsep abstrak/konstruk-konstruk yang memerlukan alat
+    analisis sendiri seperti [analisis
+    faktor](https:bangtedy.github.io/analisisfaktor). Topik ini diluar
+    cakupan dari buku ini.
 
-Misalkan kita ambil contoh no 2 diatas yaitu kaitan antara tingkat pendapatan seseorang dengan tingkat pendidikannya. Secara akal, banyak faktor yang mempengaruhi pendapatan seseorang. Hipotesis kita semakin tinggi tingkat pendidikan seseorang akan semakin tinggi pula tingkat pendapatannya. Jadi terdapat hubungan positif antara pendapatan
-dengan pendidikan.
+Misalkan kita ambil contoh no 2 diatas yaitu kaitan antara tingkat
+pendapatan seseorang dengan tingkat pendidikannya. Secara akal, banyak
+faktor yang mempengaruhi pendapatan seseorang. Hipotesis kita semakin
+tinggi tingkat pendidikan seseorang akan semakin tinggi pula tingkat
+pendapatannya. Jadi terdapat hubungan positif antara pendapatan dengan
+pendidikan.
 
-Sehingga dalam kasus ini, kita memodelkan hubungan antara pendapatan dan pendidikan sebagai berikut:
+Sehingga dalam kasus ini, kita memodelkan hubungan antara pendapatan dan
+pendidikan sebagai berikut:
 
-1.  Tingkat pendapatan sebagai rata-rata pendapatan seseorang dalam satu tahun (y).
+1.  Tingkat pendapatan sebagai rata-rata pendapatan seseorang dalam satu
+    tahun (y).
 2.  Tingkat pendidikan terakhir yang ditamatkan oleh seseorang (x).
 
-Selanjutnya kita mengambil secara acak dari populasi, data sampel x dan y sebanyak n individu:
+Selanjutnya kita mengambil sampel secara acak dari populasi,
+pasangan-pasangan data x dan y sebanyak n
+$(x_1, y_1), (x_2, y_2), ... (x_n,y_n)$ atau kita tuliskan:
 
 $$ (x_i,y_i), \quad\ untuk \quad\ i=1,2,⋯,n $$
 
-dimana $y_i$ adalah rata-rata pendapatan orang ke-i dalam satu tahun, dan $x_i$ adalah tingkat pendapatan orang ke-i tersebut.
+dimana $y_i$ adalah rata-rata pendapatan orang ke-i dalam satu tahun,
+dan $x_i$ adalah tingkat pendapatan orang ke-i tersebut.
 
-Ketika kita mencoba menjelaskan variabel y dengan menggunakan variabel x ini, kita menggunakan hubungan statistik: sebuah hubungan yang tidak eksak. Jika data yang telah kita kumpulkan, dibuatkan visualisasi diagram pencarnya, kira-kira kita akan mendapatkan seperti Gambar 1.1. Gambar ini secara jelas menunjukkan terdapat hubungan positif antara
-pendapatan dengan tingkat pendidikan: semakin tinggi pendidikan seseorang semakin tinggi juga tingkat pendapatannya.
+Ketika kita mencoba menjelaskan variabel $y$ dengan menggunakan variabel
+$x$ ini, kita menggunakan hubungan statistik: sebuah hubungan yang tidak
+eksak. Jika data yang telah kita kumpulkan, dibuatkan visualisasi
+diagram pencarnya, kurang lebih kita akan mendapatkan seperti Gambar
+1.1. Gambar ini secara jelas menunjukkan terdapat hubungan positif
+antara pendapatan dengan tingkat pendidikan: semakin tinggi pendidikan
+seseorang semakin tinggi juga tingkat pendapatannya.
 
 ```{r garis-regresi, echo=FALSE, fig.cap="Garis Persamaan Regresi Linier Sederhana"}
-set.seed(11111)
+set.seed(11111) # gunakan seed yang sama jika ingin mendapatkan hasil yang sama
 x = runif(31,0,10)
 x[28] = 8.5
 y = 10 + 2*x + rnorm(31)*3
@@ -124,10 +152,18 @@ segments(x, y, x, 10+2*x, lty=3)
 
 ```
 
-Tetapi visualisasi diagram pencar ini juga menunjukkan adanya ketidaksempurnaan hubungan. Tampak bahwa data sampel kita tidak seluruhnya tepat berada pada garis regresi. Titik-titik pengamatan ada yang tepat digaris ada juga yang di atas atau di bawah garis regresi. Hal ini menunjukkan bahwa ada variasi pendapatan yang tidak berhubungan dengan tingkat pendidikan. Artinya ada faktor lain selain pendidikan
-yang juga mempengaruhi tingkat pendapatan seseorang.
+Tetapi visualisasi diagram pencar ini juga menunjukkan adanya
+ketidaksempurnaan hubungan antara pendapatan dengan pendidikan. Tampak
+bahwa data sampel kita tidak seluruhnya tepat berada pada garis regresi.
+Titik-titik pengamatan ada yang tepat digaris, ada juga yang di atas
+atau di bawah garis regresi. Hal ini menunjukkan bahwa ada variasi
+pendapatan yang tidak berhubungan dengan tingkat pendidikan. Artinya ada
+faktor lain selain pendidikan yang juga mempengaruhi tingkat pendapatan
+seseorang.
 
-Bagaimana kita akan memodelkan faktor selain pendidikan yang juga mempengaruhi pendapatan seseorang? Misalkan hubungan y dan x kita modelkan dengan sebuah persamaan garis linier:
+Bagaimana kita akan memodelkan faktor selain pendidikan yang juga
+mempengaruhi pendapatan seseorang? Misalkan hubungan y dan x kita
+modelkan dengan sebuah persamaan garis linier:
 
 $$ y_i= \beta_0 + \beta_1x_i $$
 
@@ -156,7 +192,7 @@ memiliki ketepatan seperti halnya fungsi matematika.
 
 Di dalam konteks ini *error* bukan berarti kesalahan, melainkan istilah
 statistik yang mewakili fluktuasi acak, kesalahan pengukuran, atau
-dampak dari faktor-faktor diluar kendali peneliti [@faraway2016]. Jadi
+dampak dari faktor-faktor diluar kendali peneliti [@faraway2016a]. Jadi
 $\epsilon$ ini mewakili ketidakmampuan model untuk menjelaskan variasi
 yang terjadi pada variabel respons.
 
@@ -169,9 +205,9 @@ diprediksi.
 Mayoritas analisis regresi yang baku menggunakan model regresi linier,
 yaitu mengasumsikan bahwa variabel respons dapat dituliskan sebagai
 kombinasi linier dari variabel-variabel prediktornya. Beberapa alasan
-mengapa model linier ini paling umum dipakai adalah: (1) model linier
-mudah dipahami; (2) beberapa model-model regresi lain, bisa didekati
-dengan pendekatan linier.
+mengapa model linier ini paling umum dipakai adalah [@rawlings1998]: (1)
+model linier mudah dipahami; (2) beberapa model nonlinier secara
+instrinsik linier, sehingga bisa didekati dengan pendekatan linier.
 
 Linieritas di dalam analisis regresi adalah sebuah asumsi yang harus
 kita uji. Begitu juga dengan asumsi-asumsi yang lain. Dengan menggunakan
@@ -180,22 +216,41 @@ kemudian menduga $\beta_0$ dan $\beta_1$ dan membuat kesimpulan tentang
 selang kepercayaan dan menguji hipotesis untuk $\beta_0$ dan $\beta_1$.
 
 Tujuan utama kita dalam analisis regresi adalah mendapatkan nilai dugaan
-$\hat \beta_0$ dan $\hat \beta_1$ terbaik yang menghasilkan jumlah kesalahan kuadrat terkecil. Dengan kata lain kita ingin menarik garis dalam bidang x−y yang paling pas dengan persebaran titik-titik data sampel yang telah kita kumpulkan. Garis ini disebut sebagai garis regresi $\hat y_i = \hat \beta_0 + \hat \beta_1x_i$ yang menunjukkan nilai
-dugaan y (disimbolkan dengan y tudung $\hat y$) untuk pengamatan ke-i di dalam sampel.
+$\hat \beta_0$ dan $\hat \beta_1$ terbaik yang menghasilkan jumlah
+kesalahan kuadrat terkecil. Dengan kata lain kita ingin menarik garis
+dalam bidang x−y yang paling pas dengan persebaran titik-titik data
+sampel yang telah kita kumpulkan. Garis ini disebut sebagai garis
+regresi $\hat y_i = \hat \beta_0 + \hat \beta_1x_i$ yang menunjukkan
+nilai dugaan y (disimbolkan dengan y tudung $\hat y$) untuk pengamatan
+ke-i di dalam sampel.
 
-Sebuah model regresi linier yang sudah dikalibrasi paling pas dengan data sampel (*best fit*), dapat digunakan untuk menjelaskan hubungan atau membuat prediksi dengan mencermati perbedaan (arah) dan intensitas perubahan (magnitud) dari variabel y pada nilai variabel x tertentu.
+Sebuah model regresi linier yang sudah dikalibrasi paling pas dengan
+data sampel (*best fit*), dapat digunakan untuk menjelaskan hubungan
+atau membuat prediksi dengan mencermati perbedaan (arah) dan intensitas
+perubahan (magnitud) dari variabel y pada nilai variabel x tertentu.
 
-Analisis regresi menawarkan pendekatan yang masuk akal dengan mengenali pola-pola hubungan antar variabel: arah dan besar perubahan pada variabel respons dengan arah dan besar perubahan pada variabel prediktor dari model yang valid.
+Analisis regresi menawarkan pendekatan yang masuk akal dengan mengenali
+pola-pola hubungan antar variabel: arah dan besar perubahan pada
+variabel respons dengan arah dan besar perubahan pada variabel prediktor
+dari model yang valid.
 
-Persamaan regresi yang memodelkan hubungan statistik antar variabel terdiri dari dua komponen: komponen deterministik atau komponen fungsional yaitu $\beta_0 + \beta_1$ dan komponen stokastik/acak yaitu $\epsilon$. Kombinasi kedua komponen ini menjadikan persamaan regresi sebagai model yang tidak eksak. Kita hanya mengasumsikan bahwa di dalam cakupan variabel yang dianalisis, terdapat tendensi variabel respons y untuk bervariasi secara sistematis dengan variabel prediktor x.
+Persamaan regresi yang memodelkan hubungan statistik antar variabel
+terdiri dari dua komponen: komponen deterministik atau komponen
+fungsional yaitu $\beta_0 + \beta_1$ dan komponen stokastik/acak yaitu
+$\epsilon$. Kombinasi kedua komponen ini menjadikan persamaan regresi
+sebagai model yang tidak eksak. Kita hanya mengasumsikan bahwa di dalam
+cakupan variabel yang dianalisis, terdapat tendensi variabel respons y
+untuk bervariasi secara sistematis dengan variabel prediktor x.
 
-## Regresi Linier Berganda
-
-Dalam banyak hal, variabel respons yang kita analisis berhubungan dengan lebih dari satu variabel prediktor, sebutlah sebanyak p, $x_{i1}, x_{i2}, ... , x_{ip}$, sehingga persamaannya menjadi:
+Dalam banyak hal, variabel respons yang kita analisis berhubungan dengan
+lebih dari satu variabel prediktor, sebutlah sebanyak p,
+$x_{i1}, x_{i2}, ... , x_{ip}$, sehingga persamaannya menjadi:
 
 $$y_i = \beta_0 + \beta_1x_{i1} + \beta_2x_{i2} + ... + \beta_px_{ip} + \epsilon_i$$
 
-Model ini disebut sebagai model regresi linier berganda. Disebut berganda karena melibatkan lebih dari satu variabel prediktor.Contoh-contohnya:
+Model ini disebut sebagai model regresi linier berganda. Disebut
+berganda karena melibatkan lebih dari satu variabel
+prediktor.Contoh-contohnya:
 
 1.  Seorang mahasiswa ingin menduga koefisien-koefisien dari sebuah
     model yang menghubungkan bobot tanaman vaskular-tanaman yang
@@ -213,12 +268,18 @@ Model ini disebut sebagai model regresi linier berganda. Disebut berganda karena
     usia, berat dan tinggi badan, jenis kelamin dan gaya hidup pekerja.
 3.  Seorang analis ingin mengetahui tingkat kepuasan karyawan sebuah
     perusahaan terhadap pekerjaannya. Skor total kepuasan kerja karyawan
-    dihitung dari penjumlahan skor 20 pertanyaan dengan menggunakan 5
-    poin skala likert. Sedangkan prediktornya digunakan variabel
+    dihitung dari penjumlahan skor-skor 20 pertanyaan dengan menggunakan
+    5 poin skala likert. Sedangkan prediktornya digunakan variabel
     demografi meliputi usia, jenis kelamin dan pendidikan terakhir
     karyawan.
+4.  Di dalam teori konsumen, preferensi seorang konsumen terhadap suatu
+    produk dipengaruhi oleh pengetahuan konsumen terhadap produk,
+    emosi,*word of mouth*, faktor-faktor personal dan lingkungan.
 
-Dalam kasus ini kita perlu mengambil data sampel variabel respons $y$ dan variabel-variabel prediktor terkait sebanyak $p$ buah $(x_{i1}, x_{i2}, ... ,x_{ip}, y_i)$, dengan jumlah sampel $n$ dan $i= 1,2,...,n$.
+Dalam kasus-kasus ini kita perlu mengambil data sampel variabel respons
+$y$ dan variabel-variabel prediktor $x$ terkait sebanyak $p$ buah
+$(x_{i1}, x_{i2}, ... ,x_{ip}, y_i)$, dengan jumlah sampel $n$ dan
+$i= 1,2,...,n$.
 
 ## Langkah-langkah Melakukan Analisis Regresi
 
