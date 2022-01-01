@@ -1,6 +1,11 @@
+tab:tabel-penyebutan-variabel
+tab:tabel-pjm
+fig:diagram-pencar
 fig:garis-regresi
 pendahuluan
 model-regresi-linier
+asumsi-asumsi-model-linier
+uji-signifikansi
 langkah-langkah-melakukan-analisis-regresi
 penggunaan-komputer
 regresi-linier-sederhana

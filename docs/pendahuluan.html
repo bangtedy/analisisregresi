@@ -24,7 +24,7 @@
 <meta name="author" content="Tedy Herlambang" />
 
 
-<meta name="date" content="2021-12-25" />
+<meta name="date" content="2022-01-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -53,6 +53,10 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
 
 
 
@@ -99,8 +103,10 @@ div.csl-indent {
 <li class="chapter" data-level="1" data-path="pendahuluan.html"><a href="pendahuluan.html"><i class="fa fa-check"></i><b>1</b> Pendahuluan</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="pendahuluan.html"><a href="pendahuluan.html#model-regresi-linier"><i class="fa fa-check"></i><b>1.1</b> Model Regresi Linier</a></li>
-<li class="chapter" data-level="1.2" data-path="pendahuluan.html"><a href="pendahuluan.html#langkah-langkah-melakukan-analisis-regresi"><i class="fa fa-check"></i><b>1.2</b> Langkah-langkah Melakukan Analisis Regresi</a></li>
-<li class="chapter" data-level="1.3" data-path="pendahuluan.html"><a href="pendahuluan.html#penggunaan-komputer"><i class="fa fa-check"></i><b>1.3</b> Penggunaan Komputer</a></li>
+<li class="chapter" data-level="1.2" data-path="pendahuluan.html"><a href="pendahuluan.html#asumsi-asumsi-model-linier"><i class="fa fa-check"></i><b>1.2</b> Asumsi-Asumsi Model Linier</a></li>
+<li class="chapter" data-level="1.3" data-path="pendahuluan.html"><a href="pendahuluan.html#uji-signifikansi"><i class="fa fa-check"></i><b>1.3</b> Uji Signifikansi</a></li>
+<li class="chapter" data-level="1.4" data-path="pendahuluan.html"><a href="pendahuluan.html#langkah-langkah-melakukan-analisis-regresi"><i class="fa fa-check"></i><b>1.4</b> Langkah-langkah Melakukan Analisis Regresi</a></li>
+<li class="chapter" data-level="1.5" data-path="pendahuluan.html"><a href="pendahuluan.html#penggunaan-komputer"><i class="fa fa-check"></i><b>1.5</b> Penggunaan Komputer</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="regresi-linier-sederhana.html"><a href="regresi-linier-sederhana.html"><i class="fa fa-check"></i><b>2</b> Regresi Linier Sederhana</a>
 <ul>
@@ -135,29 +141,17 @@ div.csl-indent {
 <p>Sebagai praktisi atau akademisi, terkadang kita tertarik untuk
 meningkatkan pemahaman atas sesuatu dengan menginvestigasinya. Tertulis
 atau hanya tercatat di dalam pikiran, di dalam proses investigasi ini,
-kita menyusun hipotesis-hipotesis yang ingin kita buktikan kebenarannya.
-Untuk sampai pada kesimpulan menolak atau menerima hipotesis-hipotesis
+kita menyusun hipotesis-hipotesis yang ingin kita buktikan kebenarannya.</p>
+<p>Untuk sampai pada kesimpulan menolak atau menerima hipotesis-hipotesis
 ini, kita merancang investigasinya, mengumpulkan data/bukti-bukti
-kemudian menganalisisnya.</p>
-<p>Hasil analisis dapat menyediakan bukti-bukti statistik yang mendukung
-atau menolak hipotesis yang telah kita buat. Proses investigasi ini
-biasanya iteratif, tidak sekali luncur langsung selesai. Dalam beberapa
-hal, investigasi harus kita ulang lagi sampai didapatkan hasil yang
-memuaskan dengan mempertimbangkan kepraktisan, biaya dan waktu yang
-tersedia.</p>
-<p>Subjek investigasi atau percobaan kita dapat berupa hal-hal yang berada
-di dalam atau di luar diri kita, yang kasatmata atau tidak. Aerobiologi
-mempelajari partikel=partikel organik (bakteri, spora jamur, polen,
-serangga-serangga kecil) yang secara pasif terbawa oleh udara. Astronomi
-mempelajari benda langit dan fenomena-fenomena alam yang terjadi di luar
-atmosfer bumi. Dengan Ilmu Ekonomi kita mempelajari kegiatan produksi,
-alokasi dan distribusi barang dan jasa. Psikologi mempelajari alam
-pikiran manusia. Geologi mempelajari bentuk dan komposisi bumi.</p>
+kemudian menganalisisnya. Di dalam analisis data, seorang investigator berhadapan dengan data yang berasal dari suatu populasi. Hasil analisis dapat menyediakan bukti-bukti statistik yang mendukung atau menolak hipotesis yang telah kita buat.</p>
+<p>Proses investigasi ini biasanya iteratif, tidak sekali luncur langsung selesai. Dalam beberapa hal, investigasi harus kita ulang lagi sampai didapatkan sebuah model statistik yang memuaskan dengan mempertimbangkan kepraktisan, biaya dan waktu yang tersedia. Model statistik ini menampilkan karakteristik-karakteristik penting dari populasi dimana data yang dianalisis berasal.</p>
+<p>Subjek investigasi atau percobaan kita dapat berupa hal-hal yang berada di dalam atau di luar diri kita, yang kasatmata atau tidak. Aerobiologi mempelajari partikel-partikel organik (bakteri, spora jamur, polen, serangga-serangga kecil) yang terbawa udara secara pasif. Astronomi mempelajari benda langit dan fenomena-fenomena alam yang terjadi di luar atmosfer bumi. Ilmu Ekonomi mempelajari kegiatan produksi, alokasi dan distribusi barang dan jasa. Psikologi mempelajari alam pikiran manusia. Geologi mempelajari bentuk dan komposisi bumi.</p>
 <p>Analisis regresi tidak mempelajari suatu subjek secara langsung tetapi
 sebagai alat analisis yang dipakai di sebuah bidang ilmu. Kegunaannya
 tidak langsung tetapi melalui bantuan yang diberikan ke bidang ilmu
 lain.</p>
-<p>Kegunaan analisis regresi sangat besar, sebab hampir semua cabang ilmu
+<p>Analisis regresi sangat berguna, sebab hampir semua cabang ilmu
 pengetahuan harus berhubungan dengan data yang tidak sempurna.
 Ketidaksempurnaan data ini mungkin terjadi karena kita hanya dapat
 mengamati dan mencatat sebagian saja dari apa yang relevan dengan subjek
@@ -183,140 +177,397 @@ menjelaskan perilaku-perilaku dari variabel-variabel yang menjadi
 perhatian. Model regresi linier atau biasa disebut analisis regresi
 <span class="citation">(<a href="#ref-faraway2015b" role="doc-biblioref">Faraway 2015</a>)</span> digunakan untuk menjelaskan atau memodelkan hubungan
 antara satu variabel respons <span class="math inline">\(y\)</span> dan satu atau lebih variabel prediktor
-<span class="math inline">\(x_1, x_2, ... , x_p\)</span>, dimana p adalah jumlah prediktor. Jika <span class="math inline">\(p=1\)</span>,
-modelnya disebut regresi sederhana. Tetapi jika <span class="math inline">\(p&gt;1\)</span>, disebut regresi
-berganda.</p>
-<p>Dalam analisis regresi, kita tertarik untuk menggunakan pengetahuan
+<span class="math inline">\(x_1, x_2, ... , x_p\)</span>, dimana p adalah jumlah prediktor. Secara hhususnya, analisis regresi adalah upaya untuk menjelaskan pergerakan sebuah variabel respons dengan merujuk pada pergerakan satu atau lebih variabel eksplanatori. Jika <span class="math inline">\(p=1\)</span>, modelnya disebut regresi sederhana. Tetapi jika <span class="math inline">\(p&gt;1\)</span>, disebut regresi berganda.</p>
+<p>Dalam analisis regresi, kita dapat menggunakan pengetahuan
 tentang hubungan ini untuk memprediksi variabel <span class="math inline">\(y\)</span> melalui variabel
 <span class="math inline">\(x\)</span>. Karena hubungan inilah maka <span class="math inline">\(y\)</span> disebut variabel yang dijelaskan
 (respons/dependen) dan <span class="math inline">\(x\)</span> disebut variabel penjelas
-(prediktor/eksplanatori/independen). Jika memungkinkan, di dalam
-analisis regresi kita mungkin juga ingin menyimpulkan apakah terdapat
-hubungan sebab-akibat: mengetahui pengaruh dari variabel prediktor
-terhadap variabel respons.</p>
+(prediktor/eksplanatori/independen).</p>
+<p>Beberapa penyebutan untuk variabel x dan y ditunjukkan pada Tabel 1.1. Di dalam ekonometrika seringkali digunakan istilah variabel dependen dan variabel independen. Di bidang ilmu yang berhubungan dengan eksperimen biasanya digunakan istilah variabel respons dan variabel kontrol karena variabel x berada dibawah kendali peneliti. Dibuku ini penyebutan-penyebutan itu akan digunakan secara bebas.</p>
+<table class=" lightable-paper lightable-hover" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:tabel-penyebutan-variabel">Tabel 1.1: </span>Beberapa Penyebutan Variabel dalam Analisis Regresi
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Variabel y
+</th>
+<th style="text-align:left;">
+Variabel x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Dependent variable
+</td>
+<td style="text-align:left;">
+Independent variable
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Endogenous variable
+</td>
+<td style="text-align:left;">
+Exogenous variable
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Response
+</td>
+<td style="text-align:left;">
+Treatment/Control
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Regressand
+</td>
+<td style="text-align:left;">
+Regressor
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Left-hand-side variable
+</td>
+<td style="text-align:left;">
+Right-hand-side variable
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Predicted variable
+</td>
+<td style="text-align:left;">
+Predictor variable
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Output
+</td>
+<td style="text-align:left;">
+Input
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Explained
+</td>
+<td style="text-align:left;">
+Explanatory
+</td>
+</tr>
+</tbody>
+</table>
+<p>Jika memungkinkan, di dalam analisis regresi kita juga ingin menyimpulkan apakah terdapat hubungan sebab-akibat: mengetahui pengaruh dari variabel prediktor terhadap variabel respons.</p>
 <p>Beberapa contohnya misalnya:</p>
 <ol style="list-style-type: decimal">
 <li>Hubungan antara ukuran kelas/jumlah siswa per kelas dengan rata-rata
-nilai pelajaran Bahasa Daerah di sebuah SMA. Disini y adalah
-rata-rata nilai pelajaran Bahasa Daerah dan x adalah jumlah siswa
+nilai pelajaran Bahasa Daerah di sebuah SMA. Disini <span class="math inline">\(y\)</span> adalah
+rata-rata nilai pelajaran Bahasa Daerah dan <span class="math inline">\(x\)</span> adalah jumlah siswa
 per kelas.</li>
-<li>Hubungan antara tingkat pendapatan seseorang (y) dengan pendidikan
-terakhir yang ditamatkannya (x).</li>
+<li>Hubungan antara tingkat pendapatan seseorang (<span class="math inline">\(y\)</span>) dengan pendidikan
+terakhir yang ditamatkannya (<span class="math inline">\(x\)</span>).</li>
 <li>Kinerja karyawan dapat diprediksi dengan menggunakan hubungan antara
-kinerja (y) dan hasil tes aptitutenya (x).</li>
+kinerja (<span class="math inline">\(y\)</span>) dan hasil tes aptitutenya (<span class="math inline">\(x\)</span>).</li>
 <li>Apakah terdapat hubungan antara tingkat kelahiran penduduk suatu
 negara dengan tingkat pendapatan perkapitanya? Jika diperhatikan
-negara-negara dengan tingkat pendapatan per kapita tinggi (x),
-tingkat pertumbuhan penduduknya rendah (y), dan sebaliknya.</li>
+negara-negara dengan tingkat pendapatan per kapita tinggi (<span class="math inline">\(x\)</span>),
+tingkat pertumbuhan penduduknya rendah (<span class="math inline">\(y\)</span>), dan sebaliknya.</li>
 <li>Jumlah kosakata seorang anak dapat diprediksi dengan menggunakan
-pengetahuan hubungan antara jumlah kosa kata (y), usia anak (x<sub>1</sub>)
-dan tingkat pendidikan orang tua si anak (x<sub>2</sub>).</li>
-<li>Hubungan antara desain pekerjaan (x) dengan perilaku karyawan di
-sebuah perusahaan (y). Tujuan perusahaan adalah mendesain dan
+pengetahuan hubungan antara jumlah kosa kata (<span class="math inline">\(y\)</span>), usia anak (<span class="math inline">\(x_1\)</span>)
+dan tingkat pendidikan orang tua si anak (<span class="math inline">\(x_2\)</span>).</li>
+<li>Hubungan antara desain pekerjaan (<span class="math inline">\(x\)</span>) dengan perilaku karyawan di
+sebuah perusahaan (<span class="math inline">\(y\)</span>). Tujuan perusahaan adalah mendesain dan
 mengatur aktivitias karyawan agar dapat berinteraksi secara efektif
 sehingga menghasilkan perilaku positif dan komitmen yang tinggi
 terhadap pekerjaannya. Walaupun inti investigasi ini adalah analisis
 regresi, tetapi di dalam contoh ini, kita berhubungan dengan
 konsep-konsep abstrak/konstruk-konstruk yang memerlukan alat
-analisis sendiri seperti <a href="https:bangtedy.github.io/analisisfaktor">analisis
-faktor</a>. Topik ini diluar
-cakupan dari buku ini.</li>
+analisis sendiri seperti analisis faktor. Topik ini dibahas di buku saya yang lain tentang <a href="https:bangtedy.github.io/analisisfaktor">analisis faktor</a>.</li>
 </ol>
-<p>Misalkan kita ambil contoh no 2 diatas yaitu kaitan antara tingkat
-pendapatan seseorang dengan tingkat pendidikannya. Secara akal, banyak
-faktor yang mempengaruhi pendapatan seseorang. Hipotesis kita semakin
-tinggi tingkat pendidikan seseorang akan semakin tinggi pula tingkat
-pendapatannya. Jadi terdapat hubungan positif antara pendapatan dengan
-pendidikan.</p>
-<p>Sehingga dalam kasus ini, kita memodelkan hubungan antara pendapatan dan
-pendidikan sebagai berikut:</p>
-<ol style="list-style-type: decimal">
-<li>Tingkat pendapatan sebagai rata-rata pendapatan seseorang dalam satu
-tahun (y).</li>
-<li>Tingkat pendidikan terakhir yang ditamatkan oleh seseorang (x).</li>
-</ol>
-<p>Selanjutnya kita mengambil sampel secara acak dari populasi,
-pasangan-pasangan data x dan y sebanyak n
-<span class="math inline">\((x_1, y_1), (x_2, y_2), ... (x_n,y_n)\)</span> atau kita tuliskan:</p>
-<p><span class="math display">\[ (x_i,y_i), \quad\ untuk \quad\ i=1,2,⋯,n \]</span></p>
-<p>dimana <span class="math inline">\(y_i\)</span> adalah rata-rata pendapatan orang ke-i dalam satu tahun,
-dan <span class="math inline">\(x_i\)</span> adalah tingkat pendapatan orang ke-i tersebut.</p>
-<p>Ketika kita mencoba menjelaskan variabel <span class="math inline">\(y\)</span> dengan menggunakan variabel
-<span class="math inline">\(x\)</span> ini, kita menggunakan hubungan statistik: sebuah hubungan yang tidak
-eksak. Jika data yang telah kita kumpulkan, dibuatkan visualisasi
-diagram pencarnya, kurang lebih kita akan mendapatkan seperti Gambar
-1.1. Gambar ini secara jelas menunjukkan terdapat hubungan positif
-antara pendapatan dengan tingkat pendidikan: semakin tinggi pendidikan
-seseorang semakin tinggi juga tingkat pendapatannya.</p>
+<p>Sebagai ilustrasi, kita akan menggunakan hubungan antara tingkat penjualan motor dengan pertumbuhan pendapatan per kapita di Indonesia dalam 20 tahun terakhir. Motor sebagai salah satu moda transportasi sangat populer di Indonesia karena berbagai alasan: praktis dan terjangkau. Penjualan motor berhubungan dengan tingkat pendapatan, harga motor, ketersediaan moda transportasi alternatif, selera, dll. Untuk ilustrasi kita akan memodelkan hubungan antara tingkat penjualan motor sebagai variabel respons dengan pendapatan sebagai variabel eksplanatori sebagaimana ditunjukkan pada Tabel 1.2.</p>
+<p>Data penjualan motor (<span class="math inline">\(y\)</span>) diperoleh dari <a href="https://www.aisi.or.id/">AISI</a>, sedangkan data pendapatan didekati dengan pertumbuhan pendapatan per kapita (<span class="math inline">\(x\)</span>) yang diperoleh dari <a href="https://datacatalog.worldbank.org/home">World Bank</a>. Satuan <span class="math inline">\(y\)</span> dalam juta unit, sedangkan <span class="math inline">\(x\)</span> dalam % (persen). Secara teoritis terdapat hubungan positif antara tingkat pendapatan dengan penjualan motor karena motor adalah barang normal.</p>
+<table class=" lightable-paper lightable-hover" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:tabel-pjm">Tabel 1.2: </span>Penjualan Motor (y) dan Pertumbuhan Pendapatan (x) 2001-2019
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+Tahun
+</th>
+<th style="text-align:right;">
+x
+</th>
+<th style="text-align:right;">
+y
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+2001
+</td>
+<td style="text-align:right;">
+2.235180
+</td>
+<td style="text-align:right;">
+1.575822
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2002
+</td>
+<td style="text-align:right;">
+3.090636
+</td>
+<td style="text-align:right;">
+2.287706
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2003
+</td>
+<td style="text-align:right;">
+3.376533
+</td>
+<td style="text-align:right;">
+2.809896
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2004
+</td>
+<td style="text-align:right;">
+3.630909
+</td>
+<td style="text-align:right;">
+3.887678
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2005
+</td>
+<td style="text-align:right;">
+4.289592
+</td>
+<td style="text-align:right;">
+5.074186
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2006
+</td>
+<td style="text-align:right;">
+4.107514
+</td>
+<td style="text-align:right;">
+4.428274
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2007
+</td>
+<td style="text-align:right;">
+4.946468
+</td>
+<td style="text-align:right;">
+4.688263
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2008
+</td>
+<td style="text-align:right;">
+4.620034
+</td>
+<td style="text-align:right;">
+6.215830
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2009
+</td>
+<td style="text-align:right;">
+3.247328
+</td>
+<td style="text-align:right;">
+5.951962
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2010
+</td>
+<td style="text-align:right;">
+4.812273
+</td>
+<td style="text-align:right;">
+7.369249
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2011
+</td>
+<td style="text-align:right;">
+4.748318
+</td>
+<td style="text-align:right;">
+8.012540
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2012
+</td>
+<td style="text-align:right;">
+4.606485
+</td>
+<td style="text-align:right;">
+7.064457
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2013
+</td>
+<td style="text-align:right;">
+4.151428
+</td>
+<td style="text-align:right;">
+7.743879
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2014
+</td>
+<td style="text-align:right;">
+3.639072
+</td>
+<td style="text-align:right;">
+7.867195
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2015
+</td>
+<td style="text-align:right;">
+3.555063
+</td>
+<td style="text-align:right;">
+6.480155
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2016
+</td>
+<td style="text-align:right;">
+3.758837
+</td>
+<td style="text-align:right;">
+5.931285
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2017
+</td>
+<td style="text-align:right;">
+3.841197
+</td>
+<td style="text-align:right;">
+5.886103
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2018
+</td>
+<td style="text-align:right;">
+3.987825
+</td>
+<td style="text-align:right;">
+6.383108
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:right;">
+3.871444
+</td>
+<td style="text-align:right;">
+6.487460
+</td>
+</tr>
+</tbody>
+</table>
+<p>Sebagai langkah awal untuk melihat apakah benar-benar terdapat hubungan antara variabel-variabel yang dibahas adalah membuat diagram pencar (<em>scatter plot</em>). Diagram pencar dari data Tabel 1.2 ditunjukkan oleh Gambar 1.1. Gambar ini secara jelas menunjukkan terdapat hubungan positif antara pertumbuhan pendapatan per kapita dengan tingkat penjualan motor: semakin tinggi pertumbuhan pendapatan per kapita semakin tinggi tingkat penjualan motor.</p>
+<div class="figure"><span style="display:block;" id="fig:diagram-pencar"></span>
+<img src="bookdown-demo_files/figure-html/diagram-pencar-1.png" alt="Diagram Pencar" width="672" />
+<p class="caption">
+Gambar 1.1: Diagram Pencar
+</p>
+</div>
+<p>Selanjutnya, dari diagram pencar kita buat garis lurus yang paling “banyak” menyinggung data yang tersebar seperti yang ditunjukkan oleh Gambar 1.2. Tentu saja garis yang kita buat tidak bisa menyinggung seluruh data yang tersebar atau data sampel tidak bisa seluruhnya tepat berada pada garis yang dibuat.</p>
+<p>Titik-titik pengamatan ada yang tepat digaris, ada juga yang di atas
+atau di bawah garis. Hal ini menunjukkan bahwa ada variasi
+pada penjualan motor yang tidak berhubungan dengan tingkat pendapatan. Dengan kata lain terdapat faktor-faktor lain selain pendapatan yang juga mempengaruhi tingkat penjualan tetapi tidak kita masukkan ke dalam model.</p>
 <div class="figure"><span style="display:block;" id="fig:garis-regresi"></span>
 <img src="bookdown-demo_files/figure-html/garis-regresi-1.png" alt="Garis Persamaan Regresi Linier Sederhana" width="672" />
 <p class="caption">
-Gambar 1.1: Garis Persamaan Regresi Linier Sederhana
+Gambar 1.2: Garis Persamaan Regresi Linier Sederhana
 </p>
 </div>
-<p>Tetapi visualisasi diagram pencar ini juga menunjukkan adanya
-ketidaksempurnaan hubungan antara pendapatan dengan pendidikan. Tampak
-bahwa data sampel kita tidak seluruhnya tepat berada pada garis regresi.
-Titik-titik pengamatan ada yang tepat digaris, ada juga yang di atas
-atau di bawah garis regresi. Hal ini menunjukkan bahwa ada variasi
-pendapatan yang tidak berhubungan dengan tingkat pendidikan. Artinya ada
-faktor lain selain pendidikan yang juga mempengaruhi tingkat pendapatan
-seseorang.</p>
-<p>Bagaimana kita akan memodelkan faktor selain pendidikan yang juga
-mempengaruhi pendapatan seseorang? Misalkan hubungan y dan x kita
-modelkan dengan sebuah persamaan garis linier:</p>
-<p><span class="math display">\[ y_i= \beta_0 + \beta_1x_i \]</span></p>
-<p>Persamaan ini menyatakan bahwa y sebagai variabel respons adalah fungsi
-linier x, variabel prediktor. Model ini linier karena jika persamaan ini
-diplot, kita akan mendapatkan sebuah garis lurus bukan kurva. <span class="math inline">\(\beta_0\)</span>
-adalah konstanta yang menunjukkan nilai dari y jika x sama dengan nol.
-<span class="math inline">\(\beta_1\)</span> adalah koefisien kemiringan garis yang menunjukkan berapa
-banyak y akan berubah jika x meningkat sebanyak satu satuan.</p>
-<p>Jika kita hanya menggunakan pendidikan sebagai prediktor pendapatan,
-variasi pada pendapatan yang tidak berhubungan dengan tingkat pendidikan
-di dalam persamaan dapat dianggap berasal faktor acak/error atau residu
-dalam sampel. Residu ini secara visual ditunjukkan oleh jarak vertikal
-antara data pengamatan y dengan garis regresi/nilai dugaan.</p>
-<p>Faktor acak di dalam persamaan regresi ditunjukkan oleh <span class="math inline">\(\epsilon\)</span>.
-Sehingga persamaan diatas dapat kita tuliskan lagi sebagai:</p>
+<p>Bagaimana kita akan memodelkan faktor-faktor lain ini? Untuk menjawabnya, kita mulai dulu dengan memodelkan hubungan antara <span class="math inline">\(y\)</span> dan <span class="math inline">\(x\)</span> dengan sebuah persamaan garis linier (garis biru):</p>
+<p><span class="math display">\[y_i= \beta_0 + \beta_1x_i \]</span></p>
+<p>Persamaan ini menyatakan bahwa <span class="math inline">\(y\)</span> sebagai variabel respons adalah fungsi
+linier <span class="math inline">\(x\)</span>, variabel prediktor. <span class="math inline">\(\beta_0\)</span> adalah konstanta yang menunjukkan nilai dari <span class="math inline">\(y\)</span> jika <span class="math inline">\(x\)</span> sama dengan nol. <span class="math inline">\(\beta_1\)</span> adalah koefisien kemiringan garis yang menunjukkan berapa banyak <span class="math inline">\(y\)</span> akan berubah jika <span class="math inline">\(x\)</span> meningkat sebanyak satu unit.</p>
+<p>Faktor selain pendapatan per kapita yang menentukan penjualan motor kita masukkan sebagai faktor acak. Faktor acak ini secara visual ditunjukkan oleh panjang garis vertikal (warna kuning putus-putus) antara titik data pengamatan <span class="math inline">\(y\)</span> (lingkaran putih kecil) dengan garis regresi atau nilai dugaan variabel respons <span class="math inline">\(\hat y\)</span> (garis biru).</p>
+<p>Faktor acak/error ini menunjukkan adanya variasi pada penjualan yang tidak dapat dijelaskan oleh model dan disimbolkan dengan <span class="math inline">\(\epsilon\)</span>. Maka persamaan diatas dapat kita tuliskan lagi sebagai:</p>
 <p><span class="math display">\[y_i= \beta_0+ \beta_1x_i+ \epsilon_i,\]</span></p>
 <p><span class="math inline">\(\epsilon_i\)</span> dimasukkan ke dalam persamaan untuk mengakomodasi faktor
-<em>error</em> dan variasi dalam y yang tidak dapat dijelaskan oleh variabel x.
-Setiap model pasti mengandung error, karena hubungan statistik tidak
-memiliki ketepatan seperti halnya fungsi matematika.</p>
+<em>error</em> dan variasi dalam <span class="math inline">\(y\)</span> yang tidak dapat dijelaskan oleh variabel <span class="math inline">\(x\)</span>.</p>
 <p>Di dalam konteks ini <em>error</em> bukan berarti kesalahan, melainkan istilah
 statistik yang mewakili fluktuasi acak, kesalahan pengukuran, atau
 dampak dari faktor-faktor diluar kendali peneliti <span class="citation">(<a href="#ref-faraway2016a" role="doc-biblioref">Faraway 2016</a>)</span>. Jadi
 <span class="math inline">\(\epsilon\)</span> ini mewakili ketidakmampuan model untuk menjelaskan variasi
 yang terjadi pada variabel respons.</p>
+<p>Setiap model pasti mengandung error, karena hubungan statistik tidak memiliki ketepatan seperti halnya fungsi matematika. Jadi ketika kita mencoba menjelaskan variabel <span class="math inline">\(y\)</span> dengan menggunakan variabel <span class="math inline">\(x\)</span> ini, kita menggunakan hubungan statistik: sebuah hubungan yang tidak eksak.</p>
 <p>Bahkan, seandainya variabel-variabel lain ditambahkan ke dalam model,
 tetap akan ada variasi di dalam y yang tidak dapat dijelaskan oleh
 model. Variasi ini bisa karena bentuk fungsional yang tidak benar atau
 bisa juga karena semata-mata faktor kejadian yang tidak dapat
 diprediksi.</p>
-<p>Mayoritas analisis regresi yang baku menggunakan model regresi linier,
-yaitu mengasumsikan bahwa variabel respons dapat dituliskan sebagai
-kombinasi linier dari variabel-variabel prediktornya. Beberapa alasan
-mengapa model linier ini paling umum dipakai adalah <span class="citation">(<a href="#ref-rawlings1998" role="doc-biblioref">Rawlings, Pantula, and Dickey 1998</a>)</span>: (1)
-model linier mudah dipahami; (2) beberapa model nonlinier secara
-instrinsik linier, sehingga bisa didekati dengan pendekatan linier.</p>
-<p>Linieritas di dalam analisis regresi adalah sebuah asumsi yang harus
-kita uji. Begitu juga dengan asumsi-asumsi yang lain. Dengan menggunakan
-data sampel x dan y (bisa berasal dari observasi atau eksperimen), kita
-kemudian menduga <span class="math inline">\(\beta_0\)</span> dan <span class="math inline">\(\beta_1\)</span> dan membuat kesimpulan tentang
-selang kepercayaan dan menguji hipotesis untuk <span class="math inline">\(\beta_0\)</span> dan <span class="math inline">\(\beta_1\)</span>.</p>
 <p>Tujuan utama kita dalam analisis regresi adalah mendapatkan nilai dugaan
-<span class="math inline">\(\hat \beta_0\)</span> dan <span class="math inline">\(\hat \beta_1\)</span> terbaik yang menghasilkan jumlah
-kesalahan kuadrat terkecil. Dengan kata lain kita ingin menarik garis
-dalam bidang x−y yang paling pas dengan persebaran titik-titik data
-sampel yang telah kita kumpulkan. Garis ini disebut sebagai garis
-regresi <span class="math inline">\(\hat y_i = \hat \beta_0 + \hat \beta_1x_i\)</span> yang menunjukkan
-nilai dugaan y (disimbolkan dengan y tudung <span class="math inline">\(\hat y\)</span>) untuk pengamatan
-ke-i di dalam sampel.</p>
+<span class="math inline">\(\hat \beta_0\)</span> dan <span class="math inline">\(\hat \beta_1\)</span> terbaik sehingga jarak vertikal untuk setiap titik data pengamatan dan nilai dugaannya secara kolektif paling kecil. Dengan kata lain kita ingin menarik garis dalam bidang x−y sedekat mungkin dengan persebaran titik-titik data sampel yang telah kita kumpulkan.
+Garis yang menghubungkan variabel-variabel dapat kita buat secara manual sehingga didapatkan nilai <span class="math inline">\(\hat \beta_0\)</span> (intersep) dan <span class="math inline">\(\hat \beta_1\)</span> (kemiringan garis). Tetapi dalam praktik cara ini tidak akurat dan banyak makan waktu. Oleh karena itu, kita akan mengestimasi garis yang paling pas ini dan menunjukkan hubungan antar variabel ini dalam sebuah persamaan melalui suatu prosedur formal yang disebut <em>metode kuadrat terkecil/ordinary least squares</em> (OLS).</p>
+<p>Persamaan ini disebut sebagai garis regresi, dituliskan sebagai <span class="math inline">\(\hat y_i = \hat \beta_0 + \hat \beta_1x_i\)</span>. Metode OLS menghitung masing-masing jarak vertikal antara data pengamatan dengan garis dugaan (error dari data sampel), mengkuadratkannya dan meminimalkan jumlah totalnya.</p>
 <p>Sebuah model regresi linier yang sudah dikalibrasi paling pas dengan
 data sampel (<em>best fit</em>), dapat digunakan untuk menjelaskan hubungan
 atau membuat prediksi dengan mencermati perbedaan (arah) dan intensitas
-perubahan (magnitud) dari variabel y pada nilai variabel x tertentu.</p>
+perubahan (magnitud) dari variabel <span class="math inline">\(y\)</span> pada nilai variabel <span class="math inline">\(x\)</span> tertentu.</p>
 <p>Analisis regresi menawarkan pendekatan yang masuk akal dengan mengenali
 pola-pola hubungan antar variabel: arah dan besar perubahan pada
 variabel respons dengan arah dan besar perubahan pada variabel prediktor
@@ -326,10 +577,16 @@ terdiri dari dua komponen: komponen deterministik atau komponen
 fungsional yaitu <span class="math inline">\(\beta_0 + \beta_1\)</span> dan komponen stokastik/acak yaitu
 <span class="math inline">\(\epsilon\)</span>. Kombinasi kedua komponen ini menjadikan persamaan regresi
 sebagai model yang tidak eksak. Kita hanya mengasumsikan bahwa di dalam
-cakupan variabel yang dianalisis, terdapat tendensi variabel respons y
-untuk bervariasi secara sistematis dengan variabel prediktor x.</p>
+cakupan variabel yang dianalisis, terdapat tendensi variabel respons <span class="math inline">\(y\)</span>
+untuk bervariasi secara sistematis dengan variabel prediktor <span class="math inline">\(x\)</span>.</p>
+<p>Mayoritas analisis regresi yang baku menggunakan model regresi linier,
+yaitu mengasumsikan bahwa variabel respons dapat dituliskan sebagai
+kombinasi linier dari variabel-variabel prediktornya. Beberapa alasan
+mengapa model linier ini paling umum dipakai adalah <span class="citation">(<a href="#ref-rawlings1998" role="doc-biblioref">Rawlings, Pantula, and Dickey 1998</a>)</span>: (1)
+model linier mudah dipahami; (2) beberapa model nonlinier secara
+instrinsik linier, sehingga bisa didekati dengan pendekatan linier.</p>
 <p>Dalam banyak hal, variabel respons yang kita analisis berhubungan dengan
-lebih dari satu variabel prediktor, sebutlah sebanyak p,
+lebih dari satu variabel prediktor, sebutlah sebanyak <span class="math inline">\(p\)</span>,
 <span class="math inline">\(x_{i1}, x_{i2}, ... , x_{ip}\)</span>, sehingga persamaannya menjadi:</p>
 <p><span class="math display">\[y_i = \beta_0 + \beta_1x_{i1} + \beta_2x_{i2} + ... + \beta_px_{ip} + \epsilon_i\]</span></p>
 <p>Model ini disebut sebagai model regresi linier berganda. Disebut
@@ -365,8 +622,36 @@ emosi,<em>word of mouth</em>, faktor-faktor personal dan lingkungan.</li>
 <span class="math inline">\((x_{i1}, x_{i2}, ... ,x_{ip}, y_i)\)</span>, dengan jumlah sampel <span class="math inline">\(n\)</span> dan
 <span class="math inline">\(i= 1,2,...,n\)</span>.</p>
 </div>
-<div id="langkah-langkah-melakukan-analisis-regresi" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> Langkah-langkah Melakukan Analisis Regresi</h2>
+<div id="asumsi-asumsi-model-linier" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Asumsi-Asumsi Model Linier</h2>
+<p>Box (1979) <em>“all models are wrong, but some are useful.”</em> Seperti halnya metodologi statistik yang lain, analisis regresi linier dapat menjadi cara yang sangat efektif untuk memodelkan data sepanjang asumsi-asumsinya terpenuhi. Jika asumsinya tidak terpenuhi, kuadrat terkecil berpotensi memberikan hasil yang arahnya tidak tepat (misleading).</p>
+<p>Setelah analisis regresi dilakukan, kita harus melakukan uji diagnostik: memastikan apakah model memenuhi asumsi-asumsi model linier. Uji diagnostik dapat dilakukan secara grafik maupun dengan uji formal.</p>
+<p>Asumsi-asumsi regresi linier adalah:</p>
+<ol style="list-style-type: decimal">
+<li>Linieritas data: hubungan antara prediktor <span class="math inline">\(x\)</span> dengan respons <span class="math inline">\(y\)</span> diasumsikan linier.</li>
+<li>Normalitas residu. error/residu diasumsikan terdistribusi secara normal.</li>
+<li>Homogenitas variansi residu: residu diasumsikan mempunyai variansi yang tetap (homoskedastisitas)</li>
+<li>Independensi residu.</li>
+</ol>
+<p>Potensi-potensi tidak terpenuhinya asumsi model regresi adalah:</p>
+<ol style="list-style-type: decimal">
+<li>Hubungan antara respons dengan prediktor tidak linier</li>
+<li>Heteroskedastisitas: variansi residu tidak tetap.</li>
+<li>Adanya nilai-nilai yang “berpengaruh” besar yang berasal dari (a) nilai pencilan (<em>outlier</em>) yaitu nilai-nilai ekstrim pada variabel respons; (b) high-leverage points: nilai-nilai ekstrim pada variabel prediktor.</li>
+</ol>
+<p>Setelah dilakukan uji diagnostik, maka uji-uji hipotesis, interval dan prediksi dapat dilakukan, karena uji-uji ini didasarkan atas kepercayaan bahwa asumsi-asumsi model regresi dipenuhi. Jadi penting sekali untuk melakukan pengecekan terhadap asumsi-asumsi ini.</p>
+</div>
+<div id="uji-signifikansi" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Uji Signifikansi</h2>
+<p>Salah satu fungsi dari regresi linier adalah untuk estimasi kondisi populasi. Kita mengamati dan mengumpulkan data sampel, tetapi kita ingin mengetahui apakah data sampel yang kita miliki juga menerangkan sesuatu tentang populasi dimana data ini diambil. Dengan kata lain kita ingin mengetahui apakah hasil dari analisis data sampel dapat digeneralisasi ke populasi dengan uji signifikansi.</p>
+<p>Uji signifikansi dapat dilakukan jika asumsi-asumsi model regresi telah dipenuhi. Uji-uji signifikansi itu antara lain:</p>
+<ol style="list-style-type: decimal">
+<li><p>Uji t: digunakan untuk mengetahui apakah koefisien-koefisien regresi secara statistik berbeda secara signifikan (<em>statistically-significantly</em>) dari nol.</p></li>
+<li><p>Uji F: jika uji t digunakan untuk menguji hanya satu koefisien, uji F digunakan untuk menguji lebih dari satu koefisien secara serempak.</p></li>
+</ol>
+</div>
+<div id="langkah-langkah-melakukan-analisis-regresi" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> Langkah-langkah Melakukan Analisis Regresi</h2>
 <p>Secara umum langkah-langkah dalam melakukan analisis regresi adalah
 sebagai berikut:</p>
 <ol style="list-style-type: decimal">
@@ -376,14 +661,14 @@ modelnya.</li>
 dalam menjelaskan variabel respons.</li>
 <li>Mengumpulkan data (sampel) yang dapat digunakan untuk menguji model.</li>
 <li>Mengestimasi model.</li>
-<li>Cek kecukupan model (jika hasilnya kurang memuaskan, kembali ke
+<li>Cek kecukupan model/diagnostik (jika hasilnya kurang memuaskan, kembali ke
 tahap 1).</li>
 <li>Uji signifikansi dan inferensial.</li>
 <li>Menulis hasil analisis.</li>
 </ol>
 </div>
-<div id="penggunaan-komputer" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Penggunaan Komputer</h2>
+<div id="penggunaan-komputer" class="section level2" number="1.5">
+<h2><span class="header-section-number">1.5</span> Penggunaan Komputer</h2>
 <p>Jika diperhatikan langkah-langkah untuk melakukan analisis regresi pada
 1.3, membangun model regresi merupakan sebuah proses iteratif. Dimulai
 dengan kajian teori yang berhubungan topik yang sedang diteliti dan
@@ -393,7 +678,7 @@ kawasan tertentu, kecenderungan pilihan politik generasi jaman <em>now</em>,
 lama wisatawan menginap di hotel, dll.</p>
 <p>Salah satu pertimbangan penting di dalam memilih variabel prediktor
 adalah apakah variabel tersebut dapat mengurangi variasi dalam variabel
-y. Pertimbangan lain adalah seberapa mudah, murah dan akurat data
+respons. Pertimbangan lain adalah seberapa mudah, murah dan akurat data
 variabel itu bisa diperoleh dibandingkan calon variabel prediktor yang
 lain. Pemilihan ini harus cermat karena bagaimanapun model adalah sebuah
 penyederhanaan dari realitas yang lebih kompleks, sehingga sebaiknya

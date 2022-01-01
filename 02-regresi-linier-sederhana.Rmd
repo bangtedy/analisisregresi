@@ -22,6 +22,9 @@ Dengan kata lain tujuan dari analisis regresi adalah mengestimasi koefisien regr
 
 Di dalam analisis regresi, model terbaik ditunjukkan oleh garis lurus yang menghubungkan rata-rata variabel prediktor dengan variabel respons sedemikian rupa sehingga jumlah kuadrat kesalahan antara titik-titik data pengamatan aktual $y_i$ dengan nilai dugaannya $\hat y_i$ minimal. 
 
-Untuk memperoleh nilai dugaan $\beta_0$ dan $\beta_1$ yang paling cocok, kita menggunakan metode kuadrat terkecil (*method of least squares*). Dengan pendekatan kuadrat terkecil, kita mencari dugaan $\beta_0$ dan $\beta_1$ yang meminimalkan jumlah kuadrat residu $y_i-\hat y_i$.
+Untuk memperoleh nilai dugaan $\beta_0$ dan $\beta_1$ yang paling cocok, kita menggunakan metode kuadrat terkecil (*method of least squares*). Dengan pendekatan kuadrat terkecil, kita mencari nilai dugaan $\beta_0$ dan $\beta_1$ yang meminimalkan jumlah kuadrat residu $y_i-\hat y_i$.
+
+Kasus 1: Konsumsi Listrik dan Pendapatan Perkapita
+
 
 ...work in progress...
