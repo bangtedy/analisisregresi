@@ -154,33 +154,24 @@ PJMotor %>%
   kable_paper("hover", full_width=F)
 ```
 
-Langkah awal untuk melihat apakah benar-benar terdapat hubungan antara
-pendapatan dengan penjualan motor adalah membuat diagram pencar
-(*scatter plot*), seperti yang ditunjukkan oleh Gambar 1.1. Gambar ini
-menunjukkan terdapat hubungan positif antara pertumbuhan pendapatan per
-kapita dengan tingkat penjualan motor: semakin tinggi pertumbuhan
-pendapatan per kapita semakin tinggi tingkat penjualan motor.
+Langkah awal untuk melihat apakah data yang kita miliki memang mengandung "sinyal" yang menunjukkan hubungan antara pendapatan dengan penjualan motor adalah membuat diagram pencar (*scatter plot*). Diagram pencar bisa menunjukkan secara kasar apakah hubungan antar variabel dapat dianggap linier atau tidak. Gambar 1.1 menunjukkan bahwa hubungan antara penjualan motor dengan pendapatan dapat diasumsikan linier. Selanjutnya kita tarik garis lurus yang paling banyak "mendekati" titik-titik data pengamatan yang tersebar seperti yang ditunjukkan. 
+
 
 ```{r diagram-pencar, echo=FALSE, fig.cap="Diagram Pencar"}
 PJMotor <- read.delim("PJMotor.txt")
-attach(PJMotor)
 plot(x, y)
 ```
 
-Selanjutnya dari diagram pencar ini, kita buat garis lurus yang paling
-banyak "menyentuh" data yang tersebar seperti yang ditunjukkan oleh
-Gambar 1.2. Tentu saja garis yang kita buat tidak bisa menyinggung
-seluruh data yang tersebar atau data sampel tidak bisa seluruhnya tepat
-berada pada garis yang dibuat.
+Gambar 1.1 menunjukkan bahwa memang terdapat sinyal yang sesuai dengan asumsi yaitu penjualan motor proporsional dengan pertumbuhan pendapatan per kapita: semakin tinggi pertumbuhan pendapatan per kapita semakin tinggi pula tingkat penjualan motor. Tetapi setelah kita tarik garis lurus (Gambar 1.2) proporsionalitas ini tidak ketat. Garis lurus yang kita buat tidak menyinggung seluruh data yang tersebar atau data sampel tidak bisa seluruhnya tepat berada pada garis yang dibuat.
 
-Titik-titik pengamatan mungkin ada yang tepat digaris, ada juga yang di
+Titik-titik pengamatan ada yang tepat digaris, ada juga yang di
 atas atau di bawah garis. Hal ini menunjukkan adanya variasi pada
 penjualan motor yang tidak berhubungan dengan tingkat pendapatan. Dengan
 kata lain terdapat faktor-faktor lain selain pendapatan yang juga
 mempengaruhi tingkat penjualan tetapi tidak kita masukkan ke dalam
 model.
 
-```{r garis-regresi, echo=FALSE, fig.cap="Estimasi Persamaan Linier"}
+```{r garis-regresi, echo=FALSE, fig.cap="Diagram Pencar dan Estimasi Garis Linier"}
 PJMotor <- read.delim("PJMotor.txt")
 plot(x, y)
 md <- lm(y ~ x, data = PJMotor)
@@ -266,12 +257,9 @@ dari model yang valid.
 
 Dengan demikian persamaan regresi yang memodelkan hubungan statistik
 antar variabel terdiri dari dua komponen: komponen deterministik atau
-komponen fungsional yaitu $\beta_0 + \beta_1$ dan komponen
-stokastik/acak yaitu $\epsilon$. Kombinasi kedua komponen ini menjadikan
-persamaan regresi sebagai model yang tidak eksak. Kita hanya
-mengasumsikan bahwa di dalam cakupan variabel yang dianalisis, terdapat
-tendensi variabel respons $y$ untuk bervariasi secara sistematis dengan
-variabel prediktor $x$.
+sinyal yaitu $\beta_0 + \beta_1$ dan komponen acak atau gangguan (*noise\error*)yaitu $\epsilon$. Kombinasi kedua komponen ini menjadikan
+persamaan regresi sebagai model non-eksak, yaitu bergantung pada bentuk-bentuk penjelasan probabilistik. Kita hanya mengasumsikan bahwa di dalam cakupan variabel yang dianalisis, terdapat tendensi variabel respons $y$ untuk bervariasi secara sistematis dengan
+variabel prediktor $x$. Komponen acak ditambahkan ke dalam model untuk mengakomodasi variasi di residu. 
 
 Mayoritas analisis regresi yang baku menggunakan model regresi linier,
 yaitu mengasumsikan bahwa variabel respons dapat dituliskan sebagai
@@ -315,12 +303,12 @@ prediktor.Contoh-contohnya:
 
 ## Asumsi-Asumsi Model Linier
 
-[@box1979] *"all models are wrong, but some are useful."* Seperti
+*All models are wrong, but some are useful* [@box1979]. Seperti
 halnya metodologi statistik yang lain, analisis regresi linier dapat
 menjadi cara yang sangat efektif untuk memodelkan data sepanjang
 asumsi-asumsinya terpenuhi. Jika asumsinya tidak terpenuhi, kuadrat
 terkecil berpotensi memberikan hasil yang arahnya tidak tepat
-(misleading).
+(*misleading*).
 
 Setelah analisis regresi dilakukan, kita harus melakukan uji diagnostik:
 memastikan apakah model memenuhi asumsi-asumsi model linier. Uji
@@ -371,8 +359,7 @@ dipenuhi. Uji-uji signifikansi itu antara lain:
 
 ## Langkah-langkah Melakukan Analisis Regresi
 
-Secara umum langkah-langkah dalam melakukan analisis regresi adalah
-sebagai berikut:
+Berdasarkan uraian sebelumnya, secara umum langkah-langkah dalam melakukan analisis regresi adalah sebagai berikut:
 
 1.  Menentukan variabel respons $y$ yang akan kita pelajari atau buat
     modelnya.

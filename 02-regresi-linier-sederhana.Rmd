@@ -24,7 +24,78 @@ Di dalam analisis regresi, model terbaik ditunjukkan oleh garis lurus yang mengh
 
 Untuk memperoleh nilai dugaan $\beta_0$ dan $\beta_1$ yang paling cocok, kita menggunakan metode kuadrat terkecil (*method of least squares*). Dengan pendekatan kuadrat terkecil, kita mencari nilai dugaan $\beta_0$ dan $\beta_1$ yang meminimalkan jumlah kuadrat residu $y_i-\hat y_i$.
 
-Kasus 1: Konsumsi Listrik dan Pendapatan Perkapita
+Kasus 1: Penjualan Motor dan Pertumbuhan Pendapatan Perkapita
+
+Kita akan melanjutkan ilustrasi tentang hubungan antara penjualan motor dengan pendapatan pada Bab 1 sebelumnya. Data dapat diunduh di [sini](). Langkah awal untuk melihat hubungan antar variabel adalah membuat diagram pencar.
+
+Plot sangat penting di dalam regresi. Pemeriksaan secara teliti diagram pencar harus mendahului penghitungan regresi. Diagram pencar dapat mengindikasikan model regresi yang diinginkan mungkin masuk akal atau tidak. Kesepakatan dalam membuat diagram pencar, variabel $x$ sebagai variabel penjelas diplot pada sumbu horisontal. Varibel $y$ sebagai variabel respons diplot pada sumbu vertikal. 
+
+Untuk membuat diagram pencar, hal pertama yang harus dilakukan adalah memasukkan data ke dalam R dan memanggil *library* yang relevan dengan model yang akan dibuat.
+
+```{r, echo=TRUE}
+PJMotor <- read.delim("PJMotor.txt") # memanggil data dalam bentuk teks ke dalam R
+PJMotor <- as.data.frame(PJMotor)
+```
+
+```{r, echo=TRUE}
+head(PJMotor) # untuk melihat 6 data pertama
+```
+
+```{r, echo=TRUE}
+tail(PJMotor) # untuk melihat 6 data terakhir
+```
+
+Perintah plot(x,y) di dalam R adalah untuk membuat plot antara variabel respons dengan variabel prediktor. Hasilnya ditampilkan pada Gambar 2.1.
+
+```{r, echo=TRUE}
+
+plot(x,y) #membuat diagram pencar
+
+```
+
+
+Di dalam R model regresi linier sederhana dapat diperoleh dengan perintah ```lm(y~x)```. Tanda ~ dapat diartikan y dijelaskan oleh x. Fungsi ini mengestimasi koefisien regresi model linier dengan metode kuadrat terkecil (*the least squares method*). 
+
+Semisal modelnya kita beri nama model penjualan motor (mpm), yang memodelkan hubungan antara penjualan motor (y) dengan pertumbuhan pendapatan (x), maka model ini dapat diperoleh dengan perintah:
+
+```{r, echo=TRUE}
+
+mpm <- lm(y ~ x) # perhatikan tanda panah ke kiri. 
+# Intersep dan kemiringan secara default sudah termasuk yang diestimasi. 
+# Bandingkan dengan perintah untuk mendapatkan diagram pencar. 
+```
+
+Perintah ini sama dengan persamaan dibawah (tanpa intersep, slope dan error):
+
+$$ y = β_0 + β_1x + ε $$
+
+Kita kemudian menggunakan perintah summary() atau untuk menampilkan luarannya. Hasilnya adalah sebagai berikut:
+
+```{r, echo=TRUE}
+summary (mpm) # gunakan ekstraktor summary() untuk menampilkan hasil regresi
+```
+
+Hasil regresi menunjukkan dugaan koefisien regresi dan standar errornya. Intersep garis regresinya adalah $\hat \beta_0$ = -1.210 (SE= 2.088), sementara dugaan kemiringan garisnya adalah $\hat \beta_1$ = 1.733 (SE = 0.525). Sedangkan p-value untuk kemiringannya (menguji hipotesis nol bahwa $\beta_1$ = true slope = 0) kecil, konsisten dengan bukti persebaran data yang cenderung linier. Tetapi p-value untuk intersep (menguji $\beta_0$ = 0) adalah 0.57, berarti intersep tidak signifikan. 
+
+Diagram pencar dan garis regresi dapat ditampilkan bersama-sama dengan perintah berikut:
+
+```{r, echo=TRUE}
+library(ggpmisc)
+PJMotor <- as.data.frame(PJMotor)
+my.formula <- y ~ x
+p <- ggplot(data = PJMotor, aes(x = x, y = y)) +
+   geom_smooth(method = "lm", se=FALSE, color="black", formula = my.formula) +
+   stat_poly_eq(formula = my.formula,
+                eq.with.lhs = "italic(hat(y))~`=`~",
+                aes(label = paste(..eq.label.., ..rr.label.., sep = "~~~")), 
+                parse = TRUE) +         
+   geom_point()
+p
+
+```
+
+
+
 
 
 ...work in progress...
