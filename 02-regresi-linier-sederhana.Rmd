@@ -20,17 +20,17 @@ Misalkan kita memiliki pasangan-pasangan data sampel sebanyak n yang diambil sec
 
 Dengan kata lain tujuan dari analisis regresi adalah mengestimasi koefisien regresi untuk variabel prediktor sehingga didapatkan nilai dugaan variabel respons sedekat mungkin nilainya dengan nilai pengamatan aktualnya. 
 
-Di dalam analisis regresi, model terbaik ditunjukkan oleh garis lurus yang menghubungkan rata-rata variabel prediktor dengan variabel respons sedemikian rupa sehingga jumlah kuadrat kesalahan antara titik-titik data pengamatan aktual $y_i$ dengan nilai dugaannya $\hat y_i$ minimal. 
+Di dalam analisis regresi, model terbaik ditunjukkan oleh garis lurus yang menghubungkan rata-rata variabel prediktor dengan variabel respons sedemikian rupa sehingga jumlah kuadrat kesalahan (jarak vertikal antara titik-titik data pengamatan aktual $y_i$ dengan nilai dugaannya $\hat y_i$) minimal. 
 
-Untuk memperoleh nilai dugaan $\beta_0$ dan $\beta_1$ yang paling cocok, kita menggunakan metode kuadrat terkecil (*method of least squares*). Dengan pendekatan kuadrat terkecil, kita mencari nilai dugaan $\beta_0$ dan $\beta_1$ yang meminimalkan jumlah kuadrat residu $y_i-\hat y_i$.
+Untuk memperoleh nilai dugaan $\beta_0$ dan $\beta_1$ yang paling cocok, kita menggunakan metode kuadrat terkecil (*method of least squares*). Dengan pendekatan kuadrat terkecil, kita mencari nilai dugaan $\beta_0$ dan $\beta_1$ yang meminimalkan jumlah kuadrat residu/kesalahan ($y_i-\hat y_i$).
 
 Kasus 1: Penjualan Motor dan Pertumbuhan Pendapatan Perkapita
 
-Kita akan melanjutkan ilustrasi tentang hubungan antara penjualan motor dengan pendapatan pada Bab 1 sebelumnya. Data dapat diunduh di [sini](). Langkah awal untuk melihat hubungan antar variabel adalah membuat diagram pencar.
+Kita akan melanjutkan kasus hubungan antara penjualan motor dengan pendapatan pada Bab 1 sebelumnya sebagai ilustrasi regresi linier sederhana. Data dapat diunduh di [sini](). Langkah awal untuk melihat bagaimana hubungan antar variabel adalah membuat diagram pencar.
 
-Plot sangat penting di dalam regresi. Pemeriksaan secara teliti diagram pencar harus mendahului penghitungan regresi. Diagram pencar dapat mengindikasikan model regresi yang diinginkan mungkin masuk akal atau tidak. Kesepakatan dalam membuat diagram pencar, variabel $x$ sebagai variabel penjelas diplot pada sumbu horisontal. Varibel $y$ sebagai variabel respons diplot pada sumbu vertikal. 
+Plot sangat penting di dalam regresi. Pemeriksaan diagram pencar secara teliti harus mendahului penghitungan regresi. Diagram pencar dapat mengindikasikan apakah model regresi yang diinginkan mungkin masuk akal atau tidak. Kesepakatan dalam membuat diagram pencar, variabel $x$ sebagai variabel penjelas diplot pada sumbu horisontal. Varibel $y$ sebagai variabel respons diplot pada sumbu vertikal. 
 
-Untuk membuat diagram pencar, hal pertama yang harus dilakukan adalah memasukkan data ke dalam R dan memanggil *library* yang relevan dengan model yang akan dibuat.
+Untuk membuat diagram pencar, hal pertama yang harus dilakukan adalah memasukkan data ke dalam R, mengecek apakah data yang kita masukkan sudah betul dan memanggil *library* yang relevan dengan model yang akan dibuat.
 
 ```{r, echo=TRUE}
 PJMotor <- read.delim("PJMotor.txt") # memanggil data dalam bentuk teks ke dalam R
@@ -45,7 +45,7 @@ head(PJMotor) # untuk melihat 6 data pertama
 tail(PJMotor) # untuk melihat 6 data terakhir
 ```
 
-Perintah plot(x,y) di dalam R adalah untuk membuat plot antara variabel respons dengan variabel prediktor. Hasilnya ditampilkan pada Gambar 2.1.
+Perintah ```plot(x,y)``` di dalam R adalah untuk membuat plot antara variabel respons dengan variabel prediktor. Hasilnya ditampilkan pada Gambar 2.1.
 
 ```{r, echo=TRUE}
 
@@ -54,9 +54,9 @@ plot(x,y) #membuat diagram pencar
 ```
 
 
-Di dalam R model regresi linier sederhana dapat diperoleh dengan perintah ```lm(y~x)```. Tanda ~ dapat diartikan y dijelaskan oleh x. Fungsi ini mengestimasi koefisien regresi model linier dengan metode kuadrat terkecil (*the least squares method*). 
+Di dalam R model regresi linier sederhana dapat diperoleh dengan perintah ```lm(y~x)```. Tanda ~ dapat diartikan $y$ dijelaskan oleh $x$. Fungsi ini mengestimasi koefisien regresi model linier dengan metode kuadrat terkecil (*the least squares method*). 
 
-Semisal modelnya kita beri nama model penjualan motor (mpm), yang memodelkan hubungan antara penjualan motor (y) dengan pertumbuhan pendapatan (x), maka model ini dapat diperoleh dengan perintah:
+Semisal modelnya kita beri nama ***model penjualan motor (mpm)**, yang memodelkan hubungan antara penjualan motor (y) dengan pertumbuhan pendapatan (x), maka model ini dapat diperoleh dengan perintah:
 
 ```{r, echo=TRUE}
 
@@ -65,36 +65,60 @@ mpm <- lm(y ~ x) # perhatikan tanda panah ke kiri.
 # Bandingkan dengan perintah untuk mendapatkan diagram pencar. 
 ```
 
-Perintah ini sama dengan persamaan dibawah (tanpa intersep, slope dan error):
+Perintah ini sama dengan persamaan dibawah:
 
 $$ y = β_0 + β_1x + ε $$
 
-Kita kemudian menggunakan perintah summary() atau untuk menampilkan luarannya. Hasilnya adalah sebagai berikut:
+Kita kemudian menggunakan perintah ```summary()``` untuk menampilkan luarannya. Hasilnya adalah sebagai berikut:
 
 ```{r, echo=TRUE}
 summary (mpm) # gunakan ekstraktor summary() untuk menampilkan hasil regresi
 ```
 
-Hasil regresi menunjukkan dugaan koefisien regresi dan standar errornya. Intersep garis regresinya adalah $\hat \beta_0$ = -1.210 (SE= 2.088), sementara dugaan kemiringan garisnya adalah $\hat \beta_1$ = 1.733 (SE = 0.525). Sedangkan p-value untuk kemiringannya (menguji hipotesis nol bahwa $\beta_1$ = true slope = 0) kecil, konsisten dengan bukti persebaran data yang cenderung linier. Tetapi p-value untuk intersep (menguji $\beta_0$ = 0) adalah 0.57, berarti intersep tidak signifikan. 
+Hasil regresi menunjukkan dugaan $\hat \beta$. Intersep garis regresinya adalah $\hat \beta_0$ = -1.210 (SE= 2.088), p-value = 0.57 (tidak signifikan). Sedangkan $\hat \beta_1$ = 1.733 (SE = 0.525) dan p-valuenya (menguji hipotesis nol bahwa $\beta_1$ = 0) kecil, konsisten dengan bukti persebaran data yang cenderung linier. 
 
-Diagram pencar dan garis regresi dapat ditampilkan bersama-sama dengan perintah berikut:
+Di dalam R, kita bisa dengan mudah menambahkan nilai-nilai dugaan dan residu ke dalam data dengan menggunakan perintah ```augment()``` dari [broom package](). Misalkan outputnya kita sebut sebagai uji.diagnostik (dibahas secara lebih lengkap di Bab 4). 
 
-```{r, echo=TRUE}
+```{r, echo=TRUE, warning=FALSE}
+library("broom")
+uji.diagnostik <- augment(mpm)
+head(uji.diagnostik)
+```
+
+Kolom-kolom pada tabe diatas menunjukkan
+
+    x: pertumbuhan pendapatan per kapita
+    y: penjualan motor
+    .fitted: nilai dugaan penjualan motor
+    .resid: the residual errors
+
+Kode berikut memplot residuals error (warna kuning) antara nilai pengamatan dengan nilai dugaan. Setiap garis vertikal warna kuning menunjukkan nilai kesalahan/residu antara angka penjualan motor aktual dengan nilai dugaannya.
+
+```{r, echo=TRUE, warning=FALSE}
+
+ggplot(uji.diagnostik, aes(x, y)) +
+  geom_point() +
+  stat_smooth(method = lm, se = FALSE) +
+  geom_segment(aes(xend = x, yend = .fitted), color = "gold", size = 0.3)
+```
+
+Diagram pencar dan garis regresi juga dapat dapat ditampilkan bersama-sama dengan perintah berikut:
+
+```{r, echo=TRUE, warning=FALSE}
 library(ggpmisc)
 PJMotor <- as.data.frame(PJMotor)
 my.formula <- y ~ x
-p <- ggplot(data = PJMotor, aes(x = x, y = y)) +
-   geom_smooth(method = "lm", se=FALSE, color="black", formula = my.formula) +
+ggplot(data = PJMotor, aes(x = x, y = y)) +
+   geom_smooth(method = "lm", se=FALSE, color="blue", formula = my.formula) +
    stat_poly_eq(formula = my.formula,
                 eq.with.lhs = "italic(hat(y))~`=`~",
                 aes(label = paste(..eq.label.., ..rr.label.., sep = "~~~")), 
                 parse = TRUE) +         
    geom_point()
-p
 
 ```
 
-
+Koefisisen determinasi ($R^2$) sebesar 39 persen. Artinya model kita hanya menjelaskan sebesar 39 persen variasi pada penjualan motor. Cukup masuk akal karena model kita hanya menggunakan satu variabel penjelas yaitu pertumbuhan per kapita.  
 
 
 

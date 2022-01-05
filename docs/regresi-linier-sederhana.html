@@ -213,12 +213,12 @@ div.csl-indent {
 <p>Regresi sederhana mengindikasikan hanya ada satu variabel prediktor x untuk menduga variabel respons y. Linier disini diartikan modelnya linier pada parameternya dalam hal ini <span class="math inline">\(\beta_0\)</span> dan <span class="math inline">\(\beta_1\)</span>. Jadi model <span class="math inline">\(y_i = \beta_0 + \beta_1{x_i}^2 + \epsilon_i\)</span> adalah linier pada <span class="math inline">\(\beta_0\)</span> dan <span class="math inline">\(\beta_1\)</span>, sementara model <span class="math inline">\(y_i = \beta_0 + e^{\beta_ix_i} + \epsilon_i\)</span> tidak linier.</p>
 <p>Misalkan kita memiliki pasangan-pasangan data sampel sebanyak n yang diambil secara acak dari populasi yang lebih besar <span class="math inline">\((x_1,y_1), (x_2,y_2), ⋯, (x_n,y_n)\)</span>. Tujuan dari analisis regresi linier adalah menemukan model terbaik yaitu menemukan nilai <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> yang menghasilkan garis paling cocok dengan titik-titik data yang kita punyai.</p>
 <p>Dengan kata lain tujuan dari analisis regresi adalah mengestimasi koefisien regresi untuk variabel prediktor sehingga didapatkan nilai dugaan variabel respons sedekat mungkin nilainya dengan nilai pengamatan aktualnya.</p>
-<p>Di dalam analisis regresi, model terbaik ditunjukkan oleh garis lurus yang menghubungkan rata-rata variabel prediktor dengan variabel respons sedemikian rupa sehingga jumlah kuadrat kesalahan antara titik-titik data pengamatan aktual <span class="math inline">\(y_i\)</span> dengan nilai dugaannya <span class="math inline">\(\hat y_i\)</span> minimal.</p>
-<p>Untuk memperoleh nilai dugaan <span class="math inline">\(\beta_0\)</span> dan <span class="math inline">\(\beta_1\)</span> yang paling cocok, kita menggunakan metode kuadrat terkecil (<em>method of least squares</em>). Dengan pendekatan kuadrat terkecil, kita mencari nilai dugaan <span class="math inline">\(\beta_0\)</span> dan <span class="math inline">\(\beta_1\)</span> yang meminimalkan jumlah kuadrat residu <span class="math inline">\(y_i-\hat y_i\)</span>.</p>
+<p>Di dalam analisis regresi, model terbaik ditunjukkan oleh garis lurus yang menghubungkan rata-rata variabel prediktor dengan variabel respons sedemikian rupa sehingga jumlah kuadrat kesalahan (jarak vertikal antara titik-titik data pengamatan aktual <span class="math inline">\(y_i\)</span> dengan nilai dugaannya <span class="math inline">\(\hat y_i\)</span>) minimal.</p>
+<p>Untuk memperoleh nilai dugaan <span class="math inline">\(\beta_0\)</span> dan <span class="math inline">\(\beta_1\)</span> yang paling cocok, kita menggunakan metode kuadrat terkecil (<em>method of least squares</em>). Dengan pendekatan kuadrat terkecil, kita mencari nilai dugaan <span class="math inline">\(\beta_0\)</span> dan <span class="math inline">\(\beta_1\)</span> yang meminimalkan jumlah kuadrat residu/kesalahan (<span class="math inline">\(y_i-\hat y_i\)</span>).</p>
 <p>Kasus 1: Penjualan Motor dan Pertumbuhan Pendapatan Perkapita</p>
-<p>Kita akan melanjutkan ilustrasi tentang hubungan antara penjualan motor dengan pendapatan pada Bab 1 sebelumnya. Data dapat diunduh di <a href="">sini</a>. Langkah awal untuk melihat hubungan antar variabel adalah membuat diagram pencar.</p>
-<p>Plot sangat penting di dalam regresi. Pemeriksaan secara teliti diagram pencar harus mendahului penghitungan regresi. Diagram pencar dapat mengindikasikan model regresi yang diinginkan mungkin masuk akal atau tidak. Kesepakatan dalam membuat diagram pencar, variabel <span class="math inline">\(x\)</span> sebagai variabel penjelas diplot pada sumbu horisontal. Varibel <span class="math inline">\(y\)</span> sebagai variabel respons diplot pada sumbu vertikal.</p>
-<p>Untuk membuat diagram pencar, hal pertama yang harus dilakukan adalah memasukkan data ke dalam R dan memanggil <em>library</em> yang relevan dengan model yang akan dibuat.</p>
+<p>Kita akan melanjutkan kasus hubungan antara penjualan motor dengan pendapatan pada Bab 1 sebelumnya sebagai ilustrasi regresi linier sederhana. Data dapat diunduh di <a href="">sini</a>. Langkah awal untuk melihat bagaimana hubungan antar variabel adalah membuat diagram pencar.</p>
+<p>Plot sangat penting di dalam regresi. Pemeriksaan diagram pencar secara teliti harus mendahului penghitungan regresi. Diagram pencar dapat mengindikasikan apakah model regresi yang diinginkan mungkin masuk akal atau tidak. Kesepakatan dalam membuat diagram pencar, variabel <span class="math inline">\(x\)</span> sebagai variabel penjelas diplot pada sumbu horisontal. Varibel <span class="math inline">\(y\)</span> sebagai variabel respons diplot pada sumbu vertikal.</p>
+<p>Untuk membuat diagram pencar, hal pertama yang harus dilakukan adalah memasukkan data ke dalam R, mengecek apakah data yang kita masukkan sudah betul dan memanggil <em>library</em> yang relevan dengan model yang akan dibuat.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="regresi-linier-sederhana.html#cb1-1" aria-hidden="true" tabindex="-1"></a>PJMotor <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="st">&quot;PJMotor.txt&quot;</span>) <span class="co"># memanggil data dalam bentuk teks ke dalam R</span></span>
 <span id="cb1-2"><a href="regresi-linier-sederhana.html#cb1-2" aria-hidden="true" tabindex="-1"></a>PJMotor <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(PJMotor)</span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="regresi-linier-sederhana.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(PJMotor) <span class="co"># untuk melihat 6 data pertama</span></span></code></pre></div>
@@ -237,17 +237,17 @@ div.csl-indent {
 ## 17  2017 5.886103 3.841197
 ## 18  2018 6.383108 3.987825
 ## 19  2019 6.487460 3.871444</code></pre>
-<p>Perintah plot(x,y) di dalam R adalah untuk membuat plot antara variabel respons dengan variabel prediktor. Hasilnya ditampilkan pada Gambar 2.1.</p>
+<p>Perintah <code>plot(x,y)</code> di dalam R adalah untuk membuat plot antara variabel respons dengan variabel prediktor. Hasilnya ditampilkan pada Gambar 2.1.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="regresi-linier-sederhana.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y) <span class="co">#membuat diagram pencar</span></span></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<p>Di dalam R model regresi linier sederhana dapat diperoleh dengan perintah <code>lm(y~x)</code>. Tanda ~ dapat diartikan y dijelaskan oleh x. Fungsi ini mengestimasi koefisien regresi model linier dengan metode kuadrat terkecil (<em>the least squares method</em>).</p>
-<p>Semisal modelnya kita beri nama model penjualan motor (mpm), yang memodelkan hubungan antara penjualan motor (y) dengan pertumbuhan pendapatan (x), maka model ini dapat diperoleh dengan perintah:</p>
+<p>Di dalam R model regresi linier sederhana dapat diperoleh dengan perintah <code>lm(y~x)</code>. Tanda ~ dapat diartikan <span class="math inline">\(y\)</span> dijelaskan oleh <span class="math inline">\(x\)</span>. Fungsi ini mengestimasi koefisien regresi model linier dengan metode kuadrat terkecil (<em>the least squares method</em>).</p>
+<p>Semisal modelnya kita beri nama *<strong>model penjualan motor (mpm)</strong>, yang memodelkan hubungan antara penjualan motor (y) dengan pertumbuhan pendapatan (x), maka model ini dapat diperoleh dengan perintah:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="regresi-linier-sederhana.html#cb7-1" aria-hidden="true" tabindex="-1"></a>mpm <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x) <span class="co"># perhatikan tanda panah ke kiri. </span></span>
 <span id="cb7-2"><a href="regresi-linier-sederhana.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Intersep dan kemiringan secara default sudah termasuk yang diestimasi. </span></span>
 <span id="cb7-3"><a href="regresi-linier-sederhana.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Bandingkan dengan perintah untuk mendapatkan diagram pencar. </span></span></code></pre></div>
-<p>Perintah ini sama dengan persamaan dibawah (tanpa intersep, slope dan error):</p>
+<p>Perintah ini sama dengan persamaan dibawah:</p>
 <p><span class="math display">\[ y = β_0 + β_1x + ε \]</span></p>
-<p>Kita kemudian menggunakan perintah summary() atau untuk menampilkan luarannya. Hasilnya adalah sebagai berikut:</p>
+<p>Kita kemudian menggunakan perintah <code>summary()</code> untuk menampilkan luarannya. Hasilnya adalah sebagai berikut:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="regresi-linier-sederhana.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span> (mpm) <span class="co"># gunakan ekstraktor summary() untuk menampilkan hasil regresi</span></span></code></pre></div>
 <pre><code>## 
 ## Call:
@@ -267,20 +267,45 @@ div.csl-indent {
 ## Residual standard error: 1.515 on 17 degrees of freedom
 ## Multiple R-squared:  0.3906, Adjusted R-squared:  0.3547 
 ## F-statistic: 10.89 on 1 and 17 DF,  p-value: 0.004224</code></pre>
-<p>Hasil regresi menunjukkan dugaan koefisien regresi dan standar errornya. Intersep garis regresinya adalah <span class="math inline">\(\hat \beta_0\)</span> = -1.210 (SE= 2.088), sementara dugaan kemiringan garisnya adalah <span class="math inline">\(\hat \beta_1\)</span> = 1.733 (SE = 0.525). Sedangkan p-value untuk kemiringannya (menguji hipotesis nol bahwa <span class="math inline">\(\beta_1\)</span> = true slope = 0) kecil, konsisten dengan bukti persebaran data yang cenderung linier. Tetapi p-value untuk intersep (menguji <span class="math inline">\(\beta_0\)</span> = 0) adalah 0.57, berarti intersep tidak signifikan.</p>
-<p>Diagram pencar dan garis regresi dapat ditampilkan bersama-sama dengan perintah berikut:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="regresi-linier-sederhana.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpmisc)</span>
-<span id="cb10-2"><a href="regresi-linier-sederhana.html#cb10-2" aria-hidden="true" tabindex="-1"></a>PJMotor <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(PJMotor)</span>
-<span id="cb10-3"><a href="regresi-linier-sederhana.html#cb10-3" aria-hidden="true" tabindex="-1"></a>my.formula <span class="ot">&lt;-</span> y <span class="sc">~</span> x</span>
-<span id="cb10-4"><a href="regresi-linier-sederhana.html#cb10-4" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> PJMotor, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
-<span id="cb10-5"><a href="regresi-linier-sederhana.html#cb10-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se=</span><span class="cn">FALSE</span>, <span class="at">color=</span><span class="st">&quot;black&quot;</span>, <span class="at">formula =</span> my.formula) <span class="sc">+</span></span>
-<span id="cb10-6"><a href="regresi-linier-sederhana.html#cb10-6" aria-hidden="true" tabindex="-1"></a>   <span class="fu">stat_poly_eq</span>(<span class="at">formula =</span> my.formula,</span>
-<span id="cb10-7"><a href="regresi-linier-sederhana.html#cb10-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">eq.with.lhs =</span> <span class="st">&quot;italic(hat(y))~`=`~&quot;</span>,</span>
-<span id="cb10-8"><a href="regresi-linier-sederhana.html#cb10-8" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste</span>(..eq.label.., ..rr.label.., <span class="at">sep =</span> <span class="st">&quot;~~~&quot;</span>)), </span>
-<span id="cb10-9"><a href="regresi-linier-sederhana.html#cb10-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">parse =</span> <span class="cn">TRUE</span>) <span class="sc">+</span>         </span>
-<span id="cb10-10"><a href="regresi-linier-sederhana.html#cb10-10" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_point</span>()</span>
-<span id="cb10-11"><a href="regresi-linier-sederhana.html#cb10-11" aria-hidden="true" tabindex="-1"></a>p</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>Hasil regresi menunjukkan dugaan <span class="math inline">\(\hat \beta\)</span>. Intersep garis regresinya adalah <span class="math inline">\(\hat \beta_0\)</span> = -1.210 (SE= 2.088), p-value = 0.57 (tidak signifikan). Sedangkan <span class="math inline">\(\hat \beta_1\)</span> = 1.733 (SE = 0.525) dan p-valuenya (menguji hipotesis nol bahwa <span class="math inline">\(\beta_1\)</span> = 0) kecil, konsisten dengan bukti persebaran data yang cenderung linier.</p>
+<p>Di dalam R, kita bisa dengan mudah menambahkan nilai-nilai dugaan dan residu ke dalam data dengan menggunakan perintah <code>augment()</code> dari <a href="">broom package</a>. Misalkan outputnya kita sebut sebagai uji.diagnostik (dibahas secara lebih lengkap di Bab 4).</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="regresi-linier-sederhana.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;broom&quot;</span>)</span>
+<span id="cb10-2"><a href="regresi-linier-sederhana.html#cb10-2" aria-hidden="true" tabindex="-1"></a>uji.diagnostik <span class="ot">&lt;-</span> <span class="fu">augment</span>(mpm)</span>
+<span id="cb10-3"><a href="regresi-linier-sederhana.html#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(uji.diagnostik)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 8
+##       y     x .fitted .resid   .hat .sigma .cooksd .std.resid
+##   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;      &lt;dbl&gt;
+## 1  1.58  2.24    2.66  -1.09 0.394    1.52  0.277      -0.922
+## 2  2.29  3.09    4.15  -1.86 0.136    1.48  0.136      -1.32 
+## 3  2.81  3.38    4.64  -1.83 0.0883   1.49  0.0776     -1.27 
+## 4  3.89  3.63    5.08  -1.19 0.0628   1.53  0.0222     -0.814
+## 5  5.07  4.29    6.22  -1.15 0.0689   1.53  0.0228     -0.786
+## 6  4.43  4.11    5.91  -1.48 0.0568   1.51  0.0304     -1.01</code></pre>
+<p>Kolom-kolom pada tabe diatas menunjukkan</p>
+<pre><code>x: pertumbuhan pendapatan per kapita
+y: penjualan motor
+.fitted: nilai dugaan penjualan motor
+.resid: the residual errors</code></pre>
+<p>Kode berikut memplot residuals error (warna kuning) antara nilai pengamatan dengan nilai dugaan. Setiap garis vertikal warna kuning menunjukkan nilai kesalahan/residu antara angka penjualan motor aktual dengan nilai dugaannya.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="regresi-linier-sederhana.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(uji.diagnostik, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb13-2"><a href="regresi-linier-sederhana.html#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb13-3"><a href="regresi-linier-sederhana.html#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_smooth</span>(<span class="at">method =</span> lm, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb13-4"><a href="regresi-linier-sederhana.html#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">xend =</span> x, <span class="at">yend =</span> .fitted), <span class="at">color =</span> <span class="st">&quot;gold&quot;</span>, <span class="at">size =</span> <span class="fl">0.3</span>)</span></code></pre></div>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>Diagram pencar dan garis regresi juga dapat dapat ditampilkan bersama-sama dengan perintah berikut:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="regresi-linier-sederhana.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpmisc)</span>
+<span id="cb15-2"><a href="regresi-linier-sederhana.html#cb15-2" aria-hidden="true" tabindex="-1"></a>PJMotor <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(PJMotor)</span>
+<span id="cb15-3"><a href="regresi-linier-sederhana.html#cb15-3" aria-hidden="true" tabindex="-1"></a>my.formula <span class="ot">&lt;-</span> y <span class="sc">~</span> x</span>
+<span id="cb15-4"><a href="regresi-linier-sederhana.html#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> PJMotor, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb15-5"><a href="regresi-linier-sederhana.html#cb15-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se=</span><span class="cn">FALSE</span>, <span class="at">color=</span><span class="st">&quot;blue&quot;</span>, <span class="at">formula =</span> my.formula) <span class="sc">+</span></span>
+<span id="cb15-6"><a href="regresi-linier-sederhana.html#cb15-6" aria-hidden="true" tabindex="-1"></a>   <span class="fu">stat_poly_eq</span>(<span class="at">formula =</span> my.formula,</span>
+<span id="cb15-7"><a href="regresi-linier-sederhana.html#cb15-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">eq.with.lhs =</span> <span class="st">&quot;italic(hat(y))~`=`~&quot;</span>,</span>
+<span id="cb15-8"><a href="regresi-linier-sederhana.html#cb15-8" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste</span>(..eq.label.., ..rr.label.., <span class="at">sep =</span> <span class="st">&quot;~~~&quot;</span>)), </span>
+<span id="cb15-9"><a href="regresi-linier-sederhana.html#cb15-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">parse =</span> <span class="cn">TRUE</span>) <span class="sc">+</span>         </span>
+<span id="cb15-10"><a href="regresi-linier-sederhana.html#cb15-10" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_point</span>()</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>Koefisisen determinasi (<span class="math inline">\(R^2\)</span>) sebesar 39 persen. Artinya model kita hanya menjelaskan sebesar 39 persen variasi pada penjualan motor. Cukup masuk akal karena model kita hanya menggunakan satu variabel penjelas yaitu pertumbuhan per kapita.</p>
 <p>…work in progress…</p>
 
 </div>
