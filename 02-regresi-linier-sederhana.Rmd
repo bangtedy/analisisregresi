@@ -26,7 +26,7 @@ Untuk memperoleh nilai dugaan $\beta_0$ dan $\beta_1$ yang paling cocok, kita me
 
 Kasus 1: Penjualan Motor dan Pertumbuhan Pendapatan Perkapita
 
-Kita akan melanjutkan kasus hubungan antara penjualan motor dengan pendapatan pada Bab 1 sebelumnya sebagai ilustrasi regresi linier sederhana. Data dapat diunduh di [sini](). Langkah awal untuk melihat bagaimana hubungan antar variabel adalah membuat diagram pencar.
+Kita akan melanjutkan kasus hubungan antara penjualan motor dengan pendapatan pada Bab 1 sebelumnya sebagai ilustrasi regresi linier sederhana. Data dapat diunduh di [sini](https://drive.google.com/file/d/1Aa6A0KkXXINoDkdNJSnYUY5Y0E1xnrOb/view?usp=sharing). Langkah awal untuk melihat bagaimana hubungan antar variabel adalah membuat diagram pencar.
 
 Plot sangat penting di dalam regresi. Pemeriksaan diagram pencar secara teliti harus mendahului penghitungan regresi. Diagram pencar dapat mengindikasikan apakah model regresi yang diinginkan mungkin masuk akal atau tidak. Kesepakatan dalam membuat diagram pencar, variabel $x$ sebagai variabel penjelas diplot pada sumbu horisontal. Varibel $y$ sebagai variabel respons diplot pada sumbu vertikal. 
 
@@ -75,9 +75,9 @@ Kita kemudian menggunakan perintah ```summary()``` untuk menampilkan luarannya. 
 summary (mpm) # gunakan ekstraktor summary() untuk menampilkan hasil regresi
 ```
 
-Hasil regresi menunjukkan dugaan $\hat \beta$. Intersep garis regresinya adalah $\hat \beta_0$ = -1.210 (SE= 2.088), p-value = 0.57 (tidak signifikan). Sedangkan $\hat \beta_1$ = 1.733 (SE = 0.525) dan p-valuenya (menguji hipotesis nol bahwa $\beta_1$ = 0) kecil, konsisten dengan bukti persebaran data yang cenderung linier. 
+Hasil regresi menunjukkan nilai dugaan intersep garis regresi $\hat \beta_0$ = -1.210 (SE= 2.088), p-value = 0.57 (tidak signifikan). Sedangkan nilai dugaan $\hat \beta_1$ = 1.733 (SE = 0.525) dan p-valuenya (menguji hipotesis nol bahwa $\beta_1$ = 0) kecil, konsisten dengan bukti persebaran data yang cenderung linier. 
 
-Di dalam R, kita bisa dengan mudah menambahkan nilai-nilai dugaan dan residu ke dalam data dengan menggunakan perintah ```augment()``` dari [broom package](). Misalkan outputnya kita sebut sebagai uji.diagnostik (dibahas secara lebih lengkap di Bab 4). 
+Di dalam R, kita bisa dengan mudah menambahkan nilai-nilai dugaan dan residu ke dalam data dengan menggunakan perintah ```augment()``` dari *broom package*. Misalkan outputnya kita sebut sebagai uji.diagnostik (dibahas secara lebih lengkap di Bab 4). 
 
 ```{r, echo=TRUE, warning=FALSE}
 library("broom")
@@ -85,7 +85,7 @@ uji.diagnostik <- augment(mpm)
 head(uji.diagnostik)
 ```
 
-Kolom-kolom pada tabe diatas menunjukkan
+Kolom-kolom pada tabel diatas menunjukkan
 
     x: pertumbuhan pendapatan per kapita
     y: penjualan motor
@@ -95,10 +95,11 @@ Kolom-kolom pada tabe diatas menunjukkan
 Kode berikut memplot residuals error (warna kuning) antara nilai pengamatan dengan nilai dugaan. Setiap garis vertikal warna kuning menunjukkan nilai kesalahan/residu antara angka penjualan motor aktual dengan nilai dugaannya.
 
 ```{r, echo=TRUE, warning=FALSE}
-
+library(ggplot2)
+my.formula <- y ~ x
 ggplot(uji.diagnostik, aes(x, y)) +
   geom_point() +
-  stat_smooth(method = lm, se = FALSE) +
+  stat_smooth(method = "lm", se = FALSE, formula = my.formula) +
   geom_segment(aes(xend = x, yend = .fitted), color = "gold", size = 0.3)
 ```
 

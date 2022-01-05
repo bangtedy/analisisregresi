@@ -41,7 +41,7 @@ Tetapi buku ini bukan buku tentang R. Juga bukan buku tentang statistik. Materi 
 
 *Cara mengutip*:
 
-> Herlambang, Tedy. 2021. Analisis Regresi.URL <https://bangtedy.github.io/analisisregresi>.
+> Herlambang, Tedy. 2022. Analisis Regresi.URL <https://bangtedy.github.io/analisisregresi>.
 
 #### Disclaimer {.unnumbered}
 
