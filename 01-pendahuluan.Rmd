@@ -154,11 +154,12 @@ PJMotor %>%
   kable_paper("hover", full_width=F)
 ```
 
-Langkah awal untuk melihat apakah data yang kita miliki memang mengandung "sinyal" yang menunjukkan hubungan antara pendapatan dengan penjualan motor adalah membuat diagram pencar (*scatter plot*). Diagram pencar bisa menunjukkan secara kasar apakah hubungan antar variabel dapat dianggap linier atau tidak. Gambar 1.1 menunjukkan bahwa hubungan antara penjualan motor dengan pendapatan dapat diasumsikan linier. Selanjutnya kita tarik garis lurus yang paling banyak "mendekati" titik-titik data pengamatan yang tersebar seperti yang ditunjukkan. 
+Langkah awal untuk melihat apakah data yang kita miliki memang mengandung "sinyal" yang menunjukkan hubungan antara pendapatan dengan penjualan motor adalah membuat diagram pencar (*scatter plot*). Diagram pencar bisa menunjukkan secara kasar apakah hubungan antar variabel dapat dianggap linier atau tidak. Gambar 1.1 menunjukkan bahwa hubungan linier antara penjualan motor dengan pendapatan tidak cukup meyakinkan. Tetapi kita coba menarik garis lurus yang paling banyak "mendekati" titik-titik data pengamatan yang tersebar. 
 
 
 ```{r diagram-pencar, echo=FALSE, fig.cap="Diagram Pencar"}
 PJMotor <- read.delim("PJMotor.txt")
+attach(PJMotor)
 plot(x, y)
 ```
 

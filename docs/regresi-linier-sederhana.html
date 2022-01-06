@@ -11,17 +11,17 @@
 <meta property="og:title" content="2 Regresi Linier Sederhana | Analisis Regresi">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://bangtedy.github.io/analisisregresi/regresi-linier-sederhana.html">
-<meta property="og:image" content="https://bangtedy.github.io/analisisregresi/images/analisisregresi.jpg">
+<meta property="og:image" content="https://bangtedy.github.io/analisisregresi/images/analisisregresi-s.png">
 <meta property="og:description" content="Bab ini akan membahas regresi linier sederhana. Istilah regresi sederhana tidak merujuk pada kenaifan penelitiannya tetapi merujuk pada model yang hanya terdiri dari satu variabel respons dan satu...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2 Regresi Linier Sederhana | Analisis Regresi">
 <meta name="twitter:site" content="@t_hlb">
 <meta name="twitter:description" content="Bab ini akan membahas regresi linier sederhana. Istilah regresi sederhana tidak merujuk pada kenaifan penelitiannya tetapi merujuk pada model yang hanya terdiri dari satu variabel respons dan satu...">
-<meta name="twitter:image" content="https://bangtedy.github.io/analisisregresi/images/analisisregresi.jpg">
+<meta name="twitter:image" content="https://bangtedy.github.io/analisisregresi/images/analisisregresi-s.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><meta name="citation_title" content="2 Regresi Linier Sederhana | Analisis Regresi">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><meta name="citation_title" content="2 Regresi Linier Sederhana | Analisis Regresi: Disertai Contoh-Contoh Menggunakan R">
 <meta name="citation_author" content="Tedy Herlambang">
 <meta name="citation_publication_date" content="2022">
 <meta name="citation_isbn" content="">
@@ -44,8 +44,8 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="Dengan Menggunakan R">Analisis Regresi</a>:
-        <small class="text-muted">Dengan Menggunakan R</small>
+        <a href="index.html" title="Disertai Contoh-Contoh Menggunakan R">Analisis Regresi</a>:
+        <small class="text-muted">Disertai Contoh-Contoh Menggunakan R</small>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -90,15 +90,20 @@
 <p>Dengan kata lain tujuan dari analisis regresi adalah mengestimasi koefisien regresi untuk variabel prediktor sehingga didapatkan nilai dugaan variabel respons sedekat mungkin nilainya dengan nilai pengamatan aktualnya.</p>
 <p>Di dalam analisis regresi, model terbaik ditunjukkan oleh garis lurus yang menghubungkan rata-rata variabel prediktor dengan variabel respons sedemikian rupa sehingga jumlah kuadrat kesalahan (jarak vertikal antara titik-titik data pengamatan aktual <span class="math inline">\(y_i\)</span> dengan nilai dugaannya <span class="math inline">\(\hat y_i\)</span>) minimal.</p>
 <p>Untuk memperoleh nilai dugaan <span class="math inline">\(\beta_0\)</span> dan <span class="math inline">\(\beta_1\)</span> yang paling cocok, kita menggunakan metode kuadrat terkecil (<em>method of least squares</em>). Dengan pendekatan kuadrat terkecil, kita mencari nilai dugaan <span class="math inline">\(\beta_0\)</span> dan <span class="math inline">\(\beta_1\)</span> yang meminimalkan jumlah kuadrat residu/kesalahan (<span class="math inline">\(y_i-\hat y_i\)</span>).</p>
-<p>Kasus 1: Penjualan Motor dan Pertumbuhan Pendapatan Perkapita</p>
+<div id="kasus-1-penjualan-motor-dan-pertumbuhan-pendapatan-perkapita" class="section level3" number="2.1.1">
+<h3>
+<span class="header-section-number">2.1.1</span> Kasus 1: Penjualan Motor dan Pertumbuhan Pendapatan Perkapita<a class="anchor" aria-label="anchor" href="#kasus-1-penjualan-motor-dan-pertumbuhan-pendapatan-perkapita"><i class="fas fa-link"></i></a>
+</h3>
 <p>Kita akan melanjutkan kasus hubungan antara penjualan motor dengan pendapatan pada Bab 1 sebelumnya sebagai ilustrasi regresi linier sederhana. Data dapat diunduh di <a href="https://drive.google.com/file/d/1Aa6A0KkXXINoDkdNJSnYUY5Y0E1xnrOb/view?usp=sharing">sini</a>. Langkah awal untuk melihat bagaimana hubungan antar variabel adalah membuat diagram pencar.</p>
 <p>Plot sangat penting di dalam regresi. Pemeriksaan diagram pencar secara teliti harus mendahului penghitungan regresi. Diagram pencar dapat mengindikasikan apakah model regresi yang diinginkan mungkin masuk akal atau tidak. Kesepakatan dalam membuat diagram pencar, variabel <span class="math inline">\(x\)</span> sebagai variabel penjelas diplot pada sumbu horisontal. Varibel <span class="math inline">\(y\)</span> sebagai variabel respons diplot pada sumbu vertikal.</p>
 <p>Untuk membuat diagram pencar, hal pertama yang harus dilakukan adalah memasukkan data ke dalam R, mengecek apakah data yang kita masukkan sudah betul dan memanggil <em>library</em> yang relevan dengan model yang akan dibuat.</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">PJMotor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.delim</a></span><span class="op">(</span><span class="st">"PJMotor.txt"</span><span class="op">)</span> <span class="co"># memanggil data dalam bentuk teks ke dalam R</span>
-<span class="va">PJMotor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">PJMotor</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">PJMotor</span><span class="op">)</span> <span class="co"># untuk melihat 6 data pertama</span></code></pre></div>
+<code class="sourceCode R"><span class="co"># memanggil data dalam bentuk teks ke dalam R</span>
+<span class="va">PJMotor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.delim</a></span><span class="op">(</span><span class="st">"PJMotor.txt"</span><span class="op">)</span> 
+<span class="va">PJMotor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">PJMotor</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># untuk melihat beberapa baris data teratas</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">PJMotor</span><span class="op">)</span> </code></pre></div>
 <pre><code>##   Tahun        y        x
 ## 1  2001 1.575822 2.235180
 ## 2  2002 2.287706 3.090636
@@ -106,8 +111,9 @@
 ## 4  2004 3.887678 3.630909
 ## 5  2005 5.074186 4.289591
 ## 6  2006 4.428274 4.107514</code></pre>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">tail</a></span><span class="op">(</span><span class="va">PJMotor</span><span class="op">)</span> <span class="co"># untuk melihat 6 data terakhir</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># untuk melihat beberapa baris data terakhir</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">tail</a></span><span class="op">(</span><span class="va">PJMotor</span><span class="op">)</span> </code></pre></div>
 <pre><code>##    Tahun        y        x
 ## 14  2014 7.867195 3.639072
 ## 15  2015 6.480155 3.555062
@@ -116,20 +122,23 @@
 ## 18  2018 6.383108 3.987825
 ## 19  2019 6.487460 3.871444</code></pre>
 <p>Perintah <code>plot(x,y)</code> di dalam R adalah untuk membuat plot antara variabel respons dengan variabel prediktor. Hasilnya ditampilkan pada Gambar 2.1.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span><span class="op">)</span> <span class="co">#membuat diagram pencar</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#membuat diagram pencar</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span><span class="op">)</span> </code></pre></div>
 <div class="inline-figure"><img src="bookdown-demo_files/figure-html/unnamed-chunk-5-1.png" width="672"></div>
 <p>Di dalam R model regresi linier sederhana dapat diperoleh dengan perintah <code>lm(y~x)</code>. Tanda ~ dapat diartikan <span class="math inline">\(y\)</span> dijelaskan oleh <span class="math inline">\(x\)</span>. Fungsi ini mengestimasi koefisien regresi model linier dengan metode kuadrat terkecil (<em>the least squares method</em>).</p>
-<p>Semisal modelnya kita beri nama *<strong>model penjualan motor (mpm)</strong>, yang memodelkan hubungan antara penjualan motor (y) dengan pertumbuhan pendapatan (x), maka model ini dapat diperoleh dengan perintah:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mpm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">x</span><span class="op">)</span> <span class="co"># perhatikan tanda panah ke kiri. </span>
-<span class="co"># Intersep dan kemiringan secara default sudah termasuk yang diestimasi. </span>
+<p>Semisal modelnya kita beri nama <strong>model penjualan motor (mpm)</strong>, yang memodelkan hubungan antara penjualan motor (<span class="math inline">\(y\)</span>) dengan pertumbuhan pendapatan (<span class="math inline">\(x\)</span>), maka model ini dapat diperoleh dengan perintah:</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">mpm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">x</span><span class="op">)</span>
+<span class="co"># Perhatikan tanda panah ke kiri. </span>
+<span class="co"># Intersep dan slope secara default diestimasi. </span>
 <span class="co"># Bandingkan dengan perintah untuk mendapatkan diagram pencar. </span></code></pre></div>
 <p>Perintah ini sama dengan persamaan dibawah:</p>
 <p><span class="math display">\[ y = β_0 + β_1x + ε \]</span></p>
 <p>Kita kemudian menggunakan perintah <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> untuk menampilkan luarannya. Hasilnya adalah sebagai berikut:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span> <span class="op">(</span><span class="va">mpm</span><span class="op">)</span> <span class="co"># gunakan ekstraktor summary() untuk menampilkan hasil regresi</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># perintah summary() untuk mengekstrak hasil regresi</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span> <span class="op">(</span><span class="va">mpm</span><span class="op">)</span> </code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = y ~ x)
@@ -150,8 +159,9 @@
 ## F-statistic: 10.89 on 1 and 17 DF,  p-value: 0.004224</code></pre>
 <p>Hasil regresi menunjukkan nilai dugaan intersep garis regresi <span class="math inline">\(\hat \beta_0\)</span> = -1.210 (SE= 2.088), p-value = 0.57 (tidak signifikan). Sedangkan nilai dugaan <span class="math inline">\(\hat \beta_1\)</span> = 1.733 (SE = 0.525) dan p-valuenya (menguji hipotesis nol bahwa <span class="math inline">\(\beta_1\)</span> = 0) kecil, konsisten dengan bukti persebaran data yang cenderung linier.</p>
 <p>Di dalam R, kita bisa dengan mudah menambahkan nilai-nilai dugaan dan residu ke dalam data dengan menggunakan perintah <code><a href="https://generics.r-lib.org/reference/augment.html">augment()</a></code> dari <em>broom package</em>. Misalkan outputnya kita sebut sebagai uji.diagnostik (dibahas secara lebih lengkap di Bab 4).</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://broom.tidymodels.org/">"broom"</a></span><span class="op">)</span>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># menambahkan nilai-nilai dugaan dan residu</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://broom.tidymodels.org/">"broom"</a></span><span class="op">)</span>
 <span class="va">uji.diagnostik</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://generics.r-lib.org/reference/augment.html">augment</a></span><span class="op">(</span><span class="va">mpm</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">uji.diagnostik</span><span class="op">)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 8
@@ -169,21 +179,21 @@ y: penjualan motor
 .fitted: nilai dugaan penjualan motor
 .resid: the residual errors</code></pre>
 <p>Kode berikut memplot residuals error (warna merah) yaitu selisih antara nilai pengamatan dengan nilai dugaan. Setiap garis vertikal warna merah menunjukkan nilai kesalahan/residu antara angka penjualan motor aktual dengan nilai dugaannya.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
 <span class="va">my.formula</span> <span class="op">&lt;-</span> <span class="va">y</span> <span class="op">~</span> <span class="va">x</span>
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">uji.diagnostik</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">stat_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span>, se <span class="op">=</span> <span class="cn">FALSE</span>, formula <span class="op">=</span> <span class="va">my.formula</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html">geom_segment</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>xend <span class="op">=</span> <span class="va">x</span>, yend <span class="op">=</span> <span class="va">.fitted</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"red"</span>, size <span class="op">=</span> <span class="fl">0.3</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span></code></pre></div>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">stat_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span>, se <span class="op">=</span> <span class="cn">FALSE</span>, formula <span class="op">=</span> <span class="va">my.formula</span>, size <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html">geom_segment</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>xend <span class="op">=</span> <span class="va">x</span>, yend <span class="op">=</span> <span class="va">.fitted</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"red"</span>, size <span class="op">=</span> <span class="fl">0.4</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="bookdown-demo_files/figure-html/unnamed-chunk-9-1.png" width="672"></div>
 <p>Diagram pencar dan garis regresi juga dapat dapat ditampilkan bersama-sama dengan perintah berikut:</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.r4photobiology.info/ggpmisc/">ggpmisc</a></span><span class="op">)</span>
 <span class="va">PJMotor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">PJMotor</span><span class="op">)</span>
 <span class="va">my.formula</span> <span class="op">&lt;-</span> <span class="va">y</span> <span class="op">~</span> <span class="va">x</span>
 <span class="fu"><a href="https://docs.r4photobiology.info/ggpp/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">PJMotor</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span>, se<span class="op">=</span><span class="cn">FALSE</span>, color<span class="op">=</span><span class="st">"blue"</span>, formula <span class="op">=</span> <span class="va">my.formula</span><span class="op">)</span> <span class="op">+</span>
+   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span>, se<span class="op">=</span><span class="cn">FALSE</span>, color<span class="op">=</span><span class="st">"blue"</span>, size <span class="op">=</span> <span class="fl">0.8</span>, formula <span class="op">=</span> <span class="va">my.formula</span><span class="op">)</span> <span class="op">+</span>
    <span class="fu"><a href="https://docs.r4photobiology.info/ggpmisc/reference/stat_poly_eq.html">stat_poly_eq</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">my.formula</span>,
                 eq.with.lhs <span class="op">=</span> <span class="st">"italic(hat(y))~`=`~"</span>,
                 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">..eq.label..</span>, <span class="va">..rr.label..</span>, sep <span class="op">=</span> <span class="st">"~~~"</span><span class="op">)</span><span class="op">)</span>, 
@@ -195,6 +205,7 @@ y: penjualan motor
 
 </div>
 </div>
+</div>
   <div class="chapter-nav">
 <div class="prev"><a href="pendahuluan.html"><span class="header-section-number">1</span> Pendahuluan</a></div>
 <div class="next"><a href="regresi-linier-berganda.html"><span class="header-section-number">3</span> Regresi Linier Berganda</a></div>
@@ -202,7 +213,9 @@ y: penjualan motor
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#regresi-linier-sederhana"><span class="header-section-number">2</span> Regresi Linier Sederhana</a></li>
-<li><a class="nav-link" href="#model-regresi-linier-sederhana"><span class="header-section-number">2.1</span> Model Regresi Linier Sederhana</a></li>
+<li>
+<a class="nav-link" href="#model-regresi-linier-sederhana"><span class="header-section-number">2.1</span> Model Regresi Linier Sederhana</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#kasus-1-penjualan-motor-dan-pertumbuhan-pendapatan-perkapita"><span class="header-section-number">2.1.1</span> Kasus 1: Penjualan Motor dan Pertumbuhan Pendapatan Perkapita</a></li></ul>
+</li>
 </ul>
 
       <div class="book-extra">
@@ -220,7 +233,7 @@ y: penjualan motor
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Analisis Regresi</strong>: Dengan Menggunakan R" was written by Tedy Herlambang. It was last built on 2022-01-06.</p>
+    <p>"<strong>Analisis Regresi</strong>: Disertai Contoh-Contoh Menggunakan R" was written by Tedy Herlambang. It was last built on 2022-01-07.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

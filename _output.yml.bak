@@ -1,7 +1,7 @@
 bookdown::bs4_book:
   css: css/style.css
   theme:
-    primary: "#0a14a8"
+    primary: "#101aa3"
   repo: https://github.com/bangtedy/analisisregresi
   includes:
     in_header: [ga_script.html, material_icons.html]

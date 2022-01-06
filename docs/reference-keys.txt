@@ -10,6 +10,7 @@ langkah-langkah-melakukan-analisis-regresi
 penggunaan-komputer
 regresi-linier-sederhana
 model-regresi-linier-sederhana
+kasus-1-penjualan-motor-dan-pertumbuhan-pendapatan-perkapita
 regresi-linier-berganda
 diagnostik-regresi-dan-tindakan-perbaikan
 model-regresi-linier-lanjutan
