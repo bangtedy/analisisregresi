@@ -1,213 +1,88 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
+<html lang="en">
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>2 Regresi Linier Sederhana | Analisis Regresi</title>
+<meta name="author" content="Tedy Herlambang">
+<meta name="description" content="Bab ini akan membahas regresi linier sederhana. Istilah regresi sederhana tidak merujuk pada kenaifan penelitiannya tetapi merujuk pada model yang hanya terdiri dari satu variabel respons dan satu...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="2 Regresi Linier Sederhana | Analisis Regresi">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://bangtedy.github.io/analisisregresi/regresi-linier-sederhana.html">
+<meta property="og:image" content="https://bangtedy.github.io/analisisregresi/images/analisisregresi.jpg">
+<meta property="og:description" content="Bab ini akan membahas regresi linier sederhana. Istilah regresi sederhana tidak merujuk pada kenaifan penelitiannya tetapi merujuk pada model yang hanya terdiri dari satu variabel respons dan satu...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2 Regresi Linier Sederhana | Analisis Regresi">
+<meta name="twitter:site" content="@t_hlb">
+<meta name="twitter:description" content="Bab ini akan membahas regresi linier sederhana. Istilah regresi sederhana tidak merujuk pada kenaifan penelitiannya tetapi merujuk pada model yang hanya terdiri dari satu variabel respons dan satu...">
+<meta name="twitter:image" content="https://bangtedy.github.io/analisisregresi/images/analisisregresi.jpg">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><meta name="citation_title" content="2 Regresi Linier Sederhana | Analisis Regresi">
+<meta name="citation_author" content="Tedy Herlambang">
+<meta name="citation_publication_date" content="2022">
+<meta name="citation_isbn" content="">
+<script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet">
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-N7JZGMVRZK"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2 Regresi Linier Sederhana | Analisis Regresi</title>
-  <meta name="description" content="2 Regresi Linier Sederhana | Analisis Regresi is an open-access book-in-progress using bookdown package." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
-
-  <meta property="og:title" content="2 Regresi Linier Sederhana | Analisis Regresi" />
-  <meta property="og:type" content="book" />
-  
-  <meta property="og:image" content="/images/analisisregresi.jpg" />
-  <meta property="og:description" content="2 Regresi Linier Sederhana | Analisis Regresi is an open-access book-in-progress using bookdown package." />
-  <meta name="github-repo" content="rstudio/bookdown-demo" />
-
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2 Regresi Linier Sederhana | Analisis Regresi" />
-  
-  <meta name="twitter:description" content="2 Regresi Linier Sederhana | Analisis Regresi is an open-access book-in-progress using bookdown package." />
-  <meta name="twitter:image" content="/images/analisisregresi.jpg" />
-
-<meta name="author" content="Tedy Herlambang" />
-
-
-<meta name="date" content="2022-01-06" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  
-  
-<link rel="prev" href="pendahuluan.html"/>
-<link rel="next" href="regresi-linier-berganda.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
-<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
-<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
-
-
-
-
-
-
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
-<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
-<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
-
-
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
-
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
-
-<link rel="stylesheet" href="style.css" type="text/css" />
+      gtag('config', 'G-N7JZGMVRZK');
+    </script><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="css/style.css">
 </head>
+<body data-spy="scroll" data-target="#toc">
 
-<body>
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
-
-
-  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
-
-    <div class="book-summary">
-      <nav role="navigation">
-
-<ul class="summary">
-<li><a href="./">Analisis Regresi <br> Tedy Herlambang</a></li>
-
-<li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Kata Pengantar</a></li>
-<li class="chapter" data-level="1" data-path="pendahuluan.html"><a href="pendahuluan.html"><i class="fa fa-check"></i><b>1</b> Pendahuluan</a>
-<ul>
-<li class="chapter" data-level="1.1" data-path="pendahuluan.html"><a href="pendahuluan.html#model-regresi-linier"><i class="fa fa-check"></i><b>1.1</b> Model Regresi Linier</a></li>
-<li class="chapter" data-level="1.2" data-path="pendahuluan.html"><a href="pendahuluan.html#asumsi-asumsi-model-linier"><i class="fa fa-check"></i><b>1.2</b> Asumsi-Asumsi Model Linier</a></li>
-<li class="chapter" data-level="1.3" data-path="pendahuluan.html"><a href="pendahuluan.html#uji-signifikansi"><i class="fa fa-check"></i><b>1.3</b> Uji Signifikansi</a></li>
-<li class="chapter" data-level="1.4" data-path="pendahuluan.html"><a href="pendahuluan.html#langkah-langkah-melakukan-analisis-regresi"><i class="fa fa-check"></i><b>1.4</b> Langkah-langkah Melakukan Analisis Regresi</a></li>
-<li class="chapter" data-level="1.5" data-path="pendahuluan.html"><a href="pendahuluan.html#penggunaan-komputer"><i class="fa fa-check"></i><b>1.5</b> Penggunaan Komputer</a></li>
-</ul></li>
-<li class="chapter" data-level="2" data-path="regresi-linier-sederhana.html"><a href="regresi-linier-sederhana.html"><i class="fa fa-check"></i><b>2</b> Regresi Linier Sederhana</a>
-<ul>
-<li class="chapter" data-level="2.1" data-path="regresi-linier-sederhana.html"><a href="regresi-linier-sederhana.html#model-regresi-linier-sederhana"><i class="fa fa-check"></i><b>2.1</b> Model Regresi Linier Sederhana</a></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="regresi-linier-berganda.html"><a href="regresi-linier-berganda.html"><i class="fa fa-check"></i><b>3</b> Regresi Linier Berganda</a></li>
-<li class="chapter" data-level="4" data-path="diagnostik-regresi-dan-tindakan-perbaikan.html"><a href="diagnostik-regresi-dan-tindakan-perbaikan.html"><i class="fa fa-check"></i><b>4</b> Diagnostik Regresi dan Tindakan Perbaikan</a></li>
-<li class="chapter" data-level="5" data-path="model-regresi-linier-lanjutan.html"><a href="model-regresi-linier-lanjutan.html"><i class="fa fa-check"></i><b>5</b> Model Regresi Linier Lanjutan</a></li>
-<li class="chapter" data-level="" data-path="referensi.html"><a href="referensi.html"><i class="fa fa-check"></i>Referensi</a></li>
-<li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-
-</ul>
-
-      </nav>
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="Dengan Menggunakan R">Analisis Regresi</a>:
+        <small class="text-muted">Dengan Menggunakan R</small>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
 
-    <div class="book-body">
-      <div class="body-inner">
-        <div class="book-header" role="navigation">
-          <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Analisis Regresi</a>
-          </h1>
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Kata Pengantar</a></li>
+<li><a class="" href="pendahuluan.html"><span class="header-section-number">1</span> Pendahuluan</a></li>
+<li><a class="active" href="regresi-linier-sederhana.html"><span class="header-section-number">2</span> Regresi Linier Sederhana</a></li>
+<li><a class="" href="regresi-linier-berganda.html"><span class="header-section-number">3</span> Regresi Linier Berganda</a></li>
+<li><a class="" href="diagnostik-regresi-dan-tindakan-perbaikan.html"><span class="header-section-number">4</span> Diagnostik Regresi dan Tindakan Perbaikan</a></li>
+<li><a class="" href="model-regresi-linier-lanjutan.html"><span class="header-section-number">5</span> Model Regresi Linier Lanjutan</a></li>
+<li><a class="" href="referensi.html">Referensi</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/bangtedy/analisisregresi">View book source <i class="fab fa-github"></i></a></p>
         </div>
-
-        <div class="page-wrapper" tabindex="-1" role="main">
-          <div class="page-inner">
-
-            <section class="normal" id="section-">
-<div id="regresi-linier-sederhana" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> Regresi Linier Sederhana</h1>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="regresi-linier-sederhana" class="section level1" number="2">
+<h1>
+<span class="header-section-number">2</span> Regresi Linier Sederhana<a class="anchor" aria-label="anchor" href="#regresi-linier-sederhana"><i class="fas fa-link"></i></a>
+</h1>
 <p>Bab ini akan membahas regresi linier sederhana. Istilah regresi sederhana tidak merujuk pada kenaifan penelitiannya tetapi merujuk pada model yang hanya terdiri dari satu variabel respons dan satu variabel prediktor.</p>
 <p>Situasi ini sering terjadi pada penelitian sains. Misalnya seorang peneliti ingin memprediksi laju reaksi kimia karena perubahan temperatur, atau ingin mengetahui hubungan antara perubahan diet dengan tingkat kolesterol pada seseorang. Jika dapat diasumsikan bahwa variabel-variabel ini terhubung secara linier, kita dapat menggunakan regresi linier sederhana untuk mengkuantifikasi hubungan ini.</p>
 <p>Analisis regresi digunakan ketika solusi eksak tidak tersedia, dalam arti kita tidak akan dapat menemukan nilai tunggal yang dapat mencakup secara lengkap hubungan antara variabel respons dengan prediktornya. Sehingga disini kita mencoba memprediksi setepat mungkin variabel respons atau memprediksi dengan kesalahan terkecil.</p>
 <p>Untuk mencapai tujuan ini, kita menganalisis pola-pola variabilitas pada variabel respons dan mencoba melihat apakah variabilitas ini dapat diprediksi dari variabilitas prediktornya.</p>
 <div id="model-regresi-linier-sederhana" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Model Regresi Linier Sederhana</h2>
+<h2>
+<span class="header-section-number">2.1</span> Model Regresi Linier Sederhana<a class="anchor" aria-label="anchor" href="#model-regresi-linier-sederhana"><i class="fas fa-link"></i></a>
+</h2>
 <p>Model regresi linier sederhana dapat dituliskan sebagai berikut:</p>
 <p><span class="math display">\[y_i=\beta_0 + \beta_1x_i+ \epsilon_i,\]</span></p>
 <p>Regresi sederhana mengindikasikan hanya ada satu variabel prediktor x untuk menduga variabel respons y. Linier disini diartikan modelnya linier pada parameternya dalam hal ini <span class="math inline">\(\beta_0\)</span> dan <span class="math inline">\(\beta_1\)</span>. Jadi model <span class="math inline">\(y_i = \beta_0 + \beta_1{x_i}^2 + \epsilon_i\)</span> adalah linier pada <span class="math inline">\(\beta_0\)</span> dan <span class="math inline">\(\beta_1\)</span>, sementara model <span class="math inline">\(y_i = \beta_0 + e^{\beta_ix_i} + \epsilon_i\)</span> tidak linier.</p>
@@ -219,9 +94,11 @@ div.csl-indent {
 <p>Kita akan melanjutkan kasus hubungan antara penjualan motor dengan pendapatan pada Bab 1 sebelumnya sebagai ilustrasi regresi linier sederhana. Data dapat diunduh di <a href="https://drive.google.com/file/d/1Aa6A0KkXXINoDkdNJSnYUY5Y0E1xnrOb/view?usp=sharing">sini</a>. Langkah awal untuk melihat bagaimana hubungan antar variabel adalah membuat diagram pencar.</p>
 <p>Plot sangat penting di dalam regresi. Pemeriksaan diagram pencar secara teliti harus mendahului penghitungan regresi. Diagram pencar dapat mengindikasikan apakah model regresi yang diinginkan mungkin masuk akal atau tidak. Kesepakatan dalam membuat diagram pencar, variabel <span class="math inline">\(x\)</span> sebagai variabel penjelas diplot pada sumbu horisontal. Varibel <span class="math inline">\(y\)</span> sebagai variabel respons diplot pada sumbu vertikal.</p>
 <p>Untuk membuat diagram pencar, hal pertama yang harus dilakukan adalah memasukkan data ke dalam R, mengecek apakah data yang kita masukkan sudah betul dan memanggil <em>library</em> yang relevan dengan model yang akan dibuat.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="regresi-linier-sederhana.html#cb1-1" aria-hidden="true" tabindex="-1"></a>PJMotor <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="st">&quot;PJMotor.txt&quot;</span>) <span class="co"># memanggil data dalam bentuk teks ke dalam R</span></span>
-<span id="cb1-2"><a href="regresi-linier-sederhana.html#cb1-2" aria-hidden="true" tabindex="-1"></a>PJMotor <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(PJMotor)</span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="regresi-linier-sederhana.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(PJMotor) <span class="co"># untuk melihat 6 data pertama</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">PJMotor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.delim</a></span><span class="op">(</span><span class="st">"PJMotor.txt"</span><span class="op">)</span> <span class="co"># memanggil data dalam bentuk teks ke dalam R</span>
+<span class="va">PJMotor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">PJMotor</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">PJMotor</span><span class="op">)</span> <span class="co"># untuk melihat 6 data pertama</span></code></pre></div>
 <pre><code>##   Tahun        y        x
 ## 1  2001 1.575822 2.235180
 ## 2  2002 2.287706 3.090636
@@ -229,7 +106,8 @@ div.csl-indent {
 ## 4  2004 3.887678 3.630909
 ## 5  2005 5.074186 4.289591
 ## 6  2006 4.428274 4.107514</code></pre>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="regresi-linier-sederhana.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(PJMotor) <span class="co"># untuk melihat 6 data terakhir</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">tail</a></span><span class="op">(</span><span class="va">PJMotor</span><span class="op">)</span> <span class="co"># untuk melihat 6 data terakhir</span></code></pre></div>
 <pre><code>##    Tahun        y        x
 ## 14  2014 7.867195 3.639072
 ## 15  2015 6.480155 3.555062
@@ -238,17 +116,20 @@ div.csl-indent {
 ## 18  2018 6.383108 3.987825
 ## 19  2019 6.487460 3.871444</code></pre>
 <p>Perintah <code>plot(x,y)</code> di dalam R adalah untuk membuat plot antara variabel respons dengan variabel prediktor. Hasilnya ditampilkan pada Gambar 2.1.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="regresi-linier-sederhana.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y) <span class="co">#membuat diagram pencar</span></span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span><span class="op">)</span> <span class="co">#membuat diagram pencar</span></code></pre></div>
+<div class="inline-figure"><img src="bookdown-demo_files/figure-html/unnamed-chunk-5-1.png" width="672"></div>
 <p>Di dalam R model regresi linier sederhana dapat diperoleh dengan perintah <code>lm(y~x)</code>. Tanda ~ dapat diartikan <span class="math inline">\(y\)</span> dijelaskan oleh <span class="math inline">\(x\)</span>. Fungsi ini mengestimasi koefisien regresi model linier dengan metode kuadrat terkecil (<em>the least squares method</em>).</p>
 <p>Semisal modelnya kita beri nama *<strong>model penjualan motor (mpm)</strong>, yang memodelkan hubungan antara penjualan motor (y) dengan pertumbuhan pendapatan (x), maka model ini dapat diperoleh dengan perintah:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="regresi-linier-sederhana.html#cb7-1" aria-hidden="true" tabindex="-1"></a>mpm <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x) <span class="co"># perhatikan tanda panah ke kiri. </span></span>
-<span id="cb7-2"><a href="regresi-linier-sederhana.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Intersep dan kemiringan secara default sudah termasuk yang diestimasi. </span></span>
-<span id="cb7-3"><a href="regresi-linier-sederhana.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Bandingkan dengan perintah untuk mendapatkan diagram pencar. </span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">mpm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">x</span><span class="op">)</span> <span class="co"># perhatikan tanda panah ke kiri. </span>
+<span class="co"># Intersep dan kemiringan secara default sudah termasuk yang diestimasi. </span>
+<span class="co"># Bandingkan dengan perintah untuk mendapatkan diagram pencar. </span></code></pre></div>
 <p>Perintah ini sama dengan persamaan dibawah:</p>
 <p><span class="math display">\[ y = β_0 + β_1x + ε \]</span></p>
-<p>Kita kemudian menggunakan perintah <code>summary()</code> untuk menampilkan luarannya. Hasilnya adalah sebagai berikut:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="regresi-linier-sederhana.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span> (mpm) <span class="co"># gunakan ekstraktor summary() untuk menampilkan hasil regresi</span></span></code></pre></div>
+<p>Kita kemudian menggunakan perintah <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> untuk menampilkan luarannya. Hasilnya adalah sebagai berikut:</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span> <span class="op">(</span><span class="va">mpm</span><span class="op">)</span> <span class="co"># gunakan ekstraktor summary() untuk menampilkan hasil regresi</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = y ~ x)
@@ -262,16 +143,17 @@ div.csl-indent {
 ## (Intercept)   -1.210      2.088  -0.579  0.56999   
 ## x              1.733      0.525   3.301  0.00422 **
 ## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
 ## Residual standard error: 1.515 on 17 degrees of freedom
 ## Multiple R-squared:  0.3906, Adjusted R-squared:  0.3547 
 ## F-statistic: 10.89 on 1 and 17 DF,  p-value: 0.004224</code></pre>
 <p>Hasil regresi menunjukkan nilai dugaan intersep garis regresi <span class="math inline">\(\hat \beta_0\)</span> = -1.210 (SE= 2.088), p-value = 0.57 (tidak signifikan). Sedangkan nilai dugaan <span class="math inline">\(\hat \beta_1\)</span> = 1.733 (SE = 0.525) dan p-valuenya (menguji hipotesis nol bahwa <span class="math inline">\(\beta_1\)</span> = 0) kecil, konsisten dengan bukti persebaran data yang cenderung linier.</p>
-<p>Di dalam R, kita bisa dengan mudah menambahkan nilai-nilai dugaan dan residu ke dalam data dengan menggunakan perintah <code>augment()</code> dari <em>broom package</em>. Misalkan outputnya kita sebut sebagai uji.diagnostik (dibahas secara lebih lengkap di Bab 4).</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="regresi-linier-sederhana.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;broom&quot;</span>)</span>
-<span id="cb10-2"><a href="regresi-linier-sederhana.html#cb10-2" aria-hidden="true" tabindex="-1"></a>uji.diagnostik <span class="ot">&lt;-</span> <span class="fu">augment</span>(mpm)</span>
-<span id="cb10-3"><a href="regresi-linier-sederhana.html#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(uji.diagnostik)</span></code></pre></div>
+<p>Di dalam R, kita bisa dengan mudah menambahkan nilai-nilai dugaan dan residu ke dalam data dengan menggunakan perintah <code><a href="https://generics.r-lib.org/reference/augment.html">augment()</a></code> dari <em>broom package</em>. Misalkan outputnya kita sebut sebagai uji.diagnostik (dibahas secara lebih lengkap di Bab 4).</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://broom.tidymodels.org/">"broom"</a></span><span class="op">)</span>
+<span class="va">uji.diagnostik</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://generics.r-lib.org/reference/augment.html">augment</a></span><span class="op">(</span><span class="va">mpm</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">uji.diagnostik</span><span class="op">)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 8
 ##       y     x .fitted .resid   .hat .sigma .cooksd .std.resid
 ##   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;      &lt;dbl&gt;
@@ -286,93 +168,67 @@ div.csl-indent {
 y: penjualan motor
 .fitted: nilai dugaan penjualan motor
 .resid: the residual errors</code></pre>
-<p>Kode berikut memplot residuals error (warna kuning) antara nilai pengamatan dengan nilai dugaan. Setiap garis vertikal warna kuning menunjukkan nilai kesalahan/residu antara angka penjualan motor aktual dengan nilai dugaannya.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="regresi-linier-sederhana.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb13-2"><a href="regresi-linier-sederhana.html#cb13-2" aria-hidden="true" tabindex="-1"></a>my.formula <span class="ot">&lt;-</span> y <span class="sc">~</span> x</span>
-<span id="cb13-3"><a href="regresi-linier-sederhana.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(uji.diagnostik, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
-<span id="cb13-4"><a href="regresi-linier-sederhana.html#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb13-5"><a href="regresi-linier-sederhana.html#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">formula =</span> my.formula) <span class="sc">+</span></span>
-<span id="cb13-6"><a href="regresi-linier-sederhana.html#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">xend =</span> x, <span class="at">yend =</span> .fitted), <span class="at">color =</span> <span class="st">&quot;gold&quot;</span>, <span class="at">size =</span> <span class="fl">0.3</span>)</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>Kode berikut memplot residuals error (warna merah) yaitu selisih antara nilai pengamatan dengan nilai dugaan. Setiap garis vertikal warna merah menunjukkan nilai kesalahan/residu antara angka penjualan motor aktual dengan nilai dugaannya.</p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
+<span class="va">my.formula</span> <span class="op">&lt;-</span> <span class="va">y</span> <span class="op">~</span> <span class="va">x</span>
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">uji.diagnostik</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">stat_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span>, se <span class="op">=</span> <span class="cn">FALSE</span>, formula <span class="op">=</span> <span class="va">my.formula</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html">geom_segment</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>xend <span class="op">=</span> <span class="va">x</span>, yend <span class="op">=</span> <span class="va">.fitted</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"red"</span>, size <span class="op">=</span> <span class="fl">0.3</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="bookdown-demo_files/figure-html/unnamed-chunk-9-1.png" width="672"></div>
 <p>Diagram pencar dan garis regresi juga dapat dapat ditampilkan bersama-sama dengan perintah berikut:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="regresi-linier-sederhana.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpmisc)</span>
-<span id="cb14-2"><a href="regresi-linier-sederhana.html#cb14-2" aria-hidden="true" tabindex="-1"></a>PJMotor <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(PJMotor)</span>
-<span id="cb14-3"><a href="regresi-linier-sederhana.html#cb14-3" aria-hidden="true" tabindex="-1"></a>my.formula <span class="ot">&lt;-</span> y <span class="sc">~</span> x</span>
-<span id="cb14-4"><a href="regresi-linier-sederhana.html#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> PJMotor, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
-<span id="cb14-5"><a href="regresi-linier-sederhana.html#cb14-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se=</span><span class="cn">FALSE</span>, <span class="at">color=</span><span class="st">&quot;blue&quot;</span>, <span class="at">formula =</span> my.formula) <span class="sc">+</span></span>
-<span id="cb14-6"><a href="regresi-linier-sederhana.html#cb14-6" aria-hidden="true" tabindex="-1"></a>   <span class="fu">stat_poly_eq</span>(<span class="at">formula =</span> my.formula,</span>
-<span id="cb14-7"><a href="regresi-linier-sederhana.html#cb14-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">eq.with.lhs =</span> <span class="st">&quot;italic(hat(y))~`=`~&quot;</span>,</span>
-<span id="cb14-8"><a href="regresi-linier-sederhana.html#cb14-8" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste</span>(..eq.label.., ..rr.label.., <span class="at">sep =</span> <span class="st">&quot;~~~&quot;</span>)), </span>
-<span id="cb14-9"><a href="regresi-linier-sederhana.html#cb14-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">parse =</span> <span class="cn">TRUE</span>) <span class="sc">+</span>         </span>
-<span id="cb14-10"><a href="regresi-linier-sederhana.html#cb14-10" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_point</span>()</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.r4photobiology.info/ggpmisc/">ggpmisc</a></span><span class="op">)</span>
+<span class="va">PJMotor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">PJMotor</span><span class="op">)</span>
+<span class="va">my.formula</span> <span class="op">&lt;-</span> <span class="va">y</span> <span class="op">~</span> <span class="va">x</span>
+<span class="fu"><a href="https://docs.r4photobiology.info/ggpp/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">PJMotor</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span>, se<span class="op">=</span><span class="cn">FALSE</span>, color<span class="op">=</span><span class="st">"blue"</span>, formula <span class="op">=</span> <span class="va">my.formula</span><span class="op">)</span> <span class="op">+</span>
+   <span class="fu"><a href="https://docs.r4photobiology.info/ggpmisc/reference/stat_poly_eq.html">stat_poly_eq</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">my.formula</span>,
+                eq.with.lhs <span class="op">=</span> <span class="st">"italic(hat(y))~`=`~"</span>,
+                <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">..eq.label..</span>, <span class="va">..rr.label..</span>, sep <span class="op">=</span> <span class="st">"~~~"</span><span class="op">)</span><span class="op">)</span>, 
+                parse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span>         
+   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="bookdown-demo_files/figure-html/unnamed-chunk-10-1.png" width="672"></div>
 <p>Koefisisen determinasi (<span class="math inline">\(R^2\)</span>) sebesar 39 persen. Artinya model kita hanya menjelaskan sebesar 39 persen variasi pada penjualan motor. Cukup masuk akal karena model kita hanya menggunakan satu variabel penjelas yaitu pertumbuhan per kapita.</p>
 <p>…work in progress…</p>
 
 </div>
 </div>
-            </section>
+  <div class="chapter-nav">
+<div class="prev"><a href="pendahuluan.html"><span class="header-section-number">1</span> Pendahuluan</a></div>
+<div class="next"><a href="regresi-linier-berganda.html"><span class="header-section-number">3</span> Regresi Linier Berganda</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#regresi-linier-sederhana"><span class="header-section-number">2</span> Regresi Linier Sederhana</a></li>
+<li><a class="nav-link" href="#model-regresi-linier-sederhana"><span class="header-section-number">2.1</span> Model Regresi Linier Sederhana</a></li>
+</ul>
 
-          </div>
-        </div>
-      </div>
-<a href="pendahuluan.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="regresi-linier-berganda.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
-    </div>
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/bangtedy/analisisregresi/blob/master/02-regresi-linier-sederhana.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/bangtedy/analisisregresi/edit/master/02-regresi-linier-sederhana.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Analisis Regresi</strong>: Dengan Menggunakan R" was written by Tedy Herlambang. It was last built on 2022-01-06.</p>
   </div>
-<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
-<script>
-gitbook.require(["gitbook"], function(gitbook) {
-gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-regresi-linier-sederhana.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
-});
-});
-</script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
@@ -384,7 +240,22 @@ gitbook.start({
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
 </script>
 </body>
-
 </html>

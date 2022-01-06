@@ -1,5 +1,6 @@
 ---
 title: "Analisis Regresi"
+subtitle: "`r if (knitr::is_latex_output()) {'Dengan Menggunakan R'} else {'Dengan Menggunakan R'}`"
 author: "Tedy Herlambang"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -10,7 +11,9 @@ biblio-style: apalike
 link-citations: yes
 github-repo: rstudio/bookdown-demo
 description: "Analisis Regresi is an open-access book-in-progress using bookdown package."
+url:  "https://bangtedy.github.io/analisisregresi"
 cover-image: images/analisisregresi.jpg
+twitter-handle: "t_hlb"
 # favicon: images/favicon.png
 ---
 
@@ -21,11 +24,26 @@ knitr::opts_chunk$set(echo = FALSE)
 options(knitr.graphics.auto_pdf = FALSE)
 ```
 
+```{r, echo = FALSE}
+# google scholar metadata
+library(metathis)
+
+if (knitr::is_html_output()) {
+  meta() |> 
+    meta_google_scholar(
+      title = "Analisis Regresi",
+      author = "Tedy Herlambang",
+      publication_date = "2022",
+      isbn = ""
+    ) 
+}
+```
+
 # Kata Pengantar {.unnumbered}
 
 ![](images/analisisregresi.jpg){width="579"}
 
-**Terakhir diperbarui pada: `r format (Sys.Date(), '%d %b %Y')`**.
+*Terakhir diperbarui pada: `r format (Sys.Date(), '%d %B %Y')`*.
 
 Manusia sering punya rasa ingin tahu tentang bagaimana suatu hal berkaitan dengan hal yang lain. Dengan kata lain, kita sebagai manusia seringkali tertarik melihat hubungan antara sebuah variabel dengan variabel lain. Di dunia akademik maupun praktik, salah satu alat yang bisa dipakai untuk mempelajari kaitan antar variabel adalah analisis regresi.
 
@@ -35,7 +53,7 @@ Analisis regresi sejatinya menganalisis hubungan antar variabel. Dengan bantuan 
 
 Di dalam buku singkat ini, saya akan membahas analisis regresi dan penerapannya. Pembahasan dimulai dengan regresi linier sederhana, kemudian dilanjutkan ke pembahasan regresi berganda. Program yang akan digunakan adalah R [@rcoreteam2021] yang bisa diunduh secara gratis di [sini](https://www.r-project.org/).
 
-Tetapi buku ini bukan buku tentang R. Juga bukan buku tentang statistik. Materi untuk belajar R sangat banyak tersedia secara *online* misalnya [Introduction to R](https://cran.r-project.org/doc/manuals/r-devel/R-intro.html). Pembaca juga bisa mengikuti berbagai topik di [R-bloggers](https://www.r-bloggers.com/). Tujuan buku ini adalah untuk memperkuat pemahaman pembaca tentang model regresi sebagai salah satu alat analisis yang bisa diterapkan pada berbagai bidang akademik maupun praktik. Saya mengharapkan buku ini bisa menjadi *live book* yang berkembang sesuai kebutuhan dan saran pembaca.
+Tetapi buku ini bukan buku tentang R. Juga bukan buku tentang statistik. Materi untuk belajar R sangat banyak tersedia secara *online* misalnya [Introduction to R](https://cran.r-project.org/doc/manuals/r-devel/R-intro.html). Pembaca juga bisa mengikuti berbagai topik di [R-bloggers](https://www.r-bloggers.com/). Tujuan buku ini adalah untuk memperkuat pemahaman pembaca tentang model regresi sebagai salah satu alat analisis yang bisa diterapkan pada berbagai bidang akademik maupun praktik. Saya mengharapkan buku ini bisa menjadi *live book* yang berkembang sesuai saran pembaca.
 
 <strong>Analisis Regresi</strong> hak cipta ada pada <a href="https://bangtedy.github.io/analisisregresi">Tedy Herlambang</a> dan diedarkan berdasarkan <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons BY-NC-ND 4.0 International License</a>. Anda bebas menggunakan isi buku ini untuk tujuan non-komersial, dengan menyebutkan sumbernya ke <a href="https://bangtedy.github.io/analisisregresi">https://bangtedy.github.io/analisisregresi</a>.
 

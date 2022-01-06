@@ -92,7 +92,7 @@ Kolom-kolom pada tabel diatas menunjukkan
     .fitted: nilai dugaan penjualan motor
     .resid: the residual errors
 
-Kode berikut memplot residuals error (warna kuning) antara nilai pengamatan dengan nilai dugaan. Setiap garis vertikal warna kuning menunjukkan nilai kesalahan/residu antara angka penjualan motor aktual dengan nilai dugaannya.
+Kode berikut memplot residuals error (warna merah) yaitu selisih antara nilai pengamatan dengan nilai dugaan. Setiap garis vertikal warna merah menunjukkan nilai kesalahan/residu antara angka penjualan motor aktual dengan nilai dugaannya.
 
 ```{r, echo=TRUE, warning=FALSE}
 library(ggplot2)
@@ -100,7 +100,7 @@ my.formula <- y ~ x
 ggplot(uji.diagnostik, aes(x, y)) +
   geom_point() +
   stat_smooth(method = "lm", se = FALSE, formula = my.formula) +
-  geom_segment(aes(xend = x, yend = .fitted), color = "gold", size = 0.3)
+  geom_segment(aes(xend = x, yend = .fitted), color = "red", size = 0.3, linetype = "dashed")
 ```
 
 Diagram pencar dan garis regresi juga dapat dapat ditampilkan bersama-sama dengan perintah berikut:

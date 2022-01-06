@@ -176,7 +176,7 @@ PJMotor <- read.delim("PJMotor.txt")
 plot(x, y)
 md <- lm(y ~ x, data = PJMotor)
 abline(md, col= "blue")
-segments(x, y, x, -1.210 + 1.733*x, lty=3, col = "gold")
+segments(x, y, x, -1.210 + 1.733*x, lty=3, col = "red")
 
 ```
 
@@ -194,7 +194,7 @@ berubah jika $x$ meningkat sebanyak satu unit.
 
 Faktor lain selain pendapatan yang menyebabkan variasi pada penjualan
 motor kita masukkan sebagai faktor acak. Faktor acak ini secara visual
-ditunjukkan oleh panjang garis vertikal (warna kuning putus-putus)
+ditunjukkan oleh panjang garis vertikal (warna merah putus-putus)
 antara titik data pengamatan (lingkaran putih kecil) dengan garis
 regresi atau nilai dugaan variabel respons (garis biru).
 
