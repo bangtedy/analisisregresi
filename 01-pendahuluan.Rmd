@@ -185,7 +185,10 @@ Bagaimana kita akan memodelkan faktor-faktor lain ini? Untuk
 menjawabnya, kita mulai dulu dengan memodelkan hubungan antara $y$ dan
 $x$ dengan sebuah persamaan garis linier (garis biru):
 
-$$y_i= \beta_0 + \beta_1x_i $$
+\begin{equation} 
+y_i=\beta_0 + \beta_1x_i
+(\#eq:persamaan-noerror)
+\end{equation}
 
 Persamaan ini menyatakan bahwa $y$ sebagai variabel respons adalah
 fungsi linier $x$, variabel prediktor. $\beta_0$ adalah konstanta yang
@@ -203,7 +206,10 @@ Faktor acak/error ini menunjukkan adanya variasi pada penjualan yang
 tidak dapat dijelaskan oleh model dan disimbolkan dengan $\epsilon$.
 Maka persamaan diatas dapat kita tuliskan lagi sebagai:
 
-$$y_i= \beta_0+ \beta_1x_i+ \epsilon_i,$$
+\begin{equation} 
+y_i=\beta_0 + \beta_1x_i + \epsilon_i
+(\#eq:persamaan-witherror)
+\end{equation}
 
 $\epsilon_i$ dimasukkan ke dalam persamaan untuk mengakomodasi faktor
 *error* dan variasi dalam $y$ yang tidak dapat dijelaskan oleh variabel
@@ -272,7 +278,10 @@ instrinsik linier, sehingga bisa didekati dengan pendekatan linier.
 Dalam banyak hal, variabel respons yang kita analisis $p>1$, sehingga
 persamaan umum regresinya menjadi:
 
-$$y_i = \beta_0 + \beta_1x_{i1} + \beta_2x_{i2} + ... + \beta_px_{ip} + \epsilon_i$$
+\begin{equation} 
+y_i=\beta_0 + \beta_1x_{i1} + \beta_2x_{i2} + ... + \beta_px_{ip} + \epsilon_i
+(\#eq:persamaan-multi)
+\end{equation}
 
 Model ini disebut sebagai model regresi linier berganda. Disebut
 berganda karena melibatkan lebih dari satu variabel

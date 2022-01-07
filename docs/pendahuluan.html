@@ -523,7 +523,10 @@ Gambar 1.2: Diagram Pencar dan Estimasi Garis Linier
 <p>Bagaimana kita akan memodelkan faktor-faktor lain ini? Untuk
 menjawabnya, kita mulai dulu dengan memodelkan hubungan antara <span class="math inline">\(y\)</span> dan
 <span class="math inline">\(x\)</span> dengan sebuah persamaan garis linier (garis biru):</p>
-<p><span class="math display">\[y_i= \beta_0 + \beta_1x_i \]</span></p>
+<p><span class="math display" id="eq:persamaan-noerror">\[\begin{equation} 
+y_i=\beta_0 + \beta_1x_i
+\tag{1.1}
+\end{equation}\]</span></p>
 <p>Persamaan ini menyatakan bahwa <span class="math inline">\(y\)</span> sebagai variabel respons adalah
 fungsi linier <span class="math inline">\(x\)</span>, variabel prediktor. <span class="math inline">\(\beta_0\)</span> adalah konstanta yang
 menunjukkan nilai dari <span class="math inline">\(y\)</span> jika <span class="math inline">\(x\)</span> sama dengan nol. <span class="math inline">\(\beta_1\)</span> adalah
@@ -537,7 +540,10 @@ regresi atau nilai dugaan variabel respons (garis biru).</p>
 <p>Faktor acak/error ini menunjukkan adanya variasi pada penjualan yang
 tidak dapat dijelaskan oleh model dan disimbolkan dengan <span class="math inline">\(\epsilon\)</span>.
 Maka persamaan diatas dapat kita tuliskan lagi sebagai:</p>
-<p><span class="math display">\[y_i= \beta_0+ \beta_1x_i+ \epsilon_i,\]</span></p>
+<p><span class="math display" id="eq:persamaan-witherror">\[\begin{equation} 
+y_i=\beta_0 + \beta_1x_i + \epsilon_i
+\tag{1.2}
+\end{equation}\]</span></p>
 <p><span class="math inline">\(\epsilon_i\)</span> dimasukkan ke dalam persamaan untuk mengakomodasi faktor
 <em>error</em> dan variasi dalam <span class="math inline">\(y\)</span> yang tidak dapat dijelaskan oleh variabel
 <span class="math inline">\(x\)</span>.</p>
@@ -593,7 +599,10 @@ model linier mudah dipahami; (2) beberapa model nonlinier secara
 instrinsik linier, sehingga bisa didekati dengan pendekatan linier.</p>
 <p>Dalam banyak hal, variabel respons yang kita analisis <span class="math inline">\(p&gt;1\)</span>, sehingga
 persamaan umum regresinya menjadi:</p>
-<p><span class="math display">\[y_i = \beta_0 + \beta_1x_{i1} + \beta_2x_{i2} + ... + \beta_px_{ip} + \epsilon_i\]</span></p>
+<p><span class="math display" id="eq:persamaan-multi">\[\begin{equation} 
+y_i=\beta_0 + \beta_1x_{i1} + \beta_2x_{i2} + ... + \beta_px_{ip} + \epsilon_i
+\tag{1.3}
+\end{equation}\]</span></p>
 <p>Model ini disebut sebagai model regresi linier berganda. Disebut
 berganda karena melibatkan lebih dari satu variabel
 prediktor.Contoh-contohnya:</p>

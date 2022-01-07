@@ -2,6 +2,10 @@ tab:tabel-penyebutan-variabel
 tab:tabel-pjm
 fig:diagram-pencar
 fig:garis-regresi
+eq:persamaan-noerror
+eq:persamaan-witherror
+eq:persamaan-multi
+eq:persamaan-umum
 pendahuluan
 model-regresi-linier
 asumsi-asumsi-model-linier

@@ -10,9 +10,12 @@ Untuk mencapai tujuan ini, kita menganalisis pola-pola variabilitas pada variabe
 
 ## Model Regresi Linier Sederhana 
 
-Model regresi linier sederhana dapat dituliskan sebagai berikut:  
+Model regresi linier sederhana dapat dituliskan sebagai berikut:
 
-$$y_i=\beta_0 + \beta_1x_i+ \epsilon_i,$$
+\begin{equation} 
+y_i=\beta_0 + \beta_1x_i+ \epsilon_i
+(\#eq:persamaan-umum)
+\end{equation}
 
 Regresi sederhana mengindikasikan hanya ada satu variabel prediktor x untuk menduga variabel respons y. Linier disini diartikan modelnya linier pada parameternya dalam hal ini $\beta_0$ dan $\beta_1$. Jadi model $y_i = \beta_0 + \beta_1{x_i}^2 + \epsilon_i$ adalah linier pada $\beta_0$ dan $\beta_1$, sementara model $y_i = \beta_0 + e^{\beta_ix_i} + \epsilon_i$ tidak linier.
 
