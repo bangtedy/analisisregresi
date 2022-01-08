@@ -23,6 +23,10 @@ regresi-linier-berganda
 persamaan-umum
 uji-diagnostik-dan-tindakan-perbaikan
 uji-asumsi-dengan-plotting-nilai-residu
+plot-residu-dengan-nilai-dugaan.
+plot-residu-dengan-masing-masing-prediktor.
+plot-residu-dengan-waktu-untuk-data-yang-mengandung-struktur-waktu.
+plot-normal-residu.
 uji-asumsi-dengan-tes-statistik
 model-regresi-linier-lanjutan
 generalized-linear-models-glm

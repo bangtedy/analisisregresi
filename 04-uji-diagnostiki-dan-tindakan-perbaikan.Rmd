@@ -1,12 +1,12 @@
 # Uji Diagnostik dan Tindakan Perbaikan
 
-Di dalam analisis regresi, kriteria jumlah kuadrat terkecil tidak akan memberikan hasil yang memuaskan kecuali asumsi-asumsinya dipenuhi. Sampai saat ini kita belum melakukan uji asumsi-asumsi OLS. Uji diagnostik digunakan untuk melihat apakah asumsi-asumsi model dipenuhi atau terjadi pelanggaran pada asumsi-asumsi tersebut. Uji diagnostik biasanya menggunakan nilai residu.
+Di dalam analisis regresi, kriteria jumlah kuadrat terkecil (OLS) tidak akan memberikan hasil yang memuaskan kecuali asumsi-asumsinya dipenuhi. Sampai saat ini kita belum melakukan uji asumsi-asumsi OLS. Uji diagnostik digunakan untuk melihat apakah asumsi-asumsi model dipenuhi atau terjadi pelanggaran pada asumsi-asumsi tersebut. Uji diagnostik biasanya menggunakan nilai residu/error.
 
-Di bab ini kita akan menggunakan alat-alat yang dapat digunakan untuk mengidentifikasi dan mengatasi permasalahan-permasalahan yang biasa ditemui dalam penerapan metode kuadrat terkecil di dalam analisis regresi. Kita akan menggunakan baik grafik maupun rumus-rumus di dalam uji diagnostik ini. 
+Di bab ini kita akan menggunakan alat-alat yang dapat digunakan untuk mengidentifikasi dan mengatasi permasalahan-permasalahan yang biasa ditemui dalam penerapan metode kuadrat terkecil. Kita akan menggunakan baik cara grafik maupun rumus-rumus di dalam uji diagnostik ini. 
 
 ## Uji Asumsi dengan Plotting Nilai Residu
 
-Hanya dengan melihat beberapa plot nilai residu bukti-bukti pemenuhan/pelanggaran asumsi OLS bisa kita dapatkan. Hal ini menjadi keunggulan uji diagnostik menggunakan plot: sangat fleksibel. Hasil plot dapat menunjukkan bukti-bukti pelanggaran asumsi-asumsi dan tidak memerlukan spesifikasi pasti bentuk pelanggarannya. Fleksibilitas cara ini, selain menjadi keunggulan sekaligus menjadi kelemahannya. Cara ini bersifat subjektif, sehingga orang berbeda bisa mempunyai pandangan yang berbeda pula mengenai validitas asumsi-asumsinya. Selain itu plot hanya bisa memberikan "pandangan" dua dimensi dari regresi berganda.
+Hanya dengan melihat beberapa plot nilai residu bukti-bukti pemenuhan/pelanggaran asumsi OLS bisa kita dapatkan. Hal ini menjadi keunggulan uji diagnostik menggunakan grafik yaitu fleksibilitas. Hasil plot dapat menunjukkan bukti-bukti pelanggaran asumsi-asumsi serta tidak memerlukan spesifikasi pasti mengenai bentuk pelanggarannya. Fleksibilitas ini menjadi keunggulan sekaligus menjadi kelemahannya. Cara ini bersifat subjektif, sehingga orang berbeda bisa mempunyai pandangan yang berbeda pula mengenai validitas asumsi-asumsinya. Selain itu plot hanya bisa memberikan "pandangan" dua dimensi dari regresi berganda.
 
 Beberapa plot untuk menguji asumsi OLS:
 
@@ -14,6 +14,16 @@ Beberapa plot untuk menguji asumsi OLS:
 2. Plot residu dengan masing-masing prediktor. 
 3. Plot residu dengan waktu untuk data yang mengandung struktur waktu. 
 4. Plot normal residu. 
+
+### Plot residu dengan nilai dugaan. 
+
+
+### Plot residu dengan masing-masing prediktor. 
+
+### Plot residu dengan waktu untuk data yang mengandung struktur waktu. 
+
+### Plot normal residu. 
+
 
 ## Uji Asumsi dengan Tes Statistik
 

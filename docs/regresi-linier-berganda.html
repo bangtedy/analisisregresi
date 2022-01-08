@@ -6,18 +6,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>3 Regresi Linier Berganda | Analisis Regresi</title>
 <meta name="author" content="Tedy Herlambang">
-<meta name="description" content="Pengembangan regresi linier sederhana adalah regresi linier berganda (multiple linear regression). Dengan regresi linier berganda, kita dapat memasukkan lebih dari satu variabel penjelas ke dalam...">
+<meta name="description" content="Regresi linier berganda (multiple linear regression) adalah pengembangan dari regresi linier sederhana. Dengan regresi linier berganda, kita dapat memasukkan lebih dari satu variabel penjelas ke...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="3 Regresi Linier Berganda | Analisis Regresi">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://bangtedy.github.io/analisisregresi/regresi-linier-berganda.html">
-<meta property="og:image" content="https://bangtedy.github.io/analisisregresi/images/analisisregresi-s.png">
-<meta property="og:description" content="Pengembangan regresi linier sederhana adalah regresi linier berganda (multiple linear regression). Dengan regresi linier berganda, kita dapat memasukkan lebih dari satu variabel penjelas ke dalam...">
+<meta property="og:image" content="https://bangtedy.github.io/analisisregresi/images/analisisregresi.jpg">
+<meta property="og:description" content="Regresi linier berganda (multiple linear regression) adalah pengembangan dari regresi linier sederhana. Dengan regresi linier berganda, kita dapat memasukkan lebih dari satu variabel penjelas ke...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="3 Regresi Linier Berganda | Analisis Regresi">
 <meta name="twitter:site" content="@t_hlb">
-<meta name="twitter:description" content="Pengembangan regresi linier sederhana adalah regresi linier berganda (multiple linear regression). Dengan regresi linier berganda, kita dapat memasukkan lebih dari satu variabel penjelas ke dalam...">
-<meta name="twitter:image" content="https://bangtedy.github.io/analisisregresi/images/analisisregresi-s.png">
+<meta name="twitter:description" content="Regresi linier berganda (multiple linear regression) adalah pengembangan dari regresi linier sederhana. Dengan regresi linier berganda, kita dapat memasukkan lebih dari satu variabel penjelas ke...">
+<meta name="twitter:image" content="https://bangtedy.github.io/analisisregresi/images/analisisregresi.jpg">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -75,32 +75,31 @@
 <h1>
 <span class="header-section-number">3</span> Regresi Linier Berganda<a class="anchor" aria-label="anchor" href="#regresi-linier-berganda"><i class="fas fa-link"></i></a>
 </h1>
-<p>Pengembangan regresi linier sederhana adalah regresi linier berganda (<em>multiple linear regression</em>). Dengan regresi linier berganda, kita dapat memasukkan lebih dari satu variabel penjelas ke dalam model karena di dalam praktik model yang kita pakai kemungkinan lebih kompleks dari model regresi linier sederhana.</p>
-<p>Pengembangan ini berguna dari dua sisi. Pertama, penambahan variabel penjelas dapat memberikan penjelasan yang lebih lengkap tentang variabel respons, karena jarang suatu fenomena hanya disebabkan oleh satu hal. Kedua, dampak dari variabel prediktor tertentu dibuat lebih terang, karena kemungkinan dampak distorsi dari variabel prediktoryang lain dihilangkan.</p>
-<p>Jika kita sudah memahami dasar-dasar dari regresi linier sederhana, kita dapat mengembangkannya untuk melakukan analisis yang lebih rumit dengan bantuan program komputer. Estimasi dan interpretasi parameter mengikuti prinsip-prinsip yang sama. Begitu juga dengan uji signifikansi, koefisien determinasi (<span class="math inline">\(R^2\)</span>) dan asumsi-asumsi pada regresi linier sederhana terus dibawa ke dalam regresi linier berganda.</p>
-<p>Hal-hal yang harus diperhatikan karena berpotensi menjadi masalah dalam melakukan analisis regresi adalah isu-isu yang berhubungan (1) overfitting, (2) heteroskedastisitas, (3) multikolinearitas. Teknik regresi berganda sangat luas cakupannya. Penguasaan teknik regresi berganda akan memberikan bekal yang sangat berharga untuk menganalisis banyak jenis data kuantitatif.</p>
+<p>Regresi linier berganda (<em>multiple linear regression</em>) adalah pengembangan dari regresi linier sederhana. Dengan regresi linier berganda, kita dapat memasukkan lebih dari satu variabel penjelas ke dalam model. Hal ini dikarenakan di dalam praktik model yang kita pakai kemungkinan melibatkan lebih dari satu variabel prediktor.</p>
+<p>Pengembangan ini bermanfaat jika dilihat dari dua sisi. Sisi pertama, penambahan variabel penjelas dapat memberikan penjelasan yang lebih lengkap tentang variabel respons, karena jarang suatu fenomena hanya disebabkan oleh hanya satu hal. Kedua, dampak dari variabel prediktor tertentu dibuat lebih terang, karena kemungkinan dampak distorsi dari variabel prediktor yang lain dihilangkan.</p>
+<p>Pemahaman dasar-dasar dari regresi linier sederhana sangat penting untuk memahami regresi linier berganda yang lebih rumit. Dengan bantuan program komputer, proses estimasi dan interpretasi parameter mengikuti prinsip-prinsip yang sama. Begitu juga dengan uji signifikansi, koefisien determinasi (<span class="math inline">\(R^2\)</span>) dan asumsi-asumsi pada regresi linier sederhana terus dibawa ke dalam regresi linier berganda.</p>
+<p>Hal-hal yang harus diperhatikan karena berpotensi menjadi masalah dalam melakukan analisis regresi adalah isu-isu yang berhubungan (1) <em>overfitting</em>, (2) heteroskedastisitas, (3) multikolinearitas. Teknik regresi berganda sangat luas cakupannya. Penguasaan teknik regresi berganda akan memberikan bekal yang sangat berharga untuk menganalisis berbagai jenis data kuantitatif.</p>
 <div id="persamaan-umum" class="section level2" number="3.1">
 <h2>
 <span class="header-section-number">3.1</span> Persamaan Umum<a class="anchor" aria-label="anchor" href="#persamaan-umum"><i class="fas fa-link"></i></a>
 </h2>
-<p>Secara umum, di dalam persamaan regresi berganda variabel respons dipandang sebagai fungsi linier dari lebih dari satu variabel prediktor <span class="math inline">\(1&gt;p\)</span>.</p>
+<p>Secara umum, di dalam persamaan regresi berganda variabel respons dipandang sebagai fungsi linier dari <em>lebih dari satu</em> variabel prediktor <span class="math inline">\(1&gt;p\)</span>.</p>
 <p><span class="math display" id="eq:persamaan-ganda">\[\begin{equation} 
 y_i=\beta_0 + \beta_1x_{i1} + \beta_2x_{i2} + ... + \beta_px_{ip} + \epsilon_i
 \tag{3.1}
 \end{equation}\]</span></p>
-<p>Untuk model dengan dua variabel prediktor, persamaannya dapat dituliskan sebagai:</p>
+<p>Untuk model dengan dua variabel prediktor saja, persamaannya dapat dituliskan sebagai:</p>
 <p><span class="math display" id="eq:persamaan-2var">\[\begin{equation} 
 y_i=\beta_0 + \beta_1x_{i1} + \beta_2x_{i2} + \epsilon_i
 \tag{3.2}
 \end{equation}\]</span></p>
-<p>yang menunjukkan bahwa y ditentukan oleh <span class="math inline">\(x1\)</span> dan <span class="math inline">\(x2\)</span>, ditambah faktor kesalahan. Untuk mengestimasi nilai-nilai parameter, kita gunakan prinsip kuadrat kesalahan terkecil (<em>the least squares principle</em>), dengan meminimalkan jumlah kuadrat kesalahan prediksi (SSE):</p>
+<p>yang menunjukkan bahwa y ditentukan oleh <span class="math inline">\(x_1\)</span> dan <span class="math inline">\(x_2\)</span>, ditambah faktor kesalahan. Untuk mengestimasi nilai-nilai parameter, kita gunakan prinsip kuadrat kesalahan terkecil (<em>the least squares principle</em>), dengan meminimalkan jumlah kuadrat kesalahan prediksi (SSE):</p>
 <p><span class="math display" id="eq:persamaan-sse">\[\begin{equation}
 SSE = \Sigma(y - \hat y)^2
 \tag{3.3}
 \end{equation}\]</span></p>
-<p>Koefisien-koefisien yang diperoleh dari prinsip ini (<span class="math inline">\(\beta_0, \beta_1, \beta_2\)</span>) menghasilkan kesalahan prediksi paling kecil dibandingkan kombinasi-kombinasi koefisien yang lain.
-Tetapi disini kita tidak bisa lagi menampilkan diagram pencar dengan garis lurus pada bidang dua dimensi.</p>
-<p>Kita harus menampilkan perpencaran datanya pada bidang tiga dimensi. Lokasi dari garis pada bidan tiga dimensi ini ditentukan oleh besaran nilai-nilai-nilai (<span class="math inline">\(\beta_0, \beta_1, \beta_2\)</span>). Jika variabel penjelasnya lebih dari tiga, perpencaran datanya tidak mungkin untuk digambarkan.</p>
+<p>Koefisien-koefisien yang diperoleh yaitu (<span class="math inline">\(\beta_0, \beta_1, \beta_2\)</span>) menghasilkan kesalahan prediksi paling kecil dibandingkan kombinasi-kombinasi koefisien yang lain.
+Tetapi disini kita tidak dapat lagi menampilkan diagram pencar pada bidang dua dimensi. Kita harus menampilkan perpencaran datanya pada bidang tiga dimensi. Lokasi dari garis pada bidang tiga dimensi ini ditentukan oleh besaran nilai-nilai (<span class="math inline">\(\beta_0, \beta_1, \beta_2\)</span>). Jika variabel penjelasnya lebih dari tiga, perpencaran datanya sangat sulit untuk dibayangkan atau digambarkan.</p>
 <div class="rmdnote">
 <p>sedang dalam proses pengerjaan (<em>work in progress…</em>)</p>
 </div>
@@ -132,7 +131,7 @@ Tetapi disini kita tidak bisa lagi menampilkan diagram pencar dengan garis lurus
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Analisis Regresi</strong>: Disertai Contoh-Contoh Menggunakan R" was written by Tedy Herlambang. It was last built on 2022-01-08.</p>
+    <p>"<strong>Analisis Regresi</strong>: Disertai Contoh-Contoh Menggunakan R" was written by Tedy Herlambang. It was last built on 2022-01-09.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

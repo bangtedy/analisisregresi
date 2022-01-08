@@ -6,18 +6,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>4 Uji Diagnostik dan Tindakan Perbaikan | Analisis Regresi</title>
 <meta name="author" content="Tedy Herlambang">
-<meta name="description" content="Di dalam analisis regresi, kriteria jumlah kuadrat terkecil tidak akan memberikan hasil yang memuaskan kecuali asumsi-asumsinya dipenuhi. Sampai saat ini kita belum melakukan uji asumsi-asumsi...">
+<meta name="description" content="Di dalam analisis regresi, kriteria jumlah kuadrat terkecil (OLS) tidak akan memberikan hasil yang memuaskan kecuali asumsi-asumsinya dipenuhi. Sampai saat ini kita belum melakukan uji...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="4 Uji Diagnostik dan Tindakan Perbaikan | Analisis Regresi">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://bangtedy.github.io/analisisregresi/uji-diagnostik-dan-tindakan-perbaikan.html">
-<meta property="og:image" content="https://bangtedy.github.io/analisisregresi/images/analisisregresi-s.png">
-<meta property="og:description" content="Di dalam analisis regresi, kriteria jumlah kuadrat terkecil tidak akan memberikan hasil yang memuaskan kecuali asumsi-asumsinya dipenuhi. Sampai saat ini kita belum melakukan uji asumsi-asumsi...">
+<meta property="og:image" content="https://bangtedy.github.io/analisisregresi/images/analisisregresi.jpg">
+<meta property="og:description" content="Di dalam analisis regresi, kriteria jumlah kuadrat terkecil (OLS) tidak akan memberikan hasil yang memuaskan kecuali asumsi-asumsinya dipenuhi. Sampai saat ini kita belum melakukan uji...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="4 Uji Diagnostik dan Tindakan Perbaikan | Analisis Regresi">
 <meta name="twitter:site" content="@t_hlb">
-<meta name="twitter:description" content="Di dalam analisis regresi, kriteria jumlah kuadrat terkecil tidak akan memberikan hasil yang memuaskan kecuali asumsi-asumsinya dipenuhi. Sampai saat ini kita belum melakukan uji asumsi-asumsi...">
-<meta name="twitter:image" content="https://bangtedy.github.io/analisisregresi/images/analisisregresi-s.png">
+<meta name="twitter:description" content="Di dalam analisis regresi, kriteria jumlah kuadrat terkecil (OLS) tidak akan memberikan hasil yang memuaskan kecuali asumsi-asumsinya dipenuhi. Sampai saat ini kita belum melakukan uji...">
+<meta name="twitter:image" content="https://bangtedy.github.io/analisisregresi/images/analisisregresi.jpg">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -75,13 +75,13 @@
 <h1>
 <span class="header-section-number">4</span> Uji Diagnostik dan Tindakan Perbaikan<a class="anchor" aria-label="anchor" href="#uji-diagnostik-dan-tindakan-perbaikan"><i class="fas fa-link"></i></a>
 </h1>
-<p>Di dalam analisis regresi, kriteria jumlah kuadrat terkecil tidak akan memberikan hasil yang memuaskan kecuali asumsi-asumsinya dipenuhi. Sampai saat ini kita belum melakukan uji asumsi-asumsi OLS. Uji diagnostik digunakan untuk melihat apakah asumsi-asumsi model dipenuhi atau terjadi pelanggaran pada asumsi-asumsi tersebut. Uji diagnostik biasanya menggunakan nilai residu.</p>
-<p>Di bab ini kita akan menggunakan alat-alat yang dapat digunakan untuk mengidentifikasi dan mengatasi permasalahan-permasalahan yang biasa ditemui dalam penerapan metode kuadrat terkecil di dalam analisis regresi. Kita akan menggunakan baik grafik maupun rumus-rumus di dalam uji diagnostik ini.</p>
+<p>Di dalam analisis regresi, kriteria jumlah kuadrat terkecil (OLS) tidak akan memberikan hasil yang memuaskan kecuali asumsi-asumsinya dipenuhi. Sampai saat ini kita belum melakukan uji asumsi-asumsi OLS. Uji diagnostik digunakan untuk melihat apakah asumsi-asumsi model dipenuhi atau terjadi pelanggaran pada asumsi-asumsi tersebut. Uji diagnostik biasanya menggunakan nilai residu/error.</p>
+<p>Di bab ini kita akan menggunakan alat-alat yang dapat digunakan untuk mengidentifikasi dan mengatasi permasalahan-permasalahan yang biasa ditemui dalam penerapan metode kuadrat terkecil. Kita akan menggunakan baik cara grafik maupun rumus-rumus di dalam uji diagnostik ini.</p>
 <div id="uji-asumsi-dengan-plotting-nilai-residu" class="section level2" number="4.1">
 <h2>
 <span class="header-section-number">4.1</span> Uji Asumsi dengan Plotting Nilai Residu<a class="anchor" aria-label="anchor" href="#uji-asumsi-dengan-plotting-nilai-residu"><i class="fas fa-link"></i></a>
 </h2>
-<p>Hanya dengan melihat beberapa plot nilai residu bukti-bukti pemenuhan/pelanggaran asumsi OLS bisa kita dapatkan. Hal ini menjadi keunggulan uji diagnostik menggunakan plot: sangat fleksibel. Hasil plot dapat menunjukkan bukti-bukti pelanggaran asumsi-asumsi dan tidak memerlukan spesifikasi pasti bentuk pelanggarannya. Fleksibilitas cara ini, selain menjadi keunggulan sekaligus menjadi kelemahannya. Cara ini bersifat subjektif, sehingga orang berbeda bisa mempunyai pandangan yang berbeda pula mengenai validitas asumsi-asumsinya. Selain itu plot hanya bisa memberikan “pandangan” dua dimensi dari regresi berganda.</p>
+<p>Hanya dengan melihat beberapa plot nilai residu bukti-bukti pemenuhan/pelanggaran asumsi OLS bisa kita dapatkan. Hal ini menjadi keunggulan uji diagnostik menggunakan grafik yaitu fleksibilitas. Hasil plot dapat menunjukkan bukti-bukti pelanggaran asumsi-asumsi serta tidak memerlukan spesifikasi pasti mengenai bentuk pelanggarannya. Fleksibilitas ini menjadi keunggulan sekaligus menjadi kelemahannya. Cara ini bersifat subjektif, sehingga orang berbeda bisa mempunyai pandangan yang berbeda pula mengenai validitas asumsi-asumsinya. Selain itu plot hanya bisa memberikan “pandangan” dua dimensi dari regresi berganda.</p>
 <p>Beberapa plot untuk menguji asumsi OLS:</p>
 <ol style="list-style-type: decimal">
 <li>Plot residu dengan nilai dugaan.</li>
@@ -89,6 +89,26 @@
 <li>Plot residu dengan waktu untuk data yang mengandung struktur waktu.</li>
 <li>Plot normal residu.</li>
 </ol>
+<div id="plot-residu-dengan-nilai-dugaan." class="section level3" number="4.1.1">
+<h3>
+<span class="header-section-number">4.1.1</span> Plot residu dengan nilai dugaan.<a class="anchor" aria-label="anchor" href="#plot-residu-dengan-nilai-dugaan."><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="plot-residu-dengan-masing-masing-prediktor." class="section level3" number="4.1.2">
+<h3>
+<span class="header-section-number">4.1.2</span> Plot residu dengan masing-masing prediktor.<a class="anchor" aria-label="anchor" href="#plot-residu-dengan-masing-masing-prediktor."><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="plot-residu-dengan-waktu-untuk-data-yang-mengandung-struktur-waktu." class="section level3" number="4.1.3">
+<h3>
+<span class="header-section-number">4.1.3</span> Plot residu dengan waktu untuk data yang mengandung struktur waktu.<a class="anchor" aria-label="anchor" href="#plot-residu-dengan-waktu-untuk-data-yang-mengandung-struktur-waktu."><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="plot-normal-residu." class="section level3" number="4.1.4">
+<h3>
+<span class="header-section-number">4.1.4</span> Plot normal residu.<a class="anchor" aria-label="anchor" href="#plot-normal-residu."><i class="fas fa-link"></i></a>
+</h3>
+</div>
 </div>
 <div id="uji-asumsi-dengan-tes-statistik" class="section level2" number="4.2">
 <h2>
@@ -107,7 +127,14 @@
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#uji-diagnostik-dan-tindakan-perbaikan"><span class="header-section-number">4</span> Uji Diagnostik dan Tindakan Perbaikan</a></li>
-<li><a class="nav-link" href="#uji-asumsi-dengan-plotting-nilai-residu"><span class="header-section-number">4.1</span> Uji Asumsi dengan Plotting Nilai Residu</a></li>
+<li>
+<a class="nav-link" href="#uji-asumsi-dengan-plotting-nilai-residu"><span class="header-section-number">4.1</span> Uji Asumsi dengan Plotting Nilai Residu</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#plot-residu-dengan-nilai-dugaan."><span class="header-section-number">4.1.1</span> Plot residu dengan nilai dugaan.</a></li>
+<li><a class="nav-link" href="#plot-residu-dengan-masing-masing-prediktor."><span class="header-section-number">4.1.2</span> Plot residu dengan masing-masing prediktor.</a></li>
+<li><a class="nav-link" href="#plot-residu-dengan-waktu-untuk-data-yang-mengandung-struktur-waktu."><span class="header-section-number">4.1.3</span> Plot residu dengan waktu untuk data yang mengandung struktur waktu.</a></li>
+<li><a class="nav-link" href="#plot-normal-residu."><span class="header-section-number">4.1.4</span> Plot normal residu.</a></li>
+</ul>
+</li>
 <li><a class="nav-link" href="#uji-asumsi-dengan-tes-statistik"><span class="header-section-number">4.2</span> Uji Asumsi dengan Tes Statistik</a></li>
 </ul>
 
@@ -126,7 +153,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Analisis Regresi</strong>: Disertai Contoh-Contoh Menggunakan R" was written by Tedy Herlambang. It was last built on 2022-01-08.</p>
+    <p>"<strong>Analisis Regresi</strong>: Disertai Contoh-Contoh Menggunakan R" was written by Tedy Herlambang. It was last built on 2022-01-09.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

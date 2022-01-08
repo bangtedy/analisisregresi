@@ -146,31 +146,25 @@ terdapat hubungan positif antara tingkat pendapatan dengan penjualan
 motor karena motor adalah barang normal.
 
 ```{r tabel-pjm, echo=FALSE}
-library("knitr")
-library("kableExtra")
-PJMotor <- read.delim("PJMotor.txt")
-PJMotor %>% 
-  kbl(caption = "Penjualan Motor (y) dan Pertumbuhan Pendapatan (x) 2001-2019") %>%
+pjm <- read_excel("pjm.xlsx")
+pjm %>% 
+  kbl(caption = "Penjualan Motor (y) dan Pertumbuhan Pendapatan (x) Tahun 2001-2019") %>%
   kable_paper("hover", full_width=F)
 ```
 
-Langkah awal untuk melihat apakah data yang kita miliki memang mengandung "sinyal" yang menunjukkan hubungan antara pendapatan dengan penjualan motor adalah membuat diagram pencar (*scatter plot*). Diagram pencar bisa menunjukkan secara kasar apakah hubungan antar variabel dapat dianggap linier atau tidak. Gambar 1.1 menunjukkan bahwa hubungan linier antara penjualan motor dengan pendapatan tidak cukup meyakinkan. Tetapi kita coba menarik garis lurus yang paling banyak "mendekati" titik-titik data pengamatan yang tersebar. 
+Langkah awal untuk melihat apakah data yang kita miliki memang mengandung "sinyal" yang menunjukkan hubungan antara pendapatan dengan penjualan motor adalah mengamati data secara berpasangan dan membuat diagram pencar (*scatter plot/scatter diagram*). Setiap data $y$ dipasangkan dan diplot terhadap nilai $x$nya. 
+
+Diagram pencar bisa menunjukkan secara kasar apakah hubungan antar variabel dapat dianggap linier atau tidak. Jika nilai $y$ cenderung meningkat atau menurun secara garis lurus ketika nilai $x$ meningkat, dan jika perpencaran pasangan titik-titik ($x,y$) berada disekitar garis lurus, maka kita dapat menjelaskan hubungan antara $y$ dan $x$ dengan menggunakan model regresi linier. Selanjutnya kita coba menarik garis lurus yang paling banyak "mendekati" titik-titik data pengamatan yang tersebar. 
 
 
 ```{r diagram-pencar, echo=FALSE, fig.cap="Diagram Pencar"}
 PJMotor <- read.delim("PJMotor.txt")
-attach(PJMotor)
 plot(x, y)
 ```
 
 Gambar 1.1 menunjukkan bahwa memang terdapat sinyal yang sesuai dengan asumsi yaitu penjualan motor proporsional dengan pertumbuhan pendapatan per kapita: semakin tinggi pertumbuhan pendapatan per kapita semakin tinggi pula tingkat penjualan motor. Tetapi setelah kita tarik garis lurus (Gambar 1.2) proporsionalitas ini tidak ketat. Garis lurus yang kita buat tidak menyinggung seluruh data yang tersebar atau data sampel tidak bisa seluruhnya tepat berada pada garis yang dibuat.
 
-Titik-titik pengamatan ada yang tepat digaris, ada juga yang di
-atas atau di bawah garis. Hal ini menunjukkan adanya variasi pada
-penjualan motor yang tidak berhubungan dengan tingkat pendapatan. Dengan
-kata lain terdapat faktor-faktor lain selain pendapatan yang juga
-mempengaruhi tingkat penjualan tetapi tidak kita masukkan ke dalam
-model.
+Titik-titik pengamatan ada yang tepat digaris, ada juga yang di atas atau di bawah garis. Hal ini menunjukkan adanya variasi pada penjualan motor yang tidak berhubungan dengan tingkat pendapatan. Dengan kata lain terdapat faktor-faktor lain selain pendapatan yang juga mempengaruhi tingkat penjualan tetapi tidak kita masukkan ke dalam model.
 
 ```{r garis-regresi, echo=FALSE, fig.cap="Diagram Pencar dan Estimasi Garis Linier"}
 PJMotor <- read.delim("PJMotor.txt")

@@ -61,7 +61,7 @@ plot(x,y)
 ```
 
 
-Di dalam R model regresi linier sederhana dapat diperoleh dengan perintah ```lm(y~x)```. Tanda ~ dapat diartikan $y$ dijelaskan oleh $x$. Fungsi ini mengestimasi koefisien regresi model linier dengan metode kuadrat terkecil (*the least squares method*). 
+Di dalam R model regresi linier sederhana dapat diperoleh dengan perintah ```lm(y~x)```. Tanda ~ dapat diartikan $y$ dijelaskan oleh $x$ atau $y$ fungsi dari $x$. Fungsi ini mengestimasi koefisien regresi model linier dengan metode kuadrat terkecil (*the least squares method*). 
 
 Semisal modelnya kita beri nama **model penjualan motor (mpm)**, yang memodelkan hubungan antara penjualan motor ($y$) dengan pertumbuhan pendapatan ($x$), maka model ini dapat diperoleh dengan perintah:
 
@@ -101,7 +101,7 @@ Kolom-kolom pada tabel diatas menunjukkan
     .fitted: nilai dugaan penjualan motor
     .resid: the residual errors
 
-Kode berikut memplot residuals error (warna merah) yaitu selisih antara nilai pengamatan dengan nilai dugaan. Setiap garis vertikal warna merah menunjukkan nilai kesalahan/residu antara angka penjualan motor aktual dengan nilai dugaannya.
+Kode berikut memplot residuals error (warna merah) yaitu selisih antara nilai pengamatan dengan nilai dugaan. Setiap garis vertikal warna merah menunjukkan nilai kesalahan/residu antara data penjualan motor aktual dengan nilai dugaannya.
 
 ```{r, echo=TRUE, warning=FALSE}
 library(ggplot2)
@@ -112,7 +112,7 @@ ggplot(uji.diagnostik, aes(x, y)) +
   geom_segment(aes(xend = x, yend = .fitted), color = "red", size = 0.4, linetype = "dashed")
 ```
 
-Diagram pencar dan garis regresi juga dapat dapat ditampilkan bersama-sama dengan perintah berikut:
+Diagram pencar, garis dan persamaan regresi dapat dapat ditampilkan bersama-sama dengan perintah berikut:
 
 ```{r, echo=TRUE, warning=FALSE}
 library(ggpmisc)
