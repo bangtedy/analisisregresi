@@ -1,3 +1,42 @@
 # Regresi Linier Berganda
 
-work in progress...
+Pengembangan regresi linier sederhana adalah regresi linier berganda (*multiple linear regression*).  Dengan regresi linier berganda, kita dapat memasukkan lebih dari satu variabel penjelas ke dalam model karena di dalam praktik model yang kita pakai kemungkinan lebih kompleks dari model regresi linier sederhana.
+
+Pengembangan ini berguna dari dua sisi. Pertama, penambahan variabel penjelas dapat memberikan penjelasan yang lebih lengkap tentang variabel respons, karena jarang suatu fenomena hanya disebabkan oleh satu hal. Kedua, dampak dari variabel prediktor tertentu dibuat lebih terang, karena kemungkinan dampak distorsi dari variabel prediktoryang lain dihilangkan.
+
+Jika kita sudah memahami dasar-dasar dari regresi linier sederhana, kita dapat mengembangkannya untuk melakukan analisis yang lebih rumit dengan bantuan program komputer. Estimasi dan interpretasi parameter mengikuti prinsip-prinsip yang sama. Begitu juga dengan uji signifikansi, koefisien determinasi ($R^2$) dan asumsi-asumsi pada regresi linier sederhana terus dibawa ke dalam regresi linier berganda. 
+
+Hal-hal yang harus diperhatikan karena berpotensi menjadi masalah dalam melakukan analisis regresi adalah isu-isu yang berhubungan (1) overfitting, (2) heteroskedastisitas, (3) multikolinearitas. Teknik regresi berganda sangat luas cakupannya. Penguasaan teknik regresi berganda akan memberikan bekal yang sangat berharga untuk menganalisis banyak jenis data kuantitatif.  
+
+## Persamaan Umum
+
+Secara umum, di dalam persamaan regresi berganda variabel respons dipandang sebagai fungsi linier dari lebih dari satu variabel prediktor $1>p$.
+
+\begin{equation} 
+y_i=\beta_0 + \beta_1x_{i1} + \beta_2x_{i2} + ... + \beta_px_{ip} + \epsilon_i
+(\#eq:persamaan-ganda)
+\end{equation}
+
+
+Untuk model dengan dua variabel prediktor, persamaannya dapat dituliskan sebagai:
+
+\begin{equation} 
+y_i=\beta_0 + \beta_1x_{i1} + \beta_2x_{i2} + \epsilon_i
+(\#eq:persamaan-2var)
+\end{equation}
+
+yang menunjukkan bahwa y ditentukan oleh $x1$ dan $x2$, ditambah faktor kesalahan. Untuk mengestimasi nilai-nilai parameter, kita gunakan prinsip kuadrat kesalahan terkecil (*the least squares principle*), dengan meminimalkan jumlah kuadrat kesalahan prediksi (SSE):
+
+\begin{equation}
+SSE = \Sigma(y - \hat y)^2
+(\#eq:persamaan-sse)
+\end{equation}
+
+Koefisien-koefisien yang diperoleh dari prinsip ini ($\beta_0, \beta_1, \beta_2$) menghasilkan kesalahan prediksi paling kecil dibandingkan kombinasi-kombinasi koefisien yang lain.
+Tetapi disini kita tidak bisa lagi menampilkan diagram pencar dengan garis lurus pada bidang dua dimensi. 
+
+Kita harus menampilkan perpencaran datanya pada bidang tiga dimensi. Lokasi dari garis pada bidan tiga dimensi ini ditentukan oleh besaran nilai-nilai-nilai ($\beta_0, \beta_1, \beta_2$). Jika variabel penjelasnya lebih dari tiga, perpencaran datanya tidak mungkin untuk digambarkan.
+
+::: {.rmdnote}
+sedang dalam proses pengerjaan (*work in progress...*)
+:::

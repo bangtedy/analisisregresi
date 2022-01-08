@@ -1,3 +1,5 @@
 # Model Regresi Linier Lanjutan
 
-sedang dalam proses pengerjaan (work in progress)
+::: {.rmdnote}
+sedang dalam proses pengerjaan (*work in progress...*)
+:::

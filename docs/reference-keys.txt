@@ -6,6 +6,9 @@ eq:persamaan-noerror
 eq:persamaan-witherror
 eq:persamaan-multi
 eq:persamaan-umum
+eq:persamaan-ganda
+eq:persamaan-2var
+eq:persamaan-sse
 pendahuluan
 model-regresi-linier
 asumsi-asumsi-model-linier
@@ -16,5 +19,8 @@ regresi-linier-sederhana
 model-regresi-linier-sederhana
 kasus-1-penjualan-motor-dan-pertumbuhan-pendapatan-perkapita
 regresi-linier-berganda
-diagnostik-regresi-dan-tindakan-perbaikan
+persamaan-umum
+uji-diagnostik-dan-tindakan-perbaikan
+uji-asumsi-dengan-plotting-nilai-residu
+uji-asumsi-dengan-tes-statistik
 model-regresi-linier-lanjutan

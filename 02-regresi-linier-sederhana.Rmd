@@ -131,5 +131,6 @@ ggplot(data = PJMotor, aes(x = x, y = y)) +
 Koefisisen determinasi ($R^2$) sebesar 39 persen. Artinya model kita hanya menjelaskan sebesar 39 persen variasi pada penjualan motor. Cukup masuk akal karena model kita hanya menggunakan satu variabel penjelas yaitu pertumbuhan per kapita.  
 
 
-
-...work in progress...
+::: {.rmdnote}
+*work in progress*...sedang dalam proses pengerjaan
+:::
