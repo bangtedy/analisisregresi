@@ -9,6 +9,7 @@ eq:persamaan-umum
 eq:persamaan-ganda
 eq:persamaan-2var
 eq:persamaan-sse
+eq:persamaan-lanjutan
 pendahuluan
 model-regresi-linier
 asumsi-asumsi-model-linier
@@ -24,3 +25,6 @@ uji-diagnostik-dan-tindakan-perbaikan
 uji-asumsi-dengan-plotting-nilai-residu
 uji-asumsi-dengan-tes-statistik
 model-regresi-linier-lanjutan
+generalized-linear-models-glm
+mixed-effect-model
+model-regresi-nonparametrik

@@ -1,5 +1,28 @@
 # Model Regresi Linier Lanjutan
 
+Ketika terjadi perubahan pada kuantitas sebuah variabel yang ada di dalam sebuah sistem, kita biasanya ingin tahu dampak dari perubahan itu terhadap variabel-variabel lain yang ada di sistem tersebut. Hubungan ini mungkin dapat dimodelkan dengan hubungan fungsional sederhana. Bisa jadi juga hubungan ini lebih kompleks sehingga hubungan fungsional sederhana harus dikembangkan. Model linier adalah salah alat penting untuk menganalisis hal ini. 
+
+Persamaan umum model regresi dengan variabel respons $y$ dan prediktor x sebanyak $p$: $x_1, x_2, ... , x_p$ adalah:
+
+\begin{equation}
+y = \beta_0 + \beta_1x_1 + ... + \beta_px_p + \epsilon
+(\#eq:persamaan-lanjutan)
+\end{equation}
+
+dimana $\epsilon$ terdistribusi secara normal. Persamaan di atas dapat dikembangkan berdasarkan tiga bagian penyusunnya. Bagian pertama adalah $y$, kedua adalah $\epsilon$, dan ketiga adalah $x$: 
+
+1. *Generalized Linear Models (GLM)*: Model linier standard tidak dapat mengakomodasi variabel respons $y$ yang tidak normal seperti data dalam bentuk proporsi, persentase, binari, kategori dan *count*. Jika variabel respons seperti ini kita gunakan *generalized linear model*.
+
+2. *Mixed Effect Model*: Model ini kita gunakan jika data kita tersusun secara hierarkis atau berkelompok. Misal untuk data pengamatan berulang, longitudinal dan data berjenjang yang mengakibatkan suatu struktur korelasi pada komponen errornya $\epsilon$.  
+
+3. Model Regresi Nonparametrik (*Nonparametric Regression Model*): Pada model linier, variabel prediktor $x$ dikombinasikan secara linier untuk memodelkan dampaknya pada variabel respons. Akan tetapi kadang kala, linieritas ini tidak cukup menangkap struktur data sehingga diperlukan fleksibilitas lebih. Metode-metode yang dapat mengakomodasi ini misalnya *additive model, trees and neural networks* memungkinkan pemodelan yang lebih fleksibel pada respons yang mengkombinasikan prediktor secara *nonparametrik*.
+
+## *Generalized Linear Models (GLM)*
+
+## *Mixed Effect Model*
+
+## Model Regresi Nonparametrik
+
 ::: {.rmdnote}
 sedang dalam proses pengerjaan (*work in progress...*)
 :::

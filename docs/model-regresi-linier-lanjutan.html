@@ -6,17 +6,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>5 Model Regresi Linier Lanjutan | Analisis Regresi</title>
 <meta name="author" content="Tedy Herlambang">
-<meta name="description" content="sedang dalam proses pengerjaan (work in progress…)">
+<meta name="description" content="Ketika terjadi perubahan pada kuantitas sebuah variabel yang ada di dalam sebuah sistem, kita biasanya ingin tahu dampak dari perubahan itu terhadap variabel-variabel lain yang ada di sistem...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="5 Model Regresi Linier Lanjutan | Analisis Regresi">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://bangtedy.github.io/analisisregresi/model-regresi-linier-lanjutan.html">
 <meta property="og:image" content="https://bangtedy.github.io/analisisregresi/images/analisisregresi-s.png">
-<meta property="og:description" content="sedang dalam proses pengerjaan (work in progress…)">
+<meta property="og:description" content="Ketika terjadi perubahan pada kuantitas sebuah variabel yang ada di dalam sebuah sistem, kita biasanya ingin tahu dampak dari perubahan itu terhadap variabel-variabel lain yang ada di sistem...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="5 Model Regresi Linier Lanjutan | Analisis Regresi">
 <meta name="twitter:site" content="@t_hlb">
-<meta name="twitter:description" content="sedang dalam proses pengerjaan (work in progress…)">
+<meta name="twitter:description" content="Ketika terjadi perubahan pada kuantitas sebuah variabel yang ada di dalam sebuah sistem, kita biasanya ingin tahu dampak dari perubahan itu terhadap variabel-variabel lain yang ada di sistem...">
 <meta name="twitter:image" content="https://bangtedy.github.io/analisisregresi/images/analisisregresi-s.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -75,17 +75,49 @@
 <h1>
 <span class="header-section-number">5</span> Model Regresi Linier Lanjutan<a class="anchor" aria-label="anchor" href="#model-regresi-linier-lanjutan"><i class="fas fa-link"></i></a>
 </h1>
+<p>Ketika terjadi perubahan pada kuantitas sebuah variabel yang ada di dalam sebuah sistem, kita biasanya ingin tahu dampak dari perubahan itu terhadap variabel-variabel lain yang ada di sistem tersebut. Hubungan ini mungkin dapat dimodelkan dengan hubungan fungsional sederhana. Bisa jadi juga hubungan ini lebih kompleks sehingga hubungan fungsional sederhana harus dikembangkan. Model linier adalah salah alat penting untuk menganalisis hal ini.</p>
+<p>Persamaan umum model regresi dengan variabel respons <span class="math inline">\(y\)</span> dan prediktor x sebanyak <span class="math inline">\(p\)</span>: <span class="math inline">\(x_1, x_2, ... , x_p\)</span> adalah:</p>
+<p><span class="math display" id="eq:persamaan-lanjutan">\[\begin{equation}
+y = \beta_0 + \beta_1x_1 + ... + \beta_px_p + \epsilon
+\tag{5.1}
+\end{equation}\]</span></p>
+<p>dimana <span class="math inline">\(\epsilon\)</span> terdistribusi secara normal. Persamaan di atas dapat dikembangkan berdasarkan tiga bagian penyusunnya. Bagian pertama adalah <span class="math inline">\(y\)</span>, kedua adalah <span class="math inline">\(\epsilon\)</span>, dan ketiga adalah <span class="math inline">\(x\)</span>:</p>
+<ol style="list-style-type: decimal">
+<li><p><em>Generalized Linear Models (GLM)</em>: Model linier standard tidak dapat mengakomodasi variabel respons <span class="math inline">\(y\)</span> yang tidak normal seperti data dalam bentuk proporsi, persentase, binari, kategori dan <em>count</em>. Jika variabel respons seperti ini kita gunakan <em>generalized linear model</em>.</p></li>
+<li><p><em>Mixed Effect Model</em>: Model ini kita gunakan jika data kita tersusun secara hierarkis atau berkelompok. Misal untuk data pengamatan berulang, longitudinal dan data berjenjang yang mengakibatkan suatu struktur korelasi pada komponen errornya <span class="math inline">\(\epsilon\)</span>.</p></li>
+<li><p>Model Regresi Nonparametrik (<em>Nonparametric Regression Model</em>): Pada model linier, variabel prediktor <span class="math inline">\(x\)</span> dikombinasikan secara linier untuk memodelkan dampaknya pada variabel respons. Akan tetapi kadang kala, linieritas ini tidak cukup menangkap struktur data sehingga diperlukan fleksibilitas lebih. Metode-metode yang dapat mengakomodasi ini misalnya <em>additive model, trees and neural networks</em> memungkinkan pemodelan yang lebih fleksibel pada respons yang mengkombinasikan prediktor secara <em>nonparametrik</em>.</p></li>
+</ol>
+<div id="generalized-linear-models-glm" class="section level2" number="5.1">
+<h2>
+<span class="header-section-number">5.1</span> <em>Generalized Linear Models (GLM)</em><a class="anchor" aria-label="anchor" href="#generalized-linear-models-glm"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="mixed-effect-model" class="section level2" number="5.2">
+<h2>
+<span class="header-section-number">5.2</span> <em>Mixed Effect Model</em><a class="anchor" aria-label="anchor" href="#mixed-effect-model"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="model-regresi-nonparametrik" class="section level2" number="5.3">
+<h2>
+<span class="header-section-number">5.3</span> Model Regresi Nonparametrik<a class="anchor" aria-label="anchor" href="#model-regresi-nonparametrik"><i class="fas fa-link"></i></a>
+</h2>
 <div class="rmdnote">
 <p>sedang dalam proses pengerjaan (<em>work in progress…</em>)</p>
 </div>
 
+</div>
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="uji-diagnostik-dan-tindakan-perbaikan.html"><span class="header-section-number">4</span> Uji Diagnostik dan Tindakan Perbaikan</a></div>
 <div class="next"><a href="referensi.html">Referensi</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#model-regresi-linier-lanjutan"><span class="header-section-number">5</span> Model Regresi Linier Lanjutan</a></li></ul>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#model-regresi-linier-lanjutan"><span class="header-section-number">5</span> Model Regresi Linier Lanjutan</a></li>
+<li><a class="nav-link" href="#generalized-linear-models-glm"><span class="header-section-number">5.1</span> Generalized Linear Models (GLM)</a></li>
+<li><a class="nav-link" href="#mixed-effect-model"><span class="header-section-number">5.2</span> Mixed Effect Model</a></li>
+<li><a class="nav-link" href="#model-regresi-nonparametrik"><span class="header-section-number">5.3</span> Model Regresi Nonparametrik</a></li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
