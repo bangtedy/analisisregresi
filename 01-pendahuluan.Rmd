@@ -156,7 +156,7 @@ Langkah awal untuk melihat apakah data yang kita miliki memang mengandung "sinya
 Diagram pencar bisa menunjukkan secara kasar apakah hubungan antar variabel dapat dianggap linier atau tidak. Jika nilai $y$ cenderung meningkat atau menurun secara garis lurus ketika nilai $x$ meningkat, dan jika perpencaran pasangan titik-titik ($x,y$) berada disekitar garis lurus, maka kita dapat menjelaskan hubungan antara $y$ dan $x$ dengan menggunakan model regresi linier. Selanjutnya kita coba menarik garis lurus yang paling banyak "mendekati" titik-titik data pengamatan yang tersebar. 
 
 
-```{r diagram-pencar, echo=FALSE, fig.cap="Diagram Pencar"}
+```{r diagram-pencar, echo=FALSE, warning=FALSE, fig.cap={"Diagram Pencar"}}
 PJMotor <- read.delim("PJMotor.txt")
 plot(x, y)
 ```
@@ -165,7 +165,7 @@ Gambar 1.1 menunjukkan bahwa memang terdapat sinyal yang sesuai dengan asumsi ya
 
 Titik-titik pengamatan ada yang tepat digaris, ada juga yang di atas atau di bawah garis. Hal ini menunjukkan adanya variasi pada penjualan motor yang tidak berhubungan dengan tingkat pendapatan. Dengan kata lain terdapat faktor-faktor lain selain pendapatan yang juga mempengaruhi tingkat penjualan tetapi tidak kita masukkan ke dalam model.
 
-```{r garis-regresi, echo=FALSE, fig.cap="Diagram Pencar dan Estimasi Garis Linier"}
+```{r garis-regresi, echo=FALSE, warning=FALSE, fig.cap={"Diagram Pencar dan Estimasi Garis Linier"}}
 PJMotor <- read.delim("PJMotor.txt")
 plot(x, y)
 md <- lm(y ~ x, data = PJMotor)

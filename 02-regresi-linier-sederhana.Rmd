@@ -36,7 +36,7 @@ Plot sangat penting di dalam regresi. Pemeriksaan diagram pencar secara teliti h
 Untuk membuat diagram pencar, hal pertama yang harus dilakukan adalah memasukkan data ke dalam R, mengecek apakah data yang kita masukkan sudah betul dan memanggil *library* yang relevan dengan model yang akan dibuat.
 
 ```{r, echo=TRUE}
-# memanggil data dalam bentuk teks ke dalam R
+# memanggil data yang disimpan dalam bentuk teks ke dalam R
 PJMotor <- read.delim("PJMotor.txt") 
 PJMotor <- as.data.frame(PJMotor)
 
@@ -52,20 +52,32 @@ head(PJMotor)
 tail(PJMotor) 
 ```
 
-Perintah ```plot(x,y)``` di dalam R adalah untuk membuat plot antara variabel respons dengan variabel prediktor. Hasilnya ditampilkan pada Gambar 2.1.
+Data yang kita masukkan kelihatan seperti yang diharapkan. Variabel penjualan dan pendapatan semua dibaca sebagai angka (*numeric data type*). Selanjutnya kita akan lihat struktur dan ringkasan persebaran datanya.  
 
 ```{r, echo=TRUE}
-#membuat diagram pencar
-plot(x,y) 
-
+# melihat struktur data
+str(PJMotor)
 ```
 
+```{r, echo=TRUE}
+# melihat ringkasan data kecuali data tahun
+summary(subset(PJMotor, select = c(y,x)))
+```
+
+Selanjutnya kita cek normalitas data, korelasi dan diagram pencar antara pasangan data $y$ dengan $x$ seperti yang ditunjukkan pada Gambar 2.1. 
+
+```{r plotpasangan-pjmotor, echo=TRUE, fig.cap = {"Plot Pasangan Data Penjualan dan Pendapatan"}, fig.align = "center"}
+library (GGally)
+GGally::ggpairs(subset(PJMotor, select = c(y,x)))
+```
+
+Pada diagonal, kita melihat distribusi data $y$ dan $x$: data kedua variabel menceng ke kiri (*skewed left*). Di atas diagonal ditunjukkan nilai korelasi $y$ dan $x$ yaitu sebesar=0.625. Dibawah diagonal menunjukkan diagram pencar pasangan data.
 
 Di dalam R model regresi linier sederhana dapat diperoleh dengan perintah ```lm(y~x)```. Tanda ~ dapat diartikan $y$ dijelaskan oleh $x$ atau $y$ fungsi dari $x$. Fungsi ini mengestimasi koefisien regresi model linier dengan metode kuadrat terkecil (*the least squares method*). 
 
 Semisal modelnya kita beri nama **model penjualan motor (mpm)**, yang memodelkan hubungan antara penjualan motor ($y$) dengan pertumbuhan pendapatan ($x$), maka model ini dapat diperoleh dengan perintah:
 
-```{r, echo=TRUE}
+```{r regresi-mpm, echo=TRUE}
 mpm <- lm(y ~ x)
 # Perhatikan tanda panah ke kiri. 
 # Intersep dan slope secara default diestimasi. 
@@ -78,7 +90,7 @@ $$ y = β_0 + β_1x + ε $$
 
 Kita kemudian menggunakan perintah ```summary()``` untuk menampilkan luarannya. Hasilnya adalah sebagai berikut:
 
-```{r, echo=TRUE}
+```{r summary-mpm, echo=TRUE}
 # perintah summary() untuk mengekstrak hasil regresi
 summary (mpm) 
 ```
@@ -103,7 +115,7 @@ Kolom-kolom pada tabel diatas menunjukkan
 
 Kode berikut memplot residuals error (warna merah) yaitu selisih antara nilai pengamatan dengan nilai dugaan. Setiap garis vertikal warna merah menunjukkan nilai kesalahan/residu antara data penjualan motor aktual dengan nilai dugaannya.
 
-```{r, echo=TRUE, warning=FALSE}
+```{r plot-residu-mpm, echo=TRUE, warning=FALSE, fig.cap={"Plot Residual Error"}, fig.align="center"}
 library(ggplot2)
 my.formula <- y ~ x
 ggplot(uji.diagnostik, aes(x, y)) +
@@ -112,9 +124,9 @@ ggplot(uji.diagnostik, aes(x, y)) +
   geom_segment(aes(xend = x, yend = .fitted), color = "red", size = 0.4, linetype = "dashed")
 ```
 
-Diagram pencar, garis dan persamaan regresi dapat dapat ditampilkan bersama-sama dengan perintah berikut:
+Diagram pencar, garis dan persamaan regresi dapat ditampilkan bersama-sama dengan perintah berikut:
 
-```{r, echo=TRUE, warning=FALSE}
+```{r plot-mpm, echo=TRUE, warning=FALSE, fig.cap={"Diagram Pencar, Garis dan Persamaan Regresi"},fig.align="center"}
 library(ggpmisc)
 PJMotor <- as.data.frame(PJMotor)
 my.formula <- y ~ x
