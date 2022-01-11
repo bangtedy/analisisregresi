@@ -156,8 +156,9 @@ Langkah awal untuk melihat apakah data yang kita miliki memang mengandung "sinya
 Diagram pencar bisa menunjukkan secara kasar apakah hubungan antar variabel dapat dianggap linier atau tidak. Jika nilai $y$ cenderung meningkat atau menurun secara garis lurus ketika nilai $x$ meningkat, dan jika perpencaran pasangan titik-titik ($x,y$) berada disekitar garis lurus, maka kita dapat menjelaskan hubungan antara $y$ dan $x$ dengan menggunakan model regresi linier. Selanjutnya kita coba menarik garis lurus yang paling banyak "mendekati" titik-titik data pengamatan yang tersebar. 
 
 
-```{r diagram-pencar, echo=FALSE, warning=FALSE, fig.cap={"Diagram Pencar"}}
+```{r diagram-pencar, echo=FALSE, warning=FALSE, message=FALSE, fig.cap={"Diagram Pencar"}}
 PJMotor <- read.delim("PJMotor.txt")
+attach(PJMotor)
 plot(x, y)
 ```
 
@@ -257,7 +258,7 @@ dari model yang valid.
 
 Dengan demikian persamaan regresi yang memodelkan hubungan statistik
 antar variabel terdiri dari dua komponen: komponen deterministik atau
-sinyal yaitu $\beta_0 + \beta_1$ dan komponen acak atau gangguan (*noise\error*)yaitu $\epsilon$. Kombinasi kedua komponen ini menjadikan
+sinyal yaitu $\beta_0 + \beta_1$ dan komponen acak atau gangguan (*noise*) yaitu $\epsilon$. Kombinasi kedua komponen ini menjadikan
 persamaan regresi sebagai model non-eksak, yaitu bergantung pada bentuk-bentuk penjelasan probabilistik. Kita hanya mengasumsikan bahwa di dalam cakupan variabel yang dianalisis, terdapat tendensi variabel respons $y$ untuk bervariasi secara sistematis dengan
 variabel prediktor $x$. Komponen acak ditambahkan ke dalam model untuk mengakomodasi variasi di residu. 
 
