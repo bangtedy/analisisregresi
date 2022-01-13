@@ -178,12 +178,11 @@ y_i=\beta_0 + \beta_1x_i
 Persamaan ini menyatakan bahwa $y$ sebagai variabel respons adalah fungsi linier dari $x$, variabel prediktor. $\beta_0$ adalah konstanta yang menunjukkan nilai dari $y$ jika $x$ sama dengan nol. $\beta_1$ adalah koefisien kemiringan garis yang menunjukkan berapa banyak $y$ akan berubah jika $x$ meningkat sebanyak satu unit.
 
 Tujuan utama kita dalam analisis regresi adalah mendapatkan nilai dugaan
-$\hat \beta_0$ dan $\hat \beta_1$ terbaik sehingga jarak vertikal untuk
-setiap titik data pengamatan dan nilai dugaannya secara kolektif paling
+$\hat \beta_0$ dan $\hat \beta_1$ terbaik sehingga rata-rata jarak vertikal untuk setiap titik data pengamatan dan nilai dugaannya secara kolektif paling
 kecil (Gambar 1.3). Dengan kata lain kita ingin menarik garis regresi dalam bidang x−y sedekat mungkin dengan persebaran titik-titik data sampel yang telah
-kita kumpulkan.
+kita kumpulkan sehingga variasi yang tidak dapat dijelaskan oleh model minimum.
 
-Salah satu cara untuk mendapatkan garis yang paling pas (*the best fit*) ini adalah melalui suatu prosedur formal yang disebut *metode kuadrat terkecil/ordinary least squares* (OLS). Metode OLS ini salah satu metode estimasi garis regresi yang sangat populer.
+Salah satu cara untuk mendapatkan garis yang paling pas (*line of best fit*) yang sangat populerini adalah melalui suatu prosedur formal yang disebut *metode kuadrat terkecil/ordinary least squares* (OLS). 
 
 ```{r metode-ols, echo=FALSE, warning=FALSE, message=FALSE, fig.cap={"Mencari Garis Regresi dengan Metode Kuadrat Terkecil"}}
 library("ggpmisc")
@@ -200,8 +199,7 @@ ggplot(metode.ols, aes(x, y)) +
 ```
 
 Di dalam regresi sederhana, karena kita hanya menggunakan satu variabel prediktor, faktor lain selain pendapatan yang menyebabkan variasi pada penjualan
-motor kita masukkan sebagai faktor acak (*random factor*). Faktor acak ini secara visual ditunjukkan oleh panjang garis vertikal (warna merah putus-putus) antara titik data pengamatan dengan garis
-regresi atau nilai dugaan variabel respons (garis biru).
+motor kita masukkan sebagai faktor acak (*random factor*). Faktor acak ini secara visual ditunjukkan oleh panjang garis vertikal (warna merah putus-putus) antara titik data pengamatan dengan garis regresi atau nilai dugaan variabel respons (garis biru).
 
 Faktor acak ini menunjukkan adanya variasi pada penjualan yang
 tidak dapat dijelaskan oleh model dan disimbolkan dengan $\epsilon$.

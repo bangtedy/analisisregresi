@@ -33,7 +33,7 @@ Kita akan melanjutkan kasus hubungan antara penjualan motor dengan pendapatan pa
 
 Plot sangat penting di dalam regresi. Pemeriksaan diagram pencar secara teliti harus mendahului penghitungan regresi. Diagram pencar dapat mengindikasikan apakah model regresi yang diinginkan mungkin masuk akal atau tidak. Kesepakatan dalam membuat diagram pencar, variabel $x$ sebagai variabel penjelas diplot pada sumbu horisontal. Varibel $y$ sebagai variabel respons diplot pada sumbu vertikal. 
 
-Untuk membuat diagram pencar, hal pertama yang harus dilakukan adalah memasukkan data ke dalam R, mengecek apakah data yang kita masukkan sudah betul dan memanggil *library* yang relevan dengan model yang akan dibuat.
+Untuk membuat diagram pencar, hal pertama yang harus dilakukan adalah memasukkan data ke dalam R, mengecek apakah data yang kita masukkan sudah betul dan memanggil *package* yang relevan dengan model yang akan dibuat.
 
 ```{r, echo=TRUE}
 # memanggil data yang disimpan dalam bentuk teks ke dalam R
@@ -58,6 +58,7 @@ Data yang kita masukkan kelihatan seperti yang diharapkan. Variabel penjualan da
 # melihat struktur data
 str(PJMotor)
 ```
+Hasil fungsi ```str()``` menunjukkan bahwa data ini adalah data *time series* terdiri dari tiga kolom yaitu penjualan motor (y), pertumbuhan pendapatan per kapita (x) dan tahun selama 19 tahun dari 2001-2019. 
 
 ```{r, echo=TRUE}
 # melihat ringkasan data kecuali data tahun
@@ -71,7 +72,7 @@ library (GGally)
 GGally::ggpairs(subset(PJMotor, select = c(y,x)))
 ```
 
-Pada diagonal, kita melihat distribusi data $y$ dan $x$: data kedua variabel menceng ke kiri (*skewed left*). Di atas diagonal ditunjukkan nilai korelasi $y$ dan $x$ yaitu sebesar=0.625. Dibawah diagonal menunjukkan diagram pencar pasangan data $y$ dengan $x$ yang sudah kita bahas sebelumnya di Bab 1.
+Pada diagonal, kita melihat distribusi data $y$ dan $x$: data kedua variabel menceng ke kiri (*skewed left*). Di atas diagonal ditunjukkan nilai korelasi antara $y$ dan $x$ yaitu sebesar=0.625. Koefisisen korelasi nilainya antara −1 (berkorelasi negatif sempurna) melalui 0 (tidak ada korelasi) sampai +1 (berkorelasi positif sempurna). Korelasi antara penjualan dan pendapatan disini positif cukup kuat dan signifikan. Grafik dibawah diagonal menunjukkan diagram pencar antara pasangan data $y$ dengan $x$ seperti yang sudah kita bahas sebelumnya di Bab 1.
 
 Di dalam R model regresi linier sederhana dapat diperoleh dengan perintah ```lm(y~x)```. Tanda ~ dapat diartikan $y$ dijelaskan oleh $x$ atau $y$ fungsi dari $x$. Fungsi ini mengestimasi koefisien regresi model linier dengan metode kuadrat terkecil (*the least squares method*). 
 
@@ -95,13 +96,25 @@ Kita kemudian menggunakan perintah ```summary()``` untuk menampilkan luarannya. 
 summary (mpm) 
 ```
 
-Hasil regresi menunjukkan nilai dugaan intersep garis regresi $\hat \beta_0$ = -1.210 (SE= 2.088), p-value = 0.57 (tidak signifikan). Sedangkan nilai dugaan $\hat \beta_1$ = 1.733 (SE = 0.525) dan p-valuenya (menguji hipotesis nol bahwa $\beta_1$ = 0) kecil, konsisten dengan bukti persebaran data yang cenderung linier. 
+Persamaan regresinya dapat diringkas sebagai $penjualan=-1.21+1.73pendapatan$. Nilai dugaan intersep garis regresi $\hat \beta_0$ = -1.210 (SE= 2.088), p-value = 0.57 (tidak signifikan). Nilai -1,21 menunjukkan dugaan penjualan sepeda motor (y dalam juta unit) jika pertumbuhan pendapatan per kapita sebesar 0 persen. Angka penjualan tidak mungkin negatif, paling rendah adalah 0. Jadi dalam kasus ini, nilai intersep dari model yang kita duga tidak mempunyai interpretasi yang berarti. Jadi intersep di dalam sebuah persamaan kadang-kadang mempunyai interpretasi yang berarti kadang juga tidak seperti dalam kasus kita ini. 
 
-Di dalam R, kita bisa dengan mudah menambahkan nilai-nilai dugaan dan residu ke dalam data dengan menggunakan perintah ```augment()``` dari *broom package*. Misalkan outputnya kita sebut sebagai uji.diagnostik (dibahas secara lebih lengkap di Bab 4). 
+Sedangkan nilai dugaan variabel prediktor pendapatan $\hat \beta_1$ = 1.733 (SE = 0.525) dan p-valuenya (menguji hipotesis nol bahwa $\beta_1$ = 0) kecil (signifikan), konsisten dengan bukti persebaran data yang cenderung linier. Jadi 1.733 adalah nilai kemiringan garis regresi yang menunjukkan untuk setiap perubahan pertumbuhan pendapatan per kapita sebesar 1%, berkaitan dengan perubahan penjualan motor sebesar 1.73 juta unit. Jika terjadi kenaikan pertumbuhan pendapatan per kapita sebesar 1 persen, ini berkaitan dengan peningkatan penjualan motor sebanyak 1.73 juta unit. 
+
+Output lain yang penting dari perintah ```summary()``` adalah koefisisen determinasi ($R^2$) sebesar 39 persen. Artinya model kita menjelaskan sebesar 39 persen variasi pada data penjualan motor. Cukup masuk akal karena model kita hanya menggunakan satu variabel penjelas yaitu pertumbuhan per kapita. Selang kepercayaan batas atas dan batas bawah (95% defaultnya) dapat diperoleh dengan perintah ```confint()```.
+
+```{r selang-kepercayaan, echo=TRUE}
+# perintah menampilkan selang kepercayaan
+confint(mpm)
+```
+
+Terlihat bahwa selang kepercayaan untuk intersep meliputi angka 0 (tidak signifikan), sedangkan koefisien untuk pendapatan tidak meliputi 0 (signifikan).
+
+Selanjutnya kita bisa melihat nilai-nilai dugaan dan residu dengan model yang diperoleh dengan menggunakan perintah ```augment()``` dari *broom package*. Misalkan output dari perintah ```augment()``` kita sebut sebagai uji.diagnostik (dibahas secara lebih lengkap di Bab 4): 
 
 ```{r, echo=TRUE, warning=FALSE}
 # menambahkan nilai-nilai dugaan dan residu
-# library("broom") library perlu dipanggil jika belum dipanggil sebelumnya
+# library perlu dipanggil jika belum dipanggil sebelumnya
+# library("broom") 
 uji.diagnostik <- augment(mpm)
 head(uji.diagnostik)
 ```
@@ -115,9 +128,10 @@ Kolom-kolom pada tabel diatas menunjukkan
 
 Kode berikut memplot nilai residu (warna merah) yaitu selisih antara nilai pengamatan aktual dengan nilai dugaan. Setiap garis vertikal warna merah menunjukkan nilai residu antara data penjualan motor aktual dengan nilai dugaannya.
 
-```{r plot-residu-mpm, echo=TRUE, warning=FALSE, fig.cap={"Plot Residual Error"}, fig.align="center"}
-# library(ggplot2) tidak perlu dipanggil lagi jika sudah dipanggil sebelumnya
-# library(ggpmisc) tidak perlu dipanggil lagi jika sudah dipanggil sebelumnya
+```{r plot-residu-mpm, echo=TRUE, warning=FALSE, fig.cap={"Garis dan Persamaan Regresi"}, fig.align="center"}
+# library tidak perlu dipanggil lagi jika sudah dipanggil sebelumnya
+# library(ggplot2) 
+# library(ggpmisc)
 rumus <- y ~ x
 ggplot(uji.diagnostik, aes(x, y)) +
   geom_point() +
@@ -130,7 +144,6 @@ ggplot(uji.diagnostik, aes(x, y)) +
                 parse = TRUE) 
 ```
 
-Koefisisen determinasi ($R^2$) sebesar 39 persen. Artinya model kita hanya menjelaskan sebesar 39 persen variasi pada penjualan motor. Cukup masuk akal karena model kita hanya menggunakan satu variabel penjelas yaitu pertumbuhan per kapita.  
 
 
 ::: {.rmdnote}

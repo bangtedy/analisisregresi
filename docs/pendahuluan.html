@@ -506,11 +506,10 @@ y_i=\beta_0 + \beta_1x_i
 \end{equation}\]</span></p>
 <p>Persamaan ini menyatakan bahwa <span class="math inline">\(y\)</span> sebagai variabel respons adalah fungsi linier dari <span class="math inline">\(x\)</span>, variabel prediktor. <span class="math inline">\(\beta_0\)</span> adalah konstanta yang menunjukkan nilai dari <span class="math inline">\(y\)</span> jika <span class="math inline">\(x\)</span> sama dengan nol. <span class="math inline">\(\beta_1\)</span> adalah koefisien kemiringan garis yang menunjukkan berapa banyak <span class="math inline">\(y\)</span> akan berubah jika <span class="math inline">\(x\)</span> meningkat sebanyak satu unit.</p>
 <p>Tujuan utama kita dalam analisis regresi adalah mendapatkan nilai dugaan
-<span class="math inline">\(\hat \beta_0\)</span> dan <span class="math inline">\(\hat \beta_1\)</span> terbaik sehingga jarak vertikal untuk
-setiap titik data pengamatan dan nilai dugaannya secara kolektif paling
+<span class="math inline">\(\hat \beta_0\)</span> dan <span class="math inline">\(\hat \beta_1\)</span> terbaik sehingga rata-rata jarak vertikal untuk setiap titik data pengamatan dan nilai dugaannya secara kolektif paling
 kecil (Gambar 1.3). Dengan kata lain kita ingin menarik garis regresi dalam bidang x−y sedekat mungkin dengan persebaran titik-titik data sampel yang telah
-kita kumpulkan.</p>
-<p>Salah satu cara untuk mendapatkan garis yang paling pas (<em>the best fit</em>) ini adalah melalui suatu prosedur formal yang disebut <em>metode kuadrat terkecil/ordinary least squares</em> (OLS). Metode OLS ini salah satu metode estimasi garis regresi yang sangat populer.</p>
+kita kumpulkan sehingga variasi yang tidak dapat dijelaskan oleh model minimum.</p>
+<p>Salah satu cara untuk mendapatkan garis yang paling pas (<em>line of best fit</em>) yang sangat populerini adalah melalui suatu prosedur formal yang disebut <em>metode kuadrat terkecil/ordinary least squares</em> (OLS).</p>
 <div class="figure">
 <span style="display:block;" id="fig:metode-ols"></span>
 <img src="bookdown-demo_files/figure-html/metode-ols-1.png" alt="Mencari Garis Regresi dengan Metode Kuadrat Terkecil" width="672"><p class="caption">
@@ -518,8 +517,7 @@ Gambar 1.3: Mencari Garis Regresi dengan Metode Kuadrat Terkecil
 </p>
 </div>
 <p>Di dalam regresi sederhana, karena kita hanya menggunakan satu variabel prediktor, faktor lain selain pendapatan yang menyebabkan variasi pada penjualan
-motor kita masukkan sebagai faktor acak (<em>random factor</em>). Faktor acak ini secara visual ditunjukkan oleh panjang garis vertikal (warna merah putus-putus) antara titik data pengamatan dengan garis
-regresi atau nilai dugaan variabel respons (garis biru).</p>
+motor kita masukkan sebagai faktor acak (<em>random factor</em>). Faktor acak ini secara visual ditunjukkan oleh panjang garis vertikal (warna merah putus-putus) antara titik data pengamatan dengan garis regresi atau nilai dugaan variabel respons (garis biru).</p>
 <p>Faktor acak ini menunjukkan adanya variasi pada penjualan yang
 tidak dapat dijelaskan oleh model dan disimbolkan dengan <span class="math inline">\(\epsilon\)</span>.
 Maka persamaan garis regresi dapat kita tuliskan lagi sebagai:</p>
@@ -746,7 +744,7 @@ regresinya.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Analisis Regresi</strong>: Disertai Contoh-Contoh Menggunakan R" was written by Tedy Herlambang. It was last built on 2022-01-13.</p>
+    <p>"<strong>Analisis Regresi</strong>: Disertai Contoh-Contoh Menggunakan R" was written by Tedy Herlambang. It was last built on 2022-01-14.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
