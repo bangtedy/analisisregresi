@@ -1,14 +1,12 @@
-tab:tabel-penyebutan-variabel
-tab:tabel-pjm
 fig:diagram-pencar
 fig:garis-regresi
 eq:persamaan-noerror
+fig:metode-ols
 eq:persamaan-witherror
 eq:persamaan-multi
 eq:persamaan-umum
 fig:plotpasangan-pjmotor
 fig:plot-residu-mpm
-fig:plot-mpm
 eq:persamaan-ganda
 eq:persamaan-2var
 eq:persamaan-sse

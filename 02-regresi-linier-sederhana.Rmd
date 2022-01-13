@@ -71,7 +71,7 @@ library (GGally)
 GGally::ggpairs(subset(PJMotor, select = c(y,x)))
 ```
 
-Pada diagonal, kita melihat distribusi data $y$ dan $x$: data kedua variabel menceng ke kiri (*skewed left*). Di atas diagonal ditunjukkan nilai korelasi $y$ dan $x$ yaitu sebesar=0.625. Dibawah diagonal menunjukkan diagram pencar pasangan data.
+Pada diagonal, kita melihat distribusi data $y$ dan $x$: data kedua variabel menceng ke kiri (*skewed left*). Di atas diagonal ditunjukkan nilai korelasi $y$ dan $x$ yaitu sebesar=0.625. Dibawah diagonal menunjukkan diagram pencar pasangan data $y$ dengan $x$ yang sudah kita bahas sebelumnya di Bab 1.
 
 Di dalam R model regresi linier sederhana dapat diperoleh dengan perintah ```lm(y~x)```. Tanda ~ dapat diartikan $y$ dijelaskan oleh $x$ atau $y$ fungsi dari $x$. Fungsi ini mengestimasi koefisien regresi model linier dengan metode kuadrat terkecil (*the least squares method*). 
 
@@ -101,7 +101,7 @@ Di dalam R, kita bisa dengan mudah menambahkan nilai-nilai dugaan dan residu ke 
 
 ```{r, echo=TRUE, warning=FALSE}
 # menambahkan nilai-nilai dugaan dan residu
-library("broom")
+# library("broom") library perlu dipanggil jika belum dipanggil sebelumnya
 uji.diagnostik <- augment(mpm)
 head(uji.diagnostik)
 ```
@@ -113,31 +113,21 @@ Kolom-kolom pada tabel diatas menunjukkan
     .fitted: nilai dugaan penjualan motor
     .resid: the residual errors
 
-Kode berikut memplot residuals error (warna merah) yaitu selisih antara nilai pengamatan dengan nilai dugaan. Setiap garis vertikal warna merah menunjukkan nilai kesalahan/residu antara data penjualan motor aktual dengan nilai dugaannya.
+Kode berikut memplot nilai residu (warna merah) yaitu selisih antara nilai pengamatan aktual dengan nilai dugaan. Setiap garis vertikal warna merah menunjukkan nilai residu antara data penjualan motor aktual dengan nilai dugaannya.
 
 ```{r plot-residu-mpm, echo=TRUE, warning=FALSE, fig.cap={"Plot Residual Error"}, fig.align="center"}
-library(ggplot2)
-my.formula <- y ~ x
+# library(ggplot2) tidak perlu dipanggil lagi jika sudah dipanggil sebelumnya
+# library(ggpmisc) tidak perlu dipanggil lagi jika sudah dipanggil sebelumnya
+rumus <- y ~ x
 ggplot(uji.diagnostik, aes(x, y)) +
   geom_point() +
-  stat_smooth(method = "lm", se = FALSE, formula = my.formula, size = 0.8) +
-  geom_segment(aes(xend = x, yend = .fitted), color = "red", size = 0.4, linetype = "dashed")
-```
-
-Diagram pencar, garis dan persamaan regresi dapat ditampilkan bersama-sama dengan perintah berikut:
-
-```{r plot-mpm, echo=TRUE, warning=FALSE, fig.cap={"Diagram Pencar, Garis dan Persamaan Regresi"},fig.align="center"}
-library(ggpmisc)
-PJMotor <- as.data.frame(PJMotor)
-my.formula <- y ~ x
-ggplot(data = PJMotor, aes(x = x, y = y)) +
-   geom_smooth(method = "lm", se=FALSE, color="blue", size = 0.8, formula = my.formula) +
-   stat_poly_eq(formula = my.formula,
+  stat_smooth(method = "lm", se = FALSE, formula = rumus, size = 0.8) +
+  geom_segment(aes(xend = x, yend = .fitted), color = "red", size = 0.4, linetype = "dashed") + 
+  theme_bw()+
+   stat_poly_eq(formula = rumus,
                 eq.with.lhs = "italic(hat(y))~`=`~",
                 aes(label = paste(..eq.label.., ..rr.label.., sep = "~~~")), 
-                parse = TRUE) +         
-   geom_point()
-
+                parse = TRUE) 
 ```
 
 Koefisisen determinasi ($R^2$) sebesar 39 persen. Artinya model kita hanya menjelaskan sebesar 39 persen variasi pada penjualan motor. Cukup masuk akal karena model kita hanya menggunakan satu variabel penjelas yaitu pertumbuhan per kapita.  
