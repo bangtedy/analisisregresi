@@ -6,7 +6,7 @@ bookdown::bs4_book:
   includes:
     in_header: [ga_script.html, material_icons.html]
 bookdown::gitbook:
-  css: style.css
+  css: css/style.css
   config:
     config:
     sharing:

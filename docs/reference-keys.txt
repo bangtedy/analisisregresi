@@ -20,6 +20,7 @@ penggunaan-komputer
 regresi-linier-sederhana
 model-regresi-linier-sederhana
 kasus-1-penjualan-motor-dan-pertumbuhan-pendapatan-perkapita
+residu
 regresi-linier-berganda
 persamaan-umum
 uji-diagnostik-dan-tindakan-perbaikan

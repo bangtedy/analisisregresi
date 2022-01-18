@@ -144,7 +144,7 @@ pjm %>%
   kable_classic(full_width = F, html_font = "Cambria")
 ```
 
-Langkah awal untuk melihat apakah data yang kita miliki memang mengandung "sinyal" yang menunjukkan hubungan antara pendapatan dengan penjualan motor adalah mengamati data secara berpasangan dan membuat diagram pencar (*scatter plot/scatter diagram*). Setiap data $y$ dipasangkan dan diplot terhadap nilai $x$nya. 
+Langkah awal untuk melihat apakah memang terdapat "sinyal" yang menunjukkan hubungan antara pendapatan dengan penjualan motor dari data yang kita miliki adalah dengan mengamati data secara berpasangan dan membuat diagram pencarnya (*scatter plot/scatter diagram*). Setiap data $y$ dipasangkan dan diplot terhadap nilai $x$-nya. 
 
 Diagram pencar bisa menunjukkan secara kasar apakah hubungan antar variabel dapat dianggap linier atau tidak. Jika nilai $y$ cenderung meningkat atau menurun secara garis lurus ketika nilai $x$ meningkat, dan jika perpencaran pasangan titik-titik ($x,y$) berada disekitar garis lurus, maka kita dapat menjelaskan hubungan antara $y$ dan $x$ dengan menggunakan model regresi linier. Hasil plot pada Gambar 1.1 menunjukkan bahwa memang terdapat sinyal yang sesuai dengan asumsi yaitu penjualan motor proporsional dengan pertumbuhan pendapatan per kapita: semakin tinggi pertumbuhan pendapatan per kapita semakin tinggi pula tingkat penjualan motor. 
 
@@ -156,9 +156,9 @@ ggplot(data = PJMotor, aes(x,y)) +
   geom_point() + theme_bw()
 ```
 
-Selanjutnya kita tambahkan sebuah garis lurus yang paling banyak "mendekati" titik-titik data pengamatan yang tersebar. Sebuah garis lurus yang paling pas (*fit*) pada Gambar 1.2 menunjukkan bahwa proporsionalitas ini ternyata tidak ketat. Garis lurus yang kita tambahkan tidak menyinggung seluruh data yang tersebar. Dengan kata lain data sampel tidak bisa seluruhnya tepat berada pada garis yang dibuat. Titik-titik pengamatan ada yang tepat digaris, ada juga yang di atas atau di bawah garis. 
+Selanjutnya kita tambahkan sebuah garis lurus yang paling banyak "mendekati" titik-titik data pengamatan yang tersebar. Sebuah garis lurus yang kita tarik seperti pada Gambar 1.2 menunjukkan bahwa proporsionalitas ini memang ada tetapi tidak ketat. Garis lurus yang kita tambahkan tidak menyinggung seluruh data yang tersebar. Dengan kata lain data sampel tidak bisa seluruhnya tepat berada pada garis yang dibuat. Titik-titik pengamatan ada yang tepat digaris, ada juga yang di atas atau di bawah garis. 
 
-Hal ini menunjukkan adanya **variasi** pada penjualan motor yang tidak berhubungan dengan tingkat pendapatan. Atau terdapat faktor-faktor lain selain pendapatan yang juga mempengaruhi tingkat penjualan tetapi tidak tercakup di dalam model.
+Ini menunjukkan adanya **variasi** pada penjualan motor yang tidak berhubungan dengan tingkat pendapatan. Atau terdapat faktor-faktor lain selain pendapatan yang juga mempengaruhi tingkat penjualan tetapi tidak tercakup di dalam model.
 
 
 ```{r garis-regresi, echo=FALSE, warning=FALSE, message= FALSE, fig.cap={"Garis Regresi Penjualan Motor (y) sebagai Fungsi dari Pendapatan per Kapita (x)"}}
@@ -168,21 +168,20 @@ ggplot(data = PJMotor, aes(x,y)) +
 
 ```
 
-Persamaan umum garis regresi yang memodelkan hubungan antara $y$ dan $x$ adalah:
+Jika kita ekspresikan ke dalam persamaan, garis regresi yang memodelkan hubungan antara $y$ dan $x$ dapat kita tuliskan sebagai:
 
 \begin{equation} 
 y_i=\beta_0 + \beta_1x_i
 (\#eq:persamaan-noerror)
 \end{equation}
 
-Persamaan ini menyatakan bahwa $y$ sebagai variabel respons adalah fungsi linier dari $x$, variabel prediktor. $\beta_0$ adalah konstanta yang menunjukkan nilai dari $y$ jika $x$ sama dengan nol. $\beta_1$ adalah koefisien kemiringan garis yang menunjukkan berapa banyak $y$ akan berubah jika $x$ meningkat sebanyak satu unit.
+Persamaan ini menyatakan bahwa $y$ sebagai variabel respons adalah fungsi linier dari $x$, variabel prediktor. $\beta_0$ adalah intersep (*intercept*) yang menunjukkan nilai dari $y$ jika $x$ sama dengan nol. $\beta_1$ adalah koefisien kemiringan garis (*slope*) yang menunjukkan berapa banyak $y$ akan berubah jika $x$ meningkat sebanyak satu unit.
 
-Tujuan utama kita dalam analisis regresi adalah mendapatkan nilai dugaan
-$\hat \beta_0$ dan $\hat \beta_1$ terbaik sehingga rata-rata jarak vertikal untuk setiap titik data pengamatan dan nilai dugaannya secara kolektif paling
+Di dalam analisis regresi kita mencari nilai dugaan $\hat \beta_0$ dan $\hat \beta_1$ sehingga rata-rata jarak vertikal untuk setiap titik data pengamatan dengan nilai dugaannya secara kolektif paling
 kecil (Gambar 1.3). Dengan kata lain kita ingin menarik garis regresi dalam bidang x−y sedekat mungkin dengan persebaran titik-titik data sampel yang telah
-kita kumpulkan sehingga variasi yang tidak dapat dijelaskan oleh model minimum.
+kita kumpulkan sehingga variasi yang tidak dapat dijelaskan oleh model menjadi minimum.
 
-Salah satu cara untuk mendapatkan garis yang paling pas (*line of best fit*) yang sangat populerini adalah melalui suatu prosedur formal yang disebut *metode kuadrat terkecil/ordinary least squares* (OLS). 
+Salah satu cara untuk mendapatkan garis yang paling pas (*line of best fit*) yang sangat populer adalah melalui suatu prosedur formal yang disebut *metode kuadrat terkecil/ordinary least squares* (OLS). Sesuai namanya metode ini meminimalkan jumlah kuadrat kesalahan dari model.
 
 ```{r metode-ols, echo=FALSE, warning=FALSE, message=FALSE, fig.cap={"Mencari Garis Regresi dengan Metode Kuadrat Terkecil"}}
 library("ggpmisc")
@@ -198,8 +197,7 @@ ggplot(metode.ols, aes(x, y)) +
   theme_bw()
 ```
 
-Di dalam regresi sederhana, karena kita hanya menggunakan satu variabel prediktor, faktor lain selain pendapatan yang menyebabkan variasi pada penjualan
-motor kita masukkan sebagai faktor acak (*random factor*). Faktor acak ini secara visual ditunjukkan oleh panjang garis vertikal (warna merah putus-putus) antara titik data pengamatan dengan garis regresi atau nilai dugaan variabel respons (garis biru).
+Di dalam kasus penjualan motor, karena kita hanya menggunakan satu variabel prediktor dalam regresi sederhana, faktor lain selain pendapatan yang menyebabkan variasi pada penjualan motor kita masukkan sebagai faktor acak (*random factor*). Faktor acak ini secara visual ditunjukkan oleh panjang garis vertikal (warna merah putus-putus) antara titik data pengamatan dengan garis regresi atau nilai dugaan variabel respons (garis biru).
 
 Faktor acak ini menunjukkan adanya variasi pada penjualan yang
 tidak dapat dijelaskan oleh model dan disimbolkan dengan $\epsilon$.
@@ -210,9 +208,9 @@ y_i=\beta_0 + \beta_1x_i + \epsilon_i
 (\#eq:persamaan-witherror)
 \end{equation}
 
-$\epsilon_i$ dimasukkan ke dalam persamaan untuk mengakomodasi variasi dalam $y$ yang tidak dapat dijelaskan oleh variabel $x$. Faktor acak adalah istilah
+$\epsilon_i$ dimasukkan ke dalam persamaan untuk mengakomodasi variasi dalam $y$ yang tidak dapat dijelaskan oleh variabel $x$. Faktor acak ini adalah istilah
 statistik yang mewakili fluktuasi acak, kesalahan pengukuran, atau
-dampak dari faktor-faktor diluar kendali peneliti [@faraway2016a] sehingga menyebabkan nilai dugaan tidak sama dengan nilai aktual (*error*). Jadi
+dampak dari faktor-faktor diluar kendali peneliti [@faraway2016a] yang menyebabkan nilai dugaan tidak sama dengan nilai aktual (*error* atau residu). Jadi
 $\epsilon$ ini mewakili ketidakmampuan model untuk menjelaskan variasi
 yang terjadi pada variabel respons.
 
@@ -249,7 +247,7 @@ mengapa model linier ini paling umum dipakai adalah [@rawlings1998]: (1)
 model linier mudah dipahami; (2) beberapa model nonlinier secara
 instrinsik linier, sehingga bisa didekati dengan pendekatan linier.
 
-Dalam banyak hal, jumlah variabel respons yang kita analisis lebih dari satu atau $p>1$, sehingga persamaan umum regresinya menjadi:
+Dalam banyak hal, jumlah variabel respons yang kita analisis bisa lebih dari satu atau $p>1$, sehingga persamaan umum regresinya menjadi:
 
 \begin{equation} 
 y_i=\beta_0 + \beta_1x_{i1} + \beta_2x_{i2} + ... + \beta_px_{ip} + \epsilon_i
@@ -258,7 +256,7 @@ y_i=\beta_0 + \beta_1x_{i1} + \beta_2x_{i2} + ... + \beta_px_{ip} + \epsilon_i
 
 Model ini disebut sebagai model regresi linier berganda. Disebut
 berganda karena melibatkan lebih dari satu variabel
-prediktor.Contoh-contohnya:
+prediktor. Contoh-contoh penerapannya:
 
 1.  Seorang mahasiswa ingin menduga koefisien-koefisien dari sebuah
     model yang menghubungkan bobot tanaman vaskular-tanaman yang
@@ -289,7 +287,7 @@ prediktor.Contoh-contohnya:
 *All models are wrong, but some are useful* [@box1979]. Seperti
 halnya metodologi statistik yang lain, analisis regresi linier dapat
 menjadi cara yang sangat efektif untuk memodelkan data sepanjang
-asumsi-asumsinya terpenuhi. Jika asumsinya tidak terpenuhi, kuadrat
+asumsi-asumsinya terpenuhi. Jika asumsinya tidak terpenuhi, metode kuadrat
 terkecil berpotensi memberikan hasil yang arahnya tidak tepat
 (*misleading*).
 
@@ -316,10 +314,7 @@ Potensi-potensi tidak terpenuhinya asumsi model regresi adalah:
     respons; (b) high-leverage points: nilai-nilai ekstrim pada variabel
     prediktor.
 
-Setelah dilakukan uji diagnostik, maka uji-uji hipotesis, interval dan
-prediksi dapat dilakukan, karena uji-uji ini didasarkan atas kepercayaan
-bahwa asumsi-asumsi model regresi dipenuhi. Jadi penting sekali untuk
-melakukan pengecekan terhadap asumsi-asumsi ini.
+Uji hipotesis, interval dan prediksi didasarkan atas kepercayaan bahwa asumsi-asumsi model regresi dipenuhi. Jadi penting sekali untuk melakukan pengecekan terhadap asumsi-asumsi ini. Jika asumsi-asumsi dipenuhi, berbagai bentuk inferensi seperti prediksi, kontrol, ekstraksi informasi, penemuan pengetahuan dan evaluasi risiko dapat dilakukan dengan kerangka argumen deduktif sesuai dengan model yang dibangun.
 
 ## Uji Signifikansi
 

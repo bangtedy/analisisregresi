@@ -79,15 +79,11 @@ Di dalam R model regresi linier sederhana dapat diperoleh dengan perintah ```lm(
 Semisal modelnya kita beri nama **model penjualan motor (mpm)**, yang memodelkan hubungan antara penjualan motor ($y$) dengan pertumbuhan pendapatan ($x$), maka model ini dapat diperoleh dengan perintah:
 
 ```{r regresi-mpm, echo=TRUE}
-mpm <- lm(y ~ x)
-# Perhatikan tanda panah ke kiri. 
-# Intersep dan slope secara default diestimasi. 
+mpm <- lm(y ~ x) 
+# Perintah ini sama dengan y = β0 + β1x
+# Intersep secara default diestimasi. 
 # Bandingkan dengan perintah untuk mendapatkan diagram pencar. 
 ```
-
-Perintah ini sama dengan persamaan dibawah:
-
-$$ y = β_0 + β_1x + ε $$
 
 Kita kemudian menggunakan perintah ```summary()``` untuk menampilkan luarannya. Hasilnya adalah sebagai berikut:
 
@@ -96,11 +92,13 @@ Kita kemudian menggunakan perintah ```summary()``` untuk menampilkan luarannya. 
 summary (mpm) 
 ```
 
-Persamaan regresinya dapat diringkas sebagai $penjualan=-1.21+1.73pendapatan$. Nilai dugaan intersep garis regresi $\hat \beta_0$ = -1.210 (SE= 2.088), p-value = 0.57 (tidak signifikan). Nilai -1,21 menunjukkan dugaan penjualan sepeda motor (y dalam juta unit) jika pertumbuhan pendapatan per kapita sebesar 0 persen. Angka penjualan tidak mungkin negatif, paling rendah adalah 0. Jadi dalam kasus ini, nilai intersep dari model yang kita duga tidak mempunyai interpretasi yang berarti. Jadi intersep di dalam sebuah persamaan kadang-kadang mempunyai interpretasi yang berarti kadang juga tidak seperti dalam kasus kita ini. 
+Persamaan regresinya dapat diringkas sebagai $\hat penjualan=-1.21+1.73pendapatan$. Nilai dugaan intersep garis regresi $\hat \beta_0$ = -1.210 (SE= 2.088), p-value = 0.57 (tidak signifikan). Nilai -1,21 menunjukkan dugaan penjualan sepeda motor (y dalam juta unit) jika pertumbuhan pendapatan per kapita sebesar 0 persen. Angka penjualan tidak mungkin negatif, paling rendah adalah 0. Jadi dalam kasus ini, nilai intersep dari model yang kita duga tidak mempunyai interpretasi yang berarti. Jadi intersep di dalam sebuah persamaan kadang-kadang mempunyai interpretasi yang berarti kadang juga tidak seperti dalam kasus kita ini. 
 
 Sedangkan nilai dugaan variabel prediktor pendapatan $\hat \beta_1$ = 1.733 (SE = 0.525) dan p-valuenya (menguji hipotesis nol bahwa $\beta_1$ = 0) kecil (signifikan), konsisten dengan bukti persebaran data yang cenderung linier. Jadi 1.733 adalah nilai kemiringan garis regresi yang menunjukkan untuk setiap perubahan pertumbuhan pendapatan per kapita sebesar 1%, berkaitan dengan perubahan penjualan motor sebesar 1.73 juta unit. Jika terjadi kenaikan pertumbuhan pendapatan per kapita sebesar 1 persen, ini berkaitan dengan peningkatan penjualan motor sebanyak 1.73 juta unit. 
 
-Output lain yang penting dari perintah ```summary()``` adalah koefisisen determinasi ($R^2$) sebesar 39 persen. Artinya model kita menjelaskan sebesar 39 persen variasi pada data penjualan motor. Cukup masuk akal karena model kita hanya menggunakan satu variabel penjelas yaitu pertumbuhan per kapita. Selang kepercayaan batas atas dan batas bawah (95% defaultnya) dapat diperoleh dengan perintah ```confint()```.
+Output lain yang penting dari perintah ```summary()``` adalah koefisisen determinasi ($R^2$) sebesar 0.39. Ini berarti pendapatan dapat menjelaskan sebesar 39% variasi pada data penjualan motor. Dengan kata lain jika kita ingin menjelaskan mengapa penjualan motor naik turun, maka kita bisa melihat variasi pada pertumbuhan pendapatan. Tentu saja ada faktor lain yang menjelaskan fluktuasi penjualan motor. Tetapi karena model kita hanya memasukkan pendapatan sebagai variabel eksplanatori, maka cukup masuk akal jika model ini hanya menjelaskan sebanyak 39%.  Artinya terdapat 61% variasi pada penjualan motor yang tidak bisa dijelaskan oleh pendapatan perkapita saja.
+
+Selang kepercayaan batas atas dan batas bawah (95% defaultnya) untuk nilai dugaan koefisien dapat diperoleh dengan perintah ```confint()```.
 
 ```{r selang-kepercayaan, echo=TRUE}
 # perintah menampilkan selang kepercayaan
@@ -109,7 +107,13 @@ confint(mpm)
 
 Terlihat bahwa selang kepercayaan untuk intersep meliputi angka 0 (tidak signifikan), sedangkan koefisien untuk pendapatan tidak meliputi 0 (signifikan).
 
-Selanjutnya kita bisa melihat nilai-nilai dugaan dan residu dengan model yang diperoleh dengan menggunakan perintah ```augment()``` dari *broom package*. Misalkan output dari perintah ```augment()``` kita sebut sebagai uji.diagnostik (dibahas secara lebih lengkap di Bab 4): 
+#### Residu
+
+Selisih antara nilai data aktual penjualan motor $y_i$ dengan nilai dugaannya $\hat y_i$ pada saat pendapatan $x = x_i$ disebut residu. Nilai residu mencerminkan kegagalan garis regresi yang diestimasi untuk memodelkan pasangan data tersebut. Bagaimana nilai residu diperoleh secara detil?
+
+$\hat \beta_0$ dan $\hat \beta_1$ adalah nilai-nilai koefisien garis regresi  dengan menggunakan data sampel sebanyak 19 tahun $(x_1, y_1),(x_2, y_2), . . . , (x_{19}, y_{19})$. Untuk setiap pertumbuhan pendapatan per tahun sebesar $x$, nilai dugaaan penjualan motornya adalah sebesar $\hat y = \hat \beta_0 + \hat \beta_1x$. Untuk setiap pertumbuhan pendapatan sebesar $x_i$, dimana $i = 1, 2, . . . , 19$, nilai selisih antara $y_i−\hat y_i = y_i − (\hat \beta_0 + \hat \beta_1x_i)$ disebut residu. 
+
+Nilai residu ini dapat diperoleh dengan menggunakan perintah ```augment()``` dari *broom package*. Misalkan residu dari perintah ```augment()``` kita sebut sebagai uji.diagnostik (dibahas secara lebih lengkap di Bab 4): 
 
 ```{r, echo=TRUE, warning=FALSE}
 # menambahkan nilai-nilai dugaan dan residu
@@ -122,13 +126,13 @@ head(uji.diagnostik)
 Kolom-kolom pada tabel diatas menunjukkan
 
     x: pertumbuhan pendapatan per kapita
-    y: penjualan motor
+    y: penjualan motor aktual
     .fitted: nilai dugaan penjualan motor
-    .resid: the residual errors
+    .resid: nilai residu (penjualan motor aktual-nilai dugaan penjualan motor)
 
 Kode berikut memplot nilai residu (warna merah) yaitu selisih antara nilai pengamatan aktual dengan nilai dugaan. Setiap garis vertikal warna merah menunjukkan nilai residu antara data penjualan motor aktual dengan nilai dugaannya.
 
-```{r plot-residu-mpm, echo=TRUE, warning=FALSE, fig.cap={"Garis dan Persamaan Regresi"}, fig.align="center"}
+```{r plot-residu-mpm, echo=TRUE, warning=FALSE, fig.cap={"Ilustrasi Geometrik dari OLS. Jarak antara Pengamatan dan Garis Regresi Sepanjang Sumbu y"}, fig.align="center"}
 # library tidak perlu dipanggil lagi jika sudah dipanggil sebelumnya
 # library(ggplot2) 
 # library(ggpmisc)

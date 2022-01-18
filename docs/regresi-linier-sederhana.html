@@ -146,7 +146,7 @@ y_i=\beta_0 + \beta_1x_i+ \epsilon_i
 <p>Selanjutnya kita cek normalitas data, korelasi dan diagram pencar antara pasangan data <span class="math inline">\(y\)</span> dengan <span class="math inline">\(x\)</span> seperti yang ditunjukkan pada Gambar 2.1.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span> <span class="op">(</span><span class="va"><a href="https://ggobi.github.io/ggally/">GGally</a></span><span class="op">)</span>
-<span class="fu">GGally</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/GGally/man/ggpairs.html">ggpairs</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">PJMotor</span>, select <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">y</span>,<span class="va">x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<span class="fu">GGally</span><span class="fu">::</span><span class="fu"><a href="https://ggobi.github.io/ggally/reference/ggpairs.html">ggpairs</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">PJMotor</span>, select <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">y</span>,<span class="va">x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:plotpasangan-pjmotor"></span>
 <img src="bookdown-demo_files/figure-html/plotpasangan-pjmotor-1.png" alt="Plot Pasangan Data Penjualan dan Pendapatan" width="672"><p class="caption">
@@ -157,12 +157,10 @@ Gambar 2.1: Plot Pasangan Data Penjualan dan Pendapatan
 <p>Di dalam R model regresi linier sederhana dapat diperoleh dengan perintah <code>lm(y~x)</code>. Tanda ~ dapat diartikan <span class="math inline">\(y\)</span> dijelaskan oleh <span class="math inline">\(x\)</span> atau <span class="math inline">\(y\)</span> fungsi dari <span class="math inline">\(x\)</span>. Fungsi ini mengestimasi koefisien regresi model linier dengan metode kuadrat terkecil (<em>the least squares method</em>).</p>
 <p>Semisal modelnya kita beri nama <strong>model penjualan motor (mpm)</strong>, yang memodelkan hubungan antara penjualan motor (<span class="math inline">\(y\)</span>) dengan pertumbuhan pendapatan (<span class="math inline">\(x\)</span>), maka model ini dapat diperoleh dengan perintah:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mpm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">x</span><span class="op">)</span>
-<span class="co"># Perhatikan tanda panah ke kiri. </span>
-<span class="co"># Intersep dan slope secara default diestimasi. </span>
+<code class="sourceCode R"><span class="va">mpm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">x</span><span class="op">)</span> 
+<span class="co"># Perintah ini sama dengan y = β0 + β1x</span>
+<span class="co"># Intersep secara default diestimasi. </span>
 <span class="co"># Bandingkan dengan perintah untuk mendapatkan diagram pencar. </span></code></pre></div>
-<p>Perintah ini sama dengan persamaan dibawah:</p>
-<p><span class="math display">\[ y = β_0 + β_1x + ε \]</span></p>
 <p>Kita kemudian menggunakan perintah <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> untuk menampilkan luarannya. Hasilnya adalah sebagai berikut:</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># perintah summary() untuk mengekstrak hasil regresi</span>
@@ -185,9 +183,10 @@ Gambar 2.1: Plot Pasangan Data Penjualan dan Pendapatan
 ## Residual standard error: 1.515 on 17 degrees of freedom
 ## Multiple R-squared:  0.3906, Adjusted R-squared:  0.3547 
 ## F-statistic: 10.89 on 1 and 17 DF,  p-value: 0.004224</code></pre>
-<p>Persamaan regresinya dapat diringkas sebagai <span class="math inline">\(penjualan=-1.21+1.73pendapatan\)</span>. Nilai dugaan intersep garis regresi <span class="math inline">\(\hat \beta_0\)</span> = -1.210 (SE= 2.088), p-value = 0.57 (tidak signifikan). Nilai -1,21 menunjukkan dugaan penjualan sepeda motor (y dalam juta unit) jika pertumbuhan pendapatan per kapita sebesar 0 persen. Angka penjualan tidak mungkin negatif, paling rendah adalah 0. Jadi dalam kasus ini, nilai intersep dari model yang kita duga tidak mempunyai interpretasi yang berarti. Jadi intersep di dalam sebuah persamaan kadang-kadang mempunyai interpretasi yang berarti kadang juga tidak seperti dalam kasus kita ini.</p>
+<p>Persamaan regresinya dapat diringkas sebagai <span class="math inline">\(\hat penjualan=-1.21+1.73pendapatan\)</span>. Nilai dugaan intersep garis regresi <span class="math inline">\(\hat \beta_0\)</span> = -1.210 (SE= 2.088), p-value = 0.57 (tidak signifikan). Nilai -1,21 menunjukkan dugaan penjualan sepeda motor (y dalam juta unit) jika pertumbuhan pendapatan per kapita sebesar 0 persen. Angka penjualan tidak mungkin negatif, paling rendah adalah 0. Jadi dalam kasus ini, nilai intersep dari model yang kita duga tidak mempunyai interpretasi yang berarti. Jadi intersep di dalam sebuah persamaan kadang-kadang mempunyai interpretasi yang berarti kadang juga tidak seperti dalam kasus kita ini.</p>
 <p>Sedangkan nilai dugaan variabel prediktor pendapatan <span class="math inline">\(\hat \beta_1\)</span> = 1.733 (SE = 0.525) dan p-valuenya (menguji hipotesis nol bahwa <span class="math inline">\(\beta_1\)</span> = 0) kecil (signifikan), konsisten dengan bukti persebaran data yang cenderung linier. Jadi 1.733 adalah nilai kemiringan garis regresi yang menunjukkan untuk setiap perubahan pertumbuhan pendapatan per kapita sebesar 1%, berkaitan dengan perubahan penjualan motor sebesar 1.73 juta unit. Jika terjadi kenaikan pertumbuhan pendapatan per kapita sebesar 1 persen, ini berkaitan dengan peningkatan penjualan motor sebanyak 1.73 juta unit.</p>
-<p>Output lain yang penting dari perintah <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> adalah koefisisen determinasi (<span class="math inline">\(R^2\)</span>) sebesar 39 persen. Artinya model kita menjelaskan sebesar 39 persen variasi pada data penjualan motor. Cukup masuk akal karena model kita hanya menggunakan satu variabel penjelas yaitu pertumbuhan per kapita. Selang kepercayaan batas atas dan batas bawah (95% defaultnya) dapat diperoleh dengan perintah <code><a href="https://rdrr.io/r/stats/confint.html">confint()</a></code>.</p>
+<p>Output lain yang penting dari perintah <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> adalah koefisisen determinasi (<span class="math inline">\(R^2\)</span>) sebesar 0.39. Ini berarti pendapatan dapat menjelaskan sebesar 39% variasi pada data penjualan motor. Dengan kata lain jika kita ingin menjelaskan mengapa penjualan motor naik turun, maka kita bisa melihat variasi pada pertumbuhan pendapatan. Tentu saja ada faktor lain yang menjelaskan fluktuasi penjualan motor. Tetapi karena model kita hanya memasukkan pendapatan sebagai variabel eksplanatori, maka cukup masuk akal jika model ini hanya menjelaskan sebanyak 39%. Artinya terdapat 61% variasi pada penjualan motor yang tidak bisa dijelaskan oleh pendapatan perkapita saja.</p>
+<p>Selang kepercayaan batas atas dan batas bawah (95% defaultnya) untuk nilai dugaan koefisien dapat diperoleh dengan perintah <code><a href="https://rdrr.io/r/stats/confint.html">confint()</a></code>.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># perintah menampilkan selang kepercayaan</span>
 <span class="fu"><a href="https://rdrr.io/r/stats/confint.html">confint</a></span><span class="op">(</span><span class="va">mpm</span><span class="op">)</span></code></pre></div>
@@ -195,7 +194,13 @@ Gambar 2.1: Plot Pasangan Data Penjualan dan Pendapatan
 ## (Intercept) -5.615467 3.196075
 ## x            0.625206 2.840601</code></pre>
 <p>Terlihat bahwa selang kepercayaan untuk intersep meliputi angka 0 (tidak signifikan), sedangkan koefisien untuk pendapatan tidak meliputi 0 (signifikan).</p>
-<p>Selanjutnya kita bisa melihat nilai-nilai dugaan dan residu dengan model yang diperoleh dengan menggunakan perintah <code>augment()</code> dari <em>broom package</em>. Misalkan output dari perintah <code>augment()</code> kita sebut sebagai uji.diagnostik (dibahas secara lebih lengkap di Bab 4):</p>
+<div id="residu" class="section level4" number="2.1.1.1">
+<h4>
+<span class="header-section-number">2.1.1.1</span> Residu<a class="anchor" aria-label="anchor" href="#residu"><i class="fas fa-link"></i></a>
+</h4>
+<p>Selisih antara nilai data aktual penjualan motor <span class="math inline">\(y_i\)</span> dengan nilai dugaannya <span class="math inline">\(\hat y_i\)</span> pada saat pendapatan <span class="math inline">\(x = x_i\)</span> disebut residu. Nilai residu mencerminkan kegagalan garis regresi yang diestimasi untuk memodelkan pasangan data tersebut. Bagaimana nilai residu diperoleh secara detil?</p>
+<p><span class="math inline">\(\hat \beta_0\)</span> dan <span class="math inline">\(\hat \beta_1\)</span> adalah nilai-nilai koefisien garis regresi dengan menggunakan data sampel sebanyak 19 tahun <span class="math inline">\((x_1, y_1),(x_2, y_2), . . . , (x_{19}, y_{19})\)</span>. Untuk setiap pertumbuhan pendapatan per tahun sebesar <span class="math inline">\(x\)</span>, nilai dugaaan penjualan motornya adalah sebesar <span class="math inline">\(\hat y = \hat \beta_0 + \hat \beta_1x\)</span>. Untuk setiap pertumbuhan pendapatan sebesar <span class="math inline">\(x_i\)</span>, dimana <span class="math inline">\(i = 1, 2, . . . , 19\)</span>, nilai selisih antara <span class="math inline">\(y_i−\hat y_i = y_i − (\hat \beta_0 + \hat \beta_1x_i)\)</span> disebut residu.</p>
+<p>Nilai residu ini dapat diperoleh dengan menggunakan perintah <code>augment()</code> dari <em>broom package</em>. Misalkan residu dari perintah <code>augment()</code> kita sebut sebagai uji.diagnostik (dibahas secara lebih lengkap di Bab 4):</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># menambahkan nilai-nilai dugaan dan residu</span>
 <span class="co"># library perlu dipanggil jika belum dipanggil sebelumnya</span>
@@ -213,34 +218,35 @@ Gambar 2.1: Plot Pasangan Data Penjualan dan Pendapatan
 ## 6  4.43  4.11    5.91  -1.48 0.0568   1.51  0.0304     -1.01</code></pre>
 <p>Kolom-kolom pada tabel diatas menunjukkan</p>
 <pre><code>x: pertumbuhan pendapatan per kapita
-y: penjualan motor
+y: penjualan motor aktual
 .fitted: nilai dugaan penjualan motor
-.resid: the residual errors</code></pre>
+.resid: nilai residu (penjualan motor aktual-nilai dugaan penjualan motor)</code></pre>
 <p>Kode berikut memplot nilai residu (warna merah) yaitu selisih antara nilai pengamatan aktual dengan nilai dugaan. Setiap garis vertikal warna merah menunjukkan nilai residu antara data penjualan motor aktual dengan nilai dugaannya.</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># library tidak perlu dipanggil lagi jika sudah dipanggil sebelumnya</span>
 <span class="co"># library(ggplot2) </span>
 <span class="co"># library(ggpmisc)</span>
 <span class="va">rumus</span> <span class="op">&lt;-</span> <span class="va">y</span> <span class="op">~</span> <span class="va">x</span>
-<span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">uji.diagnostik</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_smooth.html">stat_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span>, se <span class="op">=</span> <span class="cn">FALSE</span>, formula <span class="op">=</span> <span class="va">rumus</span>, size <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_segment.html">geom_segment</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>xend <span class="op">=</span> <span class="va">x</span>, yend <span class="op">=</span> <span class="va">.fitted</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"red"</span>, size <span class="op">=</span> <span class="fl">0.4</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span>
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">uji.diagnostik</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">stat_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span>, se <span class="op">=</span> <span class="cn">FALSE</span>, formula <span class="op">=</span> <span class="va">rumus</span>, size <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html">geom_segment</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>xend <span class="op">=</span> <span class="va">x</span>, yend <span class="op">=</span> <span class="va">.fitted</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"red"</span>, size <span class="op">=</span> <span class="fl">0.4</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span>
    <span class="fu">stat_poly_eq</span><span class="op">(</span>formula <span class="op">=</span> <span class="va">rumus</span>,
                 eq.with.lhs <span class="op">=</span> <span class="st">"italic(hat(y))~`=`~"</span>,
-                <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">..eq.label..</span>, <span class="va">..rr.label..</span>, sep <span class="op">=</span> <span class="st">"~~~"</span><span class="op">)</span><span class="op">)</span>, 
+                <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">..eq.label..</span>, <span class="va">..rr.label..</span>, sep <span class="op">=</span> <span class="st">"~~~"</span><span class="op">)</span><span class="op">)</span>, 
                 parse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> </code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:plot-residu-mpm"></span>
-<img src="bookdown-demo_files/figure-html/plot-residu-mpm-1.png" alt="Garis dan Persamaan Regresi" width="672"><p class="caption">
-Gambar 2.2: Garis dan Persamaan Regresi
+<img src="bookdown-demo_files/figure-html/plot-residu-mpm-1.png" alt="Ilustrasi Geometrik dari OLS. Jarak antara Pengamatan dan Garis Regresi Sepanjang Sumbu y" width="672"><p class="caption">
+Gambar 2.2: Ilustrasi Geometrik dari OLS. Jarak antara Pengamatan dan Garis Regresi Sepanjang Sumbu y
 </p>
 </div>
 <div class="rmdnote">
 <p><em>work in progress</em>…sedang dalam proses pengerjaan</p>
 </div>
 
+</div>
 </div>
 </div>
 </div>
@@ -271,7 +277,7 @@ Gambar 2.2: Garis dan Persamaan Regresi
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Analisis Regresi</strong>: Disertai Contoh-Contoh Menggunakan R" was written by Tedy Herlambang. It was last built on 2022-01-14.</p>
+    <p>"<strong>Analisis Regresi</strong>: Disertai Contoh-Contoh Menggunakan R" was written by Tedy Herlambang. It was last built on 2022-01-18.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
