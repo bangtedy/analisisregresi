@@ -12,7 +12,7 @@ fig.caption: yes
 tab.caption: yes
 link-citations: yes
 github-repo: https://github.com/bangtedy/analisisregresi
-description: "Analisis Regresi: Sebuah buku referensi singkat untuk melakukan analisis regresi dengan menggunakan software R."
+description: "Analisis Regresi: Sebuah buku referensi singkat dengan menggunakan R."
 url:  'https\://bangtedy.github.io/analisisregresi/'
 cover-image: images/analisisregresi-cover.png
 twitter-handle: "t_hlb"
@@ -53,6 +53,28 @@ if (knitr::is_html_output()) {
     ) 
 }
 ```
+
+<!-- HTML Meta Tags -->
+<title>Analisis Regresi: Sebuah Referensi Singkat dengan Menggunakan R | Analisis Regresi</title>
+<meta name="description" content="Analisis Regresi: Sebuah Referensi Singkat dengan Menggunakan R | Analisis Regresi: Sebuah buku referensi singkat dengan menggunakan R.">
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://bangtedy.github.io/analisisregresi/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Analisis Regresi: Sebuah Referensi Singkat dengan Menggunakan R | Analisis Regresi">
+<meta property="og:description" content="Analisis Regresi: Sebuah Referensi Singkat dengan Menggunakan R | Analisis Regresi: Sebuah buku referensi singkat dengan menggunakan R.">
+<meta property="og:image" content="https://bangtedy.github.io/analisisregresi//images/analisisregresi-cover.png">
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="bangtedy.github.io">
+<meta property="twitter:url" content="https://bangtedy.github.io/analisisregresi/">
+<meta name="twitter:title" content="Analisis Regresi: Sebuah Referensi Singkat dengan Menggunakan R | Analisis Regresi">
+<meta name="twitter:description" content="Analisis Regresi: Sebuah Referensi Singkat dengan Menggunakan R | Analisis Regresi: Sebuah buku referensi singkat dengan menggunakan R.">
+<meta name="twitter:image" content="https://bangtedy.github.io/analisisregresi//images/analisisregresi-cover.png">
+
+<!-- Meta Tags Generated via https://www.opengraph.xyz -->
+      
 # Analisis Regresi: Sebuah Referensi Singkat dengan Menggunakan R {.unnumbered}
 
 <br>
@@ -76,9 +98,7 @@ Tetapi buku ini bukan buku tentang R. Juga bukan buku tentang statistik. Materi 
 
 ## Anda punya ide? `r emo::ji("envelope_with_arrow")` {-}
 
-Jika Anda punya ide atau topik untuk perbaikan buku ini, atau punya saran dan pengalaman dalam menerapkan konsep-konsep di dalam buku ini, kirimkan saran Anda melalui email: 
-
-bangtedy (at) gmail.com. 
+Jika Anda punya ide atau topik untuk perbaikan buku ini, atau punya saran dan pengalaman dalam menerapkan konsep-konsep di dalam buku ini, silakan menyampaikan  saran Anda ke email: bangtedy (at) gmail.com. 
 
 * [Twitter](https://twitter.com/t_hlb)
 * [Github](https://github.com/bangtedy)
