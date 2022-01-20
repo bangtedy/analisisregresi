@@ -1,6 +1,6 @@
 ---
 title: "Analisis Regresi"
-subtitle: "`r if (knitr::is_latex_output()) {'Disertai Contoh-Contoh Menggunakan R'} else {'Disertai Contoh-Contoh Menggunakan R'}`"
+subtitle: "`r if (knitr::is_latex_output()) {'Sebuah Referensi Singkat dengan Menggunakan R'} else {'Sebuah Referensi Singkat dengan Menggunakan R'}`"
 author: "Tedy Herlambang"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -11,15 +11,28 @@ biblio-style: apalike
 fig.caption: yes
 tab.caption: yes
 link-citations: yes
-github-repo: rstudio/bookdown-demo
-description: "Analisis Regresi is an open-access book-in-progress using bookdown package."
-url:  "https://bangtedy.github.io/analisisregresi"
-cover-image: images/analisisregresi.jpg
+github-repo: https://github.com/bangtedy/analisisregresi
+description: "Analisis Regresi: Sebuah buku referensi singkat untuk melakukan analisis regresi dengan menggunakan software R."
+url:  'https\://bangtedy.github.io/analisisregresi/'
+cover-image: images/analisisregresi-cover.png
 twitter-handle: "t_hlb"
 # favicon: images/favicon.png
 ---
 
+
+---
+
+```{r include = FALSE}
+if(!knitr:::is_html_output())
+{
+  options("width"=56)
+  knitr::opts_chunk$set(tidy.opts=list(width.cutoff=56, indent = 2), tidy = TRUE)
+  knitr::opts_chunk$set(fig.pos = 'H')
+}
+```
 <!-- R global options: R chunk images display without code (no echo); show PDF image over JPG/PNG when available in PDF output -->
+
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
@@ -33,17 +46,23 @@ library(metathis)
 if (knitr::is_html_output()) {
   meta() |> 
     meta_google_scholar(
-      title = "Analisis Regresi: Disertai Contoh-Contoh Menggunakan R",
+      title = "Analisis Regresi: Sebuah Referensi Singkat dengan Menggunakan R",
       author = "Tedy Herlambang",
       publication_date = "2022",
       isbn = ""
     ) 
 }
 ```
+# Analisis Regresi: Sebuah Referensi Singkat dengan Menggunakan R {.unnumbered}
+
+<br>
+
+## *Tedy Herlambang* {.unnumbered}
+
+![](images/analisisregresi.jpg){width="325"} 
 
 # Kata Pengantar {.unnumbered}
 
-![](images/analisisregresi.jpg){width="325"} 
 
 Manusia sering menghubung-hubungkan suatu hal dengan hal yang lain. Sebaiknya kita menyimpulkan hubungan ini atas dasar bukti-bukti sahih, bukan  spekulasi. Salah satu alat yang bisa dipakai untuk membuktikan adanya hubungan antar variabel adalah analisis regresi.
 
@@ -55,8 +74,17 @@ Di dalam buku singkat ini, saya akan membahas analisis regresi dan penerapannya.
 
 Tetapi buku ini bukan buku tentang R. Juga bukan buku tentang statistik. Materi untuk belajar R sangat banyak tersedia secara *online* misalnya [Introduction to R](https://cran.r-project.org/doc/manuals/r-devel/R-intro.html). Pembaca juga bisa mengikuti berbagai topik di [R-bloggers](https://www.r-bloggers.com/). Tujuan buku ini adalah sebagai referensi untuk memperkuat pemahaman pembaca tentang model regresi sebagai salah satu alat analisis yang bisa diterapkan pada berbagai bidang akademik maupun praktik. Saya mengharapkan buku ini bisa menjadi *live book* yang berkembang sesuai saran pembaca. Buku ini adalah versi *online* dari versi cetak yang akan diterbitkan kemudian.
 
+## Anda punya ide? `r emo::ji("envelope_with_arrow")` {-}
+
+Jika Anda punya ide atau topik untuk perbaikan buku ini, atau punya saran dan pengalaman dalam menerapkan konsep-konsep di dalam buku ini, kirimkan saran Anda melalui email: 
+
+bangtedy (at) gmail.com. 
+
+* [Twitter](https://twitter.com/t_hlb)
+* [Github](https://github.com/bangtedy)
+
 ::: {.rmdnote}
-**Catatan**: *Analisis Regresi: Disertai Contoh-Contoh Menggunakan R*. Hak cipta ada pada <a href="https://bangtedy.github.io/analisisregresi">Tedy Herlambang</a> dan diedarkan berdasarkan <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons BY-NC-ND 4.0 International License</a>. Anda bebas menggunakan isi buku ini untuk tujuan non-komersial, dengan menyebutkan sumbernya ke <a href="https://bangtedy.github.io/analisisregresi">https://bangtedy.github.io/analisisregresi</a>.
+**Catatan**: *Analisis Regresi: Sebuah Referensi Singkat dengan Menggunakan R*. Hak cipta ada pada <a href="https://bangtedy.github.io/analisisregresi">Tedy Herlambang</a> dan diedarkan berdasarkan <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons BY-NC-ND 4.0 International License</a>. Anda bebas menggunakan isi buku ini untuk tujuan non-komersial, dengan menyebutkan sumbernya ke <a href="https://bangtedy.github.io/analisisregresi">https://bangtedy.github.io/analisisregresi</a>.
 
 :::
 
