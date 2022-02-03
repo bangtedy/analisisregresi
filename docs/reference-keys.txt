@@ -1,3 +1,5 @@
+tab:tabel-penyebutan-variabel
+tab:tabel-pjm
 fig:diagram-pencar
 fig:garis-regresi
 eq:persamaan-noerror
@@ -7,6 +9,7 @@ eq:persamaan-multi
 eq:persamaan-umum
 fig:plotpasangan-pjmotor
 fig:plot-residu-mpm
+fig:plot-residu
 eq:persamaan-ganda
 eq:persamaan-2var
 eq:persamaan-sse
@@ -21,6 +24,7 @@ regresi-linier-sederhana
 model-regresi-linier-sederhana
 kasus-1-penjualan-motor-dan-pertumbuhan-pendapatan-perkapita
 residu
+uji-diagnostik-regresi
 regresi-linier-berganda
 persamaan-umum
 uji-diagnostik-dan-tindakan-perbaikan

@@ -23,5 +23,5 @@ dimana $\epsilon$ terdistribusi secara normal. Persamaan di atas dapat dikembang
 ## Model Regresi Nonparametrik
 
 ::: {.rmdnote}
-sedang dalam proses pengerjaan (*work in progress...*)
+Buku ini adalah versi *online*. Jika Anda berminat untuk membaca versi lengkapnya, Anda bisa membeli versi **cetaknya** di toko-toko buku.
 :::

@@ -9,6 +9,19 @@
   url = {http://yihui.name/knitr/},
 }
 
+@book{desjardins2018,
+	title = {Handbook of Educational Measurement and Psychometrics Using R},
+	author = {{Desjardins}, {Christopher D.} and {Bulut}, {Okan}},
+	year = {2018},
+	month = {09},
+	date = {2018-09-03},
+	publisher = {Chapman and Hall/CRC},
+	doi = {10.1201/b20498},
+	url = {https://www.taylorfrancis.com/https://www.taylorfrancis.com/books/mono/10.1201/b20498/handbook-educational-measurement-psychometrics-using-christopher-desjardins-okan-bulut},
+	note = {DOI: 10.1201/b20498},
+	langid = {en}
+}
+
 @book{frees2010,
 	title = {Regression Modeling with Actuarial and Financial Applications},
 	author = {Frees, Edward W.},
@@ -17,6 +30,17 @@
 	publisher = {Cambridge University Press},
 	address = {The Edinburgh Building, Cambridge CB2 8RU, UK},
 	langid = {English}
+}
+
+@book{julianj.faraway2016,
+	title = {Extending the Linear Model with R Generalized Linear, Mixed Effects and Nonparametric Regression Models},
+	author = {Julian J. Faraway, },
+	year = {2016},
+	date = {2016},
+	publisher = {CRC Press},
+	edition = {Second},
+	address = {Boca Raton},
+	langid = {canadian}
 }
 
 @book{faraway2016,

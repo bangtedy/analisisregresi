@@ -28,7 +28,7 @@ Beberapa plot untuk menguji asumsi OLS:
 ## Uji Asumsi dengan Tes Statistik
 
 ::: {.rmdnote}
-sedang dalam proses pengerjaan (*work in progress...*)
+Buku ini adalah versi *online*. Jika Anda berminat untuk membaca versi lengkapnya, Anda bisa membeli versi **cetaknya** di toko-toko buku.
 :::
 
 

@@ -36,5 +36,5 @@ Koefisien-koefisien yang diperoleh yaitu ($\beta_0, \beta_1, \beta_2$) menghasil
 Tetapi disini kita tidak dapat lagi menampilkan diagram pencar pada bidang dua dimensi. Kita harus menampilkan perpencaran datanya pada bidang tiga dimensi. Lokasi dari garis pada bidang tiga dimensi ini ditentukan oleh besaran nilai-nilai ($\beta_0, \beta_1, \beta_2$). Jika variabel penjelasnya lebih dari tiga, perpencaran datanya sangat sulit untuk dibayangkan atau digambarkan.
 
 ::: {.rmdnote}
-sedang dalam proses pengerjaan (*work in progress...*)
+Buku ini adalah versi *online*. Jika Anda berminat untuk membaca versi lengkapnya, Anda bisa membeli versi **cetaknya** di toko-toko buku.
 :::

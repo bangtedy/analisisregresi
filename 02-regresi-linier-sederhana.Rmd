@@ -65,9 +65,9 @@ Hasil fungsi ```str()``` menunjukkan bahwa data ini adalah data *time series* te
 summary(subset(PJMotor, select = c(y,x)))
 ```
 
-Selanjutnya kita cek normalitas data, korelasi dan diagram pencar antara pasangan data $y$ dengan $x$ seperti yang ditunjukkan pada Gambar 2.1. 
+Selanjutnya kita cek normalitas data, korelasi dan diagram pencar antara pasangan data $y$ dengan $x$ seperti yang ditunjukkan pada Gambar \@ref(fig:plotpasangan-pjmotor). 
 
-```{r plotpasangan-pjmotor, echo=TRUE, fig.cap = {"Plot Pasangan Data Penjualan dan Pendapatan"}, fig.align = "center"}
+```{r plotpasangan-pjmotor, echo=TRUE, warning=FALSE, fig.cap = {"Plot Pasangan Data Penjualan dan Pendapatan"}, fig.align = "center"}
 library (GGally)
 GGally::ggpairs(subset(PJMotor, select = c(y,x)))
 ```
@@ -92,7 +92,11 @@ Kita kemudian menggunakan perintah ```summary()``` untuk menampilkan luarannya. 
 summary (mpm) 
 ```
 
-Persamaan regresinya dapat diringkas sebagai $\hat penjualan=-1.21+1.73pendapatan$. Nilai dugaan intersep garis regresi $\hat \beta_0$ = -1.210 (SE= 2.088), p-value = 0.57 (tidak signifikan). Nilai -1,21 menunjukkan dugaan penjualan sepeda motor (y dalam juta unit) jika pertumbuhan pendapatan per kapita sebesar 0 persen. Angka penjualan tidak mungkin negatif, paling rendah adalah 0. Jadi dalam kasus ini, nilai intersep dari model yang kita duga tidak mempunyai interpretasi yang berarti. Jadi intersep di dalam sebuah persamaan kadang-kadang mempunyai interpretasi yang berarti kadang juga tidak seperti dalam kasus kita ini. 
+Persamaan regresinya dapat diringkas sebagai $\hat y= 1.21 + 1.73x$, atau
+
+$$\hat {penjualan} =-1.21+1.73pendapatan$$ 
+
+Nilai dugaan intersep garis regresi $\hat \beta_0$ = -1.210 (SE= 2.088), p-value = 0.57 (tidak signifikan). Nilai -1,21 menunjukkan dugaan penjualan sepeda motor (y dalam juta unit) jika pertumbuhan pendapatan per kapita sebesar 0 persen. Angka penjualan tidak mungkin negatif, paling rendah adalah 0. Jadi dalam kasus ini, nilai intersep dari model yang kita duga tidak mempunyai interpretasi yang berarti. Jadi intersep di dalam sebuah persamaan kadang-kadang mempunyai interpretasi yang berarti kadang juga tidak seperti dalam kasus kita ini. 
 
 Sedangkan nilai dugaan variabel prediktor pendapatan $\hat \beta_1$ = 1.733 (SE = 0.525) dan p-valuenya (menguji hipotesis nol bahwa $\beta_1$ = 0) kecil (signifikan), konsisten dengan bukti persebaran data yang cenderung linier. Jadi 1.733 adalah nilai kemiringan garis regresi yang menunjukkan untuk setiap perubahan pertumbuhan pendapatan per kapita sebesar 1%, berkaitan dengan perubahan penjualan motor sebesar 1.73 juta unit. Jika terjadi kenaikan pertumbuhan pendapatan per kapita sebesar 1 persen, ini berkaitan dengan peningkatan penjualan motor sebanyak 1.73 juta unit. 
 
@@ -105,7 +109,7 @@ Selang kepercayaan batas atas dan batas bawah (95% defaultnya) untuk nilai dugaa
 confint(mpm)
 ```
 
-Terlihat bahwa selang kepercayaan untuk intersep meliputi angka 0 (tidak signifikan), sedangkan koefisien untuk pendapatan tidak meliputi 0 (signifikan).
+Terlihat bahwa selang kepercayaan untuk intersep meliputi angka 0 sehingga kita simpulkan bahwa intersep disini tidak signifikan. Sedangkan untuk prediktor pertumbuhan pendapatan kita 95 yakin bahwa selang antara (0.63,2.84) meliputi perubahan penjualan motor yang sebenarnya jika terjadi perubahan pertumbuhan pendapatan per kapita sebesar 1%. Tetapi keyakinan kita akan hasil ini hanya sekuat bukti-bukti yang kita miliki bahwa data kita memenuhi asumsi-asumsi model linier yang akan kita bahas di bagian selanjutnya.
 
 #### Residu
 
@@ -132,8 +136,9 @@ Kolom-kolom pada tabel diatas menunjukkan
 
 Kode berikut memplot nilai residu (warna merah) yaitu selisih antara nilai pengamatan aktual dengan nilai dugaan. Setiap garis vertikal warna merah menunjukkan nilai residu antara data penjualan motor aktual dengan nilai dugaannya.
 
-```{r plot-residu-mpm, echo=TRUE, warning=FALSE, fig.cap={"Ilustrasi Geometrik dari OLS. Jarak antara Pengamatan dan Garis Regresi Sepanjang Sumbu y"}, fig.align="center"}
-# library tidak perlu dipanggil lagi jika sudah dipanggil sebelumnya
+```{r plot-residu-mpm, echo=TRUE, warning=FALSE, out.width="81%", fig.cap={"Ilustrasi Geometrik dari OLS. Jarak antara Pengamatan dan Garis Regresi Sepanjang Sumbu y"}, fig.align="center"}
+# library yang sudah dipanggil sebelumnya tidak perlu dipanggil lagi atau
+# dinonaktifkan dengan tanda pagar #
 # library(ggplot2) 
 # library(ggpmisc)
 rumus <- y ~ x
@@ -148,8 +153,63 @@ ggplot(uji.diagnostik, aes(x, y)) +
                 parse = TRUE) 
 ```
 
+#### Uji Diagnostik Regresi
 
+Regresi diagnostik merujuk pada sekelompok teknik untuk mendeteksi masalah di dalam regresi baik yang berhubungan dengan modelnya atau datanya [@rawlings1998]. Iregularitas di dalam data atau kesalahan spesifikasi hubungan antara variabel prediktor dengan respons dapat menghasilkan model yang tidak akurat. Bisa juga kita menyimpulkan tidak ada hubungan antara sebuah prediktor dengan variabel respon, padahal mereka ada hubungan atau sebaliknya. Dampak lain yang mungkin terjadi adalah kita secara nyata keliru membuat prediksi ketika model diterapkan di dunia nyata.
+
+Dengan demikian, setelah melakukan analisis regresi kita harus mempertimbangkan bahwa validitas dari model yang diperoleh meragukan dan memastikan bahwa model memenuhi asumsi-asumsinya. Hal ini penting karena pada saat kita membuat prediksi dan inferensi statistik tentang populasi dari mana sampel diambil, kita membuat beberapa asumsi yang bisa sesuai atau tidak sesuai dengan data sampel yang kita miliki. 
+
+Model yang tidak memenuhi asumsi-asumsi ini berpotensi berdampak serius. Pelanggaran nyata-nyata asumsi dapat menghasilkan model yang tidak stabil dalam arti jika kita menggunakan data sampel yang berbeda kita bisa menghasilkan model yang benar-banar berbeda dan kesimpulan yang berlawanan. 
+
+Langkah pertama dalam diagnostik regresi adalah menginspeksi signifikansi koefisien regresi dan nilai $R^2$ yang dapat menunjukkan apakah model linier cocok dengan data. Koefisien determinasi $R^2$ sebagai ukuran kasar tentang kecocokan data tidak seharusnya dijadikan sebagai satu-satunya ukuran untuk menentukan kecocokan model. Kita biasanya tidak dapat mendeteksi pelanggaran asumsi dengan menggunakan uji statistik yang standar saja seperti uji $t$, $F$ atau melihat nilai $R^2$. Uji-uji ini hanya menunjukkan kondisi “global” dari model regresi dan tidak memastikan kecukupan pemenuhan asumsi model. 
+
+Bagian ini akan menampilkan beberapa metode yang berguna untuk mendiagnosa pelanggaran-pelanggan asumsi-asumsi dasar model regresi linier. Sebagai review tentang asumsi-asumsi yang harus dipenuhi di dalam analisis regresi agar koefisien regresi bisa kita interpretasi dengan tepat adalah: 
+
+1. Linieritas: variabel respons berhubungan  secara linier dengan variabel eksplanatori.
+2. Normalitas: untuk setiap nilai variabel prediktor yang tetap, variabel respons terdistribusi secara normal.
+3. Homoskedastisitias: varians dari variabel respons konstan pada berbagai nilai variabel eksplanatori. 
+4. Independen: nilai $y_i$ independen satu sama lain.
+
+Pelanggaran terhadap asumsi-asumsi ini akan mengakibatkan uji signifikansi statistik dan selang kepercayaan tidak akurat. Metode diagnostik ini terutama didasarkan pada analisis nilai-nilai residu. Uji diagnostik secara langsung pada variabel respons $y$  dengan memplotnya biasanya tidak terlalu berguna di dalam analisis regresi karena nilai pengamatan variabel respons adalah fungsi dari variabel prediktor. 
+
+Analisis residu yang akan kita bahas ini tidak hanya bisa diterapkan pada model regresi sederhana tetapi juga untuk model regresi yang lebih kompleks. Walaupun analisis residu menggunakan grafik disini hanya informal, tetapi dalam berbagai hal sudah cukup untuk melihat kecocokan model dengan data.
+
+Beberapa plot residu berikut akan digunakan untuk tujuan ini: 
+
+1. Plot nilai residu terhadap nilai dugaan(*fitted values*) untuk uji linieritas. 
+2. Plot residu terhadap garis normal: uji normalitas 
+3. Homogenitas varians
+4. Pencilan (*outliers*) dan high leverage points (cook's distance)
+
+Keempat plot di atas dapat diperoleh sekaligus dengan perintah ```plot(nama-model)```, dalam kasus penjualan motor maka perintahnya adalah ```plot(mpm)```. Sebelumnya bidang kita bagi menjadi 2 kolom dan 2 baris. Perintah ini akan menghasilkan empat plot seperti yang ditunjukkan oleh Gambar \@ref(fig:plot-residu).
+
+```{r plot-residu, echo=TRUE, warning=FALSE, message=FALSE, fig.cap="Plot Residu"}
+par(mfrow=c(2,2)) # digunakan untuk menggabungkan 4 plot sekaligus kedalam bidang 2 x 2 
+plot(mpm)
+```
+```(r)
+par(mfrow=c(1,1))
+```
+Membacanya dari kiri atas searah jarum jam. No 1 (kiri atas) merupakan plot antara nilai dugaan (*fitted values*) dengan residu. No 2 (kanan atas) menunjukkan plot normalitas nilai residu. No 3 (kanan bawah) adalah plot Pencilan (*outliers*) dan high leverage points (cook's distance). No 4 (kiri bawah) adalah plot untuk uji homogenitas.
+
+Gambar \@ref(fig:plot-residu) kiri atas adalah plot residu dengan nilai dugaan. Plot ini memvisualkan pola-pola pada residu yang dapat mengindikasikan apakah fungsi persamaan linier cocok untuk data atau tidak. Linieritas fungsi regresi juga bisa dipelajari dari diagram pencar, tetapi diagram pencar tidak seefektif plot residu untuk melihat linieritas.
+
+Persamaan yang digunakan untuk menghubungkan antara nilai dugaan variabel respons ($y$) dengan berbagai nilai variabel eksplanatori ($x$) menjelaskan pola sebenarnya dari data. Dengan kata lain, kita menggunakan persamaan garis lurus karena kita mengasumsikan secara kasar pola data benar-benar linier.
+
+Penggunaan persamaan yang salah (seperti pemakaian garis lurus untuk data yang berpola kurva) dampaknya sangat serius. Nilai dugaan akan bias yaitu secara sistematis nilai dugaan keliru memprediksi pola sebenarnya dari nilai $y$ dihubungkan dengan $x$.
+
+Idealnya, hasil plot antara residu dengan nilai dugaan $\hat y$ tidak menunjukkan pola-pola tertentu, tidak ada hubungan sistematis antara residu dengan nilai dugaan. Garis merah harus mendekati horisontal pada angka nol. Hasil plot antara residu dengan nilai dugaan yang berpola kurva mengindikasikan bahwa jenis persamaan yang dipakai tidak tepat. Kehadiran pola-pola pada plot kiri mungkin mengindikasikan aspek lain dari model linier yang dipakai: mungkin model linier tidak pas, atau ada variabel prediktor yang tidak dimasukkan ke model. Di dalam kasus penjualan motor, tidak terdapat indikasi pengklasteran nilai residu, sehingga memenuhi asumsi linieritas. 
+
+Gambar \@ref(fig:plot-residu) kanan atas adalah plot probabilitas normal nilai-nilai residu. Jika residu berasal dari distribusi normal, maka titik-titik persebaran akan berada dekat disekitar garis. Histogram yang berbentuk genta dapat dijadikan patokan normalitas nilai residu. Kesulitannya adalah bentuk histogram sulit dinilai kecuali jumlah data yang dimiliki besar. Oleh karena itu digunakan plot nilai residu terstandardisasi terhadap nilai dugaan teoritis data yang berasal dari populasi normal. Berdasarkan hasil plot, maka dapat disimpulkan data penjualan motor terdistribusi secara normal.
+
+Gambar \@ref(fig:plot-residu) kiri bawah adalah plot untuk melihat homogenitas varians. Homogenitas artinya residu memiliki nilai teoritis varians $\sigma^2$ yang sama, tidak tergantung pada nilai $x$ dan nilai dugaan $\hat y$. Untuk sebuah garis lurus, ini berarti bahwa variasi vertikal dari titik-titik data disekitar garis regresi mempunyai magnitud yang sama. 
+
+Konsekuensi dari pelanggaran asumsi varians yang konstan tidak begitu serius, yaitu nilai dugaan kurang efisien dan nilai dugaan varians kesalahan tidak valid. Konsekuensi utama dari pelanggaran asumsi ini dimana varians tidak sama pada setiap nilai $x$ adalah selang prediksi untuk nilai-nilai $y$ akan keliru. Dampak dari pelanggaran asumsi ini pada validitas uji-$t$, uji-$F$ kecil karena pada umumnya inferensi regresi cukup tahan terhadap masalah varians. 
+
+Jika data yang memenuhi asumsi varians konstan, maka titik-titik pada grafik  *Scale-Location* harus tersebar secara acak disekitar garis horisontal. Pada kasus regresi penjualan motor, kita memenuhi asumsi ini. 
+
+Gambar \@ref(fig:plot-residu) kanan bawah adalah plot antara nilai residu dengan pengungkit (*Residuals vs. Leverage*). Plot ini cukup sulit untuk mengartikannya. Bahkan menurut @Kabacoff2022 plot ini tidak terlalu berguna. Walaupun demikian, uji diagnostik residu cukup membantu untuk melihat penyimpangan asumsi-asumsi analisis regresi linier. Pada Bab 4 kita akan menggunakan alat yang lebih bagus untuk menguji penyimpangan asumsi serta hal-hal yang bisa dilakukan jika ditemukan penyimpangan asumsi tersebut. 
 
 ::: {.rmdnote}
-*work in progress*...sedang dalam proses pengerjaan
+Buku ini versi *online*. Jika Anda berminat, versi cetaknya bisa dibeli di toko-toko buku.
 :::

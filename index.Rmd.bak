@@ -6,11 +6,11 @@ date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
-bibliography: [book.bib, packages.bib, analisisregresi.bib]
-csl: world-development.csl
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
 fig.caption: yes
 tab.caption: yes
-link-citations: true
+link-citations: yes
 github-repo: https://github.com/bangtedy/analisisregresi
 description: "Analisis Regresi: Sebuah buku referensi singkat dengan menggunakan R."
 url:  'https\://bangtedy.github.io/analisisregresi/'
@@ -94,7 +94,7 @@ Analisis regresi mencakup metode grafik dan analitik. Dengan bantuan komputer da
 
 Di dalam buku singkat ini, saya akan membahas analisis regresi dan penerapannya. Pembahasan dimulai dengan regresi linier sederhana, dilanjutkan ke regresi berganda, permasalahan yang biasa kita temui dalam analisis regresi serta analisis regresi lanjutan dan ditutup dengan diskusi. Program yang akan digunakan adalah R [@rcoreteam2021] yang bisa diunduh secara gratis di [sini](https://www.r-project.org/).
 
-Tetapi buku ini bukan buku tentang R. Juga bukan buku tentang statistik. Materi untuk belajar R sangat banyak tersedia secara *online* misalnya [Introduction to R](https://cran.r-project.org/doc/manuals/r-devel/R-intro.html). Pembaca juga bisa mengikuti berbagai topik di [R-bloggers](https://www.r-bloggers.com/). Tujuan buku ini adalah sebagai referensi untuk memperkuat pemahaman pembaca tentang model regresi sebagai salah satu alat analisis yang bisa diterapkan pada berbagai bidang akademik maupun praktik. Buku ini adalah versi *online* dari versi cetak yang akan diterbitkan kemudian.
+Tetapi buku ini bukan buku tentang R. Juga bukan buku tentang statistik. Materi untuk belajar R sangat banyak tersedia secara *online* misalnya [Introduction to R](https://cran.r-project.org/doc/manuals/r-devel/R-intro.html). Pembaca juga bisa mengikuti berbagai topik di [R-bloggers](https://www.r-bloggers.com/). Tujuan buku ini adalah sebagai referensi untuk memperkuat pemahaman pembaca tentang model regresi sebagai salah satu alat analisis yang bisa diterapkan pada berbagai bidang akademik maupun praktik. Saya mengharapkan buku ini bisa menjadi *live book* yang berkembang sesuai saran pembaca. Buku ini adalah versi *online* dari versi cetak yang akan diterbitkan kemudian.
 
 ## Anda punya ide? `r emo::ji("envelope_with_arrow")` {-}
 
@@ -108,16 +108,12 @@ Jika Anda punya ide atau topik untuk perbaikan buku ini, atau punya saran dan pe
 
 :::
 
+*Cara mengutip*:
+
+> Herlambang, Tedy. 2022. Analisis Regresi. URL <https://bangtedy.github.io/analisisregresi>.
+
 #### Disclaimer {.unnumbered}
 
 The information is this book is provided without warranty. The authors and publisher have neither liability nor responsibility to any person or entity related to any loss or damages arising from the information contained in this book.
 
 *Terakhir diperbarui pada: `r format (Sys.Date(), '%d %B %Y')`*.
-
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown', 'broom', 'GGally', 'ggplot2', 'ggpmisc', 'metathis', 'readxl', 'kableExtra'
-), 'packages.bib')
-```
-

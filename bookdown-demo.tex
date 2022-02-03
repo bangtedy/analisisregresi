@@ -11,9 +11,9 @@
   \apptocmd{\@title}{\par {\large #1 \par}}{}{}
 }
 \makeatother
-\subtitle{Disertai Contoh-Contoh Menggunakan R}
+\subtitle{Sebuah Referensi Singkat dengan Menggunakan R}
 \author{Tedy Herlambang}
-\date{2022-01-20}
+\date{2022-01-21}
 
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
@@ -127,20 +127,6 @@
   \thm@postskip=\thm@preskip
 }
 \makeatother
-\usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{array}
-\usepackage{multirow}
-\usepackage{wrapfig}
-\usepackage{float}
-\usepackage{colortbl}
-\usepackage{pdflscape}
-\usepackage{tabu}
-\usepackage{threeparttable}
-\usepackage{threeparttablex}
-\usepackage[normalem]{ulem}
-\usepackage{makecell}
-\usepackage{xcolor}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -154,11 +140,23 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+Analisis Regresi: Sebuah Referensi Singkat dengan Menggunakan R \textbar{} Analisis Regresi
+
+\hypertarget{analisis-regresi-sebuah-referensi-singkat-dengan-menggunakan-r}{%
+\chapter*{Analisis Regresi: Sebuah Referensi Singkat dengan Menggunakan R}\label{analisis-regresi-sebuah-referensi-singkat-dengan-menggunakan-r}}
+\addcontentsline{toc}{chapter}{Analisis Regresi: Sebuah Referensi Singkat dengan Menggunakan R}
+
+\hypertarget{tedy-herlambang}{%
+\section*{\texorpdfstring{\emph{Tedy Herlambang}}{Tedy Herlambang}}\label{tedy-herlambang}}
+\addcontentsline{toc}{section}{\emph{Tedy Herlambang}}
+
+\includegraphics[width=3.38542in,height=\textheight]{images/analisisregresi.jpg}
+
 \hypertarget{kata-pengantar}{%
 \chapter*{Kata Pengantar}\label{kata-pengantar}}
 \addcontentsline{toc}{chapter}{Kata Pengantar}
-
-\includegraphics[width=3.38542in,height=\textheight]{images/analisisregresi.jpg}
 
 Manusia sering menghubung-hubungkan suatu hal dengan hal yang lain. Sebaiknya kita menyimpulkan hubungan ini atas dasar bukti-bukti sahih, bukan spekulasi. Salah satu alat yang bisa dipakai untuk membuktikan adanya hubungan antar variabel adalah analisis regresi.
 
@@ -170,7 +168,21 @@ Di dalam buku singkat ini, saya akan membahas analisis regresi dan penerapannya.
 
 Tetapi buku ini bukan buku tentang R. Juga bukan buku tentang statistik. Materi untuk belajar R sangat banyak tersedia secara \emph{online} misalnya \href{https://cran.r-project.org/doc/manuals/r-devel/R-intro.html}{Introduction to R}. Pembaca juga bisa mengikuti berbagai topik di \href{https://www.r-bloggers.com/}{R-bloggers}. Tujuan buku ini adalah sebagai referensi untuk memperkuat pemahaman pembaca tentang model regresi sebagai salah satu alat analisis yang bisa diterapkan pada berbagai bidang akademik maupun praktik. Saya mengharapkan buku ini bisa menjadi \emph{live book} yang berkembang sesuai saran pembaca. Buku ini adalah versi \emph{online} dari versi cetak yang akan diterbitkan kemudian.
 
-\textbf{Catatan}: \emph{Analisis Regresi: Disertai Contoh-Contoh Menggunakan R}. Hak cipta ada pada Tedy Herlambang dan diedarkan berdasarkan Creative Commons BY-NC-ND 4.0 International License. Anda bebas menggunakan isi buku ini untuk tujuan non-komersial, dengan menyebutkan sumbernya ke https://bangtedy.github.io/analisisregresi.
+\hypertarget{anda-punya-ide}{%
+\section*{Anda punya ide? 📩}\label{anda-punya-ide}}
+\addcontentsline{toc}{section}{Anda punya ide? 📩}
+
+Jika Anda punya ide atau topik untuk perbaikan buku ini, atau punya saran dan pengalaman dalam menerapkan konsep-konsep di dalam buku ini, silakan menyampaikan saran Anda ke email: bangtedy (at) gmail.com.
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://twitter.com/t_hlb}{Twitter}
+\item
+  \href{https://github.com/bangtedy}{Github}
+\end{itemize}
+
+\textbf{Catatan}: \emph{Analisis Regresi: Sebuah Referensi Singkat dengan Menggunakan R}. Hak cipta ada pada Tedy Herlambang dan diedarkan berdasarkan Creative Commons BY-NC-ND 4.0 International License. Anda bebas menggunakan isi buku ini untuk tujuan non-komersial, dengan menyebutkan sumbernya ke https://bangtedy.github.io/analisisregresi.
 
 \emph{Cara mengutip}:
 
@@ -184,7 +196,7 @@ Herlambang, Tedy. 2022. Analisis Regresi. URL \url{https://bangtedy.github.io/an
 
 The information is this book is provided without warranty. The authors and publisher have neither liability nor responsibility to any person or entity related to any loss or damages arising from the information contained in this book.
 
-\emph{Terakhir diperbarui pada: 20 January 2022}.
+\emph{Terakhir diperbarui pada: 21 January 2022}.
 
 \hypertarget{pendahuluan}{%
 \chapter{Pendahuluan}\label{pendahuluan}}
@@ -229,7 +241,7 @@ juga karena seberapapun hati-hati kita melakukan observasi atau
 mendesain sebuah percobaan, data yang diperoleh akan selalu mengandung
 unsur `gangguan' (\emph{noise}).
 
-Analisis regresi adalah salah satu teknik statistik yang paling luas dipakai \citep{agresti2015}, \citep{frees2010} dan \citep{lee2013}.
+Analisis regresi adalah salah satu teknik statistik yang paling luas dipakai \citep{agresti2015}; \citep{frees2010} dan \citep{lee2013}.
 Penerapannya meliputi hampir semua bidang ilmu: bisnis, ekonomi, teknik,
 ilmu-ilmu sosial, biologi dan kesehatan. Pada beberapa proyek penelitian
 analisis regresi bahkan seringkali menjadi alat analisis utamanya.
@@ -784,22 +796,11 @@ Selanjutnya kita cek normalitas data, korelasi dan diagram pencar antara pasanga
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{library}\NormalTok{ (GGally)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Registered S3 method overwritten by 'GGally':
-##   method from   
-##   +.gg   ggplot2
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \NormalTok{GGally}\SpecialCharTok{::}\FunctionTok{ggpairs}\NormalTok{(}\FunctionTok{subset}\NormalTok{(PJMotor, }\AttributeTok{select =} \FunctionTok{c}\NormalTok{(y,x)))}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}
+\begin{figure}[H]
 
 {\centering \includegraphics{bookdown-demo_files/figure-latex/plotpasangan-pjmotor-1} 
 
@@ -846,7 +847,8 @@ Kita kemudian menggunakan perintah \texttt{summary()} untuk menampilkan luaranny
 ## (Intercept)   -1.210      2.088  -0.579  0.56999   
 ## x              1.733      0.525   3.301  0.00422 **
 ## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## Signif. codes:  
+## 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
 ## Residual standard error: 1.515 on 17 degrees of freedom
 ## Multiple R-squared:  0.3906, Adjusted R-squared:  0.3547 
@@ -897,14 +899,15 @@ Nilai residu ini dapat diperoleh dengan menggunakan perintah \texttt{augment()} 
 
 \begin{verbatim}
 ## # A tibble: 6 x 8
-##       y     x .fitted .resid   .hat .sigma .cooksd .std.resid
-##   <dbl> <dbl>   <dbl>  <dbl>  <dbl>  <dbl>   <dbl>      <dbl>
-## 1  1.58  2.24    2.66  -1.09 0.394    1.52  0.277      -0.922
-## 2  2.29  3.09    4.15  -1.86 0.136    1.48  0.136      -1.32 
-## 3  2.81  3.38    4.64  -1.83 0.0883   1.49  0.0776     -1.27 
-## 4  3.89  3.63    5.08  -1.19 0.0628   1.53  0.0222     -0.814
-## 5  5.07  4.29    6.22  -1.15 0.0689   1.53  0.0228     -0.786
-## 6  4.43  4.11    5.91  -1.48 0.0568   1.51  0.0304     -1.01
+##       y     x .fitted .resid   .hat .sigma .cooksd
+##   <dbl> <dbl>   <dbl>  <dbl>  <dbl>  <dbl>   <dbl>
+## 1  1.58  2.24    2.66  -1.09 0.394    1.52  0.277 
+## 2  2.29  3.09    4.15  -1.86 0.136    1.48  0.136 
+## 3  2.81  3.38    4.64  -1.83 0.0883   1.49  0.0776
+## 4  3.89  3.63    5.08  -1.19 0.0628   1.53  0.0222
+## 5  5.07  4.29    6.22  -1.15 0.0689   1.53  0.0228
+## 6  4.43  4.11    5.91  -1.48 0.0568   1.51  0.0304
+## # ... with 1 more variable: .std.resid <dbl>
 \end{verbatim}
 
 Kolom-kolom pada tabel diatas menunjukkan
@@ -936,7 +939,7 @@ Kode berikut memplot nilai residu (warna merah) yaitu selisih antara nilai penga
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}
+\begin{figure}[H]
 
 {\centering \includegraphics{bookdown-demo_files/figure-latex/plot-residu-mpm-1} 
 
