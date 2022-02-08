@@ -35,39 +35,39 @@ Plot sangat penting di dalam regresi. Pemeriksaan diagram pencar secara teliti h
 
 Untuk membuat diagram pencar, hal pertama yang harus dilakukan adalah memasukkan data ke dalam R, mengecek apakah data yang kita masukkan sudah betul dan memanggil *package* yang relevan dengan model yang akan dibuat.
 
-```{r, echo=TRUE, warning=FALSE}
+```{r, echo=TRUE}
 # memanggil data yang disimpan dalam bentuk teks ke dalam R
 PJMotor <- read.delim("PJMotor.txt") 
 PJMotor <- as.data.frame(PJMotor)
-# attach(PJMotor)
+
 ```
 
-```{r, echo=TRUE, warning=FALSE}
+```{r, echo=TRUE}
 # untuk melihat beberapa baris data teratas
 head(PJMotor) 
 ```
 
-```{r, echo=TRUE, warning=FALSE}
+```{r, echo=TRUE}
 # untuk melihat beberapa baris data terakhir
 tail(PJMotor) 
 ```
 
 Data yang kita masukkan kelihatan seperti yang diharapkan. Variabel penjualan dan pendapatan semua dibaca sebagai angka (*numeric data type*). Selanjutnya kita akan lihat struktur dan ringkasan persebaran datanya.  
 
-```{r, echo=TRUE, warning=FALSE}
+```{r, echo=TRUE}
 # melihat struktur data
 str(PJMotor)
 ```
 Hasil fungsi ```str()``` menunjukkan bahwa data ini adalah data *time series* terdiri dari tiga kolom yaitu penjualan motor (y), pertumbuhan pendapatan per kapita (x) dan tahun selama 19 tahun dari 2001-2019. 
 
-```{r, echo=TRUE, warning=FALSE}
+```{r, echo=TRUE}
 # melihat ringkasan data kecuali data tahun
 summary(subset(PJMotor, select = c(y,x)))
 ```
 
-Selanjutnya kita cek normalitas data, korelasi dan diagram pencar antara pasangan data $y$ dengan $x$ seperti yang ditunjukkan pada Gambar \@ref(fig:plotpasangan-pjmotor) dengan menggunakan paket `GGally`. 
+Selanjutnya kita cek normalitas data, korelasi dan diagram pencar antara pasangan data $y$ dengan $x$ seperti yang ditunjukkan pada Gambar \@ref(fig:plotpasangan-pjmotor). 
 
-```{r plotpasangan-pjmotor, echo=TRUE, fig.cap = {"Plot Pasangan Data Penjualan dan Pendapatan"}, fig.align = "center", warning=FALSE}
+```{r plotpasangan-pjmotor, echo=TRUE, warning=FALSE, fig.cap = {"Plot Pasangan Data Penjualan dan Pendapatan"}, fig.align = "center"}
 library (GGally)
 GGally::ggpairs(subset(PJMotor, select = c(y,x)))
 ```
@@ -80,7 +80,7 @@ Semisal modelnya kita beri nama **model penjualan motor (mpm)**, yang memodelkan
 
 ```{r regresi-mpm, echo=TRUE}
 mpm <- lm(y ~ x) 
-# Perintah ini sama dengan $y = β_0 + β_1x$
+# Perintah ini sama dengan y = β0 + β1x
 # Intersep secara default diestimasi. 
 # Bandingkan dengan perintah untuk mendapatkan diagram pencar. 
 ```
@@ -92,7 +92,11 @@ Kita kemudian menggunakan perintah ```summary()``` untuk menampilkan luarannya. 
 summary (mpm) 
 ```
 
-Persamaan regresinya dapat diringkas sebagai $\hat {penjualan}=-1.21+1.73*pendapatan$. Nilai dugaan intersep garis regresi $\hat \beta_0$ = -1.210 (SE= 2.088), p-value = 0.57 (tidak signifikan). Nilai -1,21 menunjukkan dugaan penjualan sepeda motor (y dalam juta unit) jika pertumbuhan pendapatan per kapita sebesar 0 persen. Angka penjualan tidak mungkin negatif, paling rendah adalah 0. Jadi dalam kasus ini, nilai intersep dari model yang kita duga tidak mempunyai interpretasi yang berarti. Jadi intersep di dalam sebuah persamaan kadang-kadang mempunyai interpretasi yang berarti kadang juga tidak seperti dalam kasus kita ini. 
+Persamaan regresinya dapat diringkas sebagai $\hat y= 1.21 + 1.73x$, atau
+
+$$\hat {penjualan} =-1.21+1.73pendapatan$$ 
+
+Nilai dugaan intersep garis regresi $\hat \beta_0$ = -1.210 (SE= 2.088), p-value = 0.57 (tidak signifikan). Nilai -1,21 menunjukkan dugaan penjualan sepeda motor (y dalam juta unit) jika pertumbuhan pendapatan per kapita sebesar 0 persen. Angka penjualan tidak mungkin negatif, paling rendah adalah 0. Jadi dalam kasus ini, nilai intersep dari model yang kita duga tidak mempunyai interpretasi yang berarti. Jadi intersep di dalam sebuah persamaan kadang-kadang mempunyai interpretasi yang berarti kadang juga tidak seperti dalam kasus kita ini. 
 
 Sedangkan nilai dugaan variabel prediktor pendapatan $\hat \beta_1$ = 1.733 (SE = 0.525) dan p-valuenya (menguji hipotesis nol bahwa $\beta_1$ = 0) kecil (signifikan), konsisten dengan bukti persebaran data yang cenderung linier. Jadi 1.733 adalah nilai kemiringan garis regresi yang menunjukkan untuk setiap perubahan pertumbuhan pendapatan per kapita sebesar 1%, berkaitan dengan perubahan penjualan motor sebesar 1.73 juta unit. Jika terjadi kenaikan pertumbuhan pendapatan per kapita sebesar 1 persen, ini berkaitan dengan peningkatan penjualan motor sebanyak 1.73 juta unit. 
 
@@ -118,7 +122,7 @@ Nilai residu ini dapat diperoleh dengan menggunakan perintah ```augment()``` dar
 ```{r, echo=TRUE, warning=FALSE}
 # menambahkan nilai-nilai dugaan dan residu
 # library perlu dipanggil jika belum dipanggil sebelumnya
-library("broom") 
+# library("broom") 
 uji.diagnostik <- augment(mpm)
 head(uji.diagnostik)
 ```
@@ -132,25 +136,26 @@ Kolom-kolom pada tabel diatas menunjukkan
 
 Kode berikut memplot nilai residu (warna merah) yaitu selisih antara nilai pengamatan aktual dengan nilai dugaan. Setiap garis vertikal warna merah menunjukkan nilai residu antara data penjualan motor aktual dengan nilai dugaannya.
 
-```{r plot-residu-mpm, echo=TRUE, warning=FALSE, out.width='80%', fig.cap={"Ilustrasi Geometris OLS. Jarak antara Pengamatan dengan Garis Regresi Sepanjang Sumbu y"}, fig.align="center"}
-# library tidak perlu dipanggil lagi jika sudah dipanggil sebelumnya
-library(ggplot2) 
-library(ggpmisc)
+```{r plot-residu-mpm, echo=TRUE, warning=FALSE, out.width="81%", fig.cap={"Ilustrasi Geometrik dari OLS. Jarak antara Pengamatan dan Garis Regresi Sepanjang Sumbu y"}, fig.align="center"}
+# library yang sudah dipanggil sebelumnya tidak perlu dipanggil lagi atau
+# dinonaktifkan dengan tanda pagar #
+# library(ggplot2) 
+# library(ggpmisc)
 rumus <- y ~ x
 ggplot(uji.diagnostik, aes(x, y)) +
   geom_point() +
-  stat_smooth(method = "lm", se = FALSE, formula = rumus, 
-  size = 0.8) + geom_segment(aes(xend = x, yend = .fitted), 
-  color = "red", size = 0.4,linetype = "dashed") + theme_bw()+
-  stat_poly_eq(formula = rumus,
+  stat_smooth(method = "lm", se = FALSE, formula = rumus, size = 0.8) +
+  geom_segment(aes(xend = x, yend = .fitted), color = "red", size = 0.4, linetype = "dashed") + 
+  theme_bw()+
+   stat_poly_eq(formula = rumus,
                 eq.with.lhs = "italic(hat(y))~`=`~",
-                aes(label = paste(..eq.label.., ..rr.label.., 
-                sep = "~~~")), parse = TRUE) 
+                aes(label = paste(..eq.label.., ..rr.label.., sep = "~~~")), 
+                parse = TRUE) 
 ```
 
 #### Uji Diagnostik Regresi
 
-Regresi diagnostik merujuk pada sekelompok teknik untuk mendeteksi masalah di dalam regresi baik yang berhubungan dengan modelnya atau datanya [@Rawlings1998]. Iregularitas di dalam data atau kesalahan spesifikasi hubungan antara variabel prediktor dengan respons dapat menghasilkan model yang tidak akurat. Bisa juga kita menyimpulkan tidak ada hubungan antara sebuah prediktor dengan variabel respon, padahal mereka ada hubungan atau sebaliknya. Dampak lain yang mungkin terjadi adalah kita secara nyata keliru membuat prediksi ketika model diterapkan di dunia nyata.
+Regresi diagnostik merujuk pada sekelompok teknik untuk mendeteksi masalah di dalam regresi baik yang berhubungan dengan modelnya atau datanya [@rawlings1998]. Iregularitas di dalam data atau kesalahan spesifikasi hubungan antara variabel prediktor dengan respons dapat menghasilkan model yang tidak akurat. Bisa juga kita menyimpulkan tidak ada hubungan antara sebuah prediktor dengan variabel respon, padahal mereka ada hubungan atau sebaliknya. Dampak lain yang mungkin terjadi adalah kita secara nyata keliru membuat prediksi ketika model diterapkan di dunia nyata.
 
 Dengan demikian, setelah melakukan analisis regresi kita harus mempertimbangkan bahwa validitas dari model yang diperoleh meragukan dan memastikan bahwa model memenuhi asumsi-asumsinya. Hal ini penting karena pada saat kita membuat prediksi dan inferensi statistik tentang populasi dari mana sampel diambil, kita membuat beberapa asumsi yang bisa sesuai atau tidak sesuai dengan data sampel yang kita miliki. 
 
@@ -162,7 +167,7 @@ Bagian ini akan menampilkan beberapa metode yang berguna untuk mendiagnosa pelan
 
 1. Linieritas: variabel respons berhubungan  secara linier dengan variabel eksplanatori.
 2. Normalitas: untuk setiap nilai variabel prediktor yang tetap, variabel respons terdistribusi secara normal.
-3. Homoskedastisitas: varians dari variabel respons konstan pada berbagai nilai variabel eksplanatori. 
+3. Homoskedastisitias: varians dari variabel respons konstan pada berbagai nilai variabel eksplanatori. 
 4. Independen: nilai $y_i$ independen satu sama lain.
 
 Pelanggaran terhadap asumsi-asumsi ini akan mengakibatkan uji signifikansi statistik dan selang kepercayaan tidak akurat. Metode diagnostik ini terutama didasarkan pada analisis nilai-nilai residu. Uji diagnostik secara langsung pada variabel respons $y$  dengan memplotnya biasanya tidak terlalu berguna di dalam analisis regresi karena nilai pengamatan variabel respons adalah fungsi dari variabel prediktor. 
@@ -182,8 +187,7 @@ Keempat plot di atas dapat diperoleh sekaligus dengan perintah ```plot(nama-mode
 par(mfrow=c(2,2)) # digunakan untuk menggabungkan 4 plot sekaligus kedalam bidang 2 x 2 
 plot(mpm)
 ```
-
-```{r}
+```(r)
 par(mfrow=c(1,1))
 ```
 Membacanya dari kiri atas searah jarum jam. No 1 (kiri atas) merupakan plot antara nilai dugaan (*fitted values*) dengan residu. No 2 (kanan atas) menunjukkan plot normalitas nilai residu. No 3 (kanan bawah) adalah plot Pencilan (*outliers*) dan high leverage points (cook's distance). No 4 (kiri bawah) adalah plot untuk uji homogenitas.
@@ -207,6 +211,5 @@ Jika data yang memenuhi asumsi varians konstan, maka titik-titik pada grafik  *S
 Gambar \@ref(fig:plot-residu) kanan bawah adalah plot antara nilai residu dengan pengungkit (*Residuals vs. Leverage*). Plot ini cukup sulit untuk mengartikannya. Bahkan menurut @Kabacoff2022 plot ini tidak terlalu berguna. Walaupun demikian, uji diagnostik residu cukup membantu untuk melihat penyimpangan asumsi-asumsi analisis regresi linier. Pada Bab 4 kita akan menggunakan alat yang lebih bagus untuk menguji penyimpangan asumsi serta hal-hal yang bisa dilakukan jika ditemukan penyimpangan asumsi tersebut. 
 
 ::: {.rmdnote}
-*work in progress*...sedang dalam proses pengerjaan
+Buku ini versi *online*. Jika Anda berminat, versi cetaknya bisa dibeli di toko-toko buku.
 :::
-

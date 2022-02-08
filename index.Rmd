@@ -6,7 +6,7 @@ date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
-bibliography: [book.bib, packages.bib, analisisregresi.bib]
+bibliography: [ar.bib,packages.bib]
 csl: world-development.csl
 fig.caption: yes
 tab.caption: yes
@@ -83,22 +83,24 @@ if (knitr::is_html_output()) {
 
 ![](images/analisisregresi.jpg){width="325"} 
 
-# Kata Pengantar {.unnumbered}
+# Prakata {.unnumbered}
 
+Kita sering menghubung-hubungkan sesuatu hal dengan hal yang lain. Sesuatu itu bisa peristiwa, prestasi, kecantikan, kesehatan, kekayaan,dll. Semua contoh "sesuatu" ini kita sebut variabel. Adakah hubungan antara kecantikan dengan kesehatan seseorang? Adakah hubungan antara vaksinasi dengan imunitas? Dan masih banyak lagi variabel-variabel yang coba kita cari kaitannya satu dengan lainnya. Di dunia akademik maupun praktik, salah satu alat yang bisa kita pakai untuk membuktikan hubungan-hubungan antar variabel adalah analisis regresi. Jika digunakan secara tepat, analisis regresi dapat menghasilkan kesimpulan yang sahih, bukan spekulasi.
 
-Manusia sering menghubung-hubungkan suatu hal dengan hal yang lain. Sebaiknya kita menyimpulkan hubungan ini atas dasar bukti-bukti sahih, bukan  spekulasi. Salah satu alat yang bisa dipakai untuk membuktikan adanya hubungan antar variabel adalah analisis regresi.
+Model regresi linier sangat luas dipakai di dalam praktik karena begitu simpel dan mudah diinterpretasi seperti untuk membuat prediksi dan skenario. Prediksi menguji kemampuan kita memetakan hubungan antar variabel-variabel  respons. Jika kita tidak tepat mengidentifikasi hubungan-hubungan ini, prediksi dan skenario bisa meleset. 
 
-Analisis regresi mengekplorasi hubungan antara satu variabel, biasa disebut sebagai variabel respons dengan satu atau lebih variabel prediktor/penjelas kemudian mengekspresikan hubungan ini dalam sebuah fungsi. Pengetahuan dan ekspresi hubungan ini dapat dipakai untuk membuat prediksi dan mengidentifikasi variabel-variabel yang paling berpengaruh terhadap sebuah variabel respons. Sebagai misal kita memprediksi keberhasilan studi dan prestasi kerja seseorang (respons) berdasarkan IQ, jenis kelamin, latar belakang sosial-ekonomi dan pendidikan ortunya (prediktor). Prediksi menguji kemampuan kita memetakan variabel-variabel yang paling berpengaruh terhadap suatu variabel respons. Jika kita tidak tepat mengidentifikasi variabel-variabel ini, prediksi dan skenario yang kita buat bisa meleset.
+Secara teknis analisis regresi mengekplorasi hubungan antara variabel respons dengan satu atau lebih variabel prediktor kemudian mengekspresikan hubungan ini dalam sebuah fungsi. 
+Analisis regresi bisa dilakukan secara grafik atau analitik. Dengan bantuan komputer dan proses yang cermat, analisis regresi dapat menjadi alat untuk membedah data mentah menjadi informasi yang berguna. 
 
-Analisis regresi mencakup metode grafik dan analitik. Dengan bantuan komputer dan pemikiran yang cermat, analisis regresi dapat menjadi alat untuk membedah data yang kompleks menjadi informasi yang berguna. Tetapi, komputer tidak bisa berpikir dan merencanakan sendiri. Komputer hanya membantu kita melakukan perhitungan dengan cepat, agar kita memiliki lebih banyak waktu untuk berpikir dan memperbaiki model analisis.
+Di dalam buku singkat ini, saya akan membahas analisis regresi dan penerapannya. Pembahasan dimulai dengan regresi linier sederhana, dilanjutkan ke regresi berganda, permasalahan di dalam analisis regresi, bagaimana mendeteksi permasalahan tersebut, bagaimana solusinya dan diakhiri dengan model regresi yang lebih kompleks. Program yang akan digunakan adalah R [@RCT2021] yang bisa diunduh secara gratis di [sini](https://www.r-project.org/).
 
-Di dalam buku singkat ini, saya akan membahas analisis regresi dan penerapannya. Pembahasan dimulai dengan regresi linier sederhana, dilanjutkan ke regresi berganda, permasalahan yang biasa kita temui dalam analisis regresi serta analisis regresi lanjutan dan ditutup dengan diskusi. Program yang akan digunakan adalah R [@rcoreteam2021] yang bisa diunduh secara gratis di [sini](https://www.r-project.org/).
+Buku ini diharapkan menjadi sebuah referensi singkat untuk memperkuat pemahaman pembaca tentang model regresi sebagai salah satu alat analisis yang bisa diterapkan pada berbagai bidang akademik maupun praktik dengan menggunakan R. Tetapi buku ini bukan buku tentang R. Juga bukan buku tentang statistik. 
 
-Tetapi buku ini bukan buku tentang R. Juga bukan buku tentang statistik. Materi untuk belajar R sangat banyak tersedia secara *online* misalnya [Introduction to R](https://cran.r-project.org/doc/manuals/r-devel/R-intro.html). Pembaca juga bisa mengikuti berbagai topik di [R-bloggers](https://www.r-bloggers.com/). Tujuan buku ini adalah sebagai referensi untuk memperkuat pemahaman pembaca tentang model regresi sebagai salah satu alat analisis yang bisa diterapkan pada berbagai bidang akademik maupun praktik. Buku ini adalah versi *online* dari versi cetak yang akan diterbitkan kemudian.
+Materi untuk belajar R sangat banyak tersedia secara *online* misalnya [Introduction to R](https://cran.r-project.org/doc/manuals/r-devel/R-intro.html). Pembaca juga bisa mengikuti berbagai topik di [R-bloggers](https://www.r-bloggers.com/). Buku ini adalah versi *online* dari versi cetak yang akan diterbitkan kemudian.
 
-## Anda punya ide? `r emo::ji("envelope_with_arrow")` {-}
+## Anda punya saran atau ide? `r emo::ji("envelope_with_arrow")` {-}
 
-Jika Anda punya ide atau topik untuk perbaikan buku ini, atau punya saran dan pengalaman dalam menerapkan konsep-konsep di dalam buku ini, silakan menyampaikan  saran Anda ke email: bangtedy (at) gmail.com. 
+Jika Anda punya saran untuk perbaikan buku ini atau pengalaman dalam menerapkan konsep-konsep di dalam buku ini, silakan menyampaikan saran Anda ke email: bangtedy(at)gmail.com. 
 
 * [Twitter](https://twitter.com/t_hlb)
 * [Github](https://github.com/bangtedy)

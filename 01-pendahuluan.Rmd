@@ -3,17 +3,13 @@ editor_options:
   markdown: 
     wrap: 72
 ---
-
 # Pendahuluan
 
-Sebagai praktisi atau akademisi, terkadang kita tertarik untuk
-meningkatkan pemahaman atas sesuatu dengan menginvestigasinya. Tertulis
-atau hanya tercatat di dalam pikiran, di dalam proses investigasi ini,
-kita menyusun hipotesis-hipotesis yang ingin kita buktikan kebenarannya.
+Di era teknologi dan informasi yang *overload* seperti sekarang, kita kadang tertarik untuk melakukan investigasi tentang hubungan antara suatu variabel dengan variabel lain. Tertulis
+atau hanya tercatat di dalam pikiran, di dalam proses investigasi ini, 
+kita menyusun hipotesis-hipotesis tentang hubungan antar variabel-variabel yang menjadi perhatian kita. 
 
-Untuk sampai pada kesimpulan menolak atau menerima hipotesis-hipotesis
-ini, kita merancang investigasinya, mengumpulkan data/bukti-bukti
-kemudian menganalisisnya. Di dalam proses analisis ini, seorang investigator biasanya memiliki data sampel yang berasal dari suatu populasi. Hasil analisisnya dapat menyediakan bukti-bukti statistik yang mendukung atau menolak hipotesis yang telah dibuat serta menampilkan karakteristik-karakteristik penting dari populasi dimana data yang dianalisis berasal.
+Untuk sampai pada kesimpulan mengenai hubungan-hubungan yang kita buat, kita merancang investigasinya, mengumpulkan data-data kemudian menganalisisnya. Di dalam proses analisis ini, seorang investigator biasanya menggunakan data sampel yang berasal dari suatu populasi. Hasil analisisnya dapat menyediakan bukti-bukti statistik yang mendukung atau menolak hipotesis yang telah dibuat serta menampilkan karakteristik-karakteristik penting dari populasi dimana data yang dianalisis berasal.
 
 Proses investigasi ini biasanya iteratif, tidak sekali luncur langsung
 selesai. Dalam beberapa hal, investigasi harus kita ulang lagi sampai
@@ -46,7 +42,7 @@ juga karena seberapapun hati-hati kita melakukan observasi atau
 mendesain sebuah percobaan, data yang diperoleh akan selalu mengandung
 unsur 'gangguan' (*noise*).
 
-Analisis regresi adalah salah satu teknik statistik yang paling luas dipakai  [@agresti2015]; [@frees2010] dan [@lee2013].
+Analisis regresi adalah salah satu teknik statistik yang paling luas dipakai [@Agresti2015; @Frees2016; @Lee2013].
 Penerapannya meliputi hampir semua bidang ilmu: bisnis, ekonomi, teknik,
 ilmu-ilmu sosial, biologi dan kesehatan. Pada beberapa proyek penelitian
 analisis regresi bahkan seringkali menjadi alat analisis utamanya.
@@ -58,8 +54,7 @@ sering terjadi di dalam penggunaan alat analisis ini dalam situasi riil.
 
 Model di dalam analisis regresi merujuk pada ekspresi matematik yang
 menjelaskan perilaku-perilaku dari variabel-variabel yang menjadi
-perhatian. Model regresi linier atau biasa disebut analisis regresi
-[@faraway2015b] digunakan untuk menjelaskan atau memodelkan hubungan
+perhatian. Model regresi linier atau biasa disebut analisis regresi [@Faraway2014] digunakan untuk menjelaskan atau memodelkan hubungan
 antara satu variabel respons $y$ dengan satu atau lebih variabel
 prediktor $x_1, x_2, ... , x_p$, dimana $p$ adalah jumlah prediktor.
 Secara khusus, analisis regresi adalah upaya untuk menjelaskan
@@ -148,7 +143,7 @@ Langkah awal untuk melihat apakah memang terdapat "sinyal" yang menunjukkan hubu
 
 Diagram pencar bisa menunjukkan secara kasar apakah hubungan antar variabel dapat dianggap linier atau tidak. Jika nilai $y$ cenderung meningkat atau menurun secara garis lurus ketika nilai $x$ meningkat, dan jika perpencaran pasangan titik-titik ($x,y$) berada disekitar garis lurus, maka kita dapat menjelaskan hubungan antara $y$ dan $x$ dengan menggunakan model regresi linier. Hasil plot pada Gambar \@ref(fig:diagram-pencar) menunjukkan bahwa memang terdapat sinyal yang sesuai dengan asumsi yaitu penjualan motor proporsional dengan pertumbuhan pendapatan per kapita: semakin tinggi pertumbuhan pendapatan per kapita semakin tinggi pula tingkat penjualan motor. 
 
-```{r diagram-pencar, echo=FALSE, warning=FALSE, message=FALSE, out.width='81%', fig.cap={"Diagram Pencar Penjualan Motor (y) sebagai Fungsi dari Pendapatan per Kapita (x)"}}
+```{r diagram-pencar, echo=FALSE, warning=FALSE, message=FALSE, out.width='80%', fig.cap={"Diagram Pencar Penjualan Motor (y) sebagai Fungsi dari Pendapatan per Kapita (x)"}}
 PJMotor <- read.delim("PJMotor.txt")
 attach(PJMotor)
 library(ggplot2)
@@ -161,7 +156,7 @@ Selanjutnya kita tambahkan sebuah garis lurus yang paling banyak "mendekati" tit
 Ini menunjukkan adanya **variasi** pada penjualan motor yang tidak berhubungan dengan tingkat pendapatan. Atau terdapat faktor-faktor lain selain pendapatan yang juga mempengaruhi tingkat penjualan tetapi tidak tercakup di dalam model.
 
 
-```{r garis-regresi, echo=FALSE, warning=FALSE, message= FALSE, out.width='81%', fig.cap={"Garis Regresi Penjualan Motor (y) sebagai Fungsi dari Pendapatan per Kapita (x)"}}
+```{r garis-regresi, echo=FALSE, warning=FALSE, message= FALSE, out.width='80%', fig.cap={"Garis Regresi Penjualan Motor (y) sebagai Fungsi dari Pendapatan per Kapita (x)"}}
 ggplot(data = PJMotor, aes(x,y)) +
   geom_point() + theme_bw() + 
   geom_smooth(method = lm, se=FALSE)
@@ -177,17 +172,15 @@ y_i=\beta_0 + \beta_1x_i
 
 Persamaan ini menyatakan bahwa $y$ sebagai variabel respons adalah fungsi linier dari $x$, variabel prediktor. $\beta_0$ adalah intersep (*intercept*) yang menunjukkan nilai dari $y$ jika $x$ sama dengan nol. $\beta_1$ adalah koefisien kemiringan garis (*slope*) yang menunjukkan berapa banyak $y$ akan berubah jika $x$ meningkat sebanyak satu unit.
 
-Di dalam analisis regresi kita mencari nilai dugaan $\hat \beta_0$ dan $\hat \beta_1$ sehingga rata-rata jarak vertikal untuk setiap titik data pengamatan dengan nilai dugaannya secara kolektif paling kecil (Gambar \@ref(fig:metode-ols)). Dengan kata lain kita ingin menarik garis regresi dalam bidang x−y sedekat mungkin dengan persebaran titik-titik data sampel yang telah
-kita kumpulkan sehingga variasi yang tidak dapat dijelaskan oleh model menjadi minimum.
+Di dalam analisis regresi kita mencari nilai dugaan $\hat \beta_0$ dan $\hat \beta_1$ sehingga rata-rata jarak vertikal untuk setiap titik data pengamatan dengan nilai dugaannya secara kolektif paling kecil (Gambar \@ref(fig:metode-ols)). Dengan kata lain kita ingin menarik garis regresi dalam bidang x−y sedekat mungkin dengan persebaran titik-titik data sampel yang telah kita kumpulkan sehingga variasi yang tidak dapat dijelaskan oleh model menjadi minimum.
 
-Salah satu cara untuk mendapatkan garis yang paling pas (*line of best fit*) yang sangat populer adalah melalui suatu prosedur formal yang disebut *metode kuadrat terkecil/ordinary least squares* (OLS). Sesuai namanya metode ini meminimalkan jumlah kuadrat kesalahan dari model.
+Salah satu cara untuk mendapatkan garis yang paling pas (*line of best fit*) yang sangat populer adalah melalui suatu prosedur formal yang disebut metode kuadrat terkecil/*ordinary least squares* (OLS). Sesuai namanya metode ini meminimalkan jumlah kuadrat kesalahan dari model.
 
-```{r metode-ols, echo=FALSE, warning=FALSE, message=FALSE, out.width='81%', fig.cap={"Mencari Garis Regresi dengan Metode Kuadrat Terkecil"}}
+```{r metode-ols, echo=FALSE, warning=FALSE, message=FALSE, out.width='80%', fig.cap={"Mencari Garis Regresi dengan Metode Kuadrat Terkecil"}}
 library("ggpmisc")
 library("broom")
 mpm <- lm(y~x)
 metode.ols <- augment(mpm)
-
 rumus <- y ~ x
 ggplot(metode.ols, aes(x, y)) +
   geom_point() +
@@ -209,7 +202,7 @@ y_i=\beta_0 + \beta_1x_i + \epsilon_i
 
 $\epsilon_i$ dimasukkan ke dalam persamaan untuk mengakomodasi variasi dalam $y$ yang tidak dapat dijelaskan oleh variabel $x$. Faktor acak ini adalah istilah
 statistik yang mewakili fluktuasi acak, kesalahan pengukuran, atau
-dampak dari faktor-faktor diluar kendali peneliti [@faraway2016a] yang menyebabkan nilai dugaan tidak sama dengan nilai aktual (*error* atau residu). Jadi
+dampak dari faktor-faktor diluar kendali peneliti [@Faraway2016] yang menyebabkan nilai dugaan tidak sama dengan nilai aktual (*error* atau residu). Jadi
 $\epsilon$ ini mewakili ketidakmampuan model untuk menjelaskan variasi
 yang terjadi pada variabel respons.
 
@@ -236,13 +229,12 @@ dari model yang valid.
 
 Dengan demikian persamaan regresi yang memodelkan hubungan statistik
 antar variabel terdiri dari dua komponen: komponen deterministik atau
-sinyal yaitu $\beta_0 + \beta_1$ dan komponen acak yaitu $\epsilon$. Kombinasi kedua komponen ini menjadikan persamaan regresi sebagai model non-eksak, yaitu bergantung pada bentuk-bentuk penjelasan probabilistik. Kita hanya mengasumsikan bahwa di dalam cakupan variabel yang dianalisis, terdapat tendensi variabel respons $y$ untuk bervariasi secara sistematis dengan
-variabel prediktor $x$. 
+sinyal yaitu $\beta_0 + \beta_1$ dan komponen acak yaitu $\epsilon$. Kombinasi kedua komponen ini menjadikan persamaan regresi sebagai model non-eksak, yaitu bergantung pada bentuk-bentuk penjelasan probabilistik. Kita hanya mengasumsikan bahwa di dalam cakupan variabel yang dianalisis, terdapat tendensi variabel respons $y$ untuk bervariasi secara sistematis dengan variabel prediktor $x$. 
 
 Mayoritas analisis regresi yang baku menggunakan model regresi linier,
 yaitu mengasumsikan bahwa variabel respons dapat dituliskan sebagai
 kombinasi linier dari variabel-variabel prediktornya. Beberapa alasan
-mengapa model linier ini paling umum dipakai adalah [@rawlings1998]: (1)
+mengapa model linier ini paling umum dipakai adalah [@Rawlings1998]: (1)
 model linier mudah dipahami; (2) beberapa model nonlinier secara
 instrinsik linier, sehingga bisa didekati dengan pendekatan linier.
 
@@ -283,7 +275,7 @@ prediktor. Contoh-contoh penerapannya:
 
 ## Asumsi-Asumsi Model Linier
 
-*All models are wrong, but some are useful* [@box1979]. Seperti
+*All models are wrong, but some are useful* [@Box1979]. Seperti
 halnya metodologi statistik yang lain, analisis regresi linier dapat
 menjadi cara yang sangat efektif untuk memodelkan data sepanjang
 asumsi-asumsinya terpenuhi. Jika asumsinya tidak terpenuhi, metode kuadrat
@@ -298,16 +290,16 @@ Asumsi-asumsi regresi linier adalah:
 
 1.  Linieritas data: hubungan antara prediktor $x$ dengan respons $y$
     diasumsikan linier.
-2.  Normalitas residu. Residu diasumsikan terdistribusi secara
+2.  Normalitas residu. error/residu diasumsikan terdistribusi secara
     normal.
-3.  Varians residu konstan: residu diasumsikan mempunyai variansi
+3.  Homogenitas variansi residu: residu diasumsikan mempunyai variansi
     yang tetap (homoskedastisitas)
 4.  Independensi residu.
 
 Potensi-potensi tidak terpenuhinya asumsi model regresi adalah:
 
 1.  Hubungan antara respons dengan prediktor tidak linier
-2.  Heteroskedastisitas: variansi residu tidak konstan
+2.  Heteroskedastisitas: variansi residu tidak tetap.
 3.  Adanya nilai-nilai yang "berpengaruh" besar yang berasal dari (a)
     nilai pencilan (*outlier*) yaitu nilai-nilai ekstrim pada variabel
     respons; (b) high-leverage points: nilai-nilai ekstrim pada variabel
@@ -341,13 +333,12 @@ Berdasarkan uraian sebelumnya, secara umum langkah-langkah dalam melakukan anali
 1.  Menentukan variabel respons $y$ yang akan kita pelajari atau buat
     modelnya.
 2.  Menentukan sejumlah variabel prediktor yang kita anggap berguna di
-    dalam menjelaskan variabel respons.
-3.  Mengumpulkan data (sampel) yang dapat digunakan untuk menguji model.
+    dalam menjelaskan variabel respons. Secara fisik atau teori variabel prediktor yang dipilih memang berkaitan dengan variabel respons.
+3.  Mengumpulkan data (sampel) yang dapat digunakan untuk membuat model.
 4.  Mengestimasi model.
 5.  Cek kecukupan model/uji diagnostik (jika hasilnya kurang memuaskan,
     kembali ke tahap 1).
-6.  Uji signifikansi dan inferensial.
-7.  Menulis hasil analisis.
+6.  Mengaplikasikan hasil analisis regresi.
 
 ## Penggunaan Komputer
 
@@ -398,5 +389,5 @@ dibuat selanjutnya.
 Berbagai program statistik seperti SPSS, Stata, Minitab, Eviews, SAS,
 JMP, R, dan lain-lain dapat melakukan penghitungan regresi secara cepat
 dengan hasil yang kurang lebih sama. Di buku ini saya menggunakan
-software R [@rcoreteam2021] untuk membuat grafik maupun penghitungan
+software R [@RCT2021] untuk membuat grafik maupun penghitungan
 regresinya.
