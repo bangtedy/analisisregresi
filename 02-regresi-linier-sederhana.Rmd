@@ -204,9 +204,11 @@ Konsekuensi dari pelanggaran asumsi varians yang konstan tidak begitu serius, ya
 
 Jika data yang memenuhi asumsi varians konstan, maka titik-titik pada grafik  *Scale-Location* harus tersebar secara acak disekitar garis horisontal. Pada kasus regresi penjualan motor, kita memenuhi asumsi ini. 
 
-Gambar \@ref(fig:plot-residu) kanan bawah adalah plot antara nilai residu dengan pengungkit (*Residuals vs. Leverage*). Plot ini cukup sulit untuk mengartikannya. Bahkan menurut @Kabacoff2022 plot ini tidak terlalu berguna. Walaupun demikian, uji diagnostik residu cukup membantu untuk melihat penyimpangan asumsi-asumsi analisis regresi linier. Pada Bab 4 kita akan menggunakan alat yang lebih bagus untuk menguji penyimpangan asumsi serta hal-hal yang bisa dilakukan jika ditemukan penyimpangan asumsi tersebut. 
+Gambar \@ref(fig:plot-residu) kanan bawah adalah plot antara nilai residu dengan pengungkit (*Residuals vs. Leverage*). Plot ini cukup sulit untuk mengartikannya. Bahkan menurut @Kabacoff2022 plot ini tidak terlalu berguna.  
 
-::: {.rmdnote}
-*work in progress*...sedang dalam proses pengerjaan
-:::
+Untuk menutup bab ini kita bisa tarik beberapa kesimpulan. Model regresi linier mengasumsikan garis linier dapat mewakili data yang dianalisis dan residu bersifat independen, terdistribusi normal dan memiliki varians yang konstan (homoskedastik).
+Sedangkan asumsi independensi data tergantung pada bagaimana data dikumpulkan.
 
+Uji linieritas, normalitas dan homoskedastisitas memerlukan perhitungan nilai dugaan $\hat y$ dan nilai residu $e$. Nilai dugaan adalah nilai variabel respons yang diduga berdasarkan persamaan garis regresi untuk setiap nilai variabel prediktor $x$. Nilai residu adalah selisih antara nilai pengamatan variabel respons dengan nilai dugaannya. Nilai-nilai residu yang jauh dari nol adalah pengamatan yang tidak diwakili dengan baik oleh garis regresi.
+
+Uji statistik bisa dilakukan untuk menentukan apakah asumsi linieritas, normalitas dan homoskedastisitas dipenuhi. Pada umumnya uji diagnostik dilakukan dengan melihat 4 plot nilai residu yang bisa diperoleh dengan perintah `plot(nama-model)`. Menurut @Ogle2016 sebenarnya uji diagnostik cukup dengan melihat dua plot saja yaitu no 1 dan 2 kita dapat mengetahui apakah asumsi model OLS dipenuhi. Terutama untuk plot no 4 cukup sulit untuk menginterpretasikannya, sehingga plot ini bahkan dianggap tidak terlalu berguna oleh [@Kabacoff2022].

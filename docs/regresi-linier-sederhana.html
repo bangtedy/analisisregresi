@@ -288,10 +288,11 @@ Gambar 2.3: Plot Residu
 <p>Gambar <a href="regresi-linier-sederhana.html#fig:plot-residu">2.3</a> kiri bawah adalah plot untuk melihat homogenitas varians. Homogenitas artinya residu memiliki nilai teoritis varians <span class="math inline">\(\sigma^2\)</span> yang sama, tidak tergantung pada nilai <span class="math inline">\(x\)</span> dan nilai dugaan <span class="math inline">\(\hat y\)</span>. Untuk sebuah garis lurus, ini berarti bahwa variasi vertikal dari titik-titik data disekitar garis regresi mempunyai magnitud yang sama.</p>
 <p>Konsekuensi dari pelanggaran asumsi varians yang konstan tidak begitu serius, yaitu nilai dugaan kurang efisien dan nilai dugaan varians kesalahan tidak valid. Konsekuensi utama dari pelanggaran asumsi ini dimana varians tidak sama pada setiap nilai <span class="math inline">\(x\)</span> adalah selang prediksi untuk nilai-nilai <span class="math inline">\(y\)</span> akan keliru. Dampak dari pelanggaran asumsi ini pada validitas uji-<span class="math inline">\(t\)</span>, uji-<span class="math inline">\(F\)</span> kecil karena pada umumnya inferensi regresi cukup tahan terhadap masalah varians.</p>
 <p>Jika data yang memenuhi asumsi varians konstan, maka titik-titik pada grafik <em>Scale-Location</em> harus tersebar secara acak disekitar garis horisontal. Pada kasus regresi penjualan motor, kita memenuhi asumsi ini.</p>
-<p>Gambar <a href="regresi-linier-sederhana.html#fig:plot-residu">2.3</a> kanan bawah adalah plot antara nilai residu dengan pengungkit (<em>Residuals vs. Leverage</em>). Plot ini cukup sulit untuk mengartikannya. Bahkan menurut <span class="citation"><a href="referensi.html#ref-Kabacoff2022" role="doc-biblioref">Kabacoff</a> (<a href="referensi.html#ref-Kabacoff2022" role="doc-biblioref">2022</a>)</span> plot ini tidak terlalu berguna. Walaupun demikian, uji diagnostik residu cukup membantu untuk melihat penyimpangan asumsi-asumsi analisis regresi linier. Pada Bab 4 kita akan menggunakan alat yang lebih bagus untuk menguji penyimpangan asumsi serta hal-hal yang bisa dilakukan jika ditemukan penyimpangan asumsi tersebut.</p>
-<div class="rmdnote">
-<p><em>work in progress</em>…sedang dalam proses pengerjaan</p>
-</div>
+<p>Gambar <a href="regresi-linier-sederhana.html#fig:plot-residu">2.3</a> kanan bawah adalah plot antara nilai residu dengan pengungkit (<em>Residuals vs. Leverage</em>). Plot ini cukup sulit untuk mengartikannya. Bahkan menurut <span class="citation"><a href="referensi.html#ref-Kabacoff2022" role="doc-biblioref">Kabacoff</a> (<a href="referensi.html#ref-Kabacoff2022" role="doc-biblioref">2022</a>)</span> plot ini tidak terlalu berguna.</p>
+<p>Untuk menutup bab ini kita bisa tarik beberapa kesimpulan. Model regresi linier mengasumsikan garis linier dapat mewakili data yang dianalisis dan residu bersifat independen, terdistribusi normal dan memiliki varians yang konstan (homoskedastik).
+Sedangkan asumsi independensi data tergantung pada bagaimana data dikumpulkan.</p>
+<p>Uji linieritas, normalitas dan homoskedastisitas memerlukan perhitungan nilai dugaan <span class="math inline">\(\hat y\)</span> dan nilai residu <span class="math inline">\(e\)</span>. Nilai dugaan adalah nilai variabel respons yang diduga berdasarkan persamaan garis regresi untuk setiap nilai variabel prediktor <span class="math inline">\(x\)</span>. Nilai residu adalah selisih antara nilai pengamatan variabel respons dengan nilai dugaannya. Nilai-nilai residu yang jauh dari nol adalah pengamatan yang tidak diwakili dengan baik oleh garis regresi.</p>
+<p>Uji statistik bisa dilakukan untuk menentukan apakah asumsi linieritas, normalitas dan homoskedastisitas dipenuhi. Pada umumnya uji diagnostik dilakukan dengan melihat 4 plot nilai residu yang bisa diperoleh dengan perintah <code>plot(nama-model)</code>. Menurut <span class="citation"><a href="referensi.html#ref-Ogle2016" role="doc-biblioref">Ogle</a> (<a href="referensi.html#ref-Ogle2016" role="doc-biblioref">2016</a>)</span> sebenarnya uji diagnostik cukup dengan melihat dua plot saja yaitu no 1 dan 2 kita dapat mengetahui apakah asumsi model OLS dipenuhi. Terutama untuk plot no 4 cukup sulit untuk menginterpretasikannya, sehingga plot ini bahkan dianggap tidak terlalu berguna oleh <span class="citation">(<a href="referensi.html#ref-Kabacoff2022" role="doc-biblioref">Kabacoff, 2022</a>)</span>.</p>
 
 </div>
 </div>
@@ -324,7 +325,7 @@ Gambar 2.3: Plot Residu
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Analisis Regresi</strong>: Sebuah Referensi Singkat dengan Menggunakan R" was written by Tedy Herlambang. It was last built on 2022-02-08.</p>
+    <p>"<strong>Analisis Regresi</strong>: Sebuah Referensi Singkat dengan Menggunakan R" was written by Tedy Herlambang. It was last built on 2022-02-12.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
