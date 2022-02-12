@@ -132,12 +132,42 @@ Satuan $y$ dalam juta unit, sedangkan $x$ dalam persen. Secara teoritis
 terdapat hubungan positif antara tingkat pendapatan dengan penjualan
 motor karena motor adalah barang normal.
 
-```{r tabel-pjm, echo=FALSE}
-pjm <- read_excel("pjm.xlsx")
-pjm %>% 
-  kbl(caption="Penjualan Motor dan Pertumbuhan Pendapatan Per Kapita") %>%
-  kable_classic(full_width = F, html_font = "Cambria")
-```
+<table class="kable_wrapper">
+<caption>(\#tab:pjm) Penjualan Motor dan Pertumbuhan Pendapatan Per Kapita</caption>
+<tbody>
+  <tr>
+   <td>
+Tahun     y         x
+------  ----      ----
+2001	  1.58	    2.24
+2002	  2.29	    3.09
+2003	  2.81	    3.38
+2004	  3.89	    3.63
+2005	  5.07	    4.29
+2006	  4.43	    4.11
+2007	  4.69	    4.95
+2008	  6.22	    4.62
+2009	  5.95	    3.25
+2010	  7.37	    4.81
+
+   </td>
+   <td> 
+Tahun    y       x
+------  ----     ---- 
+2011	 8.01	    4.75
+2012	 7.06	    4.61
+2013	 7.74	    4.15
+2014	 7.87	    3.64
+2015	 6.48	    3.56
+2016	 5.93	    3.76
+2017	 5.89	    3.84
+2018	 6.38	    3.99
+2019	 6.49	    3.87
+
+   </td>
+  </tr>
+</tbody>
+</table>
 
 Langkah awal untuk melihat apakah memang terdapat "sinyal" yang menunjukkan hubungan antara pendapatan dengan penjualan motor dari data yang kita miliki adalah dengan mengamati data secara berpasangan dan membuat diagram pencarnya (*scatter plot/scatter diagram*). Setiap data $y$ dipasangkan dan diplot terhadap nilai $x$-nya. 
 

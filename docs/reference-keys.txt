@@ -1,5 +1,5 @@
 tab:tabel-penyebutan-variabel
-tab:tabel-pjm
+tab:pjm
 fig:diagram-pencar
 fig:garis-regresi
 eq:persamaan-noerror
