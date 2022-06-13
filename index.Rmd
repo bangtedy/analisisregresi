@@ -1,6 +1,5 @@
 ---
-title: "Analisis Regresi"
-subtitle: "`r if (knitr::is_latex_output()) {'Dengan Menggunakan R'} else {'Dengan Menggunakan R'}`"
+title: "Analisis Regresi Menggunakan R"
 author: "Tedy Herlambang"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -46,7 +45,7 @@ library(metathis)
 if (knitr::is_html_output()) {
   meta() |> 
     meta_google_scholar(
-      title = "Analisis Regresi Dengan Menggunakan R",
+      title = "Analisis Regresi Menggunakan R",
       author = "Tedy Herlambang",
       publication_date = "2022",
       isbn = ""
@@ -55,27 +54,27 @@ if (knitr::is_html_output()) {
 ```
 
 <!-- HTML Meta Tags -->
-<title>Analisis Regresi Dengan Menggunakan R | Analisis Regresi</title>
-<meta name="description" content="Analisis Regresi Dengan Menggunakan R | Analisis Regresi Dengan menggunakan R.">
+<title>Analisis Regresi Menggunakan R | Analisis Regresi</title>
+<meta name="description" content="Analisis Regresi Menggunakan R | Analisis Regresi menggunakan R.">
 
 <!-- Facebook Meta Tags -->
 <meta property="og:url" content="https://bangtedy.github.io/analisisregresi/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Analisis Regresi Dengan Menggunakan R | Analisis Regresi">
-<meta property="og:description" content="Analisis Regresi Dengan Menggunakan R | Analisis Regresi Dengan menggunakan R.">
+<meta property="og:title" content="Analisis Regresi Menggunakan R | Analisis Regresi">
+<meta property="og:description" content="Analisis Regresi Menggunakan R | Analisis Regresi Menggunakan R.">
 <meta property="og:image" content="https://bangtedy.github.io/analisisregresi//images/analisisregresi-cover.png">
 
 <!-- Twitter Meta Tags -->
 <meta name="twitter:card" content="summary_large_image">
 <meta property="twitter:domain" content="bangtedy.github.io">
 <meta property="twitter:url" content="https://bangtedy.github.io/analisisregresi/">
-<meta name="twitter:title" content="Analisis Regresi Dengan Menggunakan R | Analisis Regresi">
-<meta name="twitter:description" content="Analisis Regresi Dengan Menggunakan R | Analisis Regresi Dengan menggunakan R.">
+<meta name="twitter:title" content="Analisis Regresi Menggunakan R | Analisis Regresi">
+<meta name="twitter:description" content="Analisis Regresi Menggunakan R | Analisis Regresi Menggunakan R.">
 <meta name="twitter:image" content="https://bangtedy.github.io/analisisregresi//images/analisisregresi-cover.png">
 
 <!-- Meta Tags Generated via https://www.opengraph.xyz -->
       
-# Analisis Regresi Dengan Menggunakan R {.unnumbered}
+# Analisis Regresi Menggunakan R {.unnumbered}
 
 <br>
 
